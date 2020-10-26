@@ -1,5 +1,4 @@
-# sensing
-Sensing hardware and software
+# Sensing
 
 ## Rev 0 Board Hardware
 **Microcontroller:** [Teensy 3.6](https://www.pjrc.com/teensy/card9a_rev1.pdf)
