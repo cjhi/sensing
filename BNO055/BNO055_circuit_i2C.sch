@@ -113,7 +113,7 @@ F 3 "" H 6300 5750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7000 5750 6300 5750
+	7000 5750 6500 5750
 Wire Wire Line
 	6300 5750 5750 5750
 Wire Wire Line
@@ -146,7 +146,7 @@ Wire Wire Line
 Wire Wire Line
 	1900 6350 1900 5500
 Wire Wire Line
-	1900 6350 6000 6350
+	1900 6350 2550 6350
 Wire Wire Line
 	1300 6350 1900 6350
 Connection ~ 1900 6350
@@ -266,13 +266,13 @@ Wire Wire Line
 Wire Wire Line
 	7000 4850 7000 5750
 Wire Wire Line
-	5500 4850 5500 5150
+	5500 4850 5500 5050
 Wire Wire Line
 	4750 4850 4750 5750
 Wire Wire Line
 	4250 4250 3650 4250
 Wire Wire Line
-	4250 4000 2350 4000
+	4250 4000 2700 4000
 Wire Wire Line
 	3000 3750 4250 3750
 Wire Wire Line
@@ -443,7 +443,7 @@ F 3 "https://abracon.com/Oscillators/ASDK.pdf" H 10200 2000 50  0001 C CNN
 	1    9900 1550
 	1    0    0    -1  
 $EndComp
-Text GLabel 10300 1550 2    50   Input ~ 0
+Text GLabel 10600 1550 2    50   Input ~ 0
 OptionalOSCinput
 Wire Wire Line
 	10000 1250 10000 1100
@@ -512,4 +512,190 @@ Connection ~ 9750 1850
 Wire Wire Line
 	9300 1850 9300 1550
 Connection ~ 9300 1550
+$Comp
+L Connector:TestPoint TP_GND
+U 1 1 5FEAB6FE
+P 6500 5750
+F 0 "TP_GND" H 6442 5776 50  0000 R CNN
+F 1 "TestPoint" H 6442 5867 50  0000 R CNN
+F 2 "" H 6700 5750 50  0001 C CNN
+F 3 "~" H 6700 5750 50  0001 C CNN
+	1    6500 5750
+	-1   0    0    1   
+$EndComp
+Connection ~ 6500 5750
+Wire Wire Line
+	6500 5750 6300 5750
+Wire Wire Line
+	10300 1550 10450 1550
+Wire Wire Line
+	10450 1700 10450 1550
+Connection ~ 10450 1550
+Wire Wire Line
+	10450 1550 10600 1550
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FEBC857
+P 2550 6350
+F 0 "TP?" H 2492 6376 50  0000 R CNN
+F 1 "TestPoint" H 2492 6467 50  0000 R CNN
+F 2 "" H 2750 6350 50  0001 C CNN
+F 3 "~" H 2750 6350 50  0001 C CNN
+	1    2550 6350
+	-1   0    0    1   
+$EndComp
+Connection ~ 2550 6350
+Wire Wire Line
+	2550 6350 6000 6350
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FEBF50A
+P 10450 1700
+F 0 "TP?" H 10392 1726 50  0000 R CNN
+F 1 "TestPoint" H 10392 1817 50  0000 R CNN
+F 2 "" H 10650 1700 50  0001 C CNN
+F 3 "~" H 10650 1700 50  0001 C CNN
+	1    10450 1700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FEC0903
+P 5150 6700
+F 0 "TP?" H 5092 6726 50  0000 R CNN
+F 1 "TestPoint" H 5092 6817 50  0000 R CNN
+F 2 "" H 5350 6700 50  0001 C CNN
+F 3 "~" H 5350 6700 50  0001 C CNN
+	1    5150 6700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5150 6700 5150 5050
+Wire Wire Line
+	5150 5050 5500 5050
+Connection ~ 5500 5050
+Wire Wire Line
+	5500 5050 5500 5150
+$Comp
+L power:GNDPWR #PWR?
+U 1 1 5FEC5490
+P 1250 7350
+F 0 "#PWR?" H 1250 7150 50  0001 C CNN
+F 1 "GNDPWR" H 1254 7196 50  0000 C CNN
+F 2 "" H 1250 7300 50  0001 C CNN
+F 3 "" H 1250 7300 50  0001 C CNN
+	1    1250 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5FEC6EA1
+P 800 7350
+F 0 "#FLG?" H 800 7425 50  0001 C CNN
+F 1 "PWR_FLAG" H 800 7523 50  0000 C CNN
+F 2 "" H 800 7350 50  0001 C CNN
+F 3 "~" H 800 7350 50  0001 C CNN
+	1    800  7350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	800  7350 800  7250
+Wire Wire Line
+	800  7250 1250 7250
+Wire Wire Line
+	1250 7250 1250 7350
+Wire Wire Line
+	1250 7250 1700 7250
+Wire Wire Line
+	1700 7250 1700 7350
+Connection ~ 1250 7250
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5FED08AB
+P 3700 7050
+F 0 "#FLG?" H 3700 7125 50  0001 C CNN
+F 1 "PWR_FLAG" H 3700 7223 50  0000 C CNN
+F 2 "" H 3700 7050 50  0001 C CNN
+F 3 "~" H 3700 7050 50  0001 C CNN
+	1    3700 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5FED1CED
+P 2800 7050
+F 0 "#PWR?" H 2800 6900 50  0001 C CNN
+F 1 "+3.3V" H 2815 7223 50  0000 C CNN
+F 2 "" H 2800 7050 50  0001 C CNN
+F 3 "" H 2800 7050 50  0001 C CNN
+	1    2800 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 5FED364A
+P 3250 7050
+F 0 "#PWR?" H 3250 6900 50  0001 C CNN
+F 1 "VDD" H 3265 7223 50  0000 C CNN
+F 2 "" H 3250 7050 50  0001 C CNN
+F 3 "" H 3250 7050 50  0001 C CNN
+	1    3250 7050
+	1    0    0    -1  
+$EndComp
+Text GLabel 2800 7350 3    50   Input ~ 0
+VDDIO
+Text GLabel 3250 7350 3    50   Input ~ 0
+VDD
+$Comp
+L power:GND #PWR?
+U 1 1 5FED4AD2
+P 1700 7350
+F 0 "#PWR?" H 1700 7100 50  0001 C CNN
+F 1 "GND" H 1705 7177 50  0000 C CNN
+F 2 "" H 1700 7350 50  0001 C CNN
+F 3 "" H 1700 7350 50  0001 C CNN
+	1    1700 7350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 7050 3700 7200
+Wire Wire Line
+	2800 7200 2800 7350
+Wire Wire Line
+	2800 7200 2800 7050
+Connection ~ 2800 7200
+Wire Wire Line
+	3250 7050 3250 7150
+Wire Wire Line
+	3250 7150 3150 7150
+Wire Wire Line
+	3150 7150 3150 7200
+Connection ~ 3150 7200
+Wire Wire Line
+	3150 7200 2800 7200
+Wire Wire Line
+	3700 7200 3350 7200
+Wire Wire Line
+	3250 7350 3250 7250
+Wire Wire Line
+	3250 7250 3350 7250
+Wire Wire Line
+	3350 7250 3350 7200
+Connection ~ 3350 7200
+Wire Wire Line
+	3350 7200 3150 7200
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FEF6DE2
+P 2700 4000
+F 0 "TP?" H 2642 4026 50  0000 R CNN
+F 1 "TestPoint" H 2642 4117 50  0000 R CNN
+F 2 "" H 2900 4000 50  0001 C CNN
+F 3 "~" H 2900 4000 50  0001 C CNN
+	1    2700 4000
+	-1   0    0    1   
+$EndComp
+Connection ~ 2700 4000
+Wire Wire Line
+	2700 4000 2350 4000
 $EndSCHEMATC

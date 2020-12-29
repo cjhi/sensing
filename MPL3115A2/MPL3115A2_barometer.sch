@@ -75,7 +75,7 @@ F 3 "~" H 5500 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5850 3550 5500 3550
+	5850 3550 5600 3550
 Connection ~ 5500 3850
 Wire Wire Line
 	5100 3850 5500 3850
@@ -130,7 +130,7 @@ F 3 "" H 4600 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MPL3115A2_barometer-rescue:MPL3115A2-MPL3115A2 U1
+L MPL3115A2_barometer-rescue:MPL3115A2-MPL3115A2-MPL3115A2_barometer-rescue U1
 U 1 1 5F979C67
 P 6350 3750
 F 0 "U1" H 6350 4415 50  0000 C CNN
@@ -182,4 +182,20 @@ Text GLabel 4350 3300 0    50   Input ~ 0
 VDDIO
 Wire Wire Line
 	4350 3300 4600 3300
+$Comp
+L Connector:TestPoint TP1
+U 1 1 5FEA9553
+P 5600 2650
+F 0 "TP1" H 5658 2768 50  0000 L CNN
+F 1 "TestPoint" H 5658 2677 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose" H 5800 2650 50  0001 C CNN
+F 3 "~" H 5800 2650 50  0001 C CNN
+	1    5600 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 2650 5600 3550
+Connection ~ 5600 3550
+Wire Wire Line
+	5600 3550 5500 3550
 $EndSCHEMATC
