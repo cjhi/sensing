@@ -1,0 +1,337 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Flight Computer Barometer [Board Rev 1]"
+Date ""
+Rev "0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Sensor_Pressure:MPL3115A2 U1
+U 1 1 5F9BDEA1
+P 7050 3500
+F 0 "U1" V 7004 2957 50  0000 R CNN
+F 1 "MPL3115A2" V 7095 2957 50  0000 R CNN
+F 2 "Package_LGA:NXP_LGA-8_3x5mm_P1.25mm_H1.1mm" H 8050 3050 50  0001 C CNN
+F 3 "https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf" H 7050 3500 50  0001 C CNN
+	1    7050 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L power:VDD #PWR0101
+U 1 1 5F9BF0E9
+P 9250 3400
+F 0 "#PWR0101" H 9250 3250 50  0001 C CNN
+F 1 "VDD" H 9265 3573 50  0000 C CNN
+F 2 "" H 9250 3400 50  0001 C CNN
+F 3 "" H 9250 3400 50  0001 C CNN
+	1    9250 3400
+	1    0    0    -1  
+$EndComp
+Text Notes 9100 1400 0    50   ~ 0
+Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
+$Comp
+L Device:CP1 C1
+U 1 1 5F9C033B
+P 6700 4300
+F 0 "C1" V 6448 4300 50  0000 C CNN
+F 1 "100nF" V 6539 4300 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6700 4300 50  0001 C CNN
+F 3 "~" H 6700 4300 50  0001 C CNN
+	1    6700 4300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:CP1 C2
+U 1 1 5F9C317B
+P 8000 3550
+F 0 "C2" H 8115 3596 50  0000 L CNN
+F 1 "10uF" H 8115 3505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8000 3550 50  0001 C CNN
+F 3 "~" H 8000 3550 50  0001 C CNN
+	1    8000 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C3
+U 1 1 5F9C370D
+P 8400 3550
+F 0 "C3" H 8515 3596 50  0000 L CNN
+F 1 "100nF" H 8515 3505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8400 3550 50  0001 C CNN
+F 3 "~" H 8400 3550 50  0001 C CNN
+	1    8400 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 4300 6850 3900
+Wire Wire Line
+	6550 3500 6550 4300
+Wire Wire Line
+	6550 4300 6150 4300
+Wire Wire Line
+	6150 4300 6150 4550
+Connection ~ 6550 4300
+Connection ~ 6150 4550
+Wire Wire Line
+	6150 4550 6150 4650
+$Comp
+L power:GND #PWR0102
+U 1 1 5F9CC240
+P 6150 4650
+F 0 "#PWR0102" H 6150 4400 50  0001 C CNN
+F 1 "GND" H 6155 4477 50  0000 C CNN
+F 2 "" H 6150 4650 50  0001 C CNN
+F 3 "" H 6150 4650 50  0001 C CNN
+	1    6150 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5F9E29E2
+P 1300 1800
+F 0 "R1" H 1370 1846 50  0000 L CNN
+F 1 "R_10K" H 1370 1755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1230 1800 50  0001 C CNN
+F 3 "~" H 1300 1800 50  0001 C CNN
+	1    1300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5F9E3120
+P 2000 2600
+F 0 "R2" H 2070 2646 50  0000 L CNN
+F 1 "R_10K" H 2070 2555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1930 2600 50  0001 C CNN
+F 3 "~" H 2000 2600 50  0001 C CNN
+	1    2000 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5F9E33CD
+P 3950 1800
+F 0 "R3" H 4020 1846 50  0000 L CNN
+F 1 "R_10K" H 4020 1755 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3880 1800 50  0001 C CNN
+F 3 "~" H 3950 1800 50  0001 C CNN
+	1    3950 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5F9E3783
+P 4600 2600
+F 0 "R4" H 4670 2646 50  0000 L CNN
+F 1 "R_10K" H 4670 2555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4530 2600 50  0001 C CNN
+F 3 "~" H 4600 2600 50  0001 C CNN
+	1    4600 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:BSS138 Q1
+U 1 1 5F9E41AB
+P 2650 1850
+F 0 "Q1" V 2899 1850 50  0000 C CNN
+F 1 "BSS138" V 2990 1850 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2850 1775 50  0001 L CIN
+F 3 "https://www.onsemi.com/pub/Collateral/BSS138-D.PDF" H 2650 1850 50  0001 L CNN
+	1    2650 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L Transistor_FET:BSS138 Q2
+U 1 1 5F9E8FC4
+P 3400 2650
+F 0 "Q2" V 3649 2650 50  0000 C CNN
+F 1 "BSS138" V 3740 2650 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3600 2575 50  0001 L CIN
+F 3 "https://www.onsemi.com/pub/Collateral/BSS138-D.PDF" H 3400 2650 50  0001 L CNN
+	1    3400 2650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1300 1950 2450 1950
+Wire Wire Line
+	2850 1950 3950 1950
+Wire Wire Line
+	2000 2750 3200 2750
+Wire Wire Line
+	3600 2750 4600 2750
+Wire Wire Line
+	3950 1950 5050 1950
+Connection ~ 3950 1950
+Wire Wire Line
+	4600 2750 5050 2750
+Connection ~ 4600 2750
+Wire Wire Line
+	2000 2750 650  2750
+Connection ~ 2000 2750
+Wire Wire Line
+	1300 1950 650  1950
+Connection ~ 1300 1950
+Wire Wire Line
+	2650 1650 2650 1400
+Wire Wire Line
+	3400 2450 3400 1400
+Wire Wire Line
+	3400 1400 2650 1400
+Connection ~ 2650 1400
+Wire Wire Line
+	2650 1400 2000 1400
+Wire Wire Line
+	2000 2450 2000 1400
+Wire Wire Line
+	2000 1400 2000 1250
+Connection ~ 2000 1400
+$Comp
+L power:+3.3V #PWR0105
+U 1 1 5FA05BD2
+P 1300 1650
+F 0 "#PWR0105" H 1300 1500 50  0001 C CNN
+F 1 "+3.3V" H 1315 1823 50  0000 C CNN
+F 2 "" H 1300 1650 50  0001 C CNN
+F 3 "" H 1300 1650 50  0001 C CNN
+	1    1300 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0106
+U 1 1 5FA0663F
+P 2000 1250
+F 0 "#PWR0106" H 2000 1100 50  0001 C CNN
+F 1 "+3.3V" H 2015 1423 50  0000 C CNN
+F 2 "" H 2000 1250 50  0001 C CNN
+F 3 "" H 2000 1250 50  0001 C CNN
+	1    2000 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0107
+U 1 1 5FA08206
+P 3950 1450
+F 0 "#PWR0107" H 3950 1300 50  0001 C CNN
+F 1 "VDD" H 3965 1623 50  0000 C CNN
+F 2 "" H 3950 1450 50  0001 C CNN
+F 3 "" H 3950 1450 50  0001 C CNN
+	1    3950 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VDD #PWR0108
+U 1 1 5FA08976
+P 4600 1450
+F 0 "#PWR0108" H 4600 1300 50  0001 C CNN
+F 1 "VDD" H 4615 1623 50  0000 C CNN
+F 2 "" H 4600 1450 50  0001 C CNN
+F 3 "" H 4600 1450 50  0001 C CNN
+	1    4600 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 1650 3950 1450
+Wire Wire Line
+	4600 1450 4600 2450
+Text Label 5050 1950 0    50   ~ 0
+SDA_RAW
+Text Label 5050 2750 0    50   ~ 0
+SCL_RAW
+Text Label 650  1950 0    50   ~ 0
+SDA_3V
+Text Label 650  2750 0    50   ~ 0
+SCL_3V
+Wire Notes Line width 20 style solid rgb(255, 0, 0)
+	500  3150 5550 3150
+Text Notes 550  700  0    98   ~ 20
+I2C Logic Converter
+Text Notes 550  850  0    50   ~ 0
+Converts Teensy 5V logic signal to 3V for use by altimeter
+Wire Notes Line width 20 style solid rgb(255, 0, 0)
+	5550 3150 5550 500 
+Text Label 7050 3100 1    50   ~ 0
+SCL
+Wire Wire Line
+	9250 3400 8950 3400
+Wire Wire Line
+	8950 3400 8400 3400
+Connection ~ 8950 3400
+Wire Wire Line
+	6150 4550 8000 4550
+Wire Wire Line
+	8950 3400 8950 4550
+Wire Wire Line
+	8400 3400 8000 3400
+Connection ~ 8400 3400
+Wire Wire Line
+	8000 3400 7550 3400
+Connection ~ 8000 3400
+Wire Wire Line
+	8000 3700 8000 4550
+Connection ~ 8000 4550
+Wire Wire Line
+	8000 4550 8400 4550
+Wire Wire Line
+	8400 3700 8400 4550
+Connection ~ 8400 4550
+Wire Wire Line
+	8400 4550 8950 4550
+Text Label 7150 3100 1    50   ~ 0
+SDA
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5FA9FDC2
+P 9800 3400
+F 0 "#FLG0101" H 9800 3475 50  0001 C CNN
+F 1 "PWR_FLAG" H 9800 3573 50  0000 C CNN
+F 2 "" H 9800 3400 50  0001 C CNN
+F 3 "~" H 9800 3400 50  0001 C CNN
+	1    9800 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDPWR #PWR0103
+U 1 1 5FAA0A17
+P 10250 3400
+F 0 "#PWR0103" H 10250 3200 50  0001 C CNN
+F 1 "GNDPWR" H 10255 3245 50  0000 C CNN
+F 2 "" H 10250 3350 50  0001 C CNN
+F 3 "" H 10250 3350 50  0001 C CNN
+	1    10250 3400
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR0104
+U 1 1 5FAA18F9
+P 9800 3500
+F 0 "#PWR0104" H 9800 3350 50  0001 C CNN
+F 1 "VDD" H 9815 3673 50  0000 C CNN
+F 2 "" H 9800 3500 50  0001 C CNN
+F 3 "" H 9800 3500 50  0001 C CNN
+	1    9800 3500
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0109
+U 1 1 5FAA2161
+P 10250 3500
+F 0 "#PWR0109" H 10250 3250 50  0001 C CNN
+F 1 "GND" H 10255 3327 50  0000 C CNN
+F 2 "" H 10250 3500 50  0001 C CNN
+F 3 "" H 10250 3500 50  0001 C CNN
+	1    10250 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9800 3400 9800 3500
+Wire Wire Line
+	10250 3400 10250 3500
+$EndSCHEMATC
