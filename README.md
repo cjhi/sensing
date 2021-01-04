@@ -1,6 +1,8 @@
 # Sensing
 
-## Rev 0 Board Hardware
+Repository for all Olin Rocketry hardware and firmware.
+
+## Rev 0 Board Info
 **Microcontroller:** [Teensy 3.6](https://www.pjrc.com/teensy/card9a_rev1.pdf)
 
 **IMU:** [Adafruit ADXL345](https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf)
