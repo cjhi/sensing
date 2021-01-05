@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L preferred_parts:74HC4050D,653 U?
+L BNO055_circuit_i2C-rescue:74HC4050D,653-preferred_parts U?
 U 1 1 5FF3A250
 P 12750 5900
 F 0 "U?" H 12750 6815 50  0000 C CNN
@@ -296,7 +296,7 @@ F 3 "https://abracon.com/Oscillators/ASDK.pdf" H 10200 2000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L preferred_parts:CONN_02X03 H2
+L BNO055_circuit_i2C-rescue:CONN_02X03-preferred_parts H2
 U 1 1 5F967DE8
 P 10100 5300
 F 0 "H2" H 10100 5625 50  0000 C CNN
@@ -307,7 +307,7 @@ F 3 "" H 10100 5300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L preferred_parts:CONN_02X03 H1
+L BNO055_circuit_i2C-rescue:CONN_02X03-preferred_parts H1
 U 1 1 5F967336
 P 10050 4600
 F 0 "H1" H 10050 4925 50  0000 C CNN
@@ -689,7 +689,7 @@ F 3 "~" H 5500 5300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L preferred_parts:74HC4050D,653 U?
+L BNO055_circuit_i2C-rescue:74HC4050D,653-preferred_parts U?
 U 1 1 5FF66BE6
 P 12750 3750
 F 0 "U?" H 12750 4665 50  0000 C CNN

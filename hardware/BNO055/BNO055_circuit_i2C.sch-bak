@@ -794,11 +794,11 @@ Text Label 12050 3650 2    50   ~ 0
 SCL_TO_MC
 Text Label 12050 3750 2    50   ~ 0
 SDA_TO_MC
-Text Label 12100 5750 2    50   ~ 0
+Text Label 12050 5700 2    50   ~ 0
 nBOOT_LOAD_TO_MC
-Text Label 12100 5850 2    50   ~ 0
+Text Label 12050 5800 2    50   ~ 0
 nRESET_TO_MC
-Text Label 12100 5950 2    50   ~ 0
+Text Label 12050 5900 2    50   ~ 0
 INT_TO_MC
 $Comp
 L power:VCC #PWR?

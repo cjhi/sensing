@@ -102,12 +102,12 @@ $EndComp
 $Comp
 L power:GNDPWR #PWR0101
 U 1 1 5FA0E6D7
-P 7600 3900
-F 0 "#PWR0101" H 7600 3700 50  0001 C CNN
-F 1 "GNDPWR" H 7604 3746 50  0000 C CNN
-F 2 "" H 7600 3850 50  0001 C CNN
-F 3 "" H 7600 3850 50  0001 C CNN
-	1    7600 3900
+P 8400 3900
+F 0 "#PWR0101" H 8400 3700 50  0001 C CNN
+F 1 "GNDPWR" H 8404 3746 50  0000 C CNN
+F 2 "" H 8400 3850 50  0001 C CNN
+F 3 "" H 8400 3850 50  0001 C CNN
+	1    8400 3900
 	1    0    0    -1  
 $EndComp
 Text GLabel 6750 3450 2    50   Input ~ 0
@@ -130,7 +130,7 @@ F 3 "" H 4600 3150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MPL3115A2_barometer-rescue:MPL3115A2-MPL3115A2-MPL3115A2_barometer-rescue U1
+L MPL3115A2:MPL3115A2 U1
 U 1 1 5F979C67
 P 6350 3750
 F 0 "U1" H 6350 4415 50  0000 C CNN
@@ -178,10 +178,6 @@ Wire Wire Line
 	8000 3650 7600 3650
 Wire Wire Line
 	7600 3650 7600 3550
-Text GLabel 4350 3300 0    50   Input ~ 0
-VDDIO
-Wire Wire Line
-	4350 3300 4600 3300
 $Comp
 L Connector:TestPoint TP1
 U 1 1 5FEA9553
@@ -198,4 +194,133 @@ Wire Wire Line
 Connection ~ 5600 3550
 Wire Wire Line
 	5600 3550 5500 3550
+$Comp
+L power:+5V #PWR03
+U 1 1 5FF74FF0
+P 3400 5300
+F 0 "#PWR03" H 3400 5150 50  0001 C CNN
+F 1 "+5V" H 3415 5473 50  0000 C CNN
+F 2 "" H 3400 5300 50  0001 C CNN
+F 3 "" H 3400 5300 50  0001 C CNN
+	1    3400 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 5300 3750 5300
+Wire Wire Line
+	3750 5500 3400 5500
+Wire Wire Line
+	3400 5500 3400 5300
+Connection ~ 3400 5300
+$Comp
+L power:+3.3V #PWR04
+U 1 1 5FF7671C
+P 5600 5300
+F 0 "#PWR04" H 5600 5150 50  0001 C CNN
+F 1 "+3.3V" H 5615 5473 50  0000 C CNN
+F 2 "" H 5600 5300 50  0001 C CNN
+F 3 "" H 5600 5300 50  0001 C CNN
+	1    5600 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 5300 5150 5300
+Text GLabel 5150 5400 2    50   Input ~ 0
+SCL
+Text GLabel 5150 5500 2    50   Input ~ 0
+SDL
+Text GLabel 5150 5600 2    50   Input ~ 0
+INT1
+Text GLabel 5150 5700 2    50   Input ~ 0
+INT2
+$Comp
+L power:GND #PWR01
+U 1 1 5FF77805
+P 3350 6500
+F 0 "#PWR01" H 3350 6250 50  0001 C CNN
+F 1 "GND" H 3355 6327 50  0000 C CNN
+F 2 "" H 3350 6500 50  0001 C CNN
+F 3 "" H 3350 6500 50  0001 C CNN
+	1    3350 6500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 6500 3750 6500
+Text GLabel 3750 5600 0    50   Input ~ 0
+SCL_TO_MC
+Text GLabel 3750 5700 0    50   Input ~ 0
+SDL_TO_MC
+Text GLabel 3750 5800 0    50   Input ~ 0
+INT1_TO_MC
+Text GLabel 3750 5900 0    50   Input ~ 0
+INT2_TO_MC
+$Comp
+L preferred_parts:74HC4050D,653 U2
+U 1 1 5FF6FD4B
+P 4450 5800
+F 0 "U2" H 4450 6715 50  0000 C CNN
+F 1 "74HC4050D,653" H 4450 6624 50  0000 C CNN
+F 2 "SOIC127P600X175-16N" H 5000 4450 50  0001 L BNN
+F 3 "https://www.digikey.com/product-detail/en/nexperia-usa-inc/74HC4050D,653/1727-6331-1-ND/2762840?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol" H 4900 4100 50  0001 L BNN
+F 4 "1727-6331-1-ND" H 5050 4300 50  0001 L BNN "Field4"
+F 5 "Nexperia USA" H 4950 3950 50  0001 L BNN "Field5"
+F 6 "SO-16 Nexperia" H 4950 3800 50  0001 L BNN "Field6"
+F 7 "74HC Series 6 V Surface Mount Hex High-to-Low Level Shifter - SOIC-16" H 4900 3600 50  0001 L BNN "Field7"
+F 8 "74HC4050D,653" H 4900 3450 50  0001 L BNN "Field8"
+	1    4450 5800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5150 5800
+NoConn ~ 3750 6000
+Text GLabel 8400 3550 1    50   Input ~ 0
+VDDIO
+Connection ~ 8000 3650
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FF7B751
+P 8800 3650
+F 0 "TP?" H 8858 3768 50  0000 L CNN
+F 1 "TestPoint" H 8858 3677 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose" H 9000 3650 50  0001 C CNN
+F 3 "~" H 9000 3650 50  0001 C CNN
+	1    8800 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5FF7C51E
+P 8800 3800
+F 0 "TP?" H 8858 3918 50  0000 L CNN
+F 1 "TestPoint" H 8858 3827 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Keystone_5010-5014_Multipurpose" H 9000 3800 50  0001 C CNN
+F 3 "~" H 9000 3800 50  0001 C CNN
+	1    8800 3800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8000 3800 8400 3800
+Connection ~ 8000 3800
+Wire Wire Line
+	8000 3650 8400 3650
+Wire Wire Line
+	8400 3550 8400 3650
+Connection ~ 8400 3650
+Wire Wire Line
+	8400 3650 8800 3650
+Wire Wire Line
+	8400 3900 8400 3800
+Connection ~ 8400 3800
+Wire Wire Line
+	8400 3800 8800 3800
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5FF7E726
+P 7600 3900
+F 0 "#FLG?" H 7600 3975 50  0001 C CNN
+F 1 "PWR_FLAG" H 7600 4073 50  0000 C CNN
+F 2 "" H 7600 3900 50  0001 C CNN
+F 3 "~" H 7600 3900 50  0001 C CNN
+	1    7600 3900
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
