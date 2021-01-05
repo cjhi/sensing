@@ -2,4 +2,5 @@
   (lib (name MPL3115A2_barometer-rescue)(type Legacy)(uri "/home/sam/KiCad/Olin Rocketry Avionics/sensing/hardware/libraries-symbols")(options "")(descr ""))
   (lib (name bno055)(type Legacy)(uri ${ROCKETRY}/preferred_parts/schematic/rev1/BNO055_circuit_i2C-cache.lib)(options "")(descr ""))
   (lib (name rev1-rescue)(type Legacy)(uri ${KIPRJMOD}/rev1-rescue.lib)(options "")(descr ""))
+  (lib (name BNO055_circuit_i2C-rescue)(type Legacy)(uri "/home/sam/KiCad/Olin Rocketry Avionics/sensing/hardware/BNO055/BNO055_circuit_i2C-rescue.lib")(options "")(descr ""))
 )
