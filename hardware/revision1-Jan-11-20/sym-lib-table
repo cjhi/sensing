@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name rev1oops-rescue)(type Legacy)(uri /home/sam/KiCad/Olin_Rocketry_Avionics/sensing/hardware/rev1oops-rescue.lib)(options "")(descr ""))
+  (lib (name revision1-Jan-11-20-rescue)(type Legacy)(uri ${KIPRJMOD}/revision1-Jan-11-20-rescue.lib)(options "")(descr ""))
+)
