@@ -830,19 +830,15 @@ F 3 "" H 28550 5000 60  0000 C CNN
 $EndComp
 Text Label 27400 2800 2    118  ~ 0
 GND
-Text GLabel 29700 6500 2    39   Input ~ 0
+Text GLabel 27400 4200 0    39   Input ~ 0
 VIN_TEENSY
-Text GLabel 29700 7100 2    39   Input ~ 0
-SDA_TEENSY
-Text GLabel 29700 7000 2    39   Input ~ 0
-SCL_TEENSY
 Wire Wire Line
 	6900 7300 9850 7300
 Text GLabel 9850 7300 2    50   Input ~ 0
 INT_BNO055
-Text GLabel 27400 4300 0    50   Input ~ 0
-INT1_MPL3115A2
 Text GLabel 27400 4400 0    50   Input ~ 0
+INT1_MPL3115A2
+Text GLabel 27400 4300 0    50   Input ~ 0
 INT2_MPL3115A2
 Text GLabel 27400 3500 0    50   Input ~ 0
 nRESET
