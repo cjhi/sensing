@@ -930,10 +930,10 @@ OptionalOSCinput
 Text GLabel 11800 2500 2    50   Input ~ 0
 OptionalOSCoutput
 Wire Wire Line
-	11800 1800 10900 1800
+	11800 1800 11400 1800
 Connection ~ 10900 1800
 Wire Wire Line
-	11800 2500 10900 2500
+	11800 2500 11400 2500
 Connection ~ 10900 2500
 $Comp
 L power:GND #PWR0111
@@ -959,4 +959,32 @@ Text Notes 11000 1400 0    50   ~ 0
 For the crystal, see BNO055 datasheet page 100.
 Text Notes 10700 1550 0    50   ~ 0
 https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf
+$Comp
+L Connector:TestPoint TP10
+U 1 1 600A3D96
+P 11400 2500
+F 0 "TP10" H 11342 2526 50  0000 R CNN
+F 1 "TestPoint" H 11342 2617 50  0000 R CNN
+F 2 "footprints:Test_Point_D1.02mm" H 11600 2500 50  0001 C CNN
+F 3 "~" H 11600 2500 50  0001 C CNN
+	1    11400 2500
+	-1   0    0    1   
+$EndComp
+Connection ~ 11400 2500
+Wire Wire Line
+	11400 2500 10900 2500
+$Comp
+L Connector:TestPoint TP9
+U 1 1 600A5053
+P 11400 1800
+F 0 "TP9" H 11342 1826 50  0000 R CNN
+F 1 "TestPoint" H 11342 1917 50  0000 R CNN
+F 2 "footprints:Test_Point_D1.02mm" H 11600 1800 50  0001 C CNN
+F 3 "~" H 11600 1800 50  0001 C CNN
+	1    11400 1800
+	1    0    0    -1  
+$EndComp
+Connection ~ 11400 1800
+Wire Wire Line
+	11400 1800 10900 1800
 $EndSCHEMATC
