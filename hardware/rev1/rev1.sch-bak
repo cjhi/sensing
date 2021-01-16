@@ -830,7 +830,7 @@ F 3 "" H 28550 5000 60  0000 C CNN
 $EndComp
 Text Label 27400 2800 2    118  ~ 0
 GND
-Text GLabel 29700 6500 2    39   Input ~ 0
+Text GLabel 27400 4200 0    39   Input ~ 0
 VIN_TEENSY
 Wire Wire Line
 	6900 7300 9850 7300

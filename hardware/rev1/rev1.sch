@@ -840,9 +840,9 @@ Text GLabel 27400 4400 0    50   Input ~ 0
 INT1_MPL3115A2
 Text GLabel 27400 4300 0    50   Input ~ 0
 INT2_MPL3115A2
-Text GLabel 27400 3500 0    50   Input ~ 0
-nRESET
 Text GLabel 27400 3400 0    50   Input ~ 0
+nRESET
+Text GLabel 27400 3500 0    50   Input ~ 0
 INT_BNO055
 Text GLabel 27400 3100 0    50   Input ~ 0
 nBOOT_LOAD_PIN
