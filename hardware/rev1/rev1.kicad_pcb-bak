@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 0)
+    (drawings 6)
     (tracks 302)
     (zones 0)
     (modules 28)
@@ -36,7 +36,7 @@
   (setup
     (last_trace_width 0.25)
     (trace_clearance 0.2)
-    (zone_clearance 0.508)
+    (zone_clearance 0.25)
     (zone_45_only no)
     (trace_min 0.2)
     (via_size 0.8)
@@ -1023,6 +1023,13 @@
       (net 5 OptionalOSCoutput))
   )
 
+  (gr_line (start 107.7468 125.603) (end 107.569 125.603) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 107.569 73.152) (end 107.569 125.603) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 113.3348 125.603) (end 107.7468 125.603) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 189.1284 125.603) (end 113.3094 125.603) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 189.103 73.1774) (end 189.1284 125.603) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 107.569 73.152) (end 189.103 73.1774) (angle 90) (layer Edge.Cuts) (width 0.05))
+
   (segment (start 136.3566 118.1354) (end 136.3566 120.0404) (width 0.25) (layer F.Cu) (net 1) (status C00030))
   (segment (start 136.3566 120.0404) (end 136.3566 121.9454) (width 0.25) (layer F.Cu) (net 1) (status C00030))
   (segment (start 128.3716 118.1194) (end 129.0131 118.1194) (width 0.25) (layer F.Cu) (net 1) (status 400010))
@@ -1326,4 +1333,24 @@
   (via (at 128.6002 109.4232) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 14))
   (segment (start 128.6002 109.4232) (end 128.6002 107.696) (width 0.25) (layer F.Cu) (net 14) (tstamp 60056428))
 
+  (zone (net 1) (net_name GND) (layer F.Cu) (tstamp 6006A5EA) (hatch edge 0.508)
+    (connect_pads (clearance 0.25))
+    (min_thickness 0.24)
+    (fill (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy 107.5182 73.1012) (xy 189.1538 73.1266) (xy 189.1792 125.6538) (xy 107.4928 125.6538)
+      )
+    )
+  )
+  (zone (net 1) (net_name GND) (layer B.Cu) (tstamp 6006A5ED) (hatch edge 0.508)
+    (connect_pads (clearance 0.25))
+    (min_thickness 0.24)
+    (fill (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy 107.5182 73.1012) (xy 189.1538 73.1266) (xy 189.1792 125.6538) (xy 107.4928 125.6538)
+      )
+    )
+  )
 )
