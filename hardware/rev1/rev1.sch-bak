@@ -379,17 +379,6 @@ F 3 "~" H 5500 7900 50  0001 C CNN
 	1    5300 7900
 	-1   0    0    1   
 $EndComp
-$Comp
-L Connector:TestPoint TP4
-U 1 1 5FEBF50A
-P 10600 2900
-F 0 "TP4" H 10542 2926 50  0000 R CNN
-F 1 "TestPoint" H 10542 3017 50  0000 R CNN
-F 2 "" H 10800 2900 50  0001 C CNN
-F 3 "~" H 10800 2900 50  0001 C CNN
-	1    10600 2900
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	2700 7550 6150 7550
 Connection ~ 2700 7550
@@ -405,13 +394,6 @@ F 3 "~" H 2900 7550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	10600 2750 10750 2750
-Connection ~ 10600 2750
-Wire Wire Line
-	10600 2900 10600 2750
-Wire Wire Line
-	10450 2750 10600 2750
-Wire Wire Line
 	6650 6950 6450 6950
 Connection ~ 6650 6950
 $Comp
@@ -425,54 +407,6 @@ F 3 "~" H 6850 6950 50  0001 C CNN
 	1    6650 6950
 	-1   0    0    1   
 $EndComp
-Connection ~ 9450 2750
-Wire Wire Line
-	9450 3050 9450 2750
-Connection ~ 9900 3050
-Wire Wire Line
-	9750 3050 9900 3050
-$Comp
-L Device:C C5
-U 1 1 5FA6257B
-P 9600 3050
-F 0 "C5" V 9750 3050 50  0000 C CNN
-F 1 "0.01u" V 9450 3050 50  0000 C CNN
-F 2 "footprints:C_0603_1608Metric" H 9638 2900 50  0001 C CNN
-F 3 "~" H 9600 3050 50  0001 C CNN
-	1    9600 3050
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	9900 3050 9900 3200
-Wire Wire Line
-	10150 3050 9900 3050
-$Comp
-L power:GND #PWR03
-U 1 1 5FA5D601
-P 9900 3200
-F 0 "#PWR03" H 9900 2950 50  0001 C CNN
-F 1 "GND" H 9905 3027 50  0000 C CNN
-F 2 "" H 9900 3200 50  0001 C CNN
-F 3 "" H 9900 3200 50  0001 C CNN
-	1    9900 3200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9850 2300 9450 2300
-Connection ~ 9850 2300
-Wire Wire Line
-	9850 2200 9850 2300
-$Comp
-L power:+3.3V #PWR02
-U 1 1 5FA5A832
-P 9850 2200
-F 0 "#PWR02" H 9850 2050 50  0001 C CNN
-F 1 "+3.3V" H 9865 2373 50  0000 C CNN
-F 2 "" H 9850 2200 50  0001 C CNN
-F 3 "" H 9850 2200 50  0001 C CNN
-	1    9850 2200
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:+3.3V #PWR01
 U 1 1 5FA58E82
@@ -482,27 +416,6 @@ F 1 "+3.3V" H 2065 2523 50  0000 C CNN
 F 2 "" H 2050 2350 50  0001 C CNN
 F 3 "" H 2050 2350 50  0001 C CNN
 	1    2050 2350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9450 2750 9650 2750
-Wire Wire Line
-	9450 2300 9450 2750
-Wire Wire Line
-	10150 2300 9850 2300
-Wire Wire Line
-	10150 2450 10150 2300
-Text GLabel 10750 2750 2    50   Input ~ 0
-OptionalOSCinput
-$Comp
-L Oscillator:ASDMB-xxxMHz U2
-U 1 1 5FA4E8B7
-P 10050 2750
-F 0 "U2" H 10450 3050 50  0000 L CNN
-F 1 "ASDMB-32kHz" H 10400 3150 50  0000 L CNN
-F 2 "ASDK2-32.768KHZ-LR-T3:ASDK2-32.768KHZ-LR-T3" H 10050 2750 50  0001 C CNN
-F 3 "https://abracon.com/Oscillators/ASDK.pdf" H 10350 3200 50  0001 C CNN
-	1    10050 2750
 	1    0    0    -1  
 $EndComp
 Connection ~ 9250 5950
@@ -976,75 +889,79 @@ VIN_TEENSY
 $Comp
 L preferred_parts:Crystal_32kHz768 Y?
 U 1 1 6002B9D1
-P 13300 3300
-F 0 "Y?" V 13254 3431 50  0000 L CNN
-F 1 "Crystal_32kHz768" V 13345 3431 50  0000 L CNN
-F 2 "footprints:FC-135_3.2x1.5mm" H 13250 3375 50  0001 C CNN
-F 3 "https://support.epson.biz/td/api/doc_check.php?dl=brief_FC-135&lang=en" H 13350 3475 50  0001 C CNN
-F 4 "DK" H 13250 3500 60  0001 C CNN "MFN"
-F 5 "SER4084CT-ND" H 13300 3550 60  0001 C CNN "MPN"
-F 6 "https://www.digikey.com/product-detail/en/epson/FC-135-32.7680KA-AC0/SER4084CT-ND/6132704" H 13750 3875 60  0001 C CNN "PurchasingLink"
-	1    13300 3300
+P 10900 2100
+F 0 "Y?" V 10854 2231 50  0000 L CNN
+F 1 "Crystal_32kHz768" V 10945 2231 50  0000 L CNN
+F 2 "footprints:FC-135_3.2x1.5mm" H 10850 2175 50  0001 C CNN
+F 3 "https://support.epson.biz/td/api/doc_check.php?dl=brief_FC-135&lang=en" H 10950 2275 50  0001 C CNN
+F 4 "DK" H 10850 2300 60  0001 C CNN "MFN"
+F 5 "SER4084CT-ND" H 10900 2350 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/product-detail/en/epson/FC-135-32.7680KA-AC0/SER4084CT-ND/6132704" H 11350 2675 60  0001 C CNN "PurchasingLink"
+	1    10900 2100
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C C?
 U 1 1 6002E87E
-P 12750 3000
-F 0 "C?" V 12498 3000 50  0000 C CNN
-F 1 "22pF" V 12589 3000 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 12788 2850 50  0001 C CNN
-F 3 "~" H 12750 3000 50  0001 C CNN
-	1    12750 3000
+P 10350 1800
+F 0 "C?" V 10098 1800 50  0000 C CNN
+F 1 "22pF" V 10189 1800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 10388 1650 50  0001 C CNN
+F 3 "~" H 10350 1800 50  0001 C CNN
+	1    10350 1800
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C C?
 U 1 1 600377E0
-P 12750 3700
-F 0 "C?" V 12498 3700 50  0000 C CNN
-F 1 "22pF" V 12589 3700 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 12788 3550 50  0001 C CNN
-F 3 "~" H 12750 3700 50  0001 C CNN
-	1    12750 3700
+P 10350 2500
+F 0 "C?" V 10098 2500 50  0000 C CNN
+F 1 "22pF" V 10189 2500 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 10388 2350 50  0001 C CNN
+F 3 "~" H 10350 2500 50  0001 C CNN
+	1    10350 2500
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	13300 3150 13300 3000
+	10900 1950 10900 1800
 Wire Wire Line
-	13300 3000 12900 3000
+	10900 1800 10500 1800
 Wire Wire Line
-	13300 3450 13300 3700
+	10900 2250 10900 2500
 Wire Wire Line
-	13300 3700 12900 3700
-Text GLabel 14200 3000 2    50   Input ~ 0
+	10900 2500 10500 2500
+Text GLabel 11800 1800 2    50   Input ~ 0
 OptionalOSCinput
-Text GLabel 14200 3700 2    50   Input ~ 0
+Text GLabel 11800 2500 2    50   Input ~ 0
 OptionalOSCoutput
 Wire Wire Line
-	14200 3000 13300 3000
-Connection ~ 13300 3000
+	11800 1800 10900 1800
+Connection ~ 10900 1800
 Wire Wire Line
-	14200 3700 13300 3700
-Connection ~ 13300 3700
+	11800 2500 10900 2500
+Connection ~ 10900 2500
 $Comp
 L power:GND #PWR?
 U 1 1 60053EEF
-P 12250 4050
-F 0 "#PWR?" H 12250 3800 50  0001 C CNN
-F 1 "GND" H 12255 3877 50  0000 C CNN
-F 2 "" H 12250 4050 50  0001 C CNN
-F 3 "" H 12250 4050 50  0001 C CNN
-	1    12250 4050
+P 9850 2850
+F 0 "#PWR?" H 9850 2600 50  0001 C CNN
+F 1 "GND" H 9855 2677 50  0000 C CNN
+F 2 "" H 9850 2850 50  0001 C CNN
+F 3 "" H 9850 2850 50  0001 C CNN
+	1    9850 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12600 3700 12250 3700
+	10200 2500 9850 2500
 Wire Wire Line
-	12250 3700 12250 4050
+	9850 2500 9850 2850
 Wire Wire Line
-	12600 3000 12250 3000
+	10200 1800 9850 1800
 Wire Wire Line
-	12250 3000 12250 3700
-Connection ~ 12250 3700
+	9850 1800 9850 2500
+Connection ~ 9850 2500
+Text Notes 11000 1400 0    50   ~ 0
+For the crystal, see BNO055 datasheet page 100.
+Text Notes 10700 1550 0    50   ~ 0
+https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf
 $EndSCHEMATC
