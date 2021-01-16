@@ -987,4 +987,8 @@ $EndComp
 Connection ~ 11400 1800
 Wire Wire Line
 	11400 1800 10900 1800
+Text GLabel 27400 3600 0    39   Input ~ 0
+SCL_TEENSY
+Text GLabel 27400 3700 0    39   Input ~ 0
+SDA_TEENSY
 $EndSCHEMATC
