@@ -146,10 +146,10 @@ Wire Wire Line
 Wire Wire Line
 	20150 2750 20150 2850
 $Comp
-L Connector:TestPoint TP8
+L Connector:TestPoint CAP2
 U 1 1 5FEA9553
 P 17600 1850
-F 0 "TP8" H 17658 1968 50  0000 L CNN
+F 0 "CAP2" H 17658 1968 50  0000 L CNN
 F 1 "TestPoint" H 17658 1877 50  0000 L CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 17800 1850 50  0001 C CNN
 F 3 "~" H 17800 1850 50  0001 C CNN
@@ -164,10 +164,10 @@ Wire Wire Line
 Text GLabel 20550 2750 1    50   Input ~ 0
 VDDIO
 $Comp
-L Connector:TestPoint TP6
+L Connector:TestPoint VDD2
 U 1 1 60279C64
 P 20950 2850
-F 0 "TP6" H 21008 2968 50  0000 L CNN
+F 0 "VDD2" H 21008 2968 50  0000 L CNN
 F 1 "TestPoint" H 21008 2877 50  0000 L CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 21150 2850 50  0001 C CNN
 F 3 "~" H 21150 2850 50  0001 C CNN
@@ -175,10 +175,10 @@ F 3 "~" H 21150 2850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:TestPoint TP7
+L Connector:TestPoint GND2
 U 1 1 60279C65
 P 20950 3000
-F 0 "TP7" H 21008 3118 50  0000 L CNN
+F 0 "GND2" H 21008 3118 50  0000 L CNN
 F 1 "TestPoint" H 21008 3027 50  0000 L CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 21150 3000 50  0001 C CNN
 F 3 "~" H 21150 3000 50  0001 C CNN
@@ -210,17 +210,6 @@ BNO055 9-axis w/Logic Shifter\n
 Wire Wire Line
 	2850 5200 2500 5200
 Connection ~ 2850 5200
-$Comp
-L Connector:TestPoint TP2
-U 1 1 5FEF6DE2
-P 2850 5200
-F 0 "TP2" H 2792 5226 50  0000 R CNN
-F 1 "TestPoint" H 2792 5317 50  0000 R CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 3050 5200 50  0001 C CNN
-F 3 "~" H 3050 5200 50  0001 C CNN
-	1    2850 5200
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	3500 8400 3300 8400
 Connection ~ 3500 8400
@@ -246,8 +235,6 @@ Wire Wire Line
 	2950 8400 2950 8250
 Wire Wire Line
 	2950 8400 2950 8550
-Wire Wire Line
-	3850 8250 3850 8400
 $Comp
 L power:GND #PWR0106
 U 1 1 5FED4AD2
@@ -285,39 +272,12 @@ F 3 "" H 2950 8250 50  0001 C CNN
 	1    2950 8250
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:PWR_FLAG #FLG0105
-U 1 1 5FED08AB
-P 3850 8250
-F 0 "#FLG0105" H 3850 8325 50  0001 C CNN
-F 1 "PWR_FLAG" H 3850 8423 50  0000 C CNN
-F 2 "" H 3850 8250 50  0001 C CNN
-F 3 "~" H 3850 8250 50  0001 C CNN
-	1    3850 8250
-	1    0    0    -1  
-$EndComp
-Connection ~ 1400 8450
 Wire Wire Line
 	1850 8450 1850 8550
 Wire Wire Line
 	1400 8450 1850 8450
 Wire Wire Line
 	1400 8450 1400 8550
-Wire Wire Line
-	950  8450 1400 8450
-Wire Wire Line
-	950  8550 950  8450
-$Comp
-L power:PWR_FLAG #FLG0104
-U 1 1 5FEC6EA1
-P 950 8550
-F 0 "#FLG0104" H 950 8625 50  0001 C CNN
-F 1 "PWR_FLAG" H 950 8723 50  0000 C CNN
-F 2 "" H 950 8550 50  0001 C CNN
-F 3 "~" H 950 8550 50  0001 C CNN
-	1    950  8550
-	-1   0    0    1   
-$EndComp
 $Comp
 L power:GNDPWR #PWR0108
 U 1 1 5FEC5490
@@ -336,43 +296,18 @@ Wire Wire Line
 	5300 6250 5650 6250
 Wire Wire Line
 	5300 7900 5300 6250
-$Comp
-L Connector:TestPoint TP3
-U 1 1 5FEC0903
-P 5300 7900
-F 0 "TP3" H 5242 7926 50  0000 R CNN
-F 1 "TestPoint" H 5242 8017 50  0000 R CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 5500 7900 50  0001 C CNN
-F 3 "~" H 5500 7900 50  0001 C CNN
-	1    5300 7900
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	2700 7550 6150 7550
 Connection ~ 2700 7550
 $Comp
-L Connector:TestPoint TP1
+L Connector:TestPoint nReset1
 U 1 1 5FEBC857
 P 2700 7550
-F 0 "TP1" H 2642 7576 50  0000 R CNN
+F 0 "nReset1" H 2642 7576 50  0000 R CNN
 F 1 "TestPoint" H 2642 7667 50  0000 R CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 2900 7550 50  0001 C CNN
 F 3 "~" H 2900 7550 50  0001 C CNN
 	1    2700 7550
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	6650 6950 6450 6950
-Connection ~ 6650 6950
-$Comp
-L Connector:TestPoint TP_GND1
-U 1 1 5FEAB6FE
-P 6650 6950
-F 0 "TP_GND1" H 6592 6976 50  0000 R CNN
-F 1 "TestPoint" H 6592 7067 50  0000 R CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 6850 6950 50  0001 C CNN
-F 3 "~" H 6850 6950 50  0001 C CNN
-	1    6650 6950
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -386,20 +321,6 @@ F 3 "" H 2050 2350 50  0001 C CNN
 	1    2050 2350
 	1    0    0    -1  
 $EndComp
-Connection ~ 9250 5950
-$Comp
-L power:PWR_FLAG #FLG0103
-U 1 1 5F8C2065
-P 9250 5950
-F 0 "#FLG0103" H 9250 6025 50  0001 C CNN
-F 1 "PWR_FLAG" V 9250 6077 50  0000 L CNN
-F 2 "" H 9250 5950 50  0001 C CNN
-F 3 "~" H 9250 5950 50  0001 C CNN
-	1    9250 5950
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	9250 5400 9250 5950
 Wire Wire Line
 	2050 2450 2050 2350
 Connection ~ 2050 2450
@@ -605,8 +526,6 @@ Wire Wire Line
 	5650 6950 5650 6650
 Wire Wire Line
 	6450 6950 5900 6950
-Wire Wire Line
-	7150 6950 6650 6950
 $Comp
 L power:GND #PWR0109
 U 1 1 5F894FED
@@ -707,10 +626,10 @@ F 3 "~" H 5650 6500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:TestPoint TP5
+L Connector:TestPoint VDD1
 U 1 1 5FF680D8
 P 3850 8550
-F 0 "TP5" H 3792 8576 50  0000 R CNN
+F 0 "VDD1" H 3792 8576 50  0000 R CNN
 F 1 "TestPoint" H 3792 8667 50  0000 R CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 4050 8550 50  0001 C CNN
 F 3 "~" H 4050 8550 50  0001 C CNN
@@ -718,10 +637,10 @@ F 3 "~" H 4050 8550 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:TestPoint TP4
+L Connector:TestPoint GND1
 U 1 1 5FF68D98
 P 1850 8250
-F 0 "TP4" H 1792 8276 50  0000 R CNN
+F 0 "GND1" H 1792 8276 50  0000 R CNN
 F 1 "TestPoint" H 1792 8367 50  0000 R CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 2050 8250 50  0001 C CNN
 F 3 "~" H 2050 8250 50  0001 C CNN
@@ -734,8 +653,6 @@ Connection ~ 1850 8450
 Wire Wire Line
 	3850 8550 3850 8400
 Connection ~ 3850 8400
-Wire Wire Line
-	9250 5950 9250 6950
 $Comp
 L rev1-rescue:BNO055_BNO055-bno055 U1
 U 1 1 5F88CBB6
@@ -768,8 +685,6 @@ Text Label 27400 2800 2    118  ~ 0
 GND
 Text GLabel 27400 4200 0    39   Input ~ 0
 VIN_TEENSY
-Wire Wire Line
-	6900 7300 9850 7300
 Text GLabel 9850 7300 2    50   Input ~ 0
 INT_BNO055
 Text GLabel 27400 4400 0    50   Input ~ 0
@@ -892,10 +807,10 @@ For the crystal, see BNO055 datasheet page 100.
 Text Notes 10700 1550 0    50   ~ 0
 https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf
 $Comp
-L Connector:TestPoint TP10
+L Connector:TestPoint OSCout1
 U 1 1 600A3D96
 P 11400 2500
-F 0 "TP10" H 11342 2526 50  0000 R CNN
+F 0 "OSCout1" H 11342 2526 50  0000 R CNN
 F 1 "TestPoint" H 11342 2617 50  0000 R CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 11600 2500 50  0001 C CNN
 F 3 "~" H 11600 2500 50  0001 C CNN
@@ -906,10 +821,10 @@ Connection ~ 11400 2500
 Wire Wire Line
 	11400 2500 10900 2500
 $Comp
-L Connector:TestPoint TP9
+L Connector:TestPoint OSCin1
 U 1 1 600A5053
 P 11400 1800
-F 0 "TP9" H 11342 1826 50  0000 R CNN
+F 0 "OSCin1" H 11342 1826 50  0000 R CNN
 F 1 "TestPoint" H 11342 1917 50  0000 R CNN
 F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 11600 1800 50  0001 C CNN
 F 3 "~" H 11600 1800 50  0001 C CNN
@@ -1003,4 +918,32 @@ Wire Wire Line
 	3150 2450 3150 3500
 Wire Wire Line
 	2050 2450 2050 2950
+Wire Wire Line
+	6450 6950 7150 6950
+Wire Wire Line
+	9250 5400 9250 6950
+$Comp
+L Connector:TestPoint CAP1
+U 1 1 5FEC0903
+P 5300 7900
+F 0 "CAP1" H 5242 7926 50  0000 R CNN
+F 1 "TestPoint" H 5242 8017 50  0000 R CNN
+F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 5500 7900 50  0001 C CNN
+F 3 "~" H 5500 7900 50  0001 C CNN
+	1    5300 7900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:TestPoint BOOT1
+U 1 1 5FEF6DE2
+P 2850 5200
+F 0 "BOOT1" H 2792 5226 50  0000 R CNN
+F 1 "TestPoint" H 2792 5317 50  0000 R CNN
+F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 3050 5200 50  0001 C CNN
+F 3 "~" H 3050 5200 50  0001 C CNN
+	1    2850 5200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6900 7300 9850 7300
 $EndSCHEMATC
