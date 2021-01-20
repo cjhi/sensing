@@ -1214,11 +1214,11 @@
     )
   )
 
+  (gr_line (start 176.149 136.906) (end 176.276 83.312) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 111.252 83.312) (end 111.125 136.906) (angle 90) (layer Edge.Cuts) (width 0.05))
   (gr_line (start 152.019 124.333) (end 153.035 123.444) (angle 90) (layer F.SilkS) (width 0.12))
   (gr_line (start 176.276 83.312) (end 111.252 83.312) (angle 90) (layer Edge.Cuts) (width 0.05))
-  (gr_line (start 176.276 136.144) (end 176.276 83.312) (angle 90) (layer Edge.Cuts) (width 0.05))
-  (gr_line (start 111.252 136.144) (end 111.252 83.312) (angle 90) (layer Edge.Cuts) (width 0.05))
-  (gr_line (start 176.276 136.144) (end 111.252 136.144) (angle 90) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 176.149 136.906) (end 111.125 136.906) (angle 90) (layer Edge.Cuts) (width 0.05))
 
   (segment (start 139.3985 118.9355) (end 139.3985 122.7455) (width 1) (layer F.Cu) (net 1) (status C00000))
   (segment (start 144.8595 126.6825) (end 144.8595 129.9845) (width 1) (layer F.Cu) (net 1) (status C00000))
