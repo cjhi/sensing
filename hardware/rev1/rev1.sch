@@ -659,34 +659,23 @@ Text Notes 14150 1350 0    118  ~ 0
 notes here\n
 Text Notes 26050 13750 0    50   ~ 0
 Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
-$Comp
-L rev1-rescue:Teensy3.6-teensy U3
-U 1 1 60876FE4
-P 28550 4950
-F 0 "U3" H 28550 7387 60  0000 C CNN
-F 1 "Teensy3.6" H 28550 7281 60  0000 C CNN
-F 2 "footprints:Teensy3-6" H 28550 5000 60  0001 C CNN
-F 3 "" H 28550 5000 60  0000 C CNN
-	1    28550 4950
-	1    0    0    -1  
-$EndComp
 Text Label 27400 2800 2    118  ~ 0
 GND
 Text GLabel 27400 4200 0    39   Input ~ 0
 VIN_TEENSY
 Text GLabel 9850 7300 2    50   Input ~ 0
 INT_BNO055
-Text GLabel 27400 4400 0    50   Input ~ 0
-INT1_MPL3115A2
-Text GLabel 27400 4300 0    50   Input ~ 0
-INT2_MPL3115A2
 Text GLabel 27400 3400 0    50   Input ~ 0
-nRESET
+INT1_MPL3115A2
 Text GLabel 27400 3500 0    50   Input ~ 0
+INT2_MPL3115A2
+Text GLabel 27400 3800 0    50   Input ~ 0
+nRESET
+Text GLabel 27400 3700 0    50   Input ~ 0
 INT_BNO055
-Text GLabel 27400 3100 0    50   Input ~ 0
+Text GLabel 27400 3900 0    50   Input ~ 0
 nBOOT_LOAD_PIN
-Text GLabel 27400 4000 0    50   Input ~ 0
+Text GLabel 27400 3600 0    50   Input ~ 0
 COM3
 Text GLabel 21600 2750 1    39   Input ~ 0
 VIN_TEENSY
@@ -823,16 +812,12 @@ $EndComp
 Connection ~ 11400 1800
 Wire Wire Line
 	11400 1800 10900 1800
-Text GLabel 27400 3600 0    39   Input ~ 0
+Text GLabel 27400 3200 0    39   Input ~ 0
 SCL_TEENSY
-Text GLabel 27400 3700 0    39   Input ~ 0
+Text GLabel 27400 3300 0    39   Input ~ 0
 SDA_TEENSY
 NoConn ~ 27400 2900
 NoConn ~ 27400 3000
-NoConn ~ 27400 3200
-NoConn ~ 27400 3300
-NoConn ~ 27400 3800
-NoConn ~ 27400 3900
 NoConn ~ 27400 4100
 NoConn ~ 27400 4500
 NoConn ~ 27400 4600
@@ -848,10 +833,6 @@ NoConn ~ 27400 5500
 NoConn ~ 27400 5600
 NoConn ~ 27400 5700
 NoConn ~ 27400 5800
-NoConn ~ 27400 5900
-NoConn ~ 27400 6000
-NoConn ~ 27400 6100
-NoConn ~ 27400 6200
 NoConn ~ 27400 6300
 NoConn ~ 27400 6400
 NoConn ~ 27400 6500
@@ -987,4 +968,23 @@ Wire Wire Line
 Wire Wire Line
 	28000 9300 28150 9300
 NoConn ~ 29700 6300
+NoConn ~ 27400 4300
+NoConn ~ 27400 4400
+NoConn ~ 27400 4000
+$Comp
+L rev1-rescue:Teensy3.6-teensy U3
+U 1 1 60876FE4
+P 28550 4950
+F 0 "U3" H 28550 7387 60  0000 C CNN
+F 1 "Teensy3.6" H 28550 7281 60  0000 C CNN
+F 2 "footprints:Teensy3-6" H 28550 5000 60  0001 C CNN
+F 3 "" H 28550 5000 60  0000 C CNN
+	1    28550 4950
+	1    0    0    -1  
+$EndComp
+NoConn ~ 27400 3100
+NoConn ~ 27400 5900
+NoConn ~ 27400 6000
+NoConn ~ 27400 6100
+NoConn ~ 27400 6200
 $EndSCHEMATC
