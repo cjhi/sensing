@@ -1,6 +1,32 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
+# ADXL345BCCZ_ADXL345BCCZ
+#
+DEF ADXL345BCCZ_ADXL345BCCZ U 0 40 Y Y 1 L N
+F0 "U" -800 1039 50 H V L BNN
+F1 "ADXL345BCCZ_ADXL345BCCZ" -800 -1157 50 H V L BNN
+F2 "PQFN80P300X500X100-14N" 0 0 50 H I L BNN
+F3 "" 0 0 50 H I L BNN
+DRAW
+S -800 -1000 800 1000 0 0 16 f
+X VDD_I/O 1 1000 900 200 L 40 40 0 0 W
+X NC 10 -1000 100 200 R 40 40 0 0 B
+X RESERVED 11 -1000 -100 200 R 40 40 0 0 B
+X SDO/ALT_ADDRESS 12 -1000 -500 200 R 40 40 0 0 B
+X SDA/SDI/SDIO 13 -1000 -300 200 R 40 40 0 0 B
+X SCL/SCLK 14 -1000 500 200 R 40 40 0 0 I C
+X GND 2 1000 -900 200 L 40 40 0 0 W
+X RESERVED 3 -1000 -100 200 R 40 40 0 0 B
+X GND 4 1000 -900 200 L 40 40 0 0 W
+X GND 5 1000 -900 200 L 40 40 0 0 W
+X VS 6 -1000 -700 200 R 40 40 0 0 B
+X ~CS 7 -1000 300 200 R 40 40 0 0 B
+X INT1 8 -1000 700 200 R 40 40 0 0 I
+X INT2 9 -1000 600 200 R 40 40 0 0 I
+ENDDRAW
+ENDDEF
+#
 # Connector_Conn_01x02_Male
 #
 DEF Connector_Conn_01x02_Male J 0 40 Y N 1 F N
@@ -18,6 +44,47 @@ P 2 1 1 6 50 -100 34 -100 N
 P 2 1 1 6 50 0 34 0 N
 X Pin_1 1 200 0 150 L 50 50 1 1 P
 X Pin_2 2 200 -100 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Connector_Conn_01x09_Male
+#
+DEF Connector_Conn_01x09_Male J 0 40 Y N 1 F N
+F0 "J" 0 500 50 H V C CNN
+F1 "Connector_Conn_01x09_Male" 0 -500 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+S 34 -395 0 -405 1 1 6 F
+S 34 -295 0 -305 1 1 6 F
+S 34 -195 0 -205 1 1 6 F
+S 34 -95 0 -105 1 1 6 F
+S 34 5 0 -5 1 1 6 F
+S 34 105 0 95 1 1 6 F
+S 34 205 0 195 1 1 6 F
+S 34 305 0 295 1 1 6 F
+S 34 405 0 395 1 1 6 F
+P 2 1 1 6 50 -400 34 -400 N
+P 2 1 1 6 50 -300 34 -300 N
+P 2 1 1 6 50 -200 34 -200 N
+P 2 1 1 6 50 -100 34 -100 N
+P 2 1 1 6 50 0 34 0 N
+P 2 1 1 6 50 100 34 100 N
+P 2 1 1 6 50 200 34 200 N
+P 2 1 1 6 50 300 34 300 N
+P 2 1 1 6 50 400 34 400 N
+X Pin_1 1 200 400 150 L 50 50 1 1 P
+X Pin_2 2 200 300 150 L 50 50 1 1 P
+X Pin_3 3 200 200 150 L 50 50 1 1 P
+X Pin_4 4 200 100 150 L 50 50 1 1 P
+X Pin_5 5 200 0 150 L 50 50 1 1 P
+X Pin_6 6 200 -100 150 L 50 50 1 1 P
+X Pin_7 7 200 -200 150 L 50 50 1 1 P
+X Pin_8 8 200 -300 150 L 50 50 1 1 P
+X Pin_9 9 200 -400 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
@@ -133,6 +200,109 @@ P 2 0 1 0 -30 50 0 100 N
 P 2 0 1 0 0 0 0 100 N
 P 2 0 1 0 0 100 30 50 N
 X VDD 1 0 0 0 U 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# preferred_parts_BMI088
+#
+DEF preferred_parts_BMI088 U 0 40 Y Y 1 F N
+F0 "U" -700 50 50 H V C CNN
+F1 "preferred_parts_BMI088" -600 150 50 H V C CNN
+F2 "footprints:bmi088" -100 -100 50 H I C CNN
+F3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMI088-DS001.pdf" -550 650 50 H I C CNN
+F4 "https://www.digikey.com/product-detail/en/bosch-sensortec/BMI088/828-1082-1-ND/8634942" -600 800 50 H I C CNN "Purchasing Link"
+DRAW
+S -1100 200 -50 -450 0 1 0 f
+X INT2 1 150 50 200 L 50 50 1 1 O
+X SD02 10 150 -250 200 L 50 50 1 1 I
+X VDDIO 11 -700 -650 200 U 50 50 1 1 W
+X INT3 12 150 -50 200 L 50 50 1 1 O
+X INT4 13 150 -150 200 L 50 50 1 1 O
+X CSB1 14 -1300 -100 200 R 50 50 1 1 I
+X SD01 15 150 -350 200 L 50 50 1 1 I
+X INT1 16 150 150 200 L 50 50 1 1 O
+X VDD 3 -800 -650 200 U 50 50 1 1 W
+X GNDA 4 -500 -650 200 U 50 50 1 1 W
+X CSB2 5 -1300 -200 200 R 50 50 1 1 O
+X GNDio 6 -400 -650 200 U 50 50 1 1 W
+X PS 7 -1300 -300 200 R 50 50 1 1 I
+X SCx 8 -1300 100 200 R 50 50 1 1 I
+X SDx 9 -1300 0 200 R 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# preferred_parts_C_0.1uF
+#
+DEF preferred_parts_C_0.1uF C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "preferred_parts_C_0.1uF" 25 -100 50 H V L CNN
+F2 "footprints:C_0805_OEM" 38 -150 50 H I C CNN
+F3 "http://datasheets.avx.com/X7RDielectric.pdf" 25 100 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "478-3352-1-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/products/en?keywords=478-3352-1-ND" 425 500 60 H I C CNN "PurchasingLink"
+$FPLIST
+ C?
+ C_????_*
+ C_????
+ SMD*_c
+ Capacitor*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# preferred_parts_C_100nF
+#
+DEF preferred_parts_C_100nF C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "preferred_parts_C_100nF" 25 -100 50 H V L CNN
+F2 "footprints:C_0603_1608Metric" 38 -150 50 H I C CNN
+F3 "http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp" 25 100 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "1276-6717-1-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8WPNC/1276-6717-1-ND/5961576" 425 500 60 H I C CNN "PurchasingLink"
+$FPLIST
+ C?
+ C_????_*
+ C_????
+ SMD*_c
+ Capacitor*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# preferred_parts_C_1uF
+#
+DEF preferred_parts_C_1uF C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "preferred_parts_C_1uF" 25 -100 50 H V L CNN
+F2 "footprints:C_0805_OEM" 38 -150 50 H I C CNN
+F3 "http://www.samsungsem.com/kr/support/product-search/mlcc/__icsFiles/afieldfile/2018/06/20/CL21A105KAFNNNE.pdf" 25 100 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "1276-2887-1-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21A105KAFNNNE/1276-2887-1-ND/3890973" 425 500 60 H I C CNN "PurchasingLink"
+$FPLIST
+ C?
+ C_????_*
+ C_????
+ SMD*_c
+ Capacitor*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #

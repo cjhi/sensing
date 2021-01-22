@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ADXL345BCCZ)(type Legacy)(uri ${ROCKETRY}/sensing/hardware/ADXL345/ADXL345BCCZ.lib)(options "")(descr ""))
+)
