@@ -1260,9 +1260,9 @@ Text GLabel 27400 4900 0    50   Input ~ 0
 INT3_GYRO_BMI088
 Text GLabel 27400 4800 0    50   Input ~ 0
 INT4_GYRO_BMI088
-Text GLabel 27400 4600 0    50   Input ~ 0
-A0_GYRO_BMI088
 Text GLabel 27400 4500 0    50   Input ~ 0
+A0_GYRO_BMI088
+Text GLabel 27400 4600 0    50   Input ~ 0
 A0_ACCEL_BMI088
 Text GLabel 27400 5800 0    50   Input ~ 0
 RX
