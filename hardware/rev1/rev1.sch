@@ -816,23 +816,13 @@ Text GLabel 27400 3200 0    39   Input ~ 0
 SCL_TEENSY
 Text GLabel 27400 3300 0    39   Input ~ 0
 SDA_TEENSY
-NoConn ~ 27400 2900
-NoConn ~ 27400 3000
 NoConn ~ 27400 4100
-NoConn ~ 27400 4500
-NoConn ~ 27400 4600
 NoConn ~ 27400 4700
-NoConn ~ 27400 4800
-NoConn ~ 27400 4900
-NoConn ~ 27400 5000
-NoConn ~ 27400 5100
 NoConn ~ 27400 5200
 NoConn ~ 27400 5300
 NoConn ~ 27400 5400
 NoConn ~ 27400 5500
 NoConn ~ 27400 5600
-NoConn ~ 27400 5700
-NoConn ~ 27400 5800
 NoConn ~ 27400 6300
 NoConn ~ 27400 6400
 NoConn ~ 27400 6500
@@ -872,12 +862,8 @@ NoConn ~ 29700 4200
 NoConn ~ 29700 4100
 NoConn ~ 29700 4000
 NoConn ~ 29700 3900
-NoConn ~ 29700 3800
-NoConn ~ 29700 3700
 NoConn ~ 29700 3600
 NoConn ~ 29700 3500
-NoConn ~ 29700 3400
-NoConn ~ 29700 3300
 NoConn ~ 29700 3200
 NoConn ~ 29700 3100
 NoConn ~ 29700 3000
@@ -983,10 +969,7 @@ F 3 "" H 28550 5000 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 27400 3100
-NoConn ~ 27400 5900
-NoConn ~ 27400 6000
 NoConn ~ 27400 6100
-NoConn ~ 27400 6200
 $Comp
 L power:+3.3V #PWR08
 U 1 1 600C34F2
@@ -1035,38 +1018,15 @@ F 3 "~" H 22650 15600 50  0001 C CNN
 	1    22650 15600
 	1    0    0    1   
 $EndComp
-Wire Wire Line
-	11858 16006 12108 16006
-Connection ~ 11858 16306
-Connection ~ 12108 16406
 $Comp
-L power:GND #PWR02
+L power:GND #PWR0112
 U 1 1 5FC3B131
-P 11858 16956
-F 0 "#PWR02" H 11858 16706 50  0001 C CNN
-F 1 "GND" H 11863 16783 50  0000 C CNN
-F 2 "" H 11858 16956 50  0001 C CNN
-F 3 "" H 11858 16956 50  0001 C CNN
-	1    11858 16956
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	13508 16406 12108 16406
-Wire Wire Line
-	13508 16256 13508 16406
-Wire Wire Line
-	13408 16306 13408 16256
-Wire Wire Line
-	11858 16306 13408 16306
-$Comp
-L power:+3.3V #PWR01
-U 1 1 5FC342A3
-P 11858 15464
-F 0 "#PWR01" H 11858 15314 50  0001 C CNN
-F 1 "+3.3V" H 11873 15637 50  0000 C CNN
-F 2 "" H 11858 15464 50  0001 C CNN
-F 3 "" H 11858 15464 50  0001 C CNN
-	1    11858 15464
+P 11900 17450
+F 0 "#PWR0112" H 11900 17200 50  0001 C CNN
+F 1 "GND" H 11905 17277 50  0000 C CNN
+F 2 "" H 11900 17450 50  0001 C CNN
+F 3 "" H 11900 17450 50  0001 C CNN
+	1    11900 17450
 	1    0    0    -1  
 $EndComp
 Text Notes 12047 15204 0    50   ~ 0
@@ -1074,88 +1034,40 @@ VDDIO
 $Comp
 L preferred_parts:C_100nF C13
 U 1 1 5FC2CC3A
-P 12108 16706
-F 0 "C13" H 12158 16806 50  0000 L CNN
-F 1 "C_100nF" H 12158 16606 50  0000 L CNN
-F 2 "footprints:C_0603_1608Metric" H 12146 16556 50  0001 C CNN
-F 3 "http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp" H 12133 16806 50  0001 C CNN
-F 4 "DK" H 12108 16706 60  0001 C CNN "MFN"
-F 5 "1276-6717-1-ND" H 12108 16706 60  0001 C CNN "MPN"
-F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8WPNC/1276-6717-1-ND/5961576" H 12533 17206 60  0001 C CNN "PurchasingLink"
-	1    12108 16706
+P 12200 17000
+F 0 "C13" H 12250 17100 50  0000 L CNN
+F 1 "C_100nF" H 12250 16900 50  0000 L CNN
+F 2 "footprints:C_0603_1608Metric" H 12238 16850 50  0001 C CNN
+F 3 "http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp" H 12225 17100 50  0001 C CNN
+F 4 "DK" H 12200 17000 60  0001 C CNN "MFN"
+F 5 "1276-6717-1-ND" H 12200 17000 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8WPNC/1276-6717-1-ND/5961576" H 12625 17500 60  0001 C CNN "PurchasingLink"
+	1    12200 17000
 	1    0    0    -1  
 $EndComp
 $Comp
 L preferred_parts:C_100nF C12
 U 1 1 5FC2CB9A
-P 11858 16706
-F 0 "C12" H 11658 16806 50  0000 L CNN
-F 1 "C_100nF" H 11508 16606 50  0000 L CNN
-F 2 "footprints:C_0603_1608Metric" H 11896 16556 50  0001 C CNN
-F 3 "http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp" H 11883 16806 50  0001 C CNN
-F 4 "DK" H 11858 16706 60  0001 C CNN "MFN"
-F 5 "1276-6717-1-ND" H 11858 16706 60  0001 C CNN "MPN"
-F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8WPNC/1276-6717-1-ND/5961576" H 12283 17206 60  0001 C CNN "PurchasingLink"
-	1    11858 16706
+P 11900 17000
+F 0 "C12" H 11700 17100 50  0000 L CNN
+F 1 "C_100nF" H 11550 16900 50  0000 L CNN
+F 2 "footprints:C_0603_1608Metric" H 11938 16850 50  0001 C CNN
+F 3 "http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp" H 11925 17100 50  0001 C CNN
+F 4 "DK" H 11900 17000 60  0001 C CNN "MFN"
+F 5 "1276-6717-1-ND" H 11900 17000 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8WPNC/1276-6717-1-ND/5961576" H 12325 17500 60  0001 C CNN "PurchasingLink"
+	1    11900 17000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	13708 16306 13708 16256
 $Comp
 L power:GND #PWR05
 U 1 1 5FC22D1A
-P 13708 16306
-F 0 "#PWR05" H 13708 16056 50  0001 C CNN
-F 1 "GND" H 13713 16133 50  0000 C CNN
-F 2 "" H 13708 16306 50  0001 C CNN
-F 3 "" H 13708 16306 50  0001 C CNN
-	1    13708 16306
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	12108 16406 12108 16556
-Wire Wire Line
-	11858 16306 11858 16556
-Wire Wire Line
-	11858 16956 11858 16906
-Wire Wire Line
-	11858 16906 12108 16906
-Wire Wire Line
-	12108 16906 12108 16856
-Connection ~ 11858 16906
-Wire Wire Line
-	11858 16906 11858 16856
-Connection ~ 11858 16006
-Wire Wire Line
-	11858 16006 11858 16306
-Wire Wire Line
-	12108 16006 12108 16406
-Wire Wire Line
-	13708 16256 13808 16256
-NoConn ~ 12908 15806
-Connection ~ 13708 16256
-Wire Wire Line
-	12908 15906 11858 15906
-Connection ~ 11858 15906
-Wire Wire Line
-	11858 15906 11858 16006
-Wire Wire Line
-	12908 15706 11858 15706
-Connection ~ 11858 15706
-Wire Wire Line
-	11858 15706 11858 15906
-Wire Wire Line
-	11858 15464 11858 15706
-$Comp
-L preferred_parts:BMI088 U4
-U 1 1 5FC29AF9
-P 14208 15606
-F 0 "U4" H 13633 15981 50  0000 C CNN
-F 1 "BMI088" H 13633 15890 50  0000 C CNN
-F 2 "footprints:bmi088" H 14108 15506 50  0001 C CNN
-F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMI088-DS001.pdf" H 13658 16256 50  0001 C CNN
-F 4 "https://www.digikey.com/product-detail/en/bosch-sensortec/BMI088/828-1082-1-ND/8634942" H 13608 16406 50  0001 C CNN "Purchasing Link"
-	1    14208 15606
+P 13700 16600
+F 0 "#PWR05" H 13700 16350 50  0001 C CNN
+F 1 "GND" H 13705 16427 50  0000 C CNN
+F 2 "" H 13700 16600 50  0001 C CNN
+F 3 "" H 13700 16600 50  0001 C CNN
+	1    13700 16600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1244,22 +1156,6 @@ Text Notes 12550 13700 0    200  ~ 0
 BMI088
 Text Notes 20850 14600 0    200  ~ 0
 RADIO (Tentative, without connections yet)
-Text GLabel 12900 15600 0    50   Input ~ 0
-SDA_TEENSY
-Text GLabel 12900 15500 0    50   Input ~ 0
-SCL_TEENSY
-Text GLabel 14350 15450 2    50   Input ~ 0
-INT1_ACCEL_BMI088
-Text GLabel 14350 15550 2    50   Input ~ 0
-INT2_ACCEL_BMI088
-Text GLabel 14350 15650 2    50   Input ~ 0
-INT3_GYRO_BMI088
-Text GLabel 14350 15750 2    50   Input ~ 0
-INT4_GYRO_BMI088
-Text GLabel 14350 15850 2    50   Input ~ 0
-A0_GYRO_BMI088
-Text GLabel 14350 15950 2    50   Input ~ 0
-A0_ACCEL_BMI088
 Text GLabel 4800 15550 0    50   Input ~ 0
 INT1_ADXL345
 Text GLabel 4800 15650 0    50   Input ~ 0
@@ -1274,7 +1170,7 @@ Text Notes 26850 17850 0    200  ~ 0
 POWER INPUT from BMS
 Connection ~ 18400 15200
 Wire Wire Line
-	18400 15900 18400 15200
+	18400 15900 18400 15400
 Wire Wire Line
 	18400 15200 18400 15050
 Text Notes 17850 14500 0    200  ~ 0
@@ -1352,4 +1248,146 @@ Text Notes 7650 15700 0    50   ~ 0
 ceramic capacitor preferred
 Text Notes 4350 17600 0    50   ~ 0
 tantalum capacitor preferred\nsee datasheet page 28.
+Text GLabel 27400 2900 0    50   Input ~ 0
+INT1_ADXL345
+Text GLabel 27400 3000 0    50   Input ~ 0
+INT2_ADXL345
+Text GLabel 27400 5100 0    50   Input ~ 0
+INT1_ACCEL_BMI088
+Text GLabel 27400 5000 0    50   Input ~ 0
+INT2_ACCEL_BMI088
+Text GLabel 27400 4900 0    50   Input ~ 0
+INT3_GYRO_BMI088
+Text GLabel 27400 4800 0    50   Input ~ 0
+INT4_GYRO_BMI088
+Text GLabel 27400 4600 0    50   Input ~ 0
+A0_GYRO_BMI088
+Text GLabel 27400 4500 0    50   Input ~ 0
+A0_ACCEL_BMI088
+Text GLabel 27400 5800 0    50   Input ~ 0
+RX
+Text GLabel 27400 5700 0    50   Input ~ 0
+TX
+Text GLabel 27400 6200 0    50   Input ~ 0
+FIX
+Text GLabel 27400 5900 0    50   Input ~ 0
+ENABLE_GPS
+NoConn ~ 21800 15200
+NoConn ~ 21800 15300
+NoConn ~ 21800 15400
+NoConn ~ 21800 15500
+NoConn ~ 21800 15600
+NoConn ~ 21800 15700
+NoConn ~ 21800 15800
+NoConn ~ 21800 15900
+NoConn ~ 21800 16000
+NoConn ~ 22850 16000
+NoConn ~ 22850 15900
+NoConn ~ 22850 15800
+NoConn ~ 22850 15700
+NoConn ~ 22850 15600
+NoConn ~ 22850 15500
+NoConn ~ 22850 15400
+NoConn ~ 22850 15300
+NoConn ~ 22850 15200
+Text GLabel 18650 15400 2    50   Input ~ 0
+V_BACKUP
+Wire Wire Line
+	18650 15400 18400 15400
+Connection ~ 18400 15400
+Wire Wire Line
+	18400 15400 18400 15200
+NoConn ~ 29700 3400
+NoConn ~ 29700 3300
+NoConn ~ 29700 3700
+NoConn ~ 29700 3800
+Text GLabel 14350 15450 2    50   Input ~ 0
+INT1_ACCEL_BMI088
+Text GLabel 14350 15550 2    50   Input ~ 0
+INT2_ACCEL_BMI088
+Text GLabel 14350 15650 2    50   Input ~ 0
+INT3_GYRO_BMI088
+Text GLabel 14350 15750 2    50   Input ~ 0
+INT4_GYRO_BMI088
+Text GLabel 14350 15850 2    50   Input ~ 0
+A0_GYRO_BMI088
+Text GLabel 14350 15950 2    50   Input ~ 0
+A0_ACCEL_BMI088
+Text GLabel 12900 15500 0    50   Input ~ 0
+SCL_TEENSY
+Text GLabel 12900 15600 0    50   Input ~ 0
+SDA_TEENSY
+$Comp
+L power:+3.3V #PWR0113
+U 1 1 5FC342A3
+P 11900 15450
+F 0 "#PWR0113" H 11900 15300 50  0001 C CNN
+F 1 "+3.3V" H 11915 15623 50  0000 C CNN
+F 2 "" H 11900 15450 50  0001 C CNN
+F 3 "" H 11900 15450 50  0001 C CNN
+	1    11900 15450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11900 15700 11900 15450
+$Comp
+L preferred_parts:BMI088 U4
+U 1 1 5FC29AF9
+P 14200 15600
+F 0 "U4" H 13625 15975 50  0000 C CNN
+F 1 "BMI088" H 13625 15884 50  0000 C CNN
+F 2 "footprints:bmi088" H 14100 15500 50  0001 C CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMI088-DS001.pdf" H 13650 16250 50  0001 C CNN
+F 4 "https://www.digikey.com/product-detail/en/bosch-sensortec/BMI088/828-1082-1-ND/8634942" H 13600 16400 50  0001 C CNN "Purchasing Link"
+	1    14200 15600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11900 15700 12900 15700
+NoConn ~ 12900 15800
+Wire Wire Line
+	12900 15900 11900 15900
+Wire Wire Line
+	11900 15900 11900 15700
+Connection ~ 11900 15700
+Wire Wire Line
+	13400 16250 13400 16450
+Wire Wire Line
+	13400 16450 12200 16450
+Wire Wire Line
+	11900 16450 11900 16850
+Wire Wire Line
+	13500 16250 13500 16450
+Wire Wire Line
+	13500 16450 13400 16450
+Connection ~ 13400 16450
+Wire Wire Line
+	11900 15900 11900 16450
+Connection ~ 11900 15900
+Connection ~ 11900 16450
+Wire Wire Line
+	12200 16850 12200 16450
+Connection ~ 12200 16450
+Wire Wire Line
+	12200 16450 11900 16450
+Wire Wire Line
+	12200 17150 12200 17300
+Wire Wire Line
+	12200 17300 11900 17300
+Wire Wire Line
+	11900 17300 11900 17150
+Wire Wire Line
+	11900 17300 11900 17450
+Connection ~ 11900 17300
+Wire Wire Line
+	13700 16250 13700 16450
+Wire Wire Line
+	13800 16250 13800 16450
+Wire Wire Line
+	13800 16450 13700 16450
+Connection ~ 13700 16450
+Wire Wire Line
+	13700 16450 13700 16600
+Text GLabel 27400 6000 0    50   Input ~ 0
+PPS
 $EndSCHEMATC
