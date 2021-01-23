@@ -1254,11 +1254,11 @@ Text GLabel 27400 3000 0    50   Input ~ 0
 INT2_ADXL345
 Text GLabel 27400 5100 0    50   Input ~ 0
 INT1_ACCEL_BMI088
-Text GLabel 27400 5000 0    50   Input ~ 0
+Text GLabel 27400 4800 0    50   Input ~ 0
 INT2_ACCEL_BMI088
 Text GLabel 27400 4900 0    50   Input ~ 0
 INT3_GYRO_BMI088
-Text GLabel 27400 4800 0    50   Input ~ 0
+Text GLabel 27400 5000 0    50   Input ~ 0
 INT4_GYRO_BMI088
 Text GLabel 27400 4500 0    50   Input ~ 0
 A0_GYRO_BMI088
