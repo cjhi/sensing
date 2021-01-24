@@ -1334,58 +1334,6 @@ Wire Wire Line
 Text GLabel 27400 6000 0    50   Input ~ 0
 PPS
 $Comp
-L Connector:Conn_01x09_Female J2
-U 1 1 600E158A
-P 22000 15600
-F 0 "J2" H 21892 14975 50  0000 C CNN
-F 1 "Conn_01x09_Female" H 21892 15066 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 22000 15600 50  0001 C CNN
-F 3 "~" H 22000 15600 50  0001 C CNN
-	1    22000 15600
-	1    0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x05_Female J3
-U 1 1 600E04FD
-P 22650 15400
-F 0 "J3" H 22542 14975 50  0000 C CNN
-F 1 "Conn_01x05_Female" H 22542 15066 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 22650 15400 50  0001 C CNN
-F 3 "~" H 22650 15400 50  0001 C CNN
-	1    22650 15400
-	-1   0    0    1   
-$EndComp
-Text Notes 22050 15200 0    50   ~ 0
-VIN
-Text Notes 22050 15300 0    50   ~ 0
-GND
-Text Notes 22050 15400 0    50   ~ 0
-EN
-Text Notes 22050 15500 0    50   ~ 0
-G0
-Text Notes 22050 15600 0    50   ~ 0
-SCK
-Text Notes 22050 15700 0    50   ~ 0
-MISO
-Text Notes 22050 15800 0    50   ~ 0
-MOSI
-Text Notes 22050 15900 0    50   ~ 0
-CS
-Text Notes 22050 16000 0    50   ~ 0
-RST
-Text Notes 22500 15200 0    50   ~ 0
-G1
-Text Notes 22500 15300 0    50   ~ 0
-G2
-Text Notes 22500 15400 0    50   ~ 0
-G3
-Text Notes 22500 15500 0    50   ~ 0
-G4
-Text Notes 22500 15600 0    50   ~ 0
-G5
-Text Notes 22000 16250 0    50   ~ 0
-<-------->\n   1.0 inches
-$Comp
 L Connector:Conn_01x09_Female J1
 U 1 1 601506B5
 P 17600 15600
@@ -1397,10 +1345,10 @@ F 3 "~" H 17600 15600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:+3.3V #PWR?
+L power:+3.3V #PWR012
 U 1 1 6015337B
 P 21050 15050
-F 0 "#PWR?" H 21050 14900 50  0001 C CNN
+F 0 "#PWR012" H 21050 14900 50  0001 C CNN
 F 1 "+3.3V" H 21065 15223 50  0000 C CNN
 F 2 "" H 21050 15050 50  0001 C CNN
 F 3 "" H 21050 15050 50  0001 C CNN
@@ -1412,10 +1360,10 @@ Wire Wire Line
 Wire Wire Line
 	21050 15200 21050 15050
 $Comp
-L power:GND #PWR?
+L power:GND #PWR013
 U 1 1 6015D6E7
 P 21050 15450
-F 0 "#PWR?" H 21050 15200 50  0001 C CNN
+F 0 "#PWR013" H 21050 15200 50  0001 C CNN
 F 1 "GND" H 21055 15277 50  0000 C CNN
 F 2 "" H 21050 15450 50  0001 C CNN
 F 3 "" H 21050 15450 50  0001 C CNN
@@ -1438,11 +1386,11 @@ Text GLabel 21800 16000 0    50   Input ~ 0
 RST_RFM9X
 Text GLabel 21800 15500 0    50   Input ~ 0
 G0_RFM9X
-NoConn ~ 22850 15200
-NoConn ~ 22850 15300
-NoConn ~ 22850 15400
-NoConn ~ 22850 15500
-NoConn ~ 22850 15600
+NoConn ~ 22800 15200
+NoConn ~ 22800 15300
+NoConn ~ 22800 15400
+NoConn ~ 22800 15500
+NoConn ~ 22800 15600
 NoConn ~ 21800 15400
 Text GLabel 26650 6800 0    50   Input ~ 0
 SCK_RFM9X
@@ -1468,4 +1416,15 @@ Wire Wire Line
 	29700 6700 30400 6700
 Wire Wire Line
 	27400 6800 26650 6800
+$Comp
+L preferred_parts:RFM9X_header J2
+U 1 1 600F89FB
+P 22300 15100
+F 0 "J2" H 22300 15225 50  0000 C CNN
+F 1 "RFM9X_header" H 22300 15134 50  0000 C CNN
+F 2 "footprints:RFM9X_header" H 22100 15100 50  0001 C CNN
+F 3 "https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/downloads" H 22100 15100 50  0001 C CNN
+	1    22300 15100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
