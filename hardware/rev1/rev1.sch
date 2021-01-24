@@ -900,23 +900,23 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Male BMS_CONN1
 U 1 1 60257B5B
-P 28150 18350
-F 0 "BMS_CONN1" V 28212 18394 50  0000 L CNN
-F 1 "Conn_01x02_Male" V 28303 18394 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 28150 18350 50  0001 C CNN
-F 3 "~" H 28150 18350 50  0001 C CNN
-	1    28150 18350
+P 28050 10450
+F 0 "BMS_CONN1" V 28112 10494 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 28203 10494 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 28050 10450 50  0001 C CNN
+F 3 "~" H 28050 10450 50  0001 C CNN
+	1    28050 10450
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GNDPWR #PWR04
 U 1 1 6025A133
-P 28300 18750
-F 0 "#PWR04" H 28300 18550 50  0001 C CNN
-F 1 "GNDPWR" H 28304 18596 50  0000 C CNN
-F 2 "" H 28300 18700 50  0001 C CNN
-F 3 "" H 28300 18700 50  0001 C CNN
-	1    28300 18750
+P 28200 10850
+F 0 "#PWR04" H 28200 10650 50  0001 C CNN
+F 1 "GNDPWR" H 28204 10696 50  0000 C CNN
+F 2 "" H 28200 10800 50  0001 C CNN
+F 3 "" H 28200 10800 50  0001 C CNN
+	1    28200 10850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -930,25 +930,14 @@ F 3 "" H 20150 2750 50  0001 C CNN
 	1    20150 2750
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR03
-U 1 1 6025DE3B
-P 27900 18750
-F 0 "#PWR03" H 27900 18600 50  0001 C CNN
-F 1 "+3.3V" H 27915 18923 50  0000 C CNN
-F 2 "" H 27900 18750 50  0001 C CNN
-F 3 "" H 27900 18750 50  0001 C CNN
-	1    27900 18750
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
-	27900 18750 28050 18750
+	27800 10850 27950 10850
 Wire Wire Line
-	28050 18750 28050 18550
+	27950 10850 27950 10650
 Wire Wire Line
-	28150 18550 28150 18750
+	28050 10650 28050 10850
 Wire Wire Line
-	28150 18750 28300 18750
+	28050 10850 28200 10850
 NoConn ~ 29700 6300
 NoConn ~ 27400 4300
 NoConn ~ 27400 4400
@@ -1138,7 +1127,7 @@ Text GLabel 4800 15750 0    50   Input ~ 0
 SCL_TEENSY
 Text Notes 7400 2300 0    50   ~ 0
 These pull-up resistors (R3 and R4) should arguably be\nin a separate location on the schematic, as they affect\nthe entire I2C bus, not just the BNO055
-Text Notes 26850 17850 0    200  ~ 0
+Text Notes 26750 9950 0    200  ~ 0
 POWER INPUT from BMS
 Connection ~ 18400 15200
 Wire Wire Line
@@ -1398,9 +1387,9 @@ Text GLabel 26650 4100 0    50   Input ~ 0
 MISO_RFM9X
 Text GLabel 26650 4000 0    50   Input ~ 0
 MOSI_RFM9X
-Text GLabel 30400 6700 2    50   Input ~ 0
-CS_RFM9X
 Text GLabel 30400 6600 2    50   Input ~ 0
+CS_RFM9X
+Text GLabel 30400 6700 2    50   Input ~ 0
 RST_RFM9X
 Text GLabel 26650 3100 0    50   Input ~ 0
 G0_RFM9X
@@ -1427,4 +1416,19 @@ F 3 "https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-pac
 	1    22300 15100
 	1    0    0    -1  
 $EndComp
+Text GLabel 31550 3900 3    39   Input ~ 0
+VIN_TEENSY
+$Comp
+L power:+3.3V #PWR?
+U 1 1 6014F363
+P 31350 3700
+F 0 "#PWR?" H 31350 3550 50  0001 C CNN
+F 1 "+3.3V" H 31365 3873 50  0000 C CNN
+F 2 "" H 31350 3700 50  0001 C CNN
+F 3 "" H 31350 3700 50  0001 C CNN
+	1    31350 3700
+	1    0    0    -1  
+$EndComp
+Text GLabel 31150 3900 3    50   Input ~ 0
+3.3VBMS
 $EndSCHEMATC
