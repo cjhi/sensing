@@ -591,7 +591,6 @@ Wire Wire Line
 Connection ~ 2200 8450
 Wire Wire Line
 	4200 8550 4200 8400
-Connection ~ 4200 8400
 $Comp
 L rev1-rescue:BNO055_BNO055-bno055 U1
 U 1 1 5F88CBB6
@@ -625,8 +624,6 @@ Text GLabel 27400 3900 0    50   Input ~ 0
 nBOOT_LOAD_PIN
 Text GLabel 27400 3600 0    50   Input ~ 0
 COM3
-Text GLabel 21600 2750 1    39   Input ~ 0
-3.3V_TEENSY
 $Comp
 L power:+3.3V #PWR0110
 U 1 1 5FA181ED
@@ -641,15 +638,6 @@ $EndComp
 Connection ~ 16600 2500
 Wire Wire Line
 	16600 2350 16600 2500
-Wire Wire Line
-	21600 2850 21600 2750
-Connection ~ 20950 2850
-Wire Wire Line
-	20950 2850 21600 2850
-Wire Wire Line
-	4200 8400 4750 8400
-Wire Wire Line
-	4750 8400 4750 8250
 $Comp
 L preferred_parts:Crystal_32kHz768 Y1
 U 1 1 6002B9D1
@@ -1357,10 +1345,10 @@ F 3 "https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-pac
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR?
+L power:+3.3V #PWR0114
 U 1 1 6014F363
 P 29750 10900
-F 0 "#PWR?" H 29750 10750 50  0001 C CNN
+F 0 "#PWR0114" H 29750 10750 50  0001 C CNN
 F 1 "+3.3V" H 29765 11073 50  0000 C CNN
 F 2 "" H 29750 10900 50  0001 C CNN
 F 3 "" H 29750 10900 50  0001 C CNN
@@ -1368,10 +1356,10 @@ F 3 "" H 29750 10900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x03_Male J?
+L Connector:Conn_01x03_Male J3
 U 1 1 6017224C
 P 29750 11600
-F 0 "J?" V 29904 11412 50  0000 R CNN
+F 0 "J3" V 29904 11412 50  0000 R CNN
 F 1 "Conn_01x03_Male" V 29813 11412 50  0000 R CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 29750 11600 50  0001 C CNN
 F 3 "~" H 29750 11600 50  0001 C CNN
@@ -1402,10 +1390,10 @@ Connection ~ 3750 8400
 Wire Wire Line
 	3750 8400 4200 8400
 $Comp
-L power:+3.3V #PWR?
+L power:+3.3V #PWR0115
 U 1 1 601B063E
 P 17650 3350
-F 0 "#PWR?" H 17650 3200 50  0001 C CNN
+F 0 "#PWR0115" H 17650 3200 50  0001 C CNN
 F 1 "+3.3V" H 17665 3523 50  0000 C CNN
 F 2 "" H 17650 3350 50  0001 C CNN
 F 3 "" H 17650 3350 50  0001 C CNN
@@ -1420,8 +1408,6 @@ Wire Wire Line
 	17850 3350 17650 3350
 Wire Wire Line
 	20150 2850 20950 2850
-Text GLabel 4750 8250 1    39   Input ~ 0
-3.3V_TEENSY
 Text GLabel 27400 4200 0    39   Input ~ 0
 3.3V_TEENSY
 Text GLabel 30050 11150 2    39   Input ~ 0
@@ -1429,10 +1415,10 @@ Text GLabel 30050 11150 2    39   Input ~ 0
 Text GLabel 27000 11200 3    50   Input ~ 0
 3.3VBMS
 $Comp
-L power:+3.3V #PWR?
+L power:+3.3V #PWR0116
 U 1 1 601CF88A
 P 28450 11000
-F 0 "#PWR?" H 28450 10850 50  0001 C CNN
+F 0 "#PWR0116" H 28450 10850 50  0001 C CNN
 F 1 "+3.3V" H 28465 11173 50  0000 C CNN
 F 2 "" H 28450 11000 50  0001 C CNN
 F 3 "" H 28450 11000 50  0001 C CNN
