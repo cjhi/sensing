@@ -1390,8 +1390,8 @@ Wire Wire Line
 	29850 11150 30050 11150
 Wire Wire Line
 	29750 11400 29750 10900
-Text Notes 29050 10550 0    50   ~ 0
-3-way switch\nControlled by bridging two of the headers
+Text Notes 29050 10600 0    50   ~ 0
+3-way switch\nControlled by bridging two of the headers\nDetermines whether the power rail is connected to the\n3.3V pin on the teensy
 Wire Wire Line
 	2400 2350 2400 2950
 Wire Wire Line
@@ -1445,4 +1445,8 @@ Text GLabel 28450 11200 3    50   Input ~ 0
 3.3VBMS
 Wire Wire Line
 	28450 11200 28450 11000
+Text Notes 27550 11850 0    50   ~ 0
+BMS 3.3V pin always connected to the power rail
+Text Notes 26700 10500 0    50   ~ 0
+Power input from BMS via two headers
 $EndSCHEMATC

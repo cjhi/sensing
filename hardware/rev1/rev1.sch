@@ -1367,8 +1367,6 @@ F 3 "" H 29750 10900 50  0001 C CNN
 	1    29750 10900
 	1    0    0    -1  
 $EndComp
-Text GLabel 29450 11150 0    50   Input ~ 0
-3.3VBMS
 $Comp
 L Connector:Conn_01x03_Male J?
 U 1 1 6017224C
@@ -1449,4 +1447,5 @@ Text Notes 27550 11850 0    50   ~ 0
 BMS 3.3V pin always connected to the power rail
 Text Notes 26700 10500 0    50   ~ 0
 Power input from BMS via two headers
+NoConn ~ 29450 11150
 $EndSCHEMATC
