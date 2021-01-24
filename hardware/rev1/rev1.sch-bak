@@ -591,7 +591,6 @@ Wire Wire Line
 Connection ~ 2200 8450
 Wire Wire Line
 	4200 8550 4200 8400
-Connection ~ 4200 8400
 $Comp
 L rev1-rescue:BNO055_BNO055-bno055 U1
 U 1 1 5F88CBB6
@@ -625,8 +624,6 @@ Text GLabel 27400 3900 0    50   Input ~ 0
 nBOOT_LOAD_PIN
 Text GLabel 27400 3600 0    50   Input ~ 0
 COM3
-Text GLabel 21600 2750 1    39   Input ~ 0
-3.3V_TEENSY
 $Comp
 L power:+3.3V #PWR0110
 U 1 1 5FA181ED
@@ -641,15 +638,6 @@ $EndComp
 Connection ~ 16600 2500
 Wire Wire Line
 	16600 2350 16600 2500
-Wire Wire Line
-	21600 2850 21600 2750
-Connection ~ 20950 2850
-Wire Wire Line
-	20950 2850 21600 2850
-Wire Wire Line
-	4200 8400 4750 8400
-Wire Wire Line
-	4750 8400 4750 8250
 $Comp
 L preferred_parts:Crystal_32kHz768 Y1
 U 1 1 6002B9D1
@@ -847,17 +835,6 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 27250 10800 5
 F 3 "~" H 27250 10800 50  0001 C CNN
 	1    27250 10800
 	0    1    1    0   
-$EndComp
-$Comp
-L power:GNDPWR #PWR04
-U 1 1 6025A133
-P 27400 11200
-F 0 "#PWR04" H 27400 11000 50  0001 C CNN
-F 1 "GNDPWR" H 27404 11046 50  0000 C CNN
-F 2 "" H 27400 11150 50  0001 C CNN
-F 3 "" H 27400 11150 50  0001 C CNN
-	1    27400 11200
-	1    0    0    -1  
 $EndComp
 $Comp
 L power:+3.3V #PWR0103
@@ -1420,8 +1397,6 @@ Wire Wire Line
 	17850 3350 17650 3350
 Wire Wire Line
 	20150 2850 20950 2850
-Text GLabel 4750 8250 1    39   Input ~ 0
-3.3V_TEENSY
 Text GLabel 27400 4200 0    39   Input ~ 0
 3.3V_TEENSY
 Text GLabel 30050 11150 2    39   Input ~ 0
@@ -1448,4 +1423,68 @@ BMS 3.3V pin always connected to the power rail
 Text Notes 26700 10500 0    50   ~ 0
 Power input from BMS via two headers
 NoConn ~ 29450 11150
+$Comp
+L power:+3.3V #PWR?
+U 1 1 60232568
+P 31350 11900
+F 0 "#PWR?" H 31350 11750 50  0001 C CNN
+F 1 "+3.3V" H 31365 12073 50  0000 C CNN
+F 2 "" H 31350 11900 50  0001 C CNN
+F 3 "" H 31350 11900 50  0001 C CNN
+	1    31350 11900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	31250 12400 31250 12150
+Wire Wire Line
+	31250 12150 31050 12150
+Wire Wire Line
+	31450 12400 31450 12150
+Wire Wire Line
+	31450 12150 31650 12150
+Text GLabel 31650 12150 2    39   Input ~ 0
+3.3V_TEENSY
+$Comp
+L Connector:Conn_01x04_Male J?
+U 1 1 6022E657
+P 31250 12600
+F 0 "J?" V 31404 12312 50  0000 R CNN
+F 1 "Conn_01x04_Male" V 31313 12312 50  0000 R CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 31250 12600 50  0001 C CNN
+F 3 "~" H 31250 12600 50  0001 C CNN
+	1    31250 12600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60246ABA
+P 27400 11200
+F 0 "#PWR?" H 27400 10950 50  0001 C CNN
+F 1 "GND" H 27405 11027 50  0000 C CNN
+F 2 "" H 27400 11200 50  0001 C CNN
+F 3 "" H 27400 11200 50  0001 C CNN
+	1    27400 11200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60247E39
+P 30650 12400
+F 0 "#PWR?" H 30650 12150 50  0001 C CNN
+F 1 "GND" H 30655 12227 50  0000 C CNN
+F 2 "" H 30650 12400 50  0001 C CNN
+F 3 "" H 30650 12400 50  0001 C CNN
+	1    30650 12400
+	1    0    0    -1  
+$EndComp
+Text GLabel 31050 12150 0    50   Input ~ 0
+3.3VBMS
+Wire Wire Line
+	31150 12400 31150 12300
+Wire Wire Line
+	31150 12300 30650 12300
+Wire Wire Line
+	30650 12300 30650 12400
+Wire Wire Line
+	31350 11900 31350 12400
 $EndSCHEMATC

@@ -837,17 +837,6 @@ F 3 "~" H 27250 10800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GNDPWR #PWR04
-U 1 1 6025A133
-P 27400 11200
-F 0 "#PWR04" H 27400 11000 50  0001 C CNN
-F 1 "GNDPWR" H 27404 11046 50  0000 C CNN
-F 2 "" H 27400 11150 50  0001 C CNN
-F 3 "" H 27400 11150 50  0001 C CNN
-	1    27400 11200
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+3.3V #PWR0103
 U 1 1 60279C5C
 P 20150 2750
@@ -1434,4 +1423,15 @@ BMS 3.3V pin always connected to the power rail
 Text Notes 26700 10500 0    50   ~ 0
 Power input from BMS via two headers
 NoConn ~ 29450 11150
+$Comp
+L power:GND #PWR?
+U 1 1 60246ABA
+P 27400 11200
+F 0 "#PWR?" H 27400 10950 50  0001 C CNN
+F 1 "GND" H 27405 11027 50  0000 C CNN
+F 2 "" H 27400 11200 50  0001 C CNN
+F 3 "" H 27400 11200 50  0001 C CNN
+	1    27400 11200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
