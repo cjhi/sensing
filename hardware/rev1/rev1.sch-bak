@@ -94,8 +94,6 @@ Wire Wire Line
 	17500 3050 17950 3050
 Wire Wire Line
 	16600 3050 16600 3200
-Text GLabel 17950 3250 0    50   Input ~ 0
-VDDIO
 $Comp
 L power:GNDPWR #PWR0101
 U 1 1 5FA0E6D7
@@ -150,8 +148,6 @@ Wire Wire Line
 Connection ~ 17600 2750
 Wire Wire Line
 	17600 2750 17500 2750
-Text GLabel 20550 2750 1    50   Input ~ 0
-VDDIO
 $Comp
 L Connector:TestPoint VDD2
 U 1 1 60279C64
@@ -177,11 +173,6 @@ $EndComp
 Wire Wire Line
 	20150 3000 20550 3000
 Wire Wire Line
-	20150 2850 20550 2850
-Wire Wire Line
-	20550 2750 20550 2850
-Connection ~ 20550 2850
-Wire Wire Line
 	20550 3100 20550 3000
 Connection ~ 20550 3000
 Wire Wire Line
@@ -200,30 +191,7 @@ Wire Wire Line
 	3200 5200 2850 5200
 Connection ~ 3200 5200
 Wire Wire Line
-	3850 8400 3650 8400
-Connection ~ 3850 8400
-Wire Wire Line
-	3850 8450 3850 8400
-Wire Wire Line
-	3750 8450 3850 8450
-Wire Wire Line
-	3750 8550 3750 8450
-Wire Wire Line
-	4200 8400 3850 8400
-Wire Wire Line
-	3650 8400 3300 8400
-Connection ~ 3650 8400
-Wire Wire Line
-	3650 8350 3650 8400
-Wire Wire Line
-	3750 8350 3650 8350
-Wire Wire Line
-	3750 8250 3750 8350
-Connection ~ 3300 8400
-Wire Wire Line
 	3300 8400 3300 8250
-Wire Wire Line
-	3300 8400 3300 8550
 $Comp
 L power:GND #PWR0106
 U 1 1 5FED4AD2
@@ -235,10 +203,6 @@ F 3 "" H 2200 8550 50  0001 C CNN
 	1    2200 8550
 	1    0    0    -1  
 $EndComp
-Text GLabel 3750 8550 3    50   Input ~ 0
-VDD
-Text GLabel 3300 8550 3    50   Input ~ 0
-VDDIO
 $Comp
 L power:VDD #PWR0105
 U 1 1 5FED364A
@@ -310,20 +274,6 @@ F 3 "" H 2400 2350 50  0001 C CNN
 	1    2400 2350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2400 2450 2400 2350
-Connection ~ 2400 2450
-Wire Wire Line
-	2750 2450 2400 2450
-Text GLabel 2750 2450 2    50   Input ~ 0
-VDDIO
-Wire Wire Line
-	3500 2450 3500 2350
-Connection ~ 3500 2450
-Wire Wire Line
-	3850 2450 3500 2450
-Text GLabel 3850 2450 2    50   Input ~ 0
-VDD
 Text GLabel 1450 5200 3    50   Input ~ 0
 nBOOT_LOAD_PIN
 Text GLabel 1800 7550 0    50   Input ~ 0
@@ -661,8 +611,6 @@ Text Notes 17700 4300 0    50   ~ 0
 Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
 Text Label 27400 2800 2    118  ~ 0
 GND
-Text GLabel 27400 4200 0    39   Input ~ 0
-VIN_TEENSY
 Text GLabel 10200 7300 2    50   Input ~ 0
 INT_BNO055
 Text GLabel 27400 3400 0    50   Input ~ 0
@@ -678,7 +626,7 @@ nBOOT_LOAD_PIN
 Text GLabel 27400 3600 0    50   Input ~ 0
 COM3
 Text GLabel 21600 2750 1    39   Input ~ 0
-VIN_TEENSY
+3.3V_TEENSY
 $Comp
 L power:+3.3V #PWR0110
 U 1 1 5FA181ED
@@ -695,8 +643,6 @@ Wire Wire Line
 	16600 2350 16600 2500
 Wire Wire Line
 	21600 2850 21600 2750
-Wire Wire Line
-	20550 2850 20950 2850
 Connection ~ 20950 2850
 Wire Wire Line
 	20950 2850 21600 2850
@@ -704,8 +650,6 @@ Wire Wire Line
 	4200 8400 4750 8400
 Wire Wire Line
 	4750 8400 4750 8250
-Text GLabel 4750 8250 1    39   Input ~ 0
-VIN_TEENSY
 $Comp
 L preferred_parts:Crystal_32kHz768 Y1
 U 1 1 6002B9D1
@@ -866,10 +810,6 @@ NoConn ~ 29700 3000
 NoConn ~ 29700 2900
 NoConn ~ 29700 2800
 Wire Wire Line
-	3500 2450 3500 3500
-Wire Wire Line
-	2400 2450 2400 2950
-Wire Wire Line
 	6800 6950 7500 6950
 Wire Wire Line
 	9600 5400 9600 6950
@@ -900,23 +840,23 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Male BMS_CONN1
 U 1 1 60257B5B
-P 28150 18350
-F 0 "BMS_CONN1" V 28212 18394 50  0000 L CNN
-F 1 "Conn_01x02_Male" V 28303 18394 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 28150 18350 50  0001 C CNN
-F 3 "~" H 28150 18350 50  0001 C CNN
-	1    28150 18350
+P 27250 10800
+F 0 "BMS_CONN1" V 27312 10844 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 27403 10844 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 27250 10800 50  0001 C CNN
+F 3 "~" H 27250 10800 50  0001 C CNN
+	1    27250 10800
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GNDPWR #PWR04
 U 1 1 6025A133
-P 28300 18750
-F 0 "#PWR04" H 28300 18550 50  0001 C CNN
-F 1 "GNDPWR" H 28304 18596 50  0000 C CNN
-F 2 "" H 28300 18700 50  0001 C CNN
-F 3 "" H 28300 18700 50  0001 C CNN
-	1    28300 18750
+P 27400 11200
+F 0 "#PWR04" H 27400 11000 50  0001 C CNN
+F 1 "GNDPWR" H 27404 11046 50  0000 C CNN
+F 2 "" H 27400 11150 50  0001 C CNN
+F 3 "" H 27400 11150 50  0001 C CNN
+	1    27400 11200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -930,25 +870,14 @@ F 3 "" H 20150 2750 50  0001 C CNN
 	1    20150 2750
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3.3V #PWR03
-U 1 1 6025DE3B
-P 27900 18750
-F 0 "#PWR03" H 27900 18600 50  0001 C CNN
-F 1 "+3.3V" H 27915 18923 50  0000 C CNN
-F 2 "" H 27900 18750 50  0001 C CNN
-F 3 "" H 27900 18750 50  0001 C CNN
-	1    27900 18750
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
-	27900 18750 28050 18750
+	27000 11200 27150 11200
 Wire Wire Line
-	28050 18750 28050 18550
+	27150 11200 27150 11000
 Wire Wire Line
-	28150 18550 28150 18750
+	27250 11000 27250 11200
 Wire Wire Line
-	28150 18750 28300 18750
+	27250 11200 27400 11200
 NoConn ~ 29700 6300
 NoConn ~ 27400 4300
 NoConn ~ 27400 4400
@@ -1138,7 +1067,7 @@ Text GLabel 4800 15750 0    50   Input ~ 0
 SCL_TEENSY
 Text Notes 7400 2300 0    50   ~ 0
 These pull-up resistors (R3 and R4) should arguably be\nin a separate location on the schematic, as they affect\nthe entire I2C bus, not just the BNO055
-Text Notes 26850 17850 0    200  ~ 0
+Text Notes 26800 10250 0    200  ~ 0
 POWER INPUT from BMS
 Connection ~ 18400 15200
 Wire Wire Line
@@ -1339,7 +1268,7 @@ U 1 1 601506B5
 P 17600 15600
 F 0 "J1" H 17492 14975 50  0000 C CNN
 F 1 "Conn_01x09_Female" H 17492 15066 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 17600 15600 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x09_P2.54mm_Vertical" H 17600 15600 50  0001 C CNN
 F 3 "~" H 17600 15600 50  0001 C CNN
 	1    17600 15600
 	-1   0    0    1   
@@ -1427,4 +1356,93 @@ F 3 "https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-pac
 	1    22300 15100
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 6014F363
+P 29750 10900
+F 0 "#PWR?" H 29750 10750 50  0001 C CNN
+F 1 "+3.3V" H 29765 11073 50  0000 C CNN
+F 2 "" H 29750 10900 50  0001 C CNN
+F 3 "" H 29750 10900 50  0001 C CNN
+	1    29750 10900
+	1    0    0    -1  
+$EndComp
+Text GLabel 29450 11150 0    50   Input ~ 0
+3.3VBMS
+$Comp
+L Connector:Conn_01x03_Male J?
+U 1 1 6017224C
+P 29750 11600
+F 0 "J?" V 29904 11412 50  0000 R CNN
+F 1 "Conn_01x03_Male" V 29813 11412 50  0000 R CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 29750 11600 50  0001 C CNN
+F 3 "~" H 29750 11600 50  0001 C CNN
+	1    29750 11600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	29650 11400 29650 11150
+Wire Wire Line
+	29650 11150 29450 11150
+Wire Wire Line
+	29850 11400 29850 11150
+Wire Wire Line
+	29850 11150 30050 11150
+Wire Wire Line
+	29750 11400 29750 10900
+Text Notes 29050 10550 0    50   ~ 0
+3-way switch\nControlled by bridging two of the headers
+Wire Wire Line
+	2400 2350 2400 2950
+Wire Wire Line
+	3500 2350 3500 3500
+Wire Wire Line
+	3300 8400 3750 8400
+Wire Wire Line
+	3750 8250 3750 8400
+Connection ~ 3750 8400
+Wire Wire Line
+	3750 8400 4200 8400
+$Comp
+L power:+3.3V #PWR?
+U 1 1 601B063E
+P 17650 3350
+F 0 "#PWR?" H 17650 3200 50  0001 C CNN
+F 1 "+3.3V" H 17665 3523 50  0000 C CNN
+F 2 "" H 17650 3350 50  0001 C CNN
+F 3 "" H 17650 3350 50  0001 C CNN
+	1    17650 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	17950 3250 17850 3250
+Wire Wire Line
+	17850 3250 17850 3350
+Wire Wire Line
+	17850 3350 17650 3350
+Wire Wire Line
+	20150 2850 20950 2850
+Text GLabel 4750 8250 1    39   Input ~ 0
+3.3V_TEENSY
+Text GLabel 27400 4200 0    39   Input ~ 0
+3.3V_TEENSY
+Text GLabel 30050 11150 2    39   Input ~ 0
+3.3V_TEENSY
+Text GLabel 27000 11200 3    50   Input ~ 0
+3.3VBMS
+$Comp
+L power:+3.3V #PWR?
+U 1 1 601CF88A
+P 28450 11000
+F 0 "#PWR?" H 28450 10850 50  0001 C CNN
+F 1 "+3.3V" H 28465 11173 50  0000 C CNN
+F 2 "" H 28450 11000 50  0001 C CNN
+F 3 "" H 28450 11000 50  0001 C CNN
+	1    28450 11000
+	1    0    0    -1  
+$EndComp
+Text GLabel 28450 11200 3    50   Input ~ 0
+3.3VBMS
+Wire Wire Line
+	28450 11200 28450 11000
 $EndSCHEMATC
