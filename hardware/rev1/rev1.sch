@@ -1560,4 +1560,9 @@ Wire Wire Line
 Wire Wire Line
 	21450 11200 21450 12150
 Connection ~ 24650 11200
+Text GLabel 26550 13250 0    50   Input ~ 0
+3.3VBMS
+Wire Wire Line
+	26700 13250 26550 13250
+Connection ~ 26700 13250
 $EndSCHEMATC
