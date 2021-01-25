@@ -1349,7 +1349,7 @@ U 1 1 6017224C
 P 29750 11600
 F 0 "J3" V 29904 11412 50  0000 R CNN
 F 1 "Conn_01x03_Male" V 29813 11412 50  0000 R CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical" H 29750 11600 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 29750 11600 50  0001 C CNN
 F 3 "~" H 29750 11600 50  0001 C CNN
 	1    29750 11600
 	0    -1   -1   0   

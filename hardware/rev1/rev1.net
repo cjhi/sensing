@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\Users\ieykamp\Documents\KiCAD\Olin_Rocketry\sensing\hardware\rev1\rev1.sch)
-    (date "1/24/2021 10:42:29 PM")
+    (date "01/24/21 23:19:37")
     (tool "Eeschema (5.1.7)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -289,7 +289,7 @@
       (tstamp 600F89FB))
     (comp (ref J3)
       (value Conn_01x03_Male)
-      (footprint Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical)
+      (footprint Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical)
       (datasheet ~)
       (libsource (lib Connector) (part Conn_01x03_Male) (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
