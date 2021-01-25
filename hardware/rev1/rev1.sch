@@ -855,7 +855,6 @@ Wire Wire Line
 	27250 11000 27250 11200
 Wire Wire Line
 	27250 11200 27400 11200
-NoConn ~ 29700 6300
 NoConn ~ 27400 4300
 NoConn ~ 27400 4400
 $Comp
@@ -1424,14 +1423,48 @@ Text Notes 26700 10500 0    50   ~ 0
 Power input from BMS via two headers
 NoConn ~ 29450 11150
 $Comp
-L power:GND #PWR?
+L power:GND #PWR04
 U 1 1 60246ABA
 P 27400 11200
-F 0 "#PWR?" H 27400 10950 50  0001 C CNN
+F 0 "#PWR04" H 27400 10950 50  0001 C CNN
 F 1 "GND" H 27405 11027 50  0000 C CNN
 F 2 "" H 27400 11200 50  0001 C CNN
 F 3 "" H 27400 11200 50  0001 C CNN
 	1    27400 11200
 	1    0    0    -1  
 $EndComp
+Text GLabel 29700 6300 2    50   Input ~ 0
+VIN_5V
+Text Notes 30050 6350 0    50   ~ 0
+5V out when powered by USB;\n3.3V in when powered by BMS
+Text GLabel 26000 11550 3    50   Input ~ 0
+VIN_5V
+$Comp
+L power:+3.3V #PWR03
+U 1 1 6027438B
+P 26000 10750
+F 0 "#PWR03" H 26000 10600 50  0001 C CNN
+F 1 "+3.3V" H 26015 10923 50  0000 C CNN
+F 2 "" H 26000 10750 50  0001 C CNN
+F 3 "" H 26000 10750 50  0001 C CNN
+	1    26000 10750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D1
+U 1 1 60275618
+P 26000 11150
+F 0 "D1" V 26046 11070 50  0000 R CNN
+F 1 "D" V 25955 11070 50  0000 R CNN
+F 2 "footprints:D_0805_OEM" H 26000 11150 50  0001 C CNN
+F 3 "~" H 26000 11150 50  0001 C CNN
+	1    26000 11150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	26000 10750 26000 11000
+Wire Wire Line
+	26000 11300 26000 11550
+Text Notes 24350 11200 0    50   ~ 0
+power can only flow into the Teensy,\nnot out of the 5V pin
 $EndSCHEMATC
