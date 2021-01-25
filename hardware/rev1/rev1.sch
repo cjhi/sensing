@@ -1337,77 +1337,18 @@ Text GLabel 27400 4200 0    39   Input ~ 0
 Text GLabel 30050 11150 2    39   Input ~ 0
 3.3V_TEENSY
 NoConn ~ 29450 11150
-$Comp
-L Device:D D1
-U 1 1 60275618
-P 24650 11450
-F 0 "D1" V 24696 11370 50  0000 R CNN
-F 1 "D" V 24605 11370 50  0000 R CNN
-F 2 "footprints:D_0805_OEM" H 24650 11450 50  0001 C CNN
-F 3 "~" H 24650 11450 50  0001 C CNN
-	1    24650 11450
-	0    -1   -1   0   
-$EndComp
-Text Notes 23000 12100 0    50   ~ 0
-power can only flow into the Teensy,\nnot out of the 5V pin
 NoConn ~ 17800 15400
 Wire Wire Line
 	18400 15050 18400 15900
 NoConn ~ 17800 15200
 Text Notes 28500 5850 0    50   ~ 0
 TX\n\nRX
-$Comp
-L Connector:Conn_01x04_Male BMS_CONN1
-U 1 1 602BDAB1
-P 25200 10650
-F 0 "BMS_CONN1" V 25262 10794 50  0000 L CNN
-F 1 "Conn_01x04_Male" V 25353 10794 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 25200 10650 50  0001 C CNN
-F 3 "~" H 25200 10650 50  0001 C CNN
-	1    25200 10650
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR04
-U 1 1 602C00BA
-P 25650 11350
-F 0 "#PWR04" H 25650 11100 50  0001 C CNN
-F 1 "GND" H 25655 11177 50  0000 C CNN
-F 2 "" H 25650 11350 50  0001 C CNN
-F 3 "" H 25650 11350 50  0001 C CNN
-	1    25650 11350
-	1    0    0    -1  
-$EndComp
-Text GLabel 24650 11850 3    50   Input ~ 0
-BMS_to_Teensy
-Wire Wire Line
-	25200 10850 25200 11000
-Wire Wire Line
-	25100 10850 25100 11000
-Text GLabel 25100 11000 3    50   Input ~ 0
-BMS_to_sensors_backup
-Text GLabel 25200 11000 3    50   Input ~ 0
-BMS_to_sensors
 Text Notes 25800 5800 0    50   ~ 0
 (GPS) RX -> TX (Teensy)\n(GPS) TX -> RX (Teensy)\n
 Text Notes 30400 6350 0    50   ~ 0
 5V out when powered by USB;\n3.3V in when powered by BMS
 Text GLabel 29700 6300 2    50   Input ~ 0
 BMS_to_Teensy
-Wire Wire Line
-	24650 11850 24650 11600
-Wire Wire Line
-	25000 11200 24650 11200
-Wire Wire Line
-	24650 11200 24650 11300
-Wire Wire Line
-	25000 10850 25000 11200
-Wire Wire Line
-	25300 10850 25300 11200
-Wire Wire Line
-	25300 11200 25650 11200
-Wire Wire Line
-	25650 11350 25650 11200
 $Comp
 L Device:Q_PNP_BCE Q1
 U 1 1 60396DCD
@@ -1509,4 +1450,114 @@ F 3 "" H 3500 2350 50  0001 C CNN
 	1    3500 2350
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	25650 11350 25650 11200
+Wire Wire Line
+	25300 11200 25650 11200
+Wire Wire Line
+	25300 10850 25300 11200
+Wire Wire Line
+	25000 10850 25000 11200
+Wire Wire Line
+	24650 11200 24650 11300
+Wire Wire Line
+	25000 11200 24650 11200
+Wire Wire Line
+	24650 11850 24650 11600
+Text GLabel 25200 11000 3    50   Input ~ 0
+BMS_to_sensors
+Text GLabel 25100 11000 3    50   Input ~ 0
+BMS_to_sensors_backup
+Wire Wire Line
+	25100 10850 25100 11000
+Wire Wire Line
+	25200 10850 25200 11000
+Text GLabel 24650 11850 3    50   Input ~ 0
+BMS_to_Teensy
+$Comp
+L power:GND #PWR04
+U 1 1 602C00BA
+P 25650 11350
+F 0 "#PWR04" H 25650 11100 50  0001 C CNN
+F 1 "GND" H 25655 11177 50  0000 C CNN
+F 2 "" H 25650 11350 50  0001 C CNN
+F 3 "" H 25650 11350 50  0001 C CNN
+	1    25650 11350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male BMS_CONN1
+U 1 1 602BDAB1
+P 25200 10650
+F 0 "BMS_CONN1" V 25262 10794 50  0000 L CNN
+F 1 "Conn_01x04_Male" V 25353 10794 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 25200 10650 50  0001 C CNN
+F 3 "~" H 25200 10650 50  0001 C CNN
+	1    25200 10650
+	0    1    1    0   
+$EndComp
+Text Notes 23000 12100 0    50   ~ 0
+power can only flow into the Teensy,\nnot out of the 5V pin
+$Comp
+L Device:D D1
+U 1 1 60275618
+P 24650 11450
+F 0 "D1" V 24696 11370 50  0000 R CNN
+F 1 "D" V 24605 11370 50  0000 R CNN
+F 2 "footprints:D_0805_OEM" H 24650 11450 50  0001 C CNN
+F 3 "~" H 24650 11450 50  0001 C CNN
+	1    24650 11450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	22450 11350 22450 11200
+Wire Wire Line
+	22100 11200 22450 11200
+Wire Wire Line
+	22100 10850 22100 11200
+Wire Wire Line
+	21800 10850 21800 11200
+Wire Wire Line
+	21800 11200 21450 11200
+Text GLabel 22000 11000 3    50   Input ~ 0
+BMS_to_sensors
+Text GLabel 21900 11000 3    50   Input ~ 0
+BMS_to_sensors_backup
+Wire Wire Line
+	21900 10850 21900 11000
+Wire Wire Line
+	22000 10850 22000 11000
+$Comp
+L power:GND #PWR015
+U 1 1 6047CFA5
+P 22450 11350
+F 0 "#PWR015" H 22450 11100 50  0001 C CNN
+F 1 "GND" H 22455 11177 50  0000 C CNN
+F 2 "" H 22450 11350 50  0001 C CNN
+F 3 "" H 22450 11350 50  0001 C CNN
+	1    22450 11350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male BMS_CONN2
+U 1 1 6047CFAF
+P 22000 10650
+F 0 "BMS_CONN2" V 22062 10794 50  0000 L CNN
+F 1 "Conn_01x04_Male" V 22153 10794 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 22000 10650 50  0001 C CNN
+F 3 "~" H 22000 10650 50  0001 C CNN
+	1    22000 10650
+	0    1    1    0   
+$EndComp
+Text Notes 19800 12100 0    50   ~ 0
+power can only flow into the Teensy,\nnot out of the 5V pin
+Wire Wire Line
+	21450 12150 22900 12150
+Wire Wire Line
+	22900 12150 22900 11200
+Wire Wire Line
+	22900 11200 24650 11200
+Wire Wire Line
+	21450 11200 21450 12150
+Connection ~ 24650 11200
 $EndSCHEMATC
