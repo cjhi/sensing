@@ -1084,9 +1084,9 @@ Text GLabel 27400 5700 0    50   Input ~ 0
 RX
 Text GLabel 27400 5800 0    50   Input ~ 0
 TX
-Text GLabel 27400 6200 0    50   Input ~ 0
-FIX
 Text GLabel 27400 5900 0    50   Input ~ 0
+FIX
+Text GLabel 27400 6000 0    50   Input ~ 0
 ENABLE_GPS
 NoConn ~ 29700 3400
 NoConn ~ 29700 3300
@@ -1179,7 +1179,7 @@ Wire Wire Line
 Connection ~ 13700 16450
 Wire Wire Line
 	13700 16450 13700 16600
-Text GLabel 27400 6000 0    50   Input ~ 0
+Text GLabel 27400 6200 0    50   Input ~ 0
 PPS
 $Comp
 L Connector:Conn_01x09_Female J1
