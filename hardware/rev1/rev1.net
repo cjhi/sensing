@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\Users\ieykamp\Documents\KiCAD\Olin_Rocketry\sensing\hardware\rev1\rev1.sch)
-    (date "01/25/21 20:00:17")
+    (date "1/26/2021 5:21:42 PM")
     (tool "Eeschema (5.1.7)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -208,7 +208,7 @@
       (tstamp 60876FE4))
     (comp (ref C13)
       (value C_100nF)
-      (footprint footprints:C_0603_1608Metric)
+      (footprint footprints:C_0805_OEM)
       (datasheet http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp)
       (fields
         (field (name MFN) DK)
@@ -219,7 +219,7 @@
       (tstamp 5FC2CC3A))
     (comp (ref C12)
       (value C_100nF)
-      (footprint footprints:C_0603_1608Metric)
+      (footprint footprints:C_0805_OEM)
       (datasheet http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp)
       (fields
         (field (name MFN) DK)
