@@ -827,7 +827,6 @@ F 3 "" H 28550 5000 60  0000 C CNN
 	1    28550 4950
 	1    0    0    -1  
 $EndComp
-NoConn ~ 27400 6100
 $Comp
 L power:+3.3V #PWR08
 U 1 1 600C34F2
@@ -1179,7 +1178,7 @@ Wire Wire Line
 Connection ~ 13700 16450
 Wire Wire Line
 	13700 16450 13700 16600
-Text GLabel 27400 6200 0    50   Input ~ 0
+Text GLabel 27400 6100 0    50   Input ~ 0
 PPS
 $Comp
 L Connector:Conn_01x09_Female J1
@@ -1565,4 +1564,5 @@ Text GLabel 26550 13250 0    50   Input ~ 0
 Wire Wire Line
 	26700 13250 26550 13250
 Connection ~ 26700 13250
+NoConn ~ 27400 6200
 $EndSCHEMATC
