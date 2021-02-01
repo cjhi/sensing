@@ -12,3 +12,9 @@ Repository for all Olin Rocketry hardware and firmware.
 **GPS:** [Digi-Key 1528-1153-ND](https://www.digikey.com/en/products/detail/adafruit-industries-llc/746/5353613?fbclid=IwAR1ChauvkCDqRjbcs71UiFv6sAsISmPYLFTHTpNuU6t7yhCKm3buREd89cU)
 
 **DataLogger:** [Adafruit MicroSD card breakout board+](https://www.adafruit.com/product/254)
+
+![full schematic](https://i.imgur.com/GOZX6sa.png)
+
+![rev1 power supply](https://i.imgur.com/p5AxTMf.png)
+
+![rev1 layout](https://i.imgur.com/rZatEaA.png)
