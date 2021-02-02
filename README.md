@@ -14,16 +14,21 @@ Repository for all Olin Rocketry hardware and firmware.
 **DataLogger:** [Adafruit MicroSD card breakout board+](https://www.adafruit.com/product/254)
 
 **Rev1 full schematic**
+
 ![rev1 full schematic](https://i.imgur.com/GOZX6sa.png)
 
 **Rev1 power supply**
+
 ![rev1 power supply](https://i.imgur.com/p5AxTMf.png)
 
 **Rev1 layout**
+
 ![rev1 layout](https://i.imgur.com/rZatEaA.png)
 
 **Rev1 3D model (front)**
+
 ![rev1 3D model front](https://i.imgur.com/OmVw67Q.png)
 
 **Rev1 3D model (back)**
+
 ![rev1 3D model back](https://i.imgur.com/AYAkt0U.png)
