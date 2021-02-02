@@ -18,3 +18,7 @@ Repository for all Olin Rocketry hardware and firmware.
 ![rev1 power supply](https://i.imgur.com/p5AxTMf.png)
 
 ![rev1 layout](https://i.imgur.com/rZatEaA.png)
+
+![rev1 3D model front](https://i.imgur.com/OmVw67Q.png)
+
+![rev1 3D model back](https://i.imgur.com/AYAkt0U.png)
