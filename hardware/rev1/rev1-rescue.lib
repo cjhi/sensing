@@ -34,6 +34,60 @@ X 4A 9 -700 0 200 R 40 40 0 0 I
 ENDDRAW
 ENDDEF
 #
+# ADXL345BCCZ-ADXL345BCCZ
+#
+DEF ADXL345BCCZ-ADXL345BCCZ U 0 40 Y Y 1 L N
+F0 "U" -800 1039 50 H V L BNN
+F1 "ADXL345BCCZ-ADXL345BCCZ" -800 -1157 50 H V L BNN
+F2 "PQFN80P300X500X100-14N" 0 0 50 H I L BNN
+F3 "" 0 0 50 H I L BNN
+DRAW
+S -800 -1000 800 1000 0 0 16 f
+X VDD_I/O 1 1000 900 200 L 40 40 0 0 W
+X NC 10 -1000 100 200 R 40 40 0 0 B
+X RESERVED 11 -1000 -100 200 R 40 40 0 0 B
+X SDO/ALT_ADDRESS 12 -1000 -500 200 R 40 40 0 0 B
+X SDA/SDI/SDIO 13 -1000 -300 200 R 40 40 0 0 B
+X SCL/SCLK 14 -1000 500 200 R 40 40 0 0 I C
+X GND 2 1000 -900 200 L 40 40 0 0 W
+X RESERVED 3 -1000 -100 200 R 40 40 0 0 B
+X GND 4 1000 -900 200 L 40 40 0 0 W
+X GND 5 1000 -900 200 L 40 40 0 0 W
+X VS 6 -1000 -700 200 R 40 40 0 0 B
+X ~CS 7 -1000 300 200 R 40 40 0 0 B
+X INT1 8 -1000 700 200 R 40 40 0 0 I
+X INT2 9 -1000 600 200 R 40 40 0 0 I
+ENDDRAW
+ENDDEF
+#
+# BMI088-preferred_parts
+#
+DEF BMI088-preferred_parts U 0 40 Y Y 1 F N
+F0 "U" -700 50 50 H V C CNN
+F1 "BMI088-preferred_parts" -600 150 50 H V C CNN
+F2 "footprints:bmi088" -100 -100 50 H I C CNN
+F3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMI088-DS001.pdf" -550 650 50 H I C CNN
+F4 "https://www.digikey.com/product-detail/en/bosch-sensortec/BMI088/828-1082-1-ND/8634942" -600 800 50 H I C CNN "Purchasing Link"
+DRAW
+S -1100 200 -50 -450 0 1 0 f
+X INT2 1 150 50 200 L 50 50 1 1 O
+X SD02 10 150 -250 200 L 50 50 1 1 I
+X VDDIO 11 -700 -650 200 U 50 50 1 1 W
+X INT3 12 150 -50 200 L 50 50 1 1 O
+X INT4 13 150 -150 200 L 50 50 1 1 O
+X CSB1 14 -1300 -100 200 R 50 50 1 1 I
+X SD01 15 150 -350 200 L 50 50 1 1 I
+X INT1 16 150 150 200 L 50 50 1 1 O
+X VDD 3 -800 -650 200 U 50 50 1 1 W
+X GNDA 4 -500 -650 200 U 50 50 1 1 W
+X CSB2 5 -1300 -200 200 R 50 50 1 1 O
+X GNDio 6 -400 -650 200 U 50 50 1 1 W
+X PS 7 -1300 -300 200 R 50 50 1 1 I
+X SCx 8 -1300 100 200 R 50 50 1 1 I
+X SDx 9 -1300 0 200 R 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
 # BNO055_BNO055-bno055
 #
 DEF BNO055_BNO055-bno055 U 0 40 Y Y 1 F N
@@ -75,6 +129,105 @@ X PIN15 ~ 1100 -1000 100 U 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
+# C_0.1uF-preferred_parts
+#
+DEF C_0.1uF-preferred_parts C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "C_0.1uF-preferred_parts" 25 -100 50 H V L CNN
+F2 "footprints:C_0805_OEM" 38 -150 50 H I C CNN
+F3 "http://datasheets.avx.com/X7RDielectric.pdf" 25 100 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "478-3352-1-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/products/en?keywords=478-3352-1-ND" 425 500 60 H I C CNN "PurchasingLink"
+$FPLIST
+ C?
+ C_????_*
+ C_????
+ SMD*_c
+ Capacitor*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# C_100nF-preferred_parts
+#
+DEF C_100nF-preferred_parts C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "C_100nF-preferred_parts" 25 -100 50 H V L CNN
+F2 "footprints:C_0603_1608Metric" 38 -150 50 H I C CNN
+F3 "http://www.samsungsem.com/kr/support/product-search/mlcc/CL10A475KQ8NNNC.jsp" 25 100 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "1276-6717-1-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B104KA8WPNC/1276-6717-1-ND/5961576" 425 500 60 H I C CNN "PurchasingLink"
+$FPLIST
+ C?
+ C_????_*
+ C_????
+ SMD*_c
+ Capacitor*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# C_1uF-preferred_parts
+#
+DEF C_1uF-preferred_parts C 0 10 N Y 1 F N
+F0 "C" 25 100 50 H V L CNN
+F1 "C_1uF-preferred_parts" 25 -100 50 H V L CNN
+F2 "footprints:C_0805_OEM" 38 -150 50 H I C CNN
+F3 "http://www.samsungsem.com/kr/support/product-search/mlcc/__icsFiles/afieldfile/2018/06/20/CL21A105KAFNNNE.pdf" 25 100 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "1276-2887-1-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21A105KAFNNNE/1276-2887-1-ND/3890973" 425 500 60 H I C CNN "PurchasingLink"
+$FPLIST
+ C?
+ C_????_*
+ C_????
+ SMD*_c
+ Capacitor*
+$ENDFPLIST
+DRAW
+P 2 0 1 20 -80 -30 80 -30 N
+P 2 0 1 20 -80 30 80 30 N
+X ~ 1 0 150 110 D 50 50 1 1 P
+X ~ 2 0 -150 110 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Crystal_32kHz768-preferred_parts
+#
+DEF Crystal_32kHz768-preferred_parts Y 0 40 Y N 1 F N
+F0 "Y" 50 175 50 H V L CNN
+F1 "Crystal_32kHz768-preferred_parts" 50 100 50 H V L CNN
+F2 "footprints:FC-135_3.2x1.5mm" -50 75 50 H I C CNN
+F3 "https://support.epson.biz/td/api/doc_check.php?dl=brief_FC-135&lang=en" 50 175 50 H I C CNN
+F4 "DK" -50 200 60 H I C CNN "MFN"
+F5 "SER4084CT-ND" 0 250 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/product-detail/en/epson/FC-135-32.7680KA-AC0/SER4084CT-ND/6132704" 450 575 60 H I C CNN "PurchasingLink"
+$FPLIST
+ Crystal*
+$ENDFPLIST
+DRAW
+S -45 100 45 -100 1 1 12 N
+P 2 1 1 0 -100 0 -75 0 N
+P 2 1 1 20 -75 -50 -75 50 N
+P 2 1 1 20 75 -50 75 50 N
+P 2 1 1 0 100 0 75 0 N
+X 1 1 -150 0 50 R 50 50 1 1 P
+X 2 2 150 0 50 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # MPL3115A2-rocketry
 #
 DEF MPL3115A2-rocketry U 0 40 Y Y 1 F N
@@ -92,6 +245,56 @@ X INT2 5 400 -300 100 L 50 50 1 1 O
 X INT1 6 400 -100 100 L 50 50 1 1 O
 X SDL 7 400 100 100 L 50 50 1 1 B
 X SCL 8 400 300 100 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# RFM9X_header-preferred_parts
+#
+DEF RFM9X_header-preferred_parts J 0 40 Y Y 1 F N
+F0 "J" 0 200 50 H V C CNN
+F1 "RFM9X_header-preferred_parts" 0 100 50 H V C CNN
+F2 "footprints:RFM9X_header" -200 0 50 H I C CNN
+F3 "" -200 0 50 H I C CNN
+DRAW
+T 0 0 -1300 100 0 0 0 "1.0 inches" Normal 0 C C
+P 3 0 0 0 400 -1000 500 -1100 -500 -1100 N
+P 2 0 1 0 500 -1100 400 -1200 N
+P 3 0 1 0 -400 -1000 -500 -1100 -400 -1200 N
+X RST 1 -500 -900 100 R 50 50 1 1 B
+X G1 10 500 -100 100 L 50 50 1 1 B
+X G2 11 500 -200 100 L 50 50 1 1 B
+X G3 12 500 -300 100 L 50 50 1 1 B
+X G4 13 500 -400 100 L 50 50 1 1 B
+X G5 14 500 -500 100 L 50 50 1 1 B
+X CS 2 -500 -800 100 R 50 50 1 1 B
+X MOSI 3 -500 -700 100 R 50 50 1 1 B
+X MISO 4 -500 -600 100 R 50 50 1 1 B
+X SCK 5 -500 -500 100 R 50 50 1 1 B
+X G0 6 -500 -400 100 R 50 50 1 1 B
+X EN 7 -500 -300 100 R 50 50 1 1 B
+X GND 8 -500 -200 100 R 50 50 1 1 W
+X VIN 9 -500 -100 100 R 50 50 1 1 w
+ENDDRAW
+ENDDEF
+#
+# R_1.07K-preferred_parts
+#
+DEF R_1.07K-preferred_parts R 0 0 N Y 1 F N
+F0 "R" 80 0 50 V V C CNN
+F1 "R_1.07K-preferred_parts" -100 0 50 V V C CNN
+F2 "footprints:R_0805_OEM" -70 0 50 H I C CNN
+F3 "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf" 80 0 50 H I C CNN
+F4 "DK" 0 0 60 H I C CNN "MFN"
+F5 "P1.07KDACT-ND" 0 0 60 H I C CNN "MPN"
+F6 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB1071V/P1.07KDACT-ND/3074919" 480 400 60 H I C CNN "PurchasingLink"
+$FPLIST
+ R_*
+ Resistor_*
+$ENDFPLIST
+DRAW
+S -40 -100 40 100 0 1 10 N
+X ~ 1 0 150 50 D 50 50 1 1 P
+X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
