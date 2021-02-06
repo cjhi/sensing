@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L rev1-rescue:MPL3115A2-rocketry U2
+L MPL3115A2:MPL3115A2 U2
 U 1 1 5FF5B454
 P 18350 2950
 F 0 "U2" H 18350 3615 50  0000 C CNN
@@ -179,8 +179,6 @@ Wire Wire Line
 	20550 3000 20950 3000
 Text Notes 16300 1050 0    197  ~ 0
 MPL3115A2 (Altimeter)
-Text Notes 22100 1600 0    50   ~ 0
- put notes here later\n
 Wire Notes Line width 12
 	24650 9250 24650 450 
 Text Notes 1200 1200 0    197  ~ 0
@@ -568,7 +566,7 @@ Connection ~ 2200 8450
 Wire Wire Line
 	4200 8550 4200 8400
 $Comp
-L rev1-rescue:BNO055_BNO055-bno055 U1
+L BNO055:BNO055 U1
 U 1 1 5F88CBB6
 P 6400 5050
 F 0 "U1" H 6350 5150 50  0000 L CNN
@@ -580,8 +578,6 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf" H 6400 50
 $EndComp
 Wire Notes Line width 12
 	16100 9200 16100 450 
-Text Notes 14150 2650 0    118  ~ 0
-notes here\n
 Text Notes 17700 4300 0    50   ~ 0
 Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
 Text Label 27650 6500 2    118  ~ 0
@@ -815,7 +811,7 @@ $EndComp
 NoConn ~ 27650 8000
 NoConn ~ 27650 8100
 $Comp
-L rev1-rescue:Teensy3.6-teensy U3
+L rev2-rescue:Teensy3.6-teensy-rev1-rescue U3
 U 1 1 60876FE4
 P 28800 8650
 F 0 "U3" H 28800 11087 60  0000 C CNN
@@ -1577,4 +1573,190 @@ Wire Notes Line
 	16100 9200 16100 22950
 Text Notes 27650 5300 0    250  ~ 0
 TEENSY 3.6
+$Comp
+L Sensor_Motion:BNO055 U?
+U 1 1 60202205
+P 13200 5300
+F 0 "U?" H 13200 6181 50  0000 C CNN
+F 1 "BNO055" H 13200 6090 50  0000 C CNN
+F 2 "Package_LGA:LGA-28_5.2x3.8mm_P0.5mm" H 13450 4650 50  0001 L CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST_BNO055_DS000_14.pdf" H 13200 5500 50  0001 C CNN
+	1    13200 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Pressure:MPL3115A2 U?
+U 1 1 60203EBB
+P 21050 5750
+F 0 "U?" H 21050 5161 50  0000 C CNN
+F 1 "MPL3115A2" H 21050 5070 50  0000 C CNN
+F 2 "Package_LGA:NXP_LGA-8_3x5mm_P1.25mm_H1.1mm" H 22050 5300 50  0001 C CNN
+F 3 "https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf" H 21050 5750 50  0001 C CNN
+	1    21050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L preferred_parts:TPS2113ADRBR U?
+U 1 1 60216CAA
+P 20400 19150
+F 0 "U?" V 20354 19683 50  0000 L CNN
+F 1 "TPS2113ADRBR" V 20445 19683 50  0000 L CNN
+F 2 "footprints:TPS2113ADRBR" H 20400 19150 50  0001 L BNN
+F 3 "https://www.ti.com/lit/ds/symlink/tps2113a.pdf?ts=1612625041342" H 20400 19150 50  0001 L BNN
+	1    20400 19150
+	0    1    1    0   
+$EndComp
+Text GLabel 20600 18000 1    50   Input ~ 0
+BMS_to_sensors
+Text GLabel 20500 18000 1    50   Input ~ 0
+BMS_to_sensors_backup
+Wire Wire Line
+	20500 18450 20500 18000
+Wire Wire Line
+	20600 18450 20600 18200
+$Comp
+L power:GND #PWR?
+U 1 1 6025724A
+P 22250 18700
+F 0 "#PWR?" H 22250 18450 50  0001 C CNN
+F 1 "GND" H 22255 18527 50  0000 C CNN
+F 2 "" H 22250 18700 50  0001 C CNN
+F 3 "" H 22250 18700 50  0001 C CNN
+	1    22250 18700
+	1    0    0    -1  
+$EndComp
+$Comp
+L preferred_parts:R_475 R?
+U 1 1 60265BDB
+P 21600 18100
+F 0 "R?" V 21393 18100 50  0000 C CNN
+F 1 "R_475" V 21484 18100 50  0000 C CNN
+F 2 "footprints:R_0805_OEM" H 21530 18100 50  0001 C CNN
+F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 21680 18100 50  0001 C CNN
+F 4 "DK" H 21600 18100 60  0001 C CNN "MFN"
+F 5 "311-475CRCT-ND" H 21600 18100 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/products/en?keywords=311-475CRCT-ND" H 22080 18500 60  0001 C CNN "PurchasingLink"
+	1    21600 18100
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6027F511
+P 20100 20700
+F 0 "#PWR?" H 20100 20450 50  0001 C CNN
+F 1 "GND" H 20105 20527 50  0000 C CNN
+F 2 "" H 20100 20700 50  0001 C CNN
+F 3 "" H 20100 20700 50  0001 C CNN
+	1    20100 20700
+	1    0    0    -1  
+$EndComp
+NoConn ~ 20700 19850
+$Comp
+L preferred_parts:C_1uF C?
+U 1 1 60298C60
+P 20450 20300
+F 0 "C?" V 20198 20300 50  0000 C CNN
+F 1 "C_1uF" V 20289 20300 50  0000 C CNN
+F 2 "footprints:C_0805_OEM" H 20488 20150 50  0001 C CNN
+F 3 "http://www.samsungsem.com/kr/support/product-search/mlcc/__icsFiles/afieldfile/2018/06/20/CL21A105KAFNNNE.pdf" H 20475 20400 50  0001 C CNN
+F 4 "DK" H 20450 20300 60  0001 C CNN "MFN"
+F 5 "1276-2887-1-ND" H 20450 20300 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21A105KAFNNNE/1276-2887-1-ND/3890973" H 20875 20800 60  0001 C CNN "PurchasingLink"
+	1    20450 20300
+	0    1    1    0   
+$EndComp
+Text GLabel 20800 20600 3    50   Input ~ 0
+3.3VBMS
+$Comp
+L preferred_parts:R_475 R?
+U 1 1 602D5695
+P 19100 18050
+F 0 "R?" H 19030 18004 50  0000 R CNN
+F 1 "R_20k" H 19030 18095 50  0000 R CNN
+F 2 "footprints:R_0805_OEM" H 19030 18050 50  0001 C CNN
+F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 19180 18050 50  0001 C CNN
+F 4 "DK" H 19100 18050 60  0001 C CNN "MFN"
+F 5 "311-475CRCT-ND" H 19100 18050 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/products/en?keywords=311-475CRCT-ND" H 19580 18450 60  0001 C CNN "PurchasingLink"
+	1    19100 18050
+	-1   0    0    1   
+$EndComp
+$Comp
+L preferred_parts:R_475 R?
+U 1 1 602D5E8F
+P 19100 18650
+F 0 "R?" H 19030 18604 50  0000 R CNN
+F 1 "R_8k" H 19030 18695 50  0000 R CNN
+F 2 "footprints:R_0805_OEM" H 19030 18650 50  0001 C CNN
+F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 19180 18650 50  0001 C CNN
+F 4 "DK" H 19100 18650 60  0001 C CNN "MFN"
+F 5 "311-475CRCT-ND" H 19100 18650 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/products/en?keywords=311-475CRCT-ND" H 19580 19050 60  0001 C CNN "PurchasingLink"
+	1    19100 18650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	19100 18500 19100 18350
+Wire Wire Line
+	19100 18350 20400 18350
+Connection ~ 19100 18350
+Wire Wire Line
+	19100 18350 19100 18200
+$Comp
+L power:GND #PWR?
+U 1 1 602F5796
+P 19100 19150
+F 0 "#PWR?" H 19100 18900 50  0001 C CNN
+F 1 "GND" H 19105 18977 50  0000 C CNN
+F 2 "" H 19100 19150 50  0001 C CNN
+F 3 "" H 19100 19150 50  0001 C CNN
+	1    19100 19150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	19100 18800 19100 19150
+Wire Wire Line
+	20400 18450 20400 18350
+Wire Wire Line
+	20800 18450 20800 18350
+Wire Wire Line
+	20800 18350 22250 18350
+Wire Wire Line
+	22250 18350 22250 18700
+Wire Wire Line
+	20700 18450 20700 18100
+Wire Wire Line
+	20700 18100 21450 18100
+Wire Wire Line
+	21750 18100 22250 18100
+Wire Wire Line
+	22250 18100 22250 18350
+Connection ~ 22250 18350
+Wire Wire Line
+	20600 18200 19850 18200
+Wire Wire Line
+	19850 18200 19850 17700
+Wire Wire Line
+	19850 17700 19100 17700
+Wire Wire Line
+	19100 17700 19100 17900
+Connection ~ 20600 18200
+Wire Wire Line
+	20600 18200 20600 18000
+Text Notes 17400 18450 0    50   ~ 0
+Ratio of R? to R? has to be 2.5 to 1\n(or rather 2.0 to 0.8) \nso that VSNS receives 0.8V when\nBMS_to_sensors drops below 2.8V
+Wire Wire Line
+	20100 19850 20100 20300
+Wire Wire Line
+	20800 20300 20600 20300
+Wire Wire Line
+	20800 19850 20800 20300
+Wire Wire Line
+	20300 20300 20100 20300
+Connection ~ 20100 20300
+Wire Wire Line
+	20100 20300 20100 20700
+Wire Wire Line
+	20800 20300 20800 20600
+Connection ~ 20800 20300
 $EndSCHEMATC

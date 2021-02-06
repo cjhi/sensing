@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L rev1-rescue:MPL3115A2-rocketry U2
+L MPL3115A2:MPL3115A2 U2
 U 1 1 5FF5B454
 P 18350 2950
 F 0 "U2" H 18350 3615 50  0000 C CNN
@@ -179,8 +179,6 @@ Wire Wire Line
 	20550 3000 20950 3000
 Text Notes 16300 1050 0    197  ~ 0
 MPL3115A2 (Altimeter)
-Text Notes 22100 1600 0    50   ~ 0
- put notes here later\n
 Wire Notes Line width 12
 	24650 9250 24650 450 
 Text Notes 1200 1200 0    197  ~ 0
@@ -568,7 +566,7 @@ Connection ~ 2200 8450
 Wire Wire Line
 	4200 8550 4200 8400
 $Comp
-L rev1-rescue:BNO055_BNO055-bno055 U1
+L BNO055:BNO055 U1
 U 1 1 5F88CBB6
 P 6400 5050
 F 0 "U1" H 6350 5150 50  0000 L CNN
@@ -580,8 +578,6 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf" H 6400 50
 $EndComp
 Wire Notes Line width 12
 	16100 9200 16100 450 
-Text Notes 14150 2650 0    118  ~ 0
-notes here\n
 Text Notes 17700 4300 0    50   ~ 0
 Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
 Text Label 27650 6500 2    118  ~ 0
@@ -815,7 +811,7 @@ $EndComp
 NoConn ~ 27650 8000
 NoConn ~ 27650 8100
 $Comp
-L rev1-rescue:Teensy3.6-teensy U3
+L rev2-rescue:Teensy3.6-teensy-rev1-rescue U3
 U 1 1 60876FE4
 P 28800 8650
 F 0 "U3" H 28800 11087 60  0000 C CNN
@@ -999,7 +995,7 @@ Text GLabel 3650 12600 0    50   Input ~ 0
 SCL_TEENSY
 Text Notes 7400 2300 0    50   ~ 0
 These pull-up resistors (R3 and R4) should arguably be\nin a separate location on the schematic, as they affect\nthe entire I2C bus, not just the BNO055
-Text Notes 6000 17800 0    200  ~ 0
+Text Notes 7250 17800 0    200  ~ 0
 POWER INPUT from BMS
 Text Notes 18350 11300 0    200  ~ 0
 GPS
@@ -1275,36 +1271,36 @@ $EndComp
 $Comp
 L power:+3.3V #PWR0114
 U 1 1 6014F363
-P 12450 18700
-F 0 "#PWR0114" H 12450 18550 50  0001 C CNN
-F 1 "+3.3V" H 12465 18873 50  0000 C CNN
-F 2 "" H 12450 18700 50  0001 C CNN
-F 3 "" H 12450 18700 50  0001 C CNN
-	1    12450 18700
+P 1750 18900
+F 0 "#PWR0114" H 1750 18750 50  0001 C CNN
+F 1 "+3.3V" H 1765 19073 50  0000 C CNN
+F 2 "" H 1750 18900 50  0001 C CNN
+F 3 "" H 1750 18900 50  0001 C CNN
+	1    1750 18900
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x03_Male J3
 U 1 1 6017224C
-P 12450 19400
-F 0 "J3" V 12604 19212 50  0000 R CNN
-F 1 "Conn_01x03_Male" V 12513 19212 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 12450 19400 50  0001 C CNN
-F 3 "~" H 12450 19400 50  0001 C CNN
-	1    12450 19400
+P 1750 19600
+F 0 "J3" V 1904 19412 50  0000 R CNN
+F 1 "Conn_01x03_Male" V 1813 19412 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1750 19600 50  0001 C CNN
+F 3 "~" H 1750 19600 50  0001 C CNN
+	1    1750 19600
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	12350 19200 12350 18950
+	1650 19400 1650 19150
 Wire Wire Line
-	12350 18950 12150 18950
+	1650 19150 1450 19150
 Wire Wire Line
-	12550 19200 12550 18950
+	1850 19400 1850 19150
 Wire Wire Line
-	12550 18950 12750 18950
+	1850 19150 2050 19150
 Wire Wire Line
-	12450 19200 12450 18700
-Text Notes 11750 18400 0    50   ~ 0
+	1750 19400 1750 18900
+Text Notes 1050 18600 0    50   ~ 0
 3-way switch\nControlled by bridging two of the headers\nDetermines whether the power rail is connected to the\n3.3V pin on the teensy
 Wire Wire Line
 	2400 2350 2400 2950
@@ -1331,9 +1327,9 @@ Wire Wire Line
 	20150 2850 20950 2850
 Text GLabel 27650 7900 0    39   Input ~ 0
 3.3V_TEENSY
-Text GLabel 12750 18950 2    39   Input ~ 0
+Text GLabel 2050 19150 2    39   Input ~ 0
 3.3V_TEENSY
-NoConn ~ 12150 18950
+NoConn ~ 1450 19150
 NoConn ~ 18300 12200
 Wire Wire Line
 	18900 11850 18900 12700
@@ -1346,94 +1342,6 @@ Text Notes 30650 10050 0    50   ~ 0
 5V out when powered by USB;\n3.3V in when powered by BMS
 Text GLabel 29950 10000 2    50   Input ~ 0
 BMS_to_Teensy
-$Comp
-L Device:Q_PNP_BCE Q1
-U 1 1 60396DCD
-P 10750 19950
-F 0 "Q1" H 10940 19904 50  0000 L CNN
-F 1 "Q_PNP_BCE" H 10940 19995 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 10950 20050 50  0001 C CNN
-F 3 "~" H 10750 19950 50  0001 C CNN
-	1    10750 19950
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:D D2
-U 1 1 60398902
-P 9850 20300
-F 0 "D2" V 9896 20220 50  0000 R CNN
-F 1 "D" V 9805 20220 50  0000 R CNN
-F 2 "footprints:D_0805_OEM" H 9850 20300 50  0001 C CNN
-F 3 "~" H 9850 20300 50  0001 C CNN
-	1    9850 20300
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	10850 19300 10850 19750
-$Comp
-L preferred_parts:R_1.07K R5
-U 1 1 603A35C2
-P 10200 19950
-F 0 "R5" V 9993 19950 50  0000 C CNN
-F 1 "1K" V 10084 19950 50  0000 C CNN
-F 2 "footprints:R_0805_OEM" H 10130 19950 50  0001 C CNN
-F 3 "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf" H 10280 19950 50  0001 C CNN
-F 4 "DK" H 10200 19950 60  0001 C CNN "MFN"
-F 5 "P1.07KDACT-ND" H 10200 19950 60  0001 C CNN "MPN"
-F 6 "https://www.digikey.com/product-detail/en/panasonic-electronic-components/ERA-6AEB1071V/P1.07KDACT-ND/3074919" H 10680 20350 60  0001 C CNN "PurchasingLink"
-	1    10200 19950
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	9850 19300 9850 19950
-Wire Wire Line
-	9850 19950 10050 19950
-Wire Wire Line
-	9850 19950 9850 20150
-Connection ~ 9850 19950
-Wire Wire Line
-	10350 19950 10550 19950
-Wire Wire Line
-	10850 20150 10850 20650
-Wire Wire Line
-	9850 21050 9400 21050
-Wire Wire Line
-	9400 21050 9400 20950
-$Comp
-L power:+3.3V #PWR014
-U 1 1 603D4A0D
-P 9400 20950
-F 0 "#PWR014" H 9400 20800 50  0001 C CNN
-F 1 "+3.3V" H 9415 21123 50  0000 C CNN
-F 2 "" H 9400 20950 50  0001 C CNN
-F 3 "" H 9400 20950 50  0001 C CNN
-	1    9400 20950
-	1    0    0    -1  
-$EndComp
-Text GLabel 9850 19300 1    50   Input ~ 0
-BMS_to_sensors
-Text GLabel 10850 19300 1    50   Input ~ 0
-BMS_to_sensors_backup
-$Comp
-L Device:D D3
-U 1 1 603EDD6A
-P 10350 20650
-F 0 "D3" V 10396 20570 50  0000 R CNN
-F 1 "D" V 10305 20570 50  0000 R CNN
-F 2 "footprints:D_0805_OEM" H 10350 20650 50  0001 C CNN
-F 3 "~" H 10350 20650 50  0001 C CNN
-	1    10350 20650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9850 20450 9850 20650
-Wire Wire Line
-	10850 20650 10500 20650
-Wire Wire Line
-	10200 20650 9850 20650
-Connection ~ 9850 20650
-Wire Wire Line
-	9850 20650 9850 21050
 Wire Wire Line
 	3300 8400 4200 8400
 $Comp
@@ -1448,120 +1356,113 @@ F 3 "" H 3500 2350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8350 19150 8350 19000
+	9600 19150 9600 19000
 Wire Wire Line
-	8000 19000 8350 19000
+	9250 19000 9600 19000
 Wire Wire Line
-	8000 18650 8000 19000
+	9250 18650 9250 19000
 Wire Wire Line
-	7700 18650 7700 19000
+	8950 18650 8950 19000
 Wire Wire Line
-	7350 19000 7350 19100
+	8600 19000 8600 19100
 Wire Wire Line
-	7700 19000 7350 19000
+	8950 19000 8600 19000
 Wire Wire Line
-	7350 19650 7350 19400
-Text GLabel 7900 18800 3    50   Input ~ 0
+	8600 19650 8600 19400
+Text GLabel 9150 18800 3    50   Input ~ 0
 BMS_to_sensors
-Text GLabel 7800 18800 3    50   Input ~ 0
+Text GLabel 9050 18800 3    50   Input ~ 0
 BMS_to_sensors_backup
 Wire Wire Line
-	7800 18650 7800 18800
+	9050 18650 9050 18800
 Wire Wire Line
-	7900 18650 7900 18800
-Text GLabel 7350 19650 3    50   Input ~ 0
+	9150 18650 9150 18800
+Text GLabel 8600 19650 3    50   Input ~ 0
 BMS_to_Teensy
 $Comp
 L power:GND #PWR04
 U 1 1 602C00BA
-P 8350 19150
-F 0 "#PWR04" H 8350 18900 50  0001 C CNN
-F 1 "GND" H 8355 18977 50  0000 C CNN
-F 2 "" H 8350 19150 50  0001 C CNN
-F 3 "" H 8350 19150 50  0001 C CNN
-	1    8350 19150
+P 9600 19150
+F 0 "#PWR04" H 9600 18900 50  0001 C CNN
+F 1 "GND" H 9605 18977 50  0000 C CNN
+F 2 "" H 9600 19150 50  0001 C CNN
+F 3 "" H 9600 19150 50  0001 C CNN
+	1    9600 19150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x04_Male BMS_CONN1
 U 1 1 602BDAB1
-P 7900 18450
-F 0 "BMS_CONN1" V 7962 18594 50  0000 L CNN
-F 1 "Conn_01x04_Male" V 8053 18594 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 7900 18450 50  0001 C CNN
-F 3 "~" H 7900 18450 50  0001 C CNN
-	1    7900 18450
+P 9150 18450
+F 0 "BMS_CONN1" V 9212 18594 50  0000 L CNN
+F 1 "Conn_01x04_Male" V 9303 18594 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 9150 18450 50  0001 C CNN
+F 3 "~" H 9150 18450 50  0001 C CNN
+	1    9150 18450
 	0    1    1    0   
 $EndComp
-Text Notes 5700 19900 0    50   ~ 0
+Text Notes 6950 19900 0    50   ~ 0
 power can only flow into the Teensy,\nnot out of the 5V pin
 $Comp
 L Device:D D1
 U 1 1 60275618
-P 7350 19250
-F 0 "D1" V 7396 19170 50  0000 R CNN
-F 1 "D" V 7305 19170 50  0000 R CNN
-F 2 "footprints:D_0805_OEM" H 7350 19250 50  0001 C CNN
-F 3 "~" H 7350 19250 50  0001 C CNN
-	1    7350 19250
+P 8600 19250
+F 0 "D1" V 8646 19170 50  0000 R CNN
+F 1 "D" V 8555 19170 50  0000 R CNN
+F 2 "footprints:D_0805_OEM" H 8600 19250 50  0001 C CNN
+F 3 "~" H 8600 19250 50  0001 C CNN
+	1    8600 19250
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	5150 19150 5150 19000
+	6400 19150 6400 19000
 Wire Wire Line
-	4800 19000 5150 19000
+	6050 19000 6400 19000
 Wire Wire Line
-	4800 18650 4800 19000
+	6050 18650 6050 19000
 Wire Wire Line
-	4500 18650 4500 19000
+	5750 18650 5750 19000
 Wire Wire Line
-	4500 19000 4150 19000
-Text GLabel 4700 18800 3    50   Input ~ 0
+	5750 19000 5400 19000
+Text GLabel 5950 18800 3    50   Input ~ 0
 BMS_to_sensors
-Text GLabel 4600 18800 3    50   Input ~ 0
+Text GLabel 5850 18800 3    50   Input ~ 0
 BMS_to_sensors_backup
 Wire Wire Line
-	4600 18650 4600 18800
+	5850 18650 5850 18800
 Wire Wire Line
-	4700 18650 4700 18800
+	5950 18650 5950 18800
 $Comp
 L power:GND #PWR015
 U 1 1 6047CFA5
-P 5150 19150
-F 0 "#PWR015" H 5150 18900 50  0001 C CNN
-F 1 "GND" H 5155 18977 50  0000 C CNN
-F 2 "" H 5150 19150 50  0001 C CNN
-F 3 "" H 5150 19150 50  0001 C CNN
-	1    5150 19150
+P 6400 19150
+F 0 "#PWR015" H 6400 18900 50  0001 C CNN
+F 1 "GND" H 6405 18977 50  0000 C CNN
+F 2 "" H 6400 19150 50  0001 C CNN
+F 3 "" H 6400 19150 50  0001 C CNN
+	1    6400 19150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x04_Male BMS_CONN2
 U 1 1 6047CFAF
-P 4700 18450
-F 0 "BMS_CONN2" V 4762 18594 50  0000 L CNN
-F 1 "Conn_01x04_Male" V 4853 18594 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4700 18450 50  0001 C CNN
-F 3 "~" H 4700 18450 50  0001 C CNN
-	1    4700 18450
+P 5950 18450
+F 0 "BMS_CONN2" V 6012 18594 50  0000 L CNN
+F 1 "Conn_01x04_Male" V 6103 18594 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5950 18450 50  0001 C CNN
+F 3 "~" H 5950 18450 50  0001 C CNN
+	1    5950 18450
 	0    1    1    0   
 $EndComp
-Text Notes 2500 19900 0    50   ~ 0
-power can only flow into the Teensy,\nnot out of the 5V pin
 Wire Wire Line
-	4150 19950 5600 19950
+	5400 19950 6850 19950
 Wire Wire Line
-	5600 19950 5600 19000
+	6850 19950 6850 19000
 Wire Wire Line
-	5600 19000 7350 19000
+	6850 19000 8600 19000
 Wire Wire Line
-	4150 19000 4150 19950
-Connection ~ 7350 19000
-Text GLabel 9250 21050 0    50   Input ~ 0
-3.3VBMS
-Wire Wire Line
-	9400 21050 9250 21050
-Connection ~ 9400 21050
+	5400 19000 5400 19950
+Connection ~ 8600 19000
 NoConn ~ 27650 9900
 Text Notes 18800 10200 0    250  ~ 0
 <HEADER PINS>
@@ -1577,4 +1478,190 @@ Wire Notes Line
 	16100 9200 16100 22950
 Text Notes 27650 5300 0    250  ~ 0
 TEENSY 3.6
+$Comp
+L Sensor_Motion:BNO055 U6
+U 1 1 60202205
+P 13200 5300
+F 0 "U6" H 13200 6181 50  0000 C CNN
+F 1 "BNO055" H 13200 6090 50  0000 C CNN
+F 2 "Package_LGA:LGA-28_5.2x3.8mm_P0.5mm" H 13450 4650 50  0001 L CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST_BNO055_DS000_14.pdf" H 13200 5500 50  0001 C CNN
+	1    13200 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Pressure:MPL3115A2 U8
+U 1 1 60203EBB
+P 21050 5750
+F 0 "U8" H 21050 5161 50  0000 C CNN
+F 1 "MPL3115A2" H 21050 5070 50  0000 C CNN
+F 2 "Package_LGA:NXP_LGA-8_3x5mm_P1.25mm_H1.1mm" H 22050 5300 50  0001 C CNN
+F 3 "https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf" H 21050 5750 50  0001 C CNN
+	1    21050 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L preferred_parts:TPS2113ADRBR U7
+U 1 1 60216CAA
+P 13700 19600
+F 0 "U7" V 13654 20133 50  0000 L CNN
+F 1 "TPS2113ADRBR" V 13745 20133 50  0000 L CNN
+F 2 "footprints:TPS2113ADRBR" H 13700 19600 50  0001 L BNN
+F 3 "https://www.ti.com/lit/ds/symlink/tps2113a.pdf?ts=1612625041342" H 13700 19600 50  0001 L BNN
+	1    13700 19600
+	0    1    1    0   
+$EndComp
+Text GLabel 13900 18450 1    50   Input ~ 0
+BMS_to_sensors
+Text GLabel 13800 18450 1    50   Input ~ 0
+BMS_to_sensors_backup
+Wire Wire Line
+	13800 18900 13800 18450
+Wire Wire Line
+	13900 18900 13900 18650
+$Comp
+L power:GND #PWR017
+U 1 1 6025724A
+P 15550 19150
+F 0 "#PWR017" H 15550 18900 50  0001 C CNN
+F 1 "GND" H 15555 18977 50  0000 C CNN
+F 2 "" H 15550 19150 50  0001 C CNN
+F 3 "" H 15550 19150 50  0001 C CNN
+	1    15550 19150
+	1    0    0    -1  
+$EndComp
+$Comp
+L preferred_parts:R_475 R7
+U 1 1 60265BDB
+P 14900 18550
+F 0 "R7" V 14693 18550 50  0000 C CNN
+F 1 "R_475" V 14784 18550 50  0000 C CNN
+F 2 "footprints:R_0805_OEM" H 14830 18550 50  0001 C CNN
+F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 14980 18550 50  0001 C CNN
+F 4 "DK" H 14900 18550 60  0001 C CNN "MFN"
+F 5 "311-475CRCT-ND" H 14900 18550 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/products/en?keywords=311-475CRCT-ND" H 15380 18950 60  0001 C CNN "PurchasingLink"
+	1    14900 18550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR016
+U 1 1 6027F511
+P 13400 21150
+F 0 "#PWR016" H 13400 20900 50  0001 C CNN
+F 1 "GND" H 13405 20977 50  0000 C CNN
+F 2 "" H 13400 21150 50  0001 C CNN
+F 3 "" H 13400 21150 50  0001 C CNN
+	1    13400 21150
+	1    0    0    -1  
+$EndComp
+NoConn ~ 14000 20300
+$Comp
+L preferred_parts:C_1uF C14
+U 1 1 60298C60
+P 13750 20750
+F 0 "C14" V 13498 20750 50  0000 C CNN
+F 1 "C_1uF" V 13589 20750 50  0000 C CNN
+F 2 "footprints:C_0805_OEM" H 13788 20600 50  0001 C CNN
+F 3 "http://www.samsungsem.com/kr/support/product-search/mlcc/__icsFiles/afieldfile/2018/06/20/CL21A105KAFNNNE.pdf" H 13775 20850 50  0001 C CNN
+F 4 "DK" H 13750 20750 60  0001 C CNN "MFN"
+F 5 "1276-2887-1-ND" H 13750 20750 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21A105KAFNNNE/1276-2887-1-ND/3890973" H 14175 21250 60  0001 C CNN "PurchasingLink"
+	1    13750 20750
+	0    1    1    0   
+$EndComp
+Text GLabel 14100 21050 3    50   Input ~ 0
+3.3VBMS
+$Comp
+L preferred_parts:R_475 R5
+U 1 1 602D5695
+P 12400 18500
+F 0 "R5" H 12330 18454 50  0000 R CNN
+F 1 "R_20k" H 12330 18545 50  0000 R CNN
+F 2 "footprints:R_0805_OEM" H 12330 18500 50  0001 C CNN
+F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 12480 18500 50  0001 C CNN
+F 4 "DK" H 12400 18500 60  0001 C CNN "MFN"
+F 5 "311-475CRCT-ND" H 12400 18500 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/products/en?keywords=311-475CRCT-ND" H 12880 18900 60  0001 C CNN "PurchasingLink"
+	1    12400 18500
+	-1   0    0    1   
+$EndComp
+$Comp
+L preferred_parts:R_475 R6
+U 1 1 602D5E8F
+P 12400 19100
+F 0 "R6" H 12330 19054 50  0000 R CNN
+F 1 "R_8k" H 12330 19145 50  0000 R CNN
+F 2 "footprints:R_0805_OEM" H 12330 19100 50  0001 C CNN
+F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 12480 19100 50  0001 C CNN
+F 4 "DK" H 12400 19100 60  0001 C CNN "MFN"
+F 5 "311-475CRCT-ND" H 12400 19100 60  0001 C CNN "MPN"
+F 6 "https://www.digikey.com/products/en?keywords=311-475CRCT-ND" H 12880 19500 60  0001 C CNN "PurchasingLink"
+	1    12400 19100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	12400 18950 12400 18800
+Wire Wire Line
+	12400 18800 13700 18800
+Connection ~ 12400 18800
+Wire Wire Line
+	12400 18800 12400 18650
+$Comp
+L power:GND #PWR014
+U 1 1 602F5796
+P 12400 19600
+F 0 "#PWR014" H 12400 19350 50  0001 C CNN
+F 1 "GND" H 12405 19427 50  0000 C CNN
+F 2 "" H 12400 19600 50  0001 C CNN
+F 3 "" H 12400 19600 50  0001 C CNN
+	1    12400 19600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12400 19250 12400 19600
+Wire Wire Line
+	13700 18900 13700 18800
+Wire Wire Line
+	14100 18900 14100 18800
+Wire Wire Line
+	14100 18800 15550 18800
+Wire Wire Line
+	15550 18800 15550 19150
+Wire Wire Line
+	14000 18900 14000 18550
+Wire Wire Line
+	14000 18550 14750 18550
+Wire Wire Line
+	15050 18550 15550 18550
+Wire Wire Line
+	15550 18550 15550 18800
+Connection ~ 15550 18800
+Wire Wire Line
+	13900 18650 13150 18650
+Wire Wire Line
+	13150 18650 13150 18150
+Wire Wire Line
+	13150 18150 12400 18150
+Wire Wire Line
+	12400 18150 12400 18350
+Connection ~ 13900 18650
+Wire Wire Line
+	13900 18650 13900 18450
+Text Notes 10700 18900 0    50   ~ 0
+Ratio of R5 to R6 has to be 2.5 to 1\n(or rather 2.0 to 0.8) \nso that VSNS receives 0.8V when\nBMS_to_sensors drops below 2.8V
+Wire Wire Line
+	13400 20300 13400 20750
+Wire Wire Line
+	14100 20750 13900 20750
+Wire Wire Line
+	14100 20300 14100 20750
+Wire Wire Line
+	13600 20750 13400 20750
+Connection ~ 13400 20750
+Wire Wire Line
+	13400 20750 13400 21150
+Wire Wire Line
+	14100 20750 14100 21050
+Connection ~ 14100 20750
 $EndSCHEMATC
