@@ -20,12 +20,18 @@ String dataPacket;
 int led = 13;
 int launchTime;
 const int chipSelect = BUILTIN_SDCARD;
-int count = 0;
-int batchSize = 500;//2200;
-LinkedList<String> dataList = LinkedList<String>();
-
+int batchSize = 1000;//2200;
 
 int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
+
+typedef struct dataPoint {
+  double timeSinceLaunch;
+  float acceleration[3];
+  float altitude, pressure, temp;
+} dataPoint;
+
+dataPoint dataPoints[1000]; 
+int currDataPoint = 0;
 
 void setup(void) 
 {
@@ -73,18 +79,15 @@ void loop(void)
   checkLaunch();
   //Serial.println("Checking");
  }
- if (count>batchSize){
+ if (currDataPoint == batchSize){
   writeSensorData();
-  count = 0;
-  dataList.clear();
+  currDataPoint = 0;
  }
- imuData = getIMU();
- baroData = getBaro();
- double timeSinceLaunch = millis()-launchTime;
+ getIMU();
+ getBaro();
+ dataPoints[currDataPoint].timeSinceLaunch = millis()-launchTime;
  // Time Since Launch (ms), X Accel (m/s^2), Y Accel (m/s^2), Z Accel (m/s^2), Pressure (Pascals), Altitude (m), Temp (*F)
- dataPacket =  String(timeSinceLaunch)+" "+imuData+" "+baroData;
- dataList.add(dataPacket);
- count++;
+ currDataPoint++;
   
 }
 
@@ -107,24 +110,22 @@ void checkLaunch(void)
   }
 }
 
-String getIMU(void)
+void getIMU(void)
 {
   sensors_event_t event; 
   accel.getEvent(&event);
-  String imuData = String(event.acceleration.x)+" "+String(event.acceleration.y)+" "+String(event.acceleration.z);
-  return imuData;
+  dataPoints[currDataPoint].acceleration[0] = event.acceleration.x;
+  dataPoints[currDataPoint].acceleration[1] = event.acceleration.y;
+  dataPoints[currDataPoint].acceleration[2] = event.acceleration.z;
 }
 
-String getBaro(void)
+void getBaro(void)
 {
-  float altitude = baro.readAltitudeFt();
+  dataPoints[currDataPoint].altitude = baro.readAltitudeFt();
  
-  float pressure = baro.readPressure();
+  dataPoints[currDataPoint].pressure = baro.readPressure();
 
-  float temperature = baro.readTempF();
- 
-  String baroData = String(pressure)+" "+String(altitude)+" "+String(temperature );
-  return baroData;
+  dataPoints[currDataPoint].temp = baro.readTempF();
 }
 
 
@@ -141,15 +142,15 @@ void writeSensorData(void)
    myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
  
 
-  for (int h = 0; h < dataList.size(); h++) 
-  {
-
-    // Get value from list
-    String dataString = dataList.get(h);
-    myFile.println(dataString);
-    Serial.print("Writing: ");
-    Serial.println(dataString);
-  }
+//  for (int h = 0; h < dataList.length; h++) 
+//  {
+//
+//    // Get value from list
+//    String dataString = dataList.get(h);
+//    myFile.println(dataString);
+//    Serial.print("Writing: ");
+//    Serial.println(dataString);
+//  }
 
  
   myFile.close();
