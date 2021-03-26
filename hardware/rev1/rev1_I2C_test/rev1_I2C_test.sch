@@ -1,0 +1,170 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:+3.3V #PWR01
+U 1 1 603BEFF6
+P 3350 1150
+F 0 "#PWR01" H 3350 1000 50  0001 C CNN
+F 1 "+3.3V" H 3365 1323 50  0000 C CNN
+F 2 "" H 3350 1150 50  0001 C CNN
+F 3 "" H 3350 1150 50  0001 C CNN
+	1    3350 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 603BFD7B
+P 2650 2050
+F 0 "R2" H 2720 2096 50  0000 L CNN
+F 1 "4.7K" H 2720 2005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 2580 2050 50  0001 C CNN
+F 3 "~" H 2650 2050 50  0001 C CNN
+	1    2650 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 2400 2650 2400
+Wire Wire Line
+	2650 2400 2650 2200
+$Comp
+L Device:R R1
+U 1 1 603C0D15
+P 2250 2050
+F 0 "R1" H 2320 2096 50  0000 L CNN
+F 1 "4.7K" H 2320 2005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 2180 2050 50  0001 C CNN
+F 3 "~" H 2250 2050 50  0001 C CNN
+	1    2250 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 2500 2250 2500
+Wire Wire Line
+	2250 2500 2250 2200
+Wire Wire Line
+	3450 2000 3450 1850
+Wire Wire Line
+	3450 1850 3350 1850
+Connection ~ 3350 1850
+Wire Wire Line
+	3350 1850 3350 2000
+Wire Wire Line
+	2250 1900 2250 1700
+Wire Wire Line
+	2250 1700 2650 1700
+Wire Wire Line
+	3350 1700 3350 1850
+Wire Wire Line
+	2650 1900 2650 1700
+Connection ~ 2650 1700
+Wire Wire Line
+	2650 1700 3350 1700
+Connection ~ 3350 1700
+$Comp
+L Device:C C2
+U 1 1 603C5398
+P 4150 3000
+F 0 "C2" H 4265 3046 50  0000 L CNN
+F 1 "100n" H 4265 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4188 2850 50  0001 C CNN
+F 3 "~" H 4150 3000 50  0001 C CNN
+	1    4150 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 2700 4150 2700
+Wire Wire Line
+	4150 2700 4150 2850
+$Comp
+L power:GND #PWR02
+U 1 1 603C6541
+P 3450 3650
+F 0 "#PWR02" H 3450 3400 50  0001 C CNN
+F 1 "GND" H 3455 3477 50  0000 C CNN
+F 2 "" H 3450 3650 50  0001 C CNN
+F 3 "" H 3450 3650 50  0001 C CNN
+	1    3450 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 3000 3450 3400
+Wire Wire Line
+	4150 3150 4150 3400
+Wire Wire Line
+	4150 3400 3450 3400
+Connection ~ 3450 3400
+Wire Wire Line
+	3450 3400 3450 3650
+$Comp
+L Device:C C1
+U 1 1 603C227A
+P 4800 3000
+F 0 "C1" H 4915 3046 50  0000 L CNN
+F 1 "100n" H 4915 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4838 2850 50  0001 C CNN
+F 3 "~" H 4800 3000 50  0001 C CNN
+	1    4800 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 603C1CF1
+P 5350 3000
+F 0 "C3" H 5465 3046 50  0000 L CNN
+F 1 "10u" H 5465 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 5388 2850 50  0001 C CNN
+F 3 "~" H 5350 3000 50  0001 C CNN
+	1    5350 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor_Pressure:MPL3115A2 U1
+U 1 1 603BE762
+P 3450 2500
+F 0 "U1" H 2900 1950 50  0000 C CNN
+F 1 "MPL3115A2" H 2900 1850 50  0000 C CNN
+F 2 "Package_LGA:NXP_LGA-8_3x5mm_P1.25mm_H1.1mm" H 4450 2050 50  0001 C CNN
+F 3 "https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf" H 3450 2500 50  0001 C CNN
+	1    3450 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 1150 3350 1500
+Wire Wire Line
+	3350 1500 4800 1500
+Connection ~ 3350 1500
+Wire Wire Line
+	3350 1500 3350 1700
+Wire Wire Line
+	4800 1500 4800 2350
+Wire Wire Line
+	4800 2350 5350 2350
+Wire Wire Line
+	5350 2350 5350 2850
+Connection ~ 4800 2350
+Wire Wire Line
+	4800 2350 4800 2850
+Wire Wire Line
+	5350 3150 5350 3400
+Wire Wire Line
+	5350 3400 4800 3400
+Connection ~ 4150 3400
+Wire Wire Line
+	4800 3150 4800 3400
+Connection ~ 4800 3400
+Wire Wire Line
+	4800 3400 4150 3400
+$EndSCHEMATC
