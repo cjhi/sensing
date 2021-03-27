@@ -5,4 +5,5 @@
   (lib (name BNO055_circuit_i2C-rescue)(type Legacy)(uri "/home/sam/KiCad/Olin Rocketry Avionics/sensing/hardware/BNO055/BNO055_circuit_i2C-rescue.lib")(options "")(descr "")(disabled))
   (lib (name ADXL345BCCZ)(type Legacy)(uri ${ROCKETRY}/sensing/hardware/ADXL345/ADXL345BCCZ.lib)(options "")(descr ""))
   (lib (name rev2-rescue)(type Legacy)(uri ${KIPRJMOD}/rev2-rescue.lib)(options "")(descr ""))
+  (lib (name rev2)(type Legacy)(uri ${ROCKETRY}/sensing/hardware/libraries-symbols/rev2_lib/PKB24SPCH3601-B0.lib)(options "")(descr ""))
 )

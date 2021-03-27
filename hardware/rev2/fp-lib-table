@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name rev2_lib)(type KiCad)(uri ${KICAD}/Olin_Rocketry/sensing/hardware/libraries-symbols/rev2_lib)(options "")(descr ""))
+)
