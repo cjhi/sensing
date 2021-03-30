@@ -637,40 +637,6 @@ F 3 "https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-pac
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR0114
-U 1 1 6014F363
-P 1750 18900
-F 0 "#PWR0114" H 1750 18750 50  0001 C CNN
-F 1 "+3.3V" H 1765 19073 50  0000 C CNN
-F 2 "" H 1750 18900 50  0001 C CNN
-F 3 "" H 1750 18900 50  0001 C CNN
-	1    1750 18900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x03_Male J3
-U 1 1 6017224C
-P 1750 19600
-F 0 "J3" V 1904 19412 50  0000 R CNN
-F 1 "Conn_01x03_Male" V 1813 19412 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 1750 19600 50  0001 C CNN
-F 3 "~" H 1750 19600 50  0001 C CNN
-	1    1750 19600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1650 19400 1650 19150
-Wire Wire Line
-	1650 19150 1450 19150
-Wire Wire Line
-	1850 19400 1850 19150
-Wire Wire Line
-	1850 19150 2000 19150
-Wire Wire Line
-	1750 19400 1750 18900
-Text Notes 1050 18600 0    50   ~ 0
-3-way switch\nControlled by bridging two of the headers\nDetermines whether the power rail is connected to the\n3.3V pin on the teensy
-$Comp
 L power:+3.3V #PWR0115
 U 1 1 601B063E
 P 11250 13350
@@ -691,9 +657,8 @@ Wire Wire Line
 	13750 12850 14550 12850
 Text GLabel 27650 7900 0    39   Input ~ 0
 3.3V_TEENSY
-Text GLabel 2050 19150 2    39   Input ~ 0
+Text GLabel 10850 19900 3    39   Input ~ 0
 3.3V_TEENSY
-NoConn ~ 1450 19150
 NoConn ~ 18300 12200
 Wire Wire Line
 	18900 11850 18900 12700
@@ -706,114 +671,6 @@ Text Notes 30650 10050 0    50   ~ 0
 5V out when powered by USB;\n3.3V in when powered by BMS
 Text GLabel 29950 10000 2    50   Input ~ 0
 BMS_to_Teensy
-Wire Wire Line
-	9600 19150 9600 19000
-Wire Wire Line
-	9250 19000 9600 19000
-Wire Wire Line
-	9250 18650 9250 19000
-Wire Wire Line
-	8950 18650 8950 19000
-Wire Wire Line
-	8600 19000 8600 19100
-Wire Wire Line
-	8950 19000 8600 19000
-Wire Wire Line
-	8600 19650 8600 19400
-Text GLabel 9150 18800 3    50   Input ~ 0
-BMS_to_sensors
-Text GLabel 9050 18800 3    50   Input ~ 0
-BMS_to_sensors_backup
-Wire Wire Line
-	9050 18650 9050 18800
-Wire Wire Line
-	9150 18650 9150 18800
-Text GLabel 8600 19650 3    50   Input ~ 0
-BMS_to_Teensy
-$Comp
-L power:GND #PWR04
-U 1 1 602C00BA
-P 9600 19150
-F 0 "#PWR04" H 9600 18900 50  0001 C CNN
-F 1 "GND" H 9605 18977 50  0000 C CNN
-F 2 "" H 9600 19150 50  0001 C CNN
-F 3 "" H 9600 19150 50  0001 C CNN
-	1    9600 19150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x04_Male BMS_CONN1
-U 1 1 602BDAB1
-P 9150 18450
-F 0 "BMS_CONN1" V 9212 18594 50  0000 L CNN
-F 1 "Conn_01x04_Male" V 9303 18594 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 9150 18450 50  0001 C CNN
-F 3 "~" H 9150 18450 50  0001 C CNN
-	1    9150 18450
-	0    1    1    0   
-$EndComp
-Text Notes 6950 19900 0    50   ~ 0
-power can only flow into the Teensy,\nnot out of the 5V pin
-$Comp
-L Device:D D1
-U 1 1 60275618
-P 8600 19250
-F 0 "D1" V 8646 19170 50  0000 R CNN
-F 1 "D" V 8555 19170 50  0000 R CNN
-F 2 "footprints:D_0805_OEM" H 8600 19250 50  0001 C CNN
-F 3 "~" H 8600 19250 50  0001 C CNN
-	1    8600 19250
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6400 19150 6400 19000
-Wire Wire Line
-	6050 19000 6400 19000
-Wire Wire Line
-	6050 18650 6050 19000
-Wire Wire Line
-	5750 18650 5750 19000
-Wire Wire Line
-	5750 19000 5400 19000
-Text GLabel 5950 18800 3    50   Input ~ 0
-BMS_to_sensors
-Text GLabel 5850 18800 3    50   Input ~ 0
-BMS_to_sensors_backup
-Wire Wire Line
-	5850 18650 5850 18800
-Wire Wire Line
-	5950 18650 5950 18800
-$Comp
-L power:GND #PWR015
-U 1 1 6047CFA5
-P 6400 19150
-F 0 "#PWR015" H 6400 18900 50  0001 C CNN
-F 1 "GND" H 6405 18977 50  0000 C CNN
-F 2 "" H 6400 19150 50  0001 C CNN
-F 3 "" H 6400 19150 50  0001 C CNN
-	1    6400 19150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x04_Male BMS_CONN2
-U 1 1 6047CFAF
-P 5950 18450
-F 0 "BMS_CONN2" V 6012 18594 50  0000 L CNN
-F 1 "Conn_01x04_Male" V 6103 18594 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5950 18450 50  0001 C CNN
-F 3 "~" H 5950 18450 50  0001 C CNN
-	1    5950 18450
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5400 19950 6850 19950
-Wire Wire Line
-	6850 19950 6850 19000
-Wire Wire Line
-	6850 19000 8600 19000
-Wire Wire Line
-	5400 19000 5400 19950
-Connection ~ 8600 19000
 NoConn ~ 27650 9900
 Text Notes 18800 10200 0    250  ~ 0
 <HEADER PINS>
@@ -840,10 +697,6 @@ F 3 "https://www.ti.com/lit/ds/symlink/tps2113a.pdf?ts=1612625041342" H 13700 19
 	1    13700 19600
 	0    1    1    0   
 $EndComp
-Text GLabel 13900 18450 1    50   Input ~ 0
-BMS_to_sensors
-Text GLabel 13800 18450 1    50   Input ~ 0
-BMS_to_sensors_backup
 Wire Wire Line
 	13800 18900 13800 18450
 Wire Wire Line
@@ -899,8 +752,6 @@ F 6 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21A10
 	1    13750 20750
 	0    1    1    0   
 $EndComp
-Text GLabel 14100 21050 3    50   Input ~ 0
-3.3VBMS
 $Comp
 L preferred_parts:R_475 R5
 U 1 1 602D5695
@@ -1057,69 +908,112 @@ Text GLabel 29950 10800 2    39   Input ~ 0
 SDA_TEENSY
 NoConn ~ 27650 8200
 NoConn ~ 27650 8300
-NoConn ~ 27650 8500
 NoConn ~ 27650 8600
 NoConn ~ 27650 8700
 NoConn ~ 27650 8800
-NoConn ~ 27650 7600
-NoConn ~ 27650 7500
 NoConn ~ 27650 7400
 NoConn ~ 27650 7300
-Text GLabel 14650 21050 3    50   Input ~ 0
-3.3VBMS
-$Comp
-L bno055:+3.3V #PWR0102
-U 1 1 60605625
-P 14650 20750
-F 0 "#PWR0102" H 14650 20600 50  0001 C CNN
-F 1 "+3.3V" H 14665 20923 50  0000 C CNN
-F 2 "" H 14650 20750 50  0001 C CNN
-F 3 "" H 14650 20750 50  0001 C CNN
-	1    14650 20750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	14650 20750 14650 21050
 $Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 6060F62B
-P 2000 19150
-F 0 "#FLG0101" H 2000 19225 50  0001 C CNN
-F 1 "PWR_FLAG" H 2000 19323 50  0000 C CNN
-F 2 "" H 2000 19150 50  0001 C CNN
-F 3 "~" H 2000 19150 50  0001 C CNN
-	1    2000 19150
-	1    0    0    -1  
+P 10850 19750
+F 0 "#FLG0101" H 10850 19825 50  0001 C CNN
+F 1 "PWR_FLAG" H 10850 19923 50  0000 C CNN
+F 2 "" H 10850 19750 50  0001 C CNN
+F 3 "~" H 10850 19750 50  0001 C CNN
+	1    10850 19750
+	0    -1   -1   0   
 $EndComp
-Connection ~ 2000 19150
-Wire Wire Line
-	2000 19150 2050 19150
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J?
 U 1 1 605F8732
-P 4050 20800
-F 0 "J?" H 4100 21117 50  0000 C CNN
-F 1 "Conn_02x03_Odd_Even" H 4100 21026 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical" H 4050 20800 50  0001 C CNN
-F 3 "~" H 4050 20800 50  0001 C CNN
-	1    4050 20800
+P 10900 21300
+F 0 "J?" H 10950 21617 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 10950 21526 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical" H 10900 21300 50  0001 C CNN
+F 3 "~" H 10900 21300 50  0001 C CNN
+	1    10900 21300
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 605FA4DA
-P 2950 20700
-F 0 "#PWR?" H 2950 20450 50  0001 C CNN
-F 1 "GND" H 2955 20527 50  0000 C CNN
-F 2 "" H 2950 20700 50  0001 C CNN
-F 3 "" H 2950 20700 50  0001 C CNN
-	1    2950 20700
+P 9800 21200
+F 0 "#PWR?" H 9800 20950 50  0001 C CNN
+F 1 "GND" H 9805 21027 50  0000 C CNN
+F 2 "" H 9800 21200 50  0001 C CNN
+F 3 "" H 9800 21200 50  0001 C CNN
+	1    9800 21200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3850 20700 2950 20700
-Text GLabel 4750 20700 2    50   Input ~ 0
+	10700 21200 9800 21200
+Text GLabel 14100 21050 3    50   Input ~ 0
 BMS_to_Teensy
+Text GLabel 10700 21300 0    50   Input ~ 0
+3.3VBMS
+Text GLabel 13900 18450 1    50   Input ~ 0
+3.3VBMS
+Text GLabel 13800 18450 1    50   Input ~ 0
+3.3VBMS_Backup
+Text GLabel 10700 21400 0    50   Input ~ 0
+3.3VBMS_Backup
+$Comp
+L bno055:+3.3V #PWR?
+U 1 1 606115A7
+P 10850 19600
+F 0 "#PWR?" H 10850 19450 50  0001 C CNN
+F 1 "+3.3V" H 10865 19773 50  0000 C CNN
+F 2 "" H 10850 19600 50  0001 C CNN
+F 3 "" H 10850 19600 50  0001 C CNN
+	1    10850 19600
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	4350 20700 4750 20700
+	10850 19900 10850 19750
+Wire Wire Line
+	10850 19750 10850 19600
+Connection ~ 10850 19750
+Text GLabel 27650 7500 0    50   Input ~ 0
+MAIN_DEPLOY
+Text GLabel 27650 7600 0    50   Input ~ 0
+DROGUE_DEPLOY
+Text GLabel 11200 21200 2    50   Input ~ 0
+MAIN_DEPLOY
+Text GLabel 11200 21300 2    50   Input ~ 0
+DROGUE_DEPLOY
+$Comp
+L rev2:PKB24SPCH3601-B0 LS?
+U 1 1 6063964C
+P 23550 20100
+F 0 "LS?" H 23654 20191 50  0000 L CNN
+F 1 "PKB24SPCH3601-B0" H 23654 20100 50  0000 L CNN
+F 2 "rev2_lib:SPKR_PKB24SPCH3601-B0" H 23654 20009 50  0000 L CNN
+F 3 "https://www.murata.com/~/media/webrenewal/support/library/catalog/products/sound/p37e.ashx?la=en-us#page=18" H 23550 20100 50  0001 L BNN
+F 4 "Murata Electronics" H 23550 20100 50  0001 L BNN "MANUFACTURER"
+F 5 "10.0 mm" H 23550 20100 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
+F 6 "IPC-7351B" H 23550 20100 50  0001 L BNN "STANDARD"
+F 7 "March 24, 2017" H 23550 20100 50  0001 L BNN "PARTREV"
+	1    23550 20100
+	1    0    0    -1  
+$EndComp
+Text GLabel 23550 19550 1    50   Input ~ 0
+BUZZER
+$Comp
+L power:GND #PWR?
+U 1 1 6063B873
+P 23550 20650
+F 0 "#PWR?" H 23550 20400 50  0001 C CNN
+F 1 "GND" H 23555 20477 50  0000 C CNN
+F 2 "" H 23550 20650 50  0001 C CNN
+F 3 "" H 23550 20650 50  0001 C CNN
+	1    23550 20650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	23550 19550 23550 19900
+Wire Wire Line
+	23550 20300 23550 20650
+Text GLabel 27650 8500 0    50   Input ~ 0
+BUZZER
 $EndSCHEMATC
