@@ -142,15 +142,15 @@ void writeSensorData(void)
    myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
  
 
-//  for (int h = 0; h < dataList.length; h++) 
-//  {
-//
-//    // Get value from list
-//    String dataString = dataList.get(h);
-//    myFile.println(dataString);
-//    Serial.print("Writing: ");
-//    Serial.println(dataString);
-//  }
+  for (int h = 0; h < dataPoints.length; h++) 
+  {
+
+    // Get value from list
+    String dataString = dataList.get(h);
+    myFile.println(dataString);
+    Serial.print("Writing: ");
+    Serial.println(dataString);
+  }
 
  
   myFile.close();
