@@ -3,7 +3,7 @@
   (general
     (thickness 1.6)
     (drawings 18)
-    (tracks 143)
+    (tracks 147)
     (zones 0)
     (modules 24)
     (nets 75)
@@ -34,7 +34,7 @@
   )
 
   (setup
-    (last_trace_width 0.25)
+    (last_trace_width 0.55)
     (user_trace_width 0.475)
     (user_trace_width 0.55)
     (user_trace_width 0.9)
@@ -1434,6 +1434,10 @@
   (segment (start 128.651 82.042) (end 128.651 84.328) (width 0.25) (layer F.Cu) (net 46) (status 400010))
   (segment (start 128.651 84.328) (end 125.603 87.376) (width 0.25) (layer F.Cu) (net 46) (tstamp 600F60A0) (status 800020))
   (segment (start 139.7 112.76) (end 142.875 112.76) (width 1) (layer F.Cu) (net 53) (status C00000))
+  (segment (start 151.003 102.616) (end 151.003 104.8258) (width 1) (layer F.Cu) (net 53) (status 400000))
+  (segment (start 151.4958 107.503) (end 152.781 107.503) (width 0.55) (layer F.Cu) (net 53) (tstamp 6063CAC0) (status 1800000))
+  (segment (start 151.003 107.0102) (end 151.4958 107.503) (width 0.55) (layer F.Cu) (net 53) (tstamp 6063CABF) (status 1000000))
+  (segment (start 151.003 104.8258) (end 151.003 107.0102) (width 0.55) (layer F.Cu) (net 53) (status 1000000))
 
   (zone (net 53) (net_name 3.3V_TEENSY) (layer F.Cu) (tstamp 6063CAA7) (hatch edge 0.508)
     (connect_pads (clearance 0.25))
