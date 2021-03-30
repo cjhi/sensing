@@ -251,9 +251,9 @@ Text Notes 11300 14300 0    50   ~ 0
 Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
 Text Label 27650 6500 2    118  ~ 0
 GND
-Text GLabel 27650 7100 0    50   Input ~ 0
+Text GLabel 27650 8500 0    50   Input ~ 0
 INT1_MPL3115A2
-Text GLabel 27650 7200 0    50   Input ~ 0
+Text GLabel 27650 8600 0    50   Input ~ 0
 INT2_MPL3115A2
 $Comp
 L power:+3.3V #PWR0110
@@ -269,10 +269,6 @@ $EndComp
 Connection ~ 10200 12500
 Wire Wire Line
 	10200 12350 10200 12500
-Text GLabel 27650 6900 0    39   Input ~ 0
-SCL_TEENSY
-Text GLabel 27650 7000 0    39   Input ~ 0
-SDA_TEENSY
 NoConn ~ 27650 8400
 NoConn ~ 27650 8900
 NoConn ~ 27650 9000
@@ -524,9 +520,9 @@ Text Notes 6500 12550 0    50   ~ 0
 ceramic capacitor preferred
 Text Notes 3200 14450 0    50   ~ 0
 tantalum capacitor preferred\nsee datasheet page 28.
-Text GLabel 27650 6600 0    50   Input ~ 0
+Text GLabel 27650 7500 0    50   Input ~ 0
 INT1_ADXL345
-Text GLabel 27650 6700 0    50   Input ~ 0
+Text GLabel 27650 7600 0    50   Input ~ 0
 INT2_ADXL345
 Text GLabel 27650 9400 0    50   Input ~ 0
 RX
@@ -671,7 +667,6 @@ Text Notes 30650 10050 0    50   ~ 0
 5V out when powered by USB;\n3.3V in when powered by BMS
 Text GLabel 29950 10000 2    50   Input ~ 0
 BMS_to_Teensy
-NoConn ~ 27650 9900
 Text Notes 18800 10200 0    250  ~ 0
 <HEADER PINS>
 Wire Notes Line width 12
@@ -908,11 +903,8 @@ Text GLabel 29950 10800 2    39   Input ~ 0
 SDA_TEENSY
 NoConn ~ 27650 8200
 NoConn ~ 27650 8300
-NoConn ~ 27650 8600
 NoConn ~ 27650 8700
 NoConn ~ 27650 8800
-NoConn ~ 27650 7400
-NoConn ~ 27650 7300
 $Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 6060F62B
@@ -974,10 +966,6 @@ Wire Wire Line
 Wire Wire Line
 	10850 19750 10850 19600
 Connection ~ 10850 19750
-Text GLabel 27650 7500 0    50   Input ~ 0
-MAIN_DEPLOY
-Text GLabel 27650 7600 0    50   Input ~ 0
-DROGUE_DEPLOY
 Text GLabel 11200 21200 2    50   Input ~ 0
 MAIN_DEPLOY
 Text GLabel 11200 21300 2    50   Input ~ 0
@@ -1014,6 +1002,16 @@ Wire Wire Line
 	23550 19550 23550 19900
 Wire Wire Line
 	23550 20300 23550 20650
-Text GLabel 27650 8500 0    50   Input ~ 0
+Text GLabel 27650 9900 0    50   Input ~ 0
 BUZZER
+NoConn ~ 27650 7300
+NoConn ~ 27650 7400
+Text GLabel 27650 7200 0    50   Input ~ 0
+DROGUE_DEPLOY
+Text GLabel 27650 7100 0    50   Input ~ 0
+MAIN_DEPLOY
+NoConn ~ 27650 7000
+NoConn ~ 27650 6900
+NoConn ~ 27650 6700
+NoConn ~ 27650 6600
 $EndSCHEMATC

@@ -251,9 +251,9 @@ Text Notes 11300 14300 0    50   ~ 0
 Vdd: power supply connection (1.95-3.6V)\nCAP: Ext. capacitor\nGND: Ground\nVddio: Digital interface power supply (1.62-3.6V)\nINT2: Pressure interrupt 2\nINT1: Pressure interrupt 1\nSDA: I2C serial data\nSDL: I2C serial clock
 Text Label 27650 6500 2    118  ~ 0
 GND
-Text GLabel 27650 7100 0    50   Input ~ 0
+Text GLabel 27650 8500 0    50   Input ~ 0
 INT1_MPL3115A2
-Text GLabel 27650 7200 0    50   Input ~ 0
+Text GLabel 27650 8600 0    50   Input ~ 0
 INT2_MPL3115A2
 $Comp
 L power:+3.3V #PWR0110
@@ -269,10 +269,6 @@ $EndComp
 Connection ~ 10200 12500
 Wire Wire Line
 	10200 12350 10200 12500
-Text GLabel 27650 6900 0    39   Input ~ 0
-SCL_TEENSY
-Text GLabel 27650 7000 0    39   Input ~ 0
-SDA_TEENSY
 NoConn ~ 27650 8400
 NoConn ~ 27650 8900
 NoConn ~ 27650 9000
@@ -524,9 +520,9 @@ Text Notes 6500 12550 0    50   ~ 0
 ceramic capacitor preferred
 Text Notes 3200 14450 0    50   ~ 0
 tantalum capacitor preferred\nsee datasheet page 28.
-Text GLabel 27650 6600 0    50   Input ~ 0
+Text GLabel 27650 7500 0    50   Input ~ 0
 INT1_ADXL345
-Text GLabel 27650 6700 0    50   Input ~ 0
+Text GLabel 27650 7600 0    50   Input ~ 0
 INT2_ADXL345
 Text GLabel 27650 9400 0    50   Input ~ 0
 RX
@@ -671,7 +667,6 @@ Text Notes 30650 10050 0    50   ~ 0
 5V out when powered by USB;\n3.3V in when powered by BMS
 Text GLabel 29950 10000 2    50   Input ~ 0
 BMS_to_Teensy
-NoConn ~ 27650 9900
 Text Notes 18800 10200 0    250  ~ 0
 <HEADER PINS>
 Wire Notes Line width 12
@@ -908,11 +903,8 @@ Text GLabel 29950 10800 2    39   Input ~ 0
 SDA_TEENSY
 NoConn ~ 27650 8200
 NoConn ~ 27650 8300
-NoConn ~ 27650 8600
 NoConn ~ 27650 8700
 NoConn ~ 27650 8800
-NoConn ~ 27650 7400
-NoConn ~ 27650 7300
 $Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 6060F62B
@@ -925,21 +917,21 @@ F 3 "~" H 10850 19750 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Odd_Even J?
+L Connector_Generic:Conn_02x03_Odd_Even J3
 U 1 1 605F8732
 P 10900 21300
-F 0 "J?" H 10950 21617 50  0000 C CNN
+F 0 "J3" H 10950 21617 50  0000 C CNN
 F 1 "Conn_02x03_Odd_Even" H 10950 21526 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x04_P2.54mm_Vertical" H 10900 21300 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 10900 21300 50  0001 C CNN
 F 3 "~" H 10900 21300 50  0001 C CNN
 	1    10900 21300
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0102
 U 1 1 605FA4DA
 P 9800 21200
-F 0 "#PWR?" H 9800 20950 50  0001 C CNN
+F 0 "#PWR0102" H 9800 20950 50  0001 C CNN
 F 1 "GND" H 9805 21027 50  0000 C CNN
 F 2 "" H 9800 21200 50  0001 C CNN
 F 3 "" H 9800 21200 50  0001 C CNN
@@ -959,10 +951,10 @@ Text GLabel 13800 18450 1    50   Input ~ 0
 Text GLabel 10700 21400 0    50   Input ~ 0
 3.3VBMS_Backup
 $Comp
-L bno055:+3.3V #PWR?
+L bno055:+3.3V #PWR0105
 U 1 1 606115A7
 P 10850 19600
-F 0 "#PWR?" H 10850 19450 50  0001 C CNN
+F 0 "#PWR0105" H 10850 19450 50  0001 C CNN
 F 1 "+3.3V" H 10865 19773 50  0000 C CNN
 F 2 "" H 10850 19600 50  0001 C CNN
 F 3 "" H 10850 19600 50  0001 C CNN
@@ -974,19 +966,15 @@ Wire Wire Line
 Wire Wire Line
 	10850 19750 10850 19600
 Connection ~ 10850 19750
-Text GLabel 27650 7500 0    50   Input ~ 0
-MAIN_DEPLOY
-Text GLabel 27650 7600 0    50   Input ~ 0
-DROGUE_DEPLOY
 Text GLabel 11200 21200 2    50   Input ~ 0
 MAIN_DEPLOY
 Text GLabel 11200 21300 2    50   Input ~ 0
 DROGUE_DEPLOY
 $Comp
-L rev2:PKB24SPCH3601-B0 LS?
+L rev2:PKB24SPCH3601-B0 LS1
 U 1 1 6063964C
 P 23550 20100
-F 0 "LS?" H 23654 20191 50  0000 L CNN
+F 0 "LS1" H 23654 20191 50  0000 L CNN
 F 1 "PKB24SPCH3601-B0" H 23654 20100 50  0000 L CNN
 F 2 "rev2_lib:SPKR_PKB24SPCH3601-B0" H 23654 20009 50  0000 L CNN
 F 3 "https://www.murata.com/~/media/webrenewal/support/library/catalog/products/sound/p37e.ashx?la=en-us#page=18" H 23550 20100 50  0001 L BNN
@@ -1000,10 +988,10 @@ $EndComp
 Text GLabel 23550 19550 1    50   Input ~ 0
 BUZZER
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0109
 U 1 1 6063B873
 P 23550 20650
-F 0 "#PWR?" H 23550 20400 50  0001 C CNN
+F 0 "#PWR0109" H 23550 20400 50  0001 C CNN
 F 1 "GND" H 23555 20477 50  0000 C CNN
 F 2 "" H 23550 20650 50  0001 C CNN
 F 3 "" H 23550 20650 50  0001 C CNN
@@ -1014,6 +1002,12 @@ Wire Wire Line
 	23550 19550 23550 19900
 Wire Wire Line
 	23550 20300 23550 20650
-Text GLabel 27650 8500 0    50   Input ~ 0
+Text GLabel 27650 9900 0    50   Input ~ 0
 BUZZER
+NoConn ~ 27650 7300
+NoConn ~ 27650 7400
+Text GLabel 27650 7200 0    50   Input ~ 0
+DROGUE_DEPLOY
+Text GLabel 27650 7100 0    50   Input ~ 0
+MAIN_DEPLOY
 $EndSCHEMATC
