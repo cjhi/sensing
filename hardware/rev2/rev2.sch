@@ -277,7 +277,6 @@ NoConn ~ 27650 9200
 NoConn ~ 27650 9300
 NoConn ~ 27650 10100
 NoConn ~ 27650 10200
-NoConn ~ 27650 10300
 NoConn ~ 27650 10400
 NoConn ~ 29950 10600
 NoConn ~ 29950 10500
@@ -290,8 +289,6 @@ NoConn ~ 29950 9600
 NoConn ~ 29950 9300
 NoConn ~ 29950 9200
 NoConn ~ 29950 9100
-NoConn ~ 29950 9000
-NoConn ~ 29950 8900
 NoConn ~ 29950 8800
 NoConn ~ 29950 8700
 NoConn ~ 29950 8600
@@ -525,15 +522,11 @@ RX
 Text GLabel 27650 9500 0    50   Input ~ 0
 TX
 Text GLabel 27650 9600 0    50   Input ~ 0
-FIX
-Text GLabel 27650 9700 0    50   Input ~ 0
 ENABLE_GPS
 NoConn ~ 29950 7100
 NoConn ~ 29950 7000
 NoConn ~ 29950 7400
 NoConn ~ 29950 7500
-Text GLabel 27650 9800 0    50   Input ~ 0
-PPS
 $Comp
 L Connector:Conn_01x09_Female J1
 U 1 1 601506B5
@@ -992,7 +985,7 @@ F 3 "" H 25650 20250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	25650 18900 25650 19050
-Text GLabel 27650 9900 0    50   Input ~ 0
+Text GLabel 27650 9700 0    50   Input ~ 0
 BUZZER
 NoConn ~ 27650 7300
 NoConn ~ 27650 7400
@@ -1312,7 +1305,7 @@ Wire Wire Line
 	28800 15300 28800 15700
 Wire Wire Line
 	29550 15300 29550 15700
-Text GLabel 27650 10000 0    50   Input ~ 0
+Text GLabel 27650 9800 0    50   Input ~ 0
 LED1
 Text GLabel 27650 10600 0    50   Input ~ 0
 LED2
@@ -1320,4 +1313,65 @@ Text GLabel 27650 10700 0    50   Input ~ 0
 LED3
 Text GLabel 27650 10800 0    50   Input ~ 0
 LED4
+Text Notes 26350 10400 0    50   ~ 0
+Connect here instead?\n(Main SCK0 pin)
+Text GLabel 25500 10150 0    50   Input ~ 0
+PPS
+Text GLabel 25500 9950 0    50   Input ~ 0
+FIX
+NoConn ~ 27650 9900
+NoConn ~ 27650 10000
+NoConn ~ 25500 9950
+NoConn ~ 25500 10150
+NoConn ~ 27600 9900
+NoConn ~ 27550 9900
+NoConn ~ 27500 9900
+NoConn ~ 27600 10000
+NoConn ~ 27550 10000
+NoConn ~ 27500 10000
+NoConn ~ 27600 10100
+NoConn ~ 27550 10100
+NoConn ~ 27500 10100
+NoConn ~ 27600 10200
+NoConn ~ 27550 10200
+NoConn ~ 27500 10200
+$Comp
+L power:GND #PWR?
+U 1 1 606E440E
+P 26700 9900
+F 0 "#PWR?" H 26700 9650 50  0001 C CNN
+F 1 "GND" H 26705 9727 50  0000 C CNN
+F 2 "" H 26700 9900 50  0001 C CNN
+F 3 "" H 26700 9900 50  0001 C CNN
+	1    26700 9900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	27650 10300 27300 10300
+Wire Wire Line
+	27300 10300 27300 9850
+Wire Wire Line
+	27300 9850 26700 9850
+Wire Wire Line
+	26700 9850 26700 9900
+Wire Wire Line
+	29950 8900 30550 8900
+Wire Wire Line
+	29950 9000 30550 9000
+$Comp
+L power:GND #PWR?
+U 1 1 606F48A4
+P 30550 9150
+F 0 "#PWR?" H 30550 8900 50  0001 C CNN
+F 1 "GND" H 30555 8977 50  0000 C CNN
+F 2 "" H 30550 9150 50  0001 C CNN
+F 3 "" H 30550 9150 50  0001 C CNN
+	1    30550 9150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	30550 8900 30550 9000
+Wire Wire Line
+	30550 9000 30550 9150
+Connection ~ 30550 9000
 $EndSCHEMATC
