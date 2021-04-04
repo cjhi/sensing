@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name rev2_lib)(type KiCad)(uri ${KICAD}/Olin_Rocketry/sensing/hardware/libraries-symbols/rev2_lib)(options "")(descr ""))
+  (lib (name KingbrightLED)(type KiCad)(uri ${KICAD}/Olin_Rocketry/sensing/hardware/rev2/KingbrightLED.pretty)(options "")(descr ""))
 )
