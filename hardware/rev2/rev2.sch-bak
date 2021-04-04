@@ -85,8 +85,6 @@ F 3 "~" H 11100 12900 50  0001 C CNN
 	1    11100 12900
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	11450 12750 11200 12750
 Connection ~ 11100 13050
 Wire Wire Line
 	10700 13050 11100 13050
@@ -94,17 +92,6 @@ Wire Wire Line
 	11100 13050 11550 13050
 Wire Wire Line
 	10200 13050 10200 13200
-$Comp
-L power:GNDPWR #PWR0101
-U 1 1 5FA0E6D7
-P 14150 13100
-F 0 "#PWR0101" H 14150 12900 50  0001 C CNN
-F 1 "GNDPWR" H 14154 12946 50  0000 C CNN
-F 2 "" H 14150 13050 50  0001 C CNN
-F 3 "" H 14150 13050 50  0001 C CNN
-	1    14150 13100
-	1    0    0    -1  
-$EndComp
 Text GLabel 12350 12650 2    50   Input ~ 0
 SCL_TEENSY
 Text GLabel 12350 12850 2    50   Input ~ 0
@@ -117,66 +104,6 @@ Wire Wire Line
 	10700 12500 11450 12500
 Wire Wire Line
 	10200 13050 10700 13050
-$Comp
-L power:GND #PWR0104
-U 1 1 5FA275B3
-P 13750 13100
-F 0 "#PWR0104" H 13750 12850 50  0001 C CNN
-F 1 "GND" H 13755 12927 50  0000 C CNN
-F 2 "" H 13750 13100 50  0001 C CNN
-F 3 "" H 13750 13100 50  0001 C CNN
-	1    13750 13100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	13750 13000 13750 13100
-Wire Wire Line
-	13750 12750 13750 12850
-$Comp
-L Connector:TestPoint CAP2
-U 1 1 5FEA9553
-P 11200 11850
-F 0 "CAP2" H 11258 11968 50  0000 L CNN
-F 1 "TestPoint" H 11258 11877 50  0000 L CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 11400 11850 50  0001 C CNN
-F 3 "~" H 11400 11850 50  0001 C CNN
-	1    11200 11850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11200 11850 11200 12750
-Connection ~ 11200 12750
-Wire Wire Line
-	11200 12750 11100 12750
-$Comp
-L Connector:TestPoint VDD2
-U 1 1 60279C64
-P 14550 12850
-F 0 "VDD2" H 14608 12968 50  0000 L CNN
-F 1 "TestPoint" H 14608 12877 50  0000 L CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 14750 12850 50  0001 C CNN
-F 3 "~" H 14750 12850 50  0001 C CNN
-	1    14550 12850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:TestPoint GND2
-U 1 1 60279C65
-P 14550 13000
-F 0 "GND2" H 14608 13118 50  0000 L CNN
-F 1 "TestPoint" H 14608 13027 50  0000 L CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 14750 13000 50  0001 C CNN
-F 3 "~" H 14750 13000 50  0001 C CNN
-	1    14550 13000
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	13750 13000 14150 13000
-Wire Wire Line
-	14150 13100 14150 13000
-Connection ~ 14150 13000
-Wire Wire Line
-	14150 13000 14550 13000
 Text Notes 9900 11050 0    197  ~ 0
 MPL3115A2 (Altimeter)
 Wire Notes Line width 12
@@ -220,31 +147,6 @@ F 3 "" H 20500 19000 50  0001 C CNN
 	1    20500 19050
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:TestPoint VDD1
-U 1 1 5FF680D8
-P 23100 18750
-F 0 "VDD1" H 23042 18776 50  0000 R CNN
-F 1 "TestPoint" H 23042 18867 50  0000 R CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 23300 18750 50  0001 C CNN
-F 3 "~" H 23300 18750 50  0001 C CNN
-	1    23100 18750
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:TestPoint GND1
-U 1 1 5FF68D98
-P 20950 18750
-F 0 "GND1" H 20892 18776 50  0000 R CNN
-F 1 "TestPoint" H 20892 18867 50  0000 R CNN
-F 2 "footprints:Test-Point-Pin_Drill2.79mm" H 21150 18750 50  0001 C CNN
-F 3 "~" H 21150 18750 50  0001 C CNN
-	1    20950 18750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	20950 18750 20950 18950
-Connection ~ 20950 18950
 Wire Notes Line width 12
 	16100 9200 16100 450 
 Text Notes 11300 14300 0    50   ~ 0
@@ -280,7 +182,6 @@ NoConn ~ 27650 10200
 NoConn ~ 27650 10400
 NoConn ~ 29950 10600
 NoConn ~ 29950 10500
-NoConn ~ 29950 10200
 NoConn ~ 29950 10100
 NoConn ~ 29950 9900
 NoConn ~ 29950 9800
@@ -309,17 +210,6 @@ NoConn ~ 29950 6800
 NoConn ~ 29950 6700
 NoConn ~ 29950 6600
 NoConn ~ 29950 6500
-$Comp
-L power:+3.3V #PWR0103
-U 1 1 60279C5C
-P 13750 12750
-F 0 "#PWR0103" H 13750 12600 50  0001 C CNN
-F 1 "+3.3V" H 13765 12923 50  0000 C CNN
-F 2 "" H 13750 12750 50  0001 C CNN
-F 3 "" H 13750 12750 50  0001 C CNN
-	1    13750 12750
-	1    0    0    -1  
-$EndComp
 NoConn ~ 27650 8000
 NoConn ~ 27650 8100
 $Comp
@@ -638,8 +528,6 @@ Wire Wire Line
 	11450 13250 11450 13350
 Wire Wire Line
 	11450 13350 11250 13350
-Wire Wire Line
-	13750 12850 14550 12850
 Text GLabel 27650 7900 0    39   Input ~ 0
 3.3V_TEENSY
 Text GLabel 2550 20000 3    39   Input ~ 0
@@ -927,13 +815,13 @@ F 3 "" H 1500 21300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2400 21300 1500 21300
-Text GLabel 2400 21400 0    50   Input ~ 0
+Text GLabel 2900 21300 2    50   Input ~ 0
 3.3VBMS
 Text GLabel 5600 18550 1    50   Input ~ 0
 3.3VBMS
 Text GLabel 5500 18550 1    50   Input ~ 0
 3.3VBMS_Backup
-Text GLabel 2400 21500 0    50   Input ~ 0
+Text GLabel 2900 21400 2    50   Input ~ 0
 3.3VBMS_Backup
 $Comp
 L bno055:+3.3V #PWR0105
@@ -951,9 +839,9 @@ Wire Wire Line
 Wire Wire Line
 	2550 19850 2550 19700
 Connection ~ 2550 19850
-Text GLabel 2900 21300 2    50   Input ~ 0
+Text GLabel 2400 21500 0    50   Input ~ 0
 MAIN_DEPLOY
-Text GLabel 2900 21400 2    50   Input ~ 0
+Text GLabel 2400 21400 0    50   Input ~ 0
 DROGUE_DEPLOY
 $Comp
 L rev2:PKB24SPCH3601-B0 LS1
@@ -1134,15 +1022,6 @@ F 3 "" H 22700 19950 50  0001 C CNN
 	1    22700 19950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	22700 18900 22700 18650
-Wire Wire Line
-	22700 18650 23100 18650
-Wire Wire Line
-	23100 18650 23100 18750
-Connection ~ 22700 18650
-Wire Wire Line
-	22700 18650 22700 18450
 $Comp
 L Device:LED D4
 U 1 1 6071A190
@@ -1377,4 +1256,10 @@ F 3 "http://www.smc-diodes.com/propdf/S23C03%20THRU%20S23C36%20N1001%20REV.A.pdf
 	0    -1   -1   0   
 $EndComp
 NoConn ~ 14000 19400
+Wire Wire Line
+	11100 12750 11450 12750
+Wire Wire Line
+	22700 18450 22700 18900
+Text GLabel 29950 10200 2    39   Input ~ 0
+3.3V_TEENSY
 $EndSCHEMATC

@@ -182,7 +182,6 @@ NoConn ~ 27650 10200
 NoConn ~ 27650 10400
 NoConn ~ 29950 10600
 NoConn ~ 29950 10500
-NoConn ~ 29950 10200
 NoConn ~ 29950 10100
 NoConn ~ 29950 9900
 NoConn ~ 29950 9800
@@ -816,13 +815,13 @@ F 3 "" H 1500 21300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2400 21300 1500 21300
-Text GLabel 2400 21400 0    50   Input ~ 0
+Text GLabel 2900 21300 2    50   Input ~ 0
 3.3VBMS
 Text GLabel 5600 18550 1    50   Input ~ 0
 3.3VBMS
 Text GLabel 5500 18550 1    50   Input ~ 0
 3.3VBMS_Backup
-Text GLabel 2400 21500 0    50   Input ~ 0
+Text GLabel 2900 21400 2    50   Input ~ 0
 3.3VBMS_Backup
 $Comp
 L bno055:+3.3V #PWR0105
@@ -840,9 +839,9 @@ Wire Wire Line
 Wire Wire Line
 	2550 19850 2550 19700
 Connection ~ 2550 19850
-Text GLabel 2900 21300 2    50   Input ~ 0
+Text GLabel 2900 21500 2    50   Input ~ 0
 MAIN_DEPLOY
-Text GLabel 2900 21400 2    50   Input ~ 0
+Text GLabel 2400 21500 0    50   Input ~ 0
 DROGUE_DEPLOY
 $Comp
 L rev2:PKB24SPCH3601-B0 LS1
@@ -1261,4 +1260,7 @@ Wire Wire Line
 	11100 12750 11450 12750
 Wire Wire Line
 	22700 18450 22700 18900
+Text GLabel 29950 10200 2    39   Input ~ 0
+3.3V_TEENSY
+NoConn ~ 2400 21400
 $EndSCHEMATC
