@@ -25,11 +25,13 @@ int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 typedef struct dataPoint {
   double timeSinceLaunch;
   float acceleration[3];
-  float altitude, pressure, temp;
+  float altitude, pressure, temp, filteredAltitude;
 } dataPoint;
 
-dataPoint dataPoints[1000]; 
+dataPoint dataPoints[batchSize]; 
 int currDataPoint = 0;
+
+float filtered_altitude = 0;
 
 void setup(void) 
 {
@@ -140,19 +142,24 @@ void writeSensorData(void)
    myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
  
 
-//  for (int h = 0; h < dataList.length; h++) 
-//  {
-//
-//    // Get value from list
-//    String dataString = dataList.get(h);
-//    myFile.println(dataString);
-//    Serial.print("Writing: ");
-//    Serial.println(dataString);
-//  }
+  for (int h = 0; h < batchSize; h++) 
+  {
+
+    // Get value from list
+    String dataString = String(dataPoints[h].timeSinceLaunch + dataPoints[h].;
+    myFile.println(dataString);
+    Serial.print("Writing: ");
+    Serial.println(dataString);
+  }
 
  
   myFile.close();
   digitalWrite(led, LOW);
   
   
+}
+
+bool isApogee(void)
+{
+ return true; 
 }
