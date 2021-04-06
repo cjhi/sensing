@@ -19,11 +19,12 @@ const int batchSize = 2000;//2200;
 
 int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 
-typedef struct dataPoint {
-  unsigned long timeSinceLaunch;
-  float acceleration[3];
-  float altitude, pressure, temp, filteredAltitude;
-} dataPoint;
+#include "dataPoint.h"
+//typedef struct dataPoint {
+//  unsigned long timeSinceLaunch;
+//  float acceleration[3];
+//  float altitude, pressure, temp, filteredAltitude;
+//} dataPoint;
 
 dataPoint dataPoints[batchSize]; 
 int currDataPoint = 0;
