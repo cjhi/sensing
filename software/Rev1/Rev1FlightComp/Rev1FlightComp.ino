@@ -12,18 +12,15 @@ MPL3115A2 baro;
 File myFile;
 
 bool launch = false;
-String imuData;
-String baroData;
-String dataPacket;
 int led = 13;
-int launchTime;
+unsigned long launchTime, startTime, openTime, closeTime;
 const int chipSelect = BUILTIN_SDCARD;
-const int batchSize = 1000;//2200;
+const int batchSize = 2000;//2200;
 
 int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 
 typedef struct dataPoint {
-  double timeSinceLaunch;
+  unsigned long timeSinceLaunch;
   float acceleration[3];
   float altitude, pressure, temp, filteredAltitude;
 } dataPoint;
@@ -73,7 +70,7 @@ void loop(void)
   checkLaunch();
   //Serial.println("Checking");
  }
- if (currDataPoint % batchSize == 0){
+ if (currDataPoint >= batchSize - 1){
   writeSensorData();
   currDataPoint = 0;
  }
@@ -82,7 +79,11 @@ void loop(void)
  dataPoints[currDataPoint].timeSinceLaunch = millis()-launchTime;
  // Time Since Launch (ms), X Accel (m/s^2), Y Accel (m/s^2), Z Accel (m/s^2), Pressure (Pascals), Altitude (m), Temp (*F)
  currDataPoint++;
-  
+ Serial.print("count = ");
+ Serial.println(currDataPoint);
+ if(currDataPoint > 0) {
+   Serial.println(dataPoints[currDataPoint - 1].timeSinceLaunch - dataPoints[currDataPoint - 2].timeSinceLaunch);
+ }
 }
 
  /* Get a new sensor event */ 
@@ -125,7 +126,8 @@ void getBaro(void)
 
 void writeSensorData(void)
 {
-  //Serial.println("Write");
+  Serial.println("Writing to SD card");
+  startTime = millis();
   // open the file. 
   digitalWrite(led, HIGH);
   if (!SD.begin(chipSelect)) {
@@ -133,17 +135,29 @@ void writeSensorData(void)
     return;
   }
   
-   myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
- 
+  myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
+  openTime = millis();
+  Serial.print("time to open SD card: ");
+  Serial.println(openTime - startTime);
+  
 
   for (int h = 0; h < batchSize; h++) 
   {
     myFile.write((const uint8_t *)&dataPoints[h], sizeof(dataPoint));
   }
 
+  closeTime = millis();
+  Serial.print("time to write to SD card: ");
+  Serial.println(closeTime - openTime);
  
   myFile.close();
   digitalWrite(led, LOW);
+  
+  Serial.print("time to close SD card: ");
+  Serial.println(millis() - closeTime);
+
+  Serial.print("total time: ");
+  Serial.println(millis() - startTime);
   
   
 }
