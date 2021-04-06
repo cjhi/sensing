@@ -18,27 +18,23 @@ String dataPacket;
 int led = 13;
 int launchTime;
 const int chipSelect = BUILTIN_SDCARD;
-int batchSize = 1000;//2200;
+const int batchSize = 1000;//2200;
 
 int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 
 typedef struct dataPoint {
   double timeSinceLaunch;
   float acceleration[3];
-  float altitude, pressure, temp;
+  float altitude, pressure, temp, filteredAltitude;
 } dataPoint;
 
-dataPoint dataPoints[1000]; 
+dataPoint dataPoints[batchSize]; 
 int currDataPoint = 0;
+
+float filtered_altitude = 0;
 
 void setup(void) 
 {
-/*
-#ifndef ESP8266
-  while (!Serial); // for Leonardo/Micro/Zero
-#endif
-*/
-
   Serial.begin(9600);
   Wire.begin();    
   //Serial.println("Accelerometer Test"); Serial.println("");
@@ -77,7 +73,7 @@ void loop(void)
   checkLaunch();
   //Serial.println("Checking");
  }
- if (currDataPoint == batchSize){
+ if (currDataPoint % batchSize == 0){
   writeSensorData();
   currDataPoint = 0;
  }
@@ -132,7 +128,7 @@ void writeSensorData(void)
   //Serial.println("Write");
   // open the file. 
   digitalWrite(led, HIGH);
-    if (!SD.begin(chipSelect)) {
+  if (!SD.begin(chipSelect)) {
     //Serial.println("initialization failed!");
     return;
   }
@@ -140,19 +136,19 @@ void writeSensorData(void)
    myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
  
 
-//  for (int h = 0; h < dataList.length; h++) 
-//  {
-//
-//    // Get value from list
-//    String dataString = dataList.get(h);
-//    myFile.println(dataString);
-//    Serial.print("Writing: ");
-//    Serial.println(dataString);
-//  }
+  for (int h = 0; h < batchSize; h++) 
+  {
+    myFile.write((const uint8_t *)&dataPoints[h], sizeof(dataPoint));
+  }
 
  
   myFile.close();
   digitalWrite(led, LOW);
   
   
+}
+
+bool isApogee(void)
+{
+ return true; 
 }
