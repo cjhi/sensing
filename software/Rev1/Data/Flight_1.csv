@@ -1,4 +1,4 @@
-Time since launch(ms),X Acceleration (m/s),Y Acceleration (m/s),Z Acceleration (m/s),Altitude (m),Pressure (Pa),Temp (F),Filtered Altitude (m)
+Time since launch (ms),X Acceleration (m/s),Y Acceleration (m/s),Z Acceleration (m/s),Altitude (m),Pressure (Pa),Temp (F),Filtered Altitude (m)
 59,-11.924887657165527,2.6674089431762695,-30.792882919311523,281.9471740722656,343.75,82.51249694824219,0.0
 85,-11.924887657165527,2.6674089431762695,-21.417724609375,292.60992431640625,356.75,82.0625,0.0
 116,-12.630966186523438,-3.9226601123809814,-2.941995143890381,286.4583435058594,349.25,82.17500305175781,0.0
