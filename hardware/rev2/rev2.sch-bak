@@ -850,7 +850,7 @@ P 25650 19450
 F 0 "LS1" H 25754 19541 50  0000 L CNN
 F 1 "PKB24SPCH3601-B0" H 25754 19450 50  0000 L CNN
 F 2 "rev2_lib:PT-1340" H 25754 19359 50  0000 L CNN
-F 3 "https://www.murata.com/~/media/webrenewal/support/library/catalog/products/sound/p37e.ashx?la=en-us#page=18" H 25650 19450 50  0001 L BNN
+F 3 "https://www.digikey.com/en/products/detail/mallory-sonalert-products-inc/PT-1340P-P10-PQ/4996070" H 25650 19450 50  0001 L BNN
 F 4 "Murata Electronics" H 25650 19450 50  0001 L BNN "MANUFACTURER"
 F 5 "10.0 mm" H 25650 19450 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
 F 6 "IPC-7351B" H 25650 19450 50  0001 L BNN "STANDARD"
