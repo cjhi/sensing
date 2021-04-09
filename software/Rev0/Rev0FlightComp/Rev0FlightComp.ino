@@ -18,11 +18,11 @@ String imuData;
 String baroData;
 String dataPacket;
 int led = 13;
-int launchTime;
 unsigned long timeSinceLaunch, lastTime;
+unsigned long launchTime, startTime, openTime, closeTime;
 const int chipSelect = BUILTIN_SDCARD;
 int count = 0;
-int batchSize = 500;//2200;
+int batchSize = 3000;//2200;
 LinkedList<String> dataList = LinkedList<String>();
 
 
@@ -78,16 +78,16 @@ void loop(void)
   checkLaunch();
   //Serial.println("Checking");
  }
- if (count % batchSize == 0){  
+ if (count % batchSize == 0){
   writeSensorData();
-//  count = 0;
-//  dataList.clear();
+  count = 0;
+  dataList.clear();
  }
  imuData = getIMU();
  baroData = getBaro();
 
  timeSinceLaunch = millis()-launchTime;
- 
+
  // Time Since Launch (ms), X Accel (m/s^2), Y Accel (m/s^2), Z Accel (m/s^2), Pressure (Pascals), Altitude (m), Temp (*F)
  dataPacket =  String(timeSinceLaunch)+" "+imuData+" "+baroData;
 // Serial.print("ALLData: ");
@@ -95,15 +95,15 @@ void loop(void)
  dataList.add(dataPacket);
  count++;
 
-Serial.print("time difference: ");
-Serial.println(timeSinceLaunch - lastTime);
-lastTime = timeSinceLaunch;
- 
- Serial.print("count = ");
- Serial.println(count);
+// Serial.print("time difference: ");
+// Serial.println(timeSinceLaunch - lastTime);
+// lastTime = timeSinceLaunch;
+//  Serial.print("count = ");
+//  Serial.println(count);
+
 // Serial.print("String = ");
 // Serial.println(dataPacket);
- Serial.println(dataPacket.length());
+//  Serial.println(dataPacket.length());
 // Serial.println(dataList.size());
 }
 
@@ -155,41 +155,42 @@ void writeSensorData(void)
 {
   Serial.println("Writing to SD card");
   unsigned long startTime = millis();
-  // open the file. 
+  // open the file.
   digitalWrite(led, HIGH);
   if (!SD.begin(chipSelect)) {
     //Serial.println("initialization failed!");
     return;
   }
-  
+
   myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
-  unsigned long openTime = millis();
+  openTime = millis();
   Serial.print("time to open SD card: ");
   Serial.println(openTime - startTime);
-  
+
 
   for (int h = 0; h < dataList.size(); h++)
     {
-  
+
       // Get value from list
       String dataString = dataList.get(h);
       myFile.println(dataString);
   //    Serial.print("Writing: ");
   //    Serial.println(dataString);
-      
+
   }
 
-  unsigned long closeTime = millis();
+  closeTime = millis();
   Serial.print("time to write to SD card: ");
   Serial.println(closeTime - openTime);
- 
+
   myFile.close();
   digitalWrite(led, LOW);
+
   Serial.print("time to close SD card: ");
   Serial.println(millis() - closeTime);
 
   Serial.print("total time: ");
   Serial.println(millis() - startTime);
-  
-  
+
+
 }

@@ -1,0 +1,59 @@
+Rev 0 at 1000 data points:
+time difference is a very consistent 30
+
+time to open SD card: 40-41
+time to write to SD card: 105-113
+time to close SD card: 2-2
+total time: 147-156
+
+----------------------------------
+
+Rev 0 at 2000 data points:
+time difference is a very consistent 30
+
+time to open SD card: 40-41
+time to write to SD card: 214-228
+time to close SD card: 2-2
+total time: 260-271
+
+----------------------------------
+
+Rev 0 at 3000 data points:
+time difference is a very consistent 30
+
+Writing to SD card
+time to open SD card: 41-41
+time to write to SD card: 311-327
+time to close SD card: 2-3
+total time: 354-370
+
+----------------------------------
+Rev 1 at 2000 data points:
+time difference is a very consistent 30
+
+Writing to SD card
+time to open SD card: 40-42 + 185
+time to write to SD card: 124-132 + 470
+time to close SD card: 2-2
+total time: 169-514
+
+----------------------------------
+
+Rev 1 at 1000 data points:
+time difference is a very consistent 30
+
+Writing to SD card
+time to open SD card: 40-42
+time to write to SD card: 62-65 + 1051
+time to close SD card: 2-8
+total time: 105-115 + 1094
+
+----------------------------------
+Rev 1 at 3000 data points:
+time difference is a very consistent 30
+
+Writing to SD card
+time to open SD card: 41-42
+time to write to SD card: 189-199
+time to close SD card: 2
+total time: 233-243

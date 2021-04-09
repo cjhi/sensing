@@ -15,7 +15,7 @@ bool launch = false;
 int led = 13;
 unsigned long launchTime, startTime, openTime, closeTime;
 const int chipSelect = BUILTIN_SDCARD;
-const int batchSize = 2000;//2200;
+const int batchSize = 3000;//2200;
 
 int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 
@@ -26,15 +26,15 @@ int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 //  float altitude, pressure, temp, filteredAltitude;
 //} dataPoint;
 
-dataPoint dataPoints[batchSize]; 
+dataPoint dataPoints[batchSize];
 int currDataPoint = 0;
 
 float filtered_altitude = 0;
 
-void setup(void) 
+void setup(void)
 {
   Serial.begin(9600);
-  Wire.begin();    
+  Wire.begin();
   //Serial.println("Accelerometer Test"); Serial.println("");
   baro.begin(); // Get sensor online
 
@@ -43,8 +43,8 @@ void setup(void)
   //myPressure.setModeBarometer(); // Measure pressure in Pascals from 20 to 110 kPa
 
   baro.setOversampleRate(3); // Set Oversample to the recommended 128
-  baro.enableEventFlags(); // Enable all three pressure and temp event flags 
-  
+  baro.enableEventFlags(); // Enable all three pressure and temp event flags
+
   pinMode(led, OUTPUT);
   digitalWrite(led, HIGH);
   /* Initialise the sensor */
@@ -64,7 +64,7 @@ void setup(void)
 
 }
 
-void loop(void) 
+void loop(void)
 {
 
  while(!launch){
@@ -80,22 +80,24 @@ void loop(void)
  dataPoints[currDataPoint].timeSinceLaunch = millis()-launchTime;
  // Time Since Launch (ms), X Accel (m/s^2), Y Accel (m/s^2), Z Accel (m/s^2), Pressure (Pascals), Altitude (m), Temp (*F)
  currDataPoint++;
- Serial.print("count = ");
- Serial.println(currDataPoint);
- if(currDataPoint > 0) {
-   Serial.println(dataPoints[currDataPoint - 1].timeSinceLaunch - dataPoints[currDataPoint - 2].timeSinceLaunch);
- }
+
+//  if(currDataPoint > 0) {
+//    Serial.print("time difference: ");
+//    Serial.println(dataPoints[currDataPoint - 1].timeSinceLaunch - dataPoints[currDataPoint - 2].timeSinceLaunch);
+//  }
+//   Serial.print("count = ");
+//  Serial.println(currDataPoint);
 }
 
- /* Get a new sensor event */ 
+ /* Get a new sensor event */
 
 void checkLaunch(void)
 {
   //Serial.println("Checking launch");
-  sensors_event_t event; 
+  sensors_event_t event;
   accel.getEvent(&event);
 
-  
+
   if (max(max(abs(event.acceleration.x),abs(event.acceleration.y)),abs(event.acceleration.z))>accelTriggerThresh)
   {
     launchTime = millis();
@@ -108,7 +110,7 @@ void checkLaunch(void)
 
 void getIMU(void)
 {
-  sensors_event_t event; 
+  sensors_event_t event;
   accel.getEvent(&event);
   dataPoints[currDataPoint].acceleration[0] = event.acceleration.x;
   dataPoints[currDataPoint].acceleration[1] = event.acceleration.y;
@@ -118,7 +120,7 @@ void getIMU(void)
 void getBaro(void)
 {
   dataPoints[currDataPoint].altitude = baro.readAltitudeFt();
- 
+
   dataPoints[currDataPoint].pressure = baro.readPressure();
 
   dataPoints[currDataPoint].temp = baro.readTempF();
@@ -129,20 +131,20 @@ void writeSensorData(void)
 {
   Serial.println("Writing to SD card");
   startTime = millis();
-  // open the file. 
+  // open the file.
   digitalWrite(led, HIGH);
   if (!SD.begin(chipSelect)) {
     //Serial.println("initialization failed!");
     return;
   }
-  
+
   myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
   openTime = millis();
   Serial.print("time to open SD card: ");
   Serial.println(openTime - startTime);
-  
 
-  for (int h = 0; h < batchSize; h++) 
+
+  for (int h = 0; h < batchSize; h++)
   {
     myFile.write((const uint8_t *)&dataPoints[h], sizeof(dataPoint));
   }
@@ -150,20 +152,20 @@ void writeSensorData(void)
   closeTime = millis();
   Serial.print("time to write to SD card: ");
   Serial.println(closeTime - openTime);
- 
+
   myFile.close();
   digitalWrite(led, LOW);
-  
+
   Serial.print("time to close SD card: ");
   Serial.println(millis() - closeTime);
 
   Serial.print("total time: ");
   Serial.println(millis() - startTime);
-  
-  
+
+
 }
 
 bool isApogee(void)
 {
- return true; 
+ return true;
 }
