@@ -839,9 +839,9 @@ Wire Wire Line
 Wire Wire Line
 	2550 19850 2550 19700
 Connection ~ 2550 19850
-Text GLabel 2400 21500 0    50   Input ~ 0
+Text GLabel 2900 21500 2    50   Input ~ 0
 MAIN_DEPLOY
-Text GLabel 2400 21400 0    50   Input ~ 0
+Text GLabel 2400 21500 0    50   Input ~ 0
 DROGUE_DEPLOY
 $Comp
 L rev2:PKB24SPCH3601-B0 LS1
@@ -849,7 +849,7 @@ U 1 1 6063964C
 P 25650 19450
 F 0 "LS1" H 25754 19541 50  0000 L CNN
 F 1 "PKB24SPCH3601-B0" H 25754 19450 50  0000 L CNN
-F 2 "rev2_lib:SPKR_PKB24SPCH3601-B0" H 25754 19359 50  0000 L CNN
+F 2 "rev2_lib:PT-1340" H 25754 19359 50  0000 L CNN
 F 3 "https://www.murata.com/~/media/webrenewal/support/library/catalog/products/sound/p37e.ashx?la=en-us#page=18" H 25650 19450 50  0001 L BNN
 F 4 "Murata Electronics" H 25650 19450 50  0001 L BNN "MANUFACTURER"
 F 5 "10.0 mm" H 25650 19450 50  0001 L BNN "MAXIMUM_PACKAGE_HEIGHT"
@@ -1262,4 +1262,5 @@ Wire Wire Line
 	22700 18450 22700 18900
 Text GLabel 29950 10200 2    39   Input ~ 0
 3.3V_TEENSY
+NoConn ~ 2400 21400
 $EndSCHEMATC

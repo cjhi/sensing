@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\Users\ieykamp\Documents\KiCAD\Olin_Rocketry\sensing\hardware\rev2\rev2.sch)
-    (date "4/4/2021 4:52:55 PM")
+    (date "4/9/2021 4:15:13 PM")
     (tool "Eeschema (5.1.7)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -165,8 +165,8 @@
       (tstamp 605F8732))
     (comp (ref LS1)
       (value PKB24SPCH3601-B0)
-      (footprint rev2_lib:SPKR_PKB24SPCH3601-B0)
-      (datasheet https://www.murata.com/~/media/webrenewal/support/library/catalog/products/sound/p37e.ashx?la=en-us#page=18)
+      (footprint rev2_lib:PT-1340)
+      (datasheet https://www.digikey.com/en/products/detail/mallory-sonalert-products-inc/PT-1340P-P10-PQ/4996070)
       (fields
         (field (name MANUFACTURER) "Murata Electronics")
         (field (name MAXIMUM_PACKAGE_HEIGHT) "10.0 mm")
