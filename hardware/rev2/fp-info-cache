@@ -1,4 +1,4 @@
-19972647277077219
+19974265701981725
 ADXL345_snapEda
 ADXL345
 
@@ -84433,6 +84433,13 @@ connector Microfit 02x12 header straight 3mm
 0
 24
 24
+footprints
+Molex_Nano-Fit_105312-1106
+
+
+0
+0
+0
 footprints
 Molex_NanoFit_1x02x2.50mm_Angled_OEM
 Molex Nano Fit, single row, side entry, through hole, Datasheet:http://www.molex.com/pdm_docs/sd/1053131208_sd.pdf

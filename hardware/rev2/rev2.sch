@@ -792,13 +792,13 @@ F 3 "~" H 2550 19850 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x03_Odd_Even J3
+L Connector_Generic:Conn_02x03_Top_Bottom J3
 U 1 1 605F8732
 P 2600 21400
 F 0 "J3" H 2650 21717 50  0000 C CNN
 F 1 "Conn_02x03_Odd_Even" H 2650 21626 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 2600 21400 50  0001 C CNN
-F 3 "~" H 2600 21400 50  0001 C CNN
+F 2 "footprints:Molex_Nano-Fit_105312-1106" H 2600 21400 50  0001 C CNN
+F 3 "https://www.molex.com/pdm_docs/sd/1053121104_sd.pdf" H 2600 21400 50  0001 C CNN
 	1    2600 21400
 	1    0    0    -1  
 $EndComp
