@@ -17,6 +17,11 @@ unsigned long launchTime, startTime, openTime, closeTime;
 const int chipSelect = BUILTIN_SDCARD;
 const int batchSize = 3000;//2200;
 
+const int smoothingFactor = 2;
+const int numValues = 20;
+float prevEMA = -100;
+const int emaWeight = smoothingFactor / (1 + numValues);
+
 int accelTriggerThresh = 50; //Threshold acceleration to sense launch (m/s^2)
 
 #include "dataPoint.h"
@@ -77,6 +82,7 @@ void loop(void)
  }
  getIMU();
  getBaro();
+ getFilteredAltitude(); //Must be called after getBaro();
  dataPoints[currDataPoint].timeSinceLaunch = millis()-launchTime;
  // Time Since Launch (ms), X Accel (m/s^2), Y Accel (m/s^2), Z Accel (m/s^2), Pressure (Pascals), Altitude (m), Temp (*F)
  currDataPoint++;
@@ -89,7 +95,6 @@ void loop(void)
 //  Serial.println(currDataPoint);
 }
 
- /* Get a new sensor event */
 
 void checkLaunch(void)
 {
@@ -161,11 +166,34 @@ void writeSensorData(void)
 
   Serial.print("total time: ");
   Serial.println(millis() - startTime);
+}
 
-
+void getFilteredAltitude(void) 
+{
+  if (prevEMA == -100) {
+    if (currDataPoint == numValues - 1) {
+      for (int i = 0; i < numValues; i++)
+      {
+        prevEMA = prevEMA + dataPoints[i].altitude;
+      }
+      prevEMA = prevEMA / numValues;
+      dataPoints[currDataPoint].filteredAltitude = prevEMA;
+    }
+    else {
+      dataPoints[currDataPoint].filteredAltitude = dataPoints[currDataPoint].altitude; 
+    }
+  }
+  else {
+    prevEMA = dataPoints[currDataPoint].altitude * emaWeight + prevEMA * (1 - emaWeight);
+    dataPoints[currDataPoint].filteredAltitude = prevEMA;
+  }
 }
 
 bool isApogee(void)
 {
- return true;
+ if (dataPoints[currDataPoint].timeSinceLaunch < 5000 || currDataPoint <= 20) {
+  return false;
+ } else {
+  return dataPoints[currDataPoint].filteredAltitude < dataPoints[currDataPoint - 20].filteredAltitude;
+ }
 }
