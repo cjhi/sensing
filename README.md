@@ -74,6 +74,30 @@ The board has been ordered from JLC and will arrive within a couple days.
 
 \* In fact, I did make a very significant error while copying the footprint from the datasheet for both the BNO055 and the MPL3115. I copied the pads as they were shown in the datasheet, which was a bottom-up view. What matters for the layout is the top-down view (think about how the sensor sits on the PCB; you want to design the pads so they sit directly beneath the sensor). When you design the pads using the bottom-up view, you get a mirror image of how they are supposed to be. Moreover, since the footprints are often symmetrical, it can be impossible to tell you’ve made a mistake, until you realize that the pins things are supposed to be connected to are actually on the opposite side of the chip.
 
+### Rev2 images
+
+**Rev1 full schematic**
+
+![rev2 full schematic](https://i.imgur.com/n7QwK5i.png)
+
+**Rev2 power supply**
+
+![rev1 power supply](https://i.imgur.com/FNHRFNK.png)
+
+**Rev2 layout**
+
+![rev1 layout](https://i.imgur.com/fhhGMZq.png)
+
+**Rev2 3D model (front)**
+
+![rev1 3D model front](https://i.imgur.com/BnAKLUM.png)
+
+**Rev2 3D model (back)**
+
+![rev1 3D model back](https://i.imgur.com/Y1u5IGo.png)
+
+### Rev1 images
+
 **Rev1 full schematic**
 
 ![rev1 full schematic](https://i.imgur.com/GOZX6sa.png)
