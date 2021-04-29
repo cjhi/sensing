@@ -24,7 +24,7 @@ We designed our Rev1 PCB to hold all three IMUs, so that we could test all of th
 
 - [MPL3115A2](https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf) is a barometer calibrated to provide altimetry. It is the most important sensor, as it allows us to determine our absolute altitude. Our simplest apogee detection is triggered by a certain number of consecutive decreasing altitude measurements.
 - Header pins for the [Adafruit Ultimate GPS Breakout (Version 3)](https://www.adafruit.com/product/746?__hstc), a $40 complete GPS module.
-- Header pins for the [RFM9X LoRa Packet Radio Breakout](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring), the most current choice of radio (see Communications subteam page).
+- Header pins for the [RFM9X LoRa Packet Radio Breakout](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring), the currenty preferred radio (see Communications subteam page).
 
 **Avionics Spring 2021 Testing Update:**
 
