@@ -10,28 +10,51 @@ The avionics system consists of
 - a student-designed flight computer, which includes sensors, microcontroller, GPS, and radio; and
 - a student-designed battery management system (BMS).
 
-The COTS computer is a **\_** model. It has its own batteries, sensors, and radio and can trigger the recovery system independently. It is intended as a backup and is required by IREC competition rules (partly so they have a reliable altitude measurement for the competition).
-The BMS is described on the Power Management subteam page. It supplies a steady 3.3V current up to about 1000 mA to the student-designed flight computer board.
+The COTS computer is a **\_** model. It has its own batteries, sensors, and radio and can trigger the recovery system independently. It is intended as a backup and is required by IREC competition rules (partly so they have a reliable altitude measurement for the competition). The BMS is described on the Power Management subteam page. It can suppy a steady 3.3V current up to about 1000 mA to the student-designed flight computer board.
 
-The flight computer consists of a Teensy 3.6 microcontroller and various sensors.
+**The flight computer consists of a Teensy 3.6 microcontroller and various sensors.**
 
-- The [Teensy 3.6](https://www.pjrc.com/teensy/card9a_rev1.pdf) is computationally powerful enough for complex data processing, has many interrupt pins, and many pins in general for connecting multiple sensors. It also has a built-in SD card reader, which may or may not be important. The decision to use it was made before the Fall 2020 semester; other options were considered and may be viable for future iterations. The main drawback of the Teensy 3.6 is its cost, at around $30. This makes having multiple prototypes very expensive, especially if we want to distribute copies to team members living in separate places.
+- The [Teensy 3.6](https://www.pjrc.com/teensy/card9a_rev1.pdf) is computationally powerful enough for complex data processing, has many interrupt pins, and many pins in general for connecting multiple sensors. It also has a built-in SD card reader. The decision to use it was made before the Fall 2020 semester; other options were considered and may be viable for future iterations. The main drawback of the Teensy 3.6 is its cost, at around $30. This makes having multiple prototypes very expensive, especially if we want to distribute copies to team members living in separate places.
 - We considered 3 different inertial measurement units (IMUs, or accelerometers):
-  - [ADXL345](https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf) is a very common 3-axis accelerometer. It is widely available and was the only one of our sensors that was already in stock from JLC, the company manufacturing our board. This means our boards will have the ADXL345 already populated when it is shipped to us, a bonus.
+  - [ADXL345](https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf) is a very common 3-axis accelerometer. It is widely available and was already in stock from JLC, the company manufacturing our board. This means our boards will have the ADXL345 already populated when it is shipped to us, a bonus.
   - [BMI088](https://download.mikroe.com/documents/datasheets/BMI088_Datasheet.pdf) is a 6-axis accelerometer and gyroscope (axes 4-6 are angular acceleration).
   - [BNO055](https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf) is a 9-axis accelerometer, relative, and absolute gyroscope (axes 7-9 are absolute orientation).
 
-We designed our Rev1 PCB to hold all three IMUs, so that we could test all of them at once. However, as of ordering time in January, the BMI088 and BNO055 were out of stock at Digikey and Mouser.
+We designed our Rev1 PCB to hold all three IMUs, so that we could test all of them at once. However, as of ordering time in January, the BMI088 and BNO055 were out of stock at Digikey and Mouser, so these were never tested.
 
 - [MPL3115A2](https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf) is a barometer calibrated to provide altimetry. It is the most important sensor, as it allows us to determine our absolute altitude. Our simplest apogee detection is triggered by a certain number of consecutive decreasing altitude measurements.
 - Header pins for the [Adafruit Ultimate GPS Breakout (Version 3)](https://www.adafruit.com/product/746?__hstc), a $40 complete GPS module.
 - Header pins for the [RFM9X LoRa Packet Radio Breakout](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring), the most current choice of radio (see Communications subteam page).
 
+**Avionics Spring 2021 Testing Update:**
+
+The sensors on Rev1 (the ADXL345 accelerometer and the MPL3115A2 barometer) work, and the data can be read over I2C. The current data format is a csv file with time since launch, x, y, and z acceleration, pressure, altitude, and temperature. The readings from the accelerometer have very little noise when at rest (the only test performed so far - others to follow soon). The barometer has some issues. First of all, it has an offset of about 1.7 atmospheres. When those 1.7 atm are subtracted out, however, it provides high precision and sensitivity. The altitude readings are off by the same offset, as I believe they are calculated from the barometer reading anyway. The temperature has some 20 degrees F offset and significant drift of 2-5 degrees F over a few minutes. More testing to follow.
+
+I looked at the specs and realized that the ADXL345 and MPL3115A2 together consume less than 3 mA of current at their max. Since the Teensy can output 250 mA through those pins, I don’t see why to use an external power source; we can just use the 3.3V pins on the Teensy.
+The tests I have done have been using the 3.3V pin as a power source.
+
+**Tests performed 3/26/2021:**
+
+**Power supply test:** Get an external power supply and give 3.3V to the power inputs. Test the test points and the Teensy’s Vin pin. Test data logging onto SD card. Test sensors connected only to external power supply vs. connected to Teensy 3.3V pin vs. connected to both.
+
+**Results:**
+The transistor part of the Rev1 power management circuit did not work. For some reason, there was always only ~0.6V on both the gate and drain pins, and so 0.6V on the rest of the PCB. I tried several pin configurations and nothing helped. It worked fine when I bypassed the transistor and powered 3.3V to both the Teensy and the PCB.
+The Teensy could not write to the SD card when the PCB and Teensy were powered independently; it only works when the rest of the PCB is powered through the Teensy’s dedicated 3.3V pin. Therefore, I recommend just using the Teensy’s 3.3V pin to power the sensors.
+
+In this case, I suggest the voltage supplied by the BMS should be 3.6V instead of 3.3V, so that the linear voltage regulator on the Teensy can effectively supply the 3.3V to the sensors. Voltage regulators necessariy have a small voltage drop across them, although I came across a [source](https://forum.pjrc.com/threads/55789-Power-Teensy-3-6-with-lipo-battery?p=203568&viewfull=1#post203568) that says the Teensy will bypass its voltage regulator if the voltage is too low, so there is not necessarily an issue.
+
+**MPL3115A2 Accuracy Test:** Take the Rev1 board up and down the stairs of the MAC building 2 times and measure altitude difference.
+
+**Results:**
+The readings are inaccurate, yet very precise. The pressure has reads on the order of 200 kPa, which is double what is expected (1 atmosphere is about 100 kPa), and the temperature reads 90 degrees F in a 70 degree room. Yet after the offset is subtracted, the sensor tracks changes in height of less than 20 feet (the distance between floors in the MAC, and the highest resolution analyzed) quite well. There is some drift over time as it sat on my desk after “landing,” on the order of 20 feet over 20 minutes. This is worrying, but it will likely not be a problem during a launch lasting a few minutes.
+
+![rev1 full schematic](https://i.imgur.com/9wFOIqa.png)
+
 **The process for creating the flight computer PCB has multiple stages:**
   1. Components are selected, including the microcontroller and sensors.
   2. Schematics are created for each sensor individually. This mainly involves copying the circuit diagram from the datasheets for each sensor. Every sensor needs at least two capacitors for its power source, and some require external pull-up resistors, for example. The BNO055 is connected to an external crystal oscillator. It’s also a good idea to add test points (basically large, labelled vias) for debugging purposes. We tried to add a test point to every trace on the schematic that would not be directly connected to the microcontroller (because we can access those traces directly through the microcontroller’s pins). 
   3. For the Rev1 board, footprints for the BNO055 and MPL3115A2 were created by copying the dimensions given by the datasheets. The other footprints were downloaded from snapeda.com. In reality, the only reason to create them manually is to get practice with KiCAD, which is why it was done this way for two of the sensors; in future, snapeda.com likely has all the footprints we will need, without the possibility of human error.*
-  4. At this stage, layouts are also created for each sensor individually. These will be manually copied later, but it is easier to go through a few iterations to find the optimal footprint placements now, before all the layouts are combined on one board.
+  4. At this stage, layouts are also created for the supporting circuitry surrounding each sensor individually. These layouts will be manually recreated later, but it is easier to go through a few iterations to find the optimal footprint placements now, before all the layouts are combined on one board.
   5. Now, all of the individual schematics are moved into one place. This can be done in the KiCAD schematic editor (eeschema) by clicking File -> Append Schematic Sheet Content -> then navigate to the schematic to import and click Use Relative Path.
   6. Now all the schematics can be hooked up together; in this case it means connecting each sensor’s communication pins to the Teensy and power and ground to the power supply. A small circuit for regulating the power supply from the BMS, as well as header pins for the BMS and GPS and radio breakout boards are also added to this schematic.
   7. Review the schematics with the flight computer sub-team. Hopefully we have been checking in all along, but now is the last chance to make changes before a lot of work goes into the layout. After this, even small changes to the schematic can be very hard to implement in the layout without starting over.
@@ -41,7 +64,6 @@ We designed our Rev1 PCB to hold all three IMUs, so that we could test all of th
 
 
 \* In fact, I did make a very significant error while copying the footprint from the datasheet for both the BNO055 and the MPL3115. I copied the pads as they were shown in the datasheet, which was a bottom-up view. What matters for the layout is the top-down view (think about how the sensor sits on the PCB; you want to design the pads so they sit directly beneath the sensor). When you design the pads using the bottom-up view, you get a mirror image of how they are supposed to be. Moreover, since the footprints are often symmetrical, it can be impossible to tell you’ve made a mistake, until you realize that the pins things are supposed to be connected to are actually on the opposite side of the chip.
-
 
 **Rev1 full schematic**
 
