@@ -26,7 +26,7 @@ We designed our Rev1 PCB to hold all three IMUs, so that we could test all of th
 - Header pins for the [Adafruit Ultimate GPS Breakout (Version 3)](https://www.adafruit.com/product/746?__hstc), a $40 complete GPS module.
 - Header pins for the [RFM9X LoRa Packet Radio Breakout](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/arduino-wiring), the currenty preferred radio (see Communications subteam page).
 
-**Avionics Spring 2021 Testing Update:**
+**Rev 1 Testing Update: Spring 2021**
 
 The sensors on Rev1 (the ADXL345 accelerometer and the MPL3115A2 barometer) work, and the data can be read over I2C. The current data format is a csv file with time since launch, x, y, and z acceleration, pressure, altitude, and temperature. The readings from the accelerometer have very little noise when at rest (the only test performed so far - others to follow soon). The barometer has some issues. First of all, it has an offset of about 1.7 atmospheres. When those 1.7 atm are subtracted out, however, it provides high precision and sensitivity. The altitude readings are off by the same offset, as I believe they are calculated from the barometer reading anyway. The temperature has some 20 degrees F offset and significant drift of 2-5 degrees F over a few minutes. More testing to follow.
 
@@ -49,6 +49,14 @@ In this case, I suggest the voltage supplied by the BMS should be 3.6V instead o
 The readings are inaccurate, yet very precise. The pressure has reads on the order of 200 kPa, which is double what is expected (1 atmosphere is about 100 kPa), and the temperature reads 90 degrees F in a 70 degree room. Yet after the offset is subtracted, the sensor tracks changes in height of less than 20 feet (the distance between floors in the MAC, and the highest resolution analyzed) quite well. There is some drift over time as it sat on my desk after “landing,” on the order of 20 feet over 20 minutes. This is worrying, but it will likely not be a problem during a launch lasting a few minutes.
 
 ![rev1 full schematic](https://i.imgur.com/9wFOIqa.png)
+
+**Developing the Rev 2 board**
+
+With the ADXL345 and MPL3115A2 sensors confirmed to work, the main objective of the Rev 2 board is to make it fit into the avionics bay. The final board is 80mm tall by 72mm wide and has a mounting hole in each corner. The power supply transistor circuit has been replaced with a power multiplexer, a zener diode was added for overvoltage protection, and the power from the BMS goes directly into the Vin pin on the Teensy; the sensors and other circuitry are powered by the Teensy's 3.3V pin as discussed above. Additionally, 5 debugging LEDs, one power LED, and a [buzzer](https://www.digikey.com/en/products/detail/mallory-sonalert-products-inc/PT-1340P-P10-PQ/4996070) have also been added and are controlled by spare digital pins on the Teensy. A 10uF capacitor was added between the power and ground pins of the radio upon testing by the Communications team.
+
+The board has been ordered from JLC and will arrive within a couple days.
+
+## Guide to creating PCBs
 
 **The process for creating the flight computer PCB has multiple stages:**
   1. Components are selected, including the microcontroller and sensors.
