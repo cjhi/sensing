@@ -46,7 +46,7 @@ In this case, I suggest the voltage supplied by the BMS should be 3.6V instead o
 **MPL3115A2 Accuracy Test:** Take the Rev1 board up and down the stairs of the MAC building 2 times and measure altitude difference.
 
 **Results:**
-The readings are inaccurate, yet very precise. The pressure has reads on the order of 200 kPa, which is double what is expected (1 atmosphere is about 100 kPa), and the temperature reads 90 degrees F in a 70 degree room. Yet after the offset is subtracted, the sensor tracks changes in height of less than 20 feet (the distance between floors in the MAC, and the highest resolution analyzed) quite well. There is some drift over time as it sat on my desk after “landing,” on the order of 20 feet over 20 minutes. This is worrying, but it will likely not be a problem during a launch lasting a few minutes.
+The readings are inaccurate, yet very precise. The pressure has reads on the order of 200 kPa, which is double what is expected (1 atmosphere is about 100 kPa), and the temperature reads 90 degrees F in a 70 degree room. Yet after the offset is subtracted, the sensor tracks changes in height of less than 20 feet (the distance between floors in the MAC, and the highest resolution analyzed) quite well. The graph below shows the corrected elevation and temperature over the course of my trip up and down the stairs of the MAC, then outside onto the great lawn and up to the 4th floor of West Hall. There is some drift over time as it sat on my desk after “landing,” on the order of 20 feet over 20 minutes. This is worrying, but it will likely not be a problem during a launch lasting a few minutes.
 
 ![rev1 full schematic](https://i.imgur.com/9wFOIqa.png)
 
