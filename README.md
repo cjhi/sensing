@@ -76,7 +76,7 @@ The board has been ordered from JLC and will arrive within a couple days.
 
 ### Rev2 images
 
-**Rev1 full schematic**
+**Rev2 full schematic**
 
 ![rev2 full schematic](https://i.imgur.com/n7QwK5i.png)
 
