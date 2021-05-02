@@ -120,7 +120,7 @@ The board has been ordered from JLC and will arrive within a couple days.
 
 ## Ordering PCBs From JLCPCB
 
-For ordering the boards, go to JLCPCB.com, and click on "Quote Now" button.
+For ordering the boards, go to JLCPCB.com (https://jlcpcb.com/RAT), and click on "Quote Now" button.
 
 ![jlcpcb quote](https://github.com/Olin-Rocketry/power/blob/master/img/jlcpcb-quote.PNG)
 
