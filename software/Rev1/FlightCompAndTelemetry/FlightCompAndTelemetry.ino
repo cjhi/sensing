@@ -274,6 +274,9 @@ void getFilteredAltitude(void)
   else {
     prevEMA = dataPoints[currDataPoint].altitude * emaWeight + prevEMA * (1 - emaWeight);
     dataPoints[currDataPoint].filteredAltitude = prevEMA;
+    if (dataPoints[currDataPoint].filteredAltitude < 600) {
+      packet.data.mainDeployed = 1;
+    }
   }
 }
 
@@ -287,6 +290,7 @@ bool isApogee(void)
              return false;
          }
      }
+  packet.data.drogueDeployed = 1;
   return true;
  }
 }

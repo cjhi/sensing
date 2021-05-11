@@ -11,7 +11,7 @@ typedef struct dataPoint {
 
 typedef struct telemetry {
   // timeSinceLaunch is the same; drogueDeployed and mainDeployed hold the timestamp when the event occurred, otherwise 0.
-  unsigned long timeSinceLaunch; // 4 bytes
+  unsigned long timeSinceLaunch; // 8 bytes
   char drogueDeployed, mainDeployed; // 2 bytes
   float gps_latitude, gps_longitude; // 8 bytes
 } telemetry;
@@ -19,7 +19,7 @@ typedef struct telemetry {
 // make everybody look at the same 22-byte spot in memory
 typedef union {
   telemetry data;
-  byte raw[14];
+  byte raw[18];
 } PACKET_UNION;
 
 
