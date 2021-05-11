@@ -100,7 +100,7 @@ void loop(void)
         #endif
     }
 
-    if(!launch){
+    if (!launch) {
         checkLaunch();
         //Serial.println("Checking");
         return;
@@ -306,24 +306,17 @@ void read_gps() {
 
         if (!GPS.parse(GPS.lastNMEA()))   // this also sets the newNMEAreceived() flag to false
         return;  // we can fail to parse a sentence in which case we should just wait for another
-
-        #ifdef USE_LOGGING
-        Serial.println(F("Parsed a GPS packet!"));
-        Serial.print(F("Location: "));
-        Serial.print(packet.data.gps_latitude, 4);
-        Serial.print(F(", "));
-        Serial.println(packet.data.gps_longitude, 4);
-        #endif
     }
 
     packet.data.gps_latitude = GPS.latitudeDegrees;
     packet.data.gps_longitude = GPS.longitudeDegrees;
 
-    #ifdef USE_LOGGING_VERBOSE
-        Serial.print(F("Location: "));
-        Serial.print(packet.data.gps_latitude, 4);
-        Serial.print(F(", "));
-        Serial.println(packet.data.gps_longitude, 4);
+    #ifdef USE_LOGGING
+      Serial.println(F("Parsed a GPS packet!"));
+      Serial.print(F("Location: "));
+      Serial.print(packet.data.gps_latitude, 4);
+      Serial.print(F(", "));
+      Serial.println(packet.data.gps_longitude, 4);
     #endif
 }
 
