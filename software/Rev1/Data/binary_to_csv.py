@@ -13,3 +13,4 @@ def binary_to_csv(binary_file_location: str, csv_file_location: str) -> None:
         csv_out.writerow(["Time since launch (ms)", "X Acceleration (m/s)", "Y Acceleration (m/s)", "Z Acceleration (m/s)", "Altitude (m)", "Pressure (Pa)", "Temp (F)", "Filtered Altitude (m)"])
         for row in converted_bytes:
             csv_out.writerow(row)
+pass

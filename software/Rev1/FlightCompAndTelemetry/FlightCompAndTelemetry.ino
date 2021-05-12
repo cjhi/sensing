@@ -3,7 +3,7 @@
 #include <SPI.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_ADXL345_U.h>
-#include "SparkFunMPL3115A2.h"
+#include <SparkFunMPL3115A2.h>
 
 #define USE_LORA // 20% memory
 #define USE_GPS // 26% memory
