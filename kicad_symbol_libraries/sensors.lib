@@ -182,7 +182,7 @@ F2 "" -150 800 50 H I C CNN
 F3 "" -150 800 50 H I C CNN
 DRAW
 T 0 0 850 50 0 0 0 https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts Normal 0 C C
-S -250 750 250 -750 0 1 0 N
+S -250 750 250 -750 0 1 0 f
 X VIN 1 -350 600 100 R 50 50 1 1 W
 X G5 10 350 0 100 L 50 50 1 1 B
 X G4 11 350 150 100 L 50 50 1 1 B

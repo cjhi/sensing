@@ -1,0 +1,71 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L teensy:Teensy3.6_All_Pins U?
+U 1 1 6198EEB0
+P 2150 3600
+F 0 "U?" H 2150 6237 60  0000 C CNN
+F 1 "Teensy3.6_All_Pins" H 2150 6131 60  0000 C CNN
+F 2 "teensy:Teensy35_36" H 2150 3650 60  0000 C CNN
+F 3 "" H 2150 3650 60  0000 C CNN
+	1    2150 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensors_2021_2022:BNO055_Breakout U?
+U 1 1 61992B5E
+P 5900 2000
+F 0 "U?" H 5900 2800 50  0000 C CNN
+F 1 "BNO055_Breakout" H 5900 2700 50  0000 C CNN
+F 2 "sensors_2021_2022:BNO055_Breakout" H 5900 2750 50  0001 C CNN
+F 3 "" H 5900 2750 50  0001 C CNN
+	1    5900 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensors_2021_2022:MPL3115A2_Breakout U?
+U 1 1 61994643
+P 5850 3950
+F 0 "U?" H 5800 4750 50  0000 L CNN
+F 1 "MPL3115A2_Breakout" H 5450 4850 50  0000 L CNN
+F 2 "sensors_2021_2022:MPL311A2_Breakout" H 5850 4400 50  0001 C CNN
+F 3 "" H 5850 4400 50  0001 C CNN
+	1    5850 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensors_2021_2022:PA16165_Breakout U?
+U 1 1 6199B8C8
+P 5900 6000
+F 0 "U?" H 5850 6950 50  0000 L CNN
+F 1 "PA16165_Breakout" H 5550 7050 50  0000 L CNN
+F 2 "sensors_2021_2022:PA16165_Breakout" H 5850 6650 50  0001 C CNN
+F 3 "" H 5850 6650 50  0001 C CNN
+	1    5900 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensors_2021_2022:RFM69HCW_Breakout U?
+U 1 1 6194AAD4
+P 9000 2250
+F 0 "U?" H 9000 3298 50  0000 C CNN
+F 1 "RFM69HCW_Breakout" H 9000 3207 50  0000 C CNN
+F 2 "sensors_2021_2022:RFM69HCW_Breakout" H 8850 3050 50  0001 C CNN
+F 3 "" H 8850 3050 50  0001 C CNN
+	1    9000 2250
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
