@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Sensors_2021_2022_BNO055_Breakout
+# REV1_FALL_2021-rescue_BNO055_Breakout-Sensors_2021_2022
 #
-DEF Sensors_2021_2022_BNO055_Breakout U 0 40 Y Y 1 F N
+DEF REV1_FALL_2021-rescue_BNO055_Breakout-Sensors_2021_2022 U 0 40 Y Y 1 F N
 F0 "U" 0 700 50 H V C CNN
-F1 "Sensors_2021_2022_BNO055_Breakout" 0 800 50 H V C CNN
+F1 "REV1_FALL_2021-rescue_BNO055_Breakout-Sensors_2021_2022" 0 800 50 H V C CNN
 F2 "" 0 700 50 H I C CNN
 F3 "" 0 700 50 H I C CNN
 DRAW
