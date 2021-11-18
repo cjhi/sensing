@@ -14,7 +14,40 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Sensors_2021_2022:PA16165_Breakout U2
+L teensy:Teensy3.6_All_Pins U?
+U 1 1 6198EEB0
+P 2200 3600
+F 0 "U?" H 2200 6237 60  0000 C CNN
+F 1 "Teensy3.6_All_Pins" H 2200 6131 60  0000 C CNN
+F 2 "teensy:Teensy35_36" H 2200 3650 60  0000 C CNN
+F 3 "" H 2200 3650 60  0000 C CNN
+	1    2200 3600
+	1    0    0    -1
+$EndComp
+$Comp
+L REV1_FALL_2021-rescue:BNO055_Breakout-Sensors_2021_2022 U?
+U 1 1 61992B5E
+P 5950 2000
+F 0 "U?" H 5950 2800 50  0000 C CNN
+F 1 "BNO055_Breakout" H 5950 2700 50  0000 C CNN
+F 2 "sensors_2021_2022:BNO055_Breakout" H 5950 2750 50  0001 C CNN
+F 3 "" H 5950 2750 50  0001 C CNN
+	1    5950 2000
+	1    0    0    -1
+$EndComp
+$Comp
+L Sensors_2021_2022:MPL3115A2_Breakout U?
+U 1 1 61994643
+P 5900 3950
+F 0 "U?" H 5850 4750 50  0000 L CNN
+F 1 "MPL3115A2_Breakout" H 5500 4850 50  0000 L CNN
+F 2 "sensors_2021_2022:MPL311A2_Breakout" H 5900 4400 50  0001 C CNN
+F 3 "" H 5900 4400 50  0001 C CNN
+	1    5900 3950
+	1    0    0    -1
+$EndComp
+$Comp
+L Sensors_2021_2022:PA16165_Breakout U?
 U 1 1 6199B8C8
 P 5850 6000
 F 0 "U2" H 5800 6950 50  0000 L CNN
@@ -22,7 +55,18 @@ F 1 "PA16165_Breakout" H 5500 7050 50  0000 L CNN
 F 2 "sensors_2021_2022:PA16165_Breakout" H 5800 6650 50  0001 C CNN
 F 3 "" H 5800 6650 50  0001 C CNN
 	1    5850 6000
-	1    0    0    -1  
+	1    0    0    -1
+$EndComp
+$Comp
+L Sensors_2021_2022:RFM69HCW_Breakout U?
+U 1 1 6194AAD4
+P 9050 2250
+F 0 "U?" H 9050 3298 50  0000 C CNN
+F 1 "RFM69HCW_Breakout" H 9050 3207 50  0000 C CNN
+F 2 "sensors_2021_2022:RFM69HCW_Breakout" H 8900 3050 50  0001 C CNN
+F 3 "" H 8900 3050 50  0001 C CNN
+	1    9050 2250
+	1    0    0    -1
 $EndComp
 Text Label 3650 2550 0    50   ~ 0
 3.3V
@@ -143,7 +187,7 @@ F 1 "MPL3115A2_Breakout" H 5500 4850 50  0000 L CNN
 F 2 "sensors_2021_2022:MPL311A2_Breakout" H 5900 4400 50  0001 C CNN
 F 3 "" H 5900 4400 50  0001 C CNN
 	1    5900 3950
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 NoConn ~ 5650 4100
 NoConn ~ 5650 3950
@@ -162,7 +206,7 @@ F 1 "RFM69HCW_Breakout" H 9100 4057 50  0000 C CNN
 F 2 "sensors_2021_2022:RFM69HCW_Breakout" H 8950 3900 50  0001 C CNN
 F 3 "" H 8950 3900 50  0001 C CNN
 	1    9100 3100
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 NoConn ~ 8750 2800
 NoConn ~ 5600 6600
@@ -187,7 +231,7 @@ F 1 "Teensy3.6_All_Pins" H 2200 6131 60  0000 C CNN
 F 2 "teensy:Teensy35_36" H 2200 3650 60  0000 C CNN
 F 3 "" H 2200 3650 60  0000 C CNN
 	1    2200 3600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 NoConn ~ 3350 1250
 NoConn ~ 3350 1350
@@ -277,6 +321,10 @@ NoConn ~ 5600 1800
 NoConn ~ 6300 1800
 Wire Wire Line
 	5600 1650 5300 1650
+Text Label 5300 1950 0    50   ~ 0
+GND
+Wire Wire Line
+	5600 1950 5300 1950
 $Comp
 L REV1_FALL_2021-rescue:BNO055_Breakout-Sensors_2021_2022 U4
 U 1 1 61992B5E
@@ -286,25 +334,7 @@ F 1 "BNO055_Breakout" H 5950 2700 50  0000 C CNN
 F 2 "sensors_2021_2022:BNO055_Breakout" H 5950 2750 50  0001 C CNN
 F 3 "" H 5950 2750 50  0001 C CNN
 	1    5950 2000
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
-Text Label 5300 1950 0    50   ~ 0
-GND
-Wire Wire Line
-	5600 1950 5300 1950
-$Comp
-L power:GNDPWR #PWR?
-U 1 1 619E19FA
-P 4300 2600
-F 0 "#PWR?" H 4300 2400 50  0001 C CNN
-F 1 "GNDPWR" H 4304 2446 50  0000 C CNN
-F 2 "" H 4300 2550 50  0001 C CNN
-F 3 "" H 4300 2550 50  0001 C CNN
-	1    4300 2600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4300 2600 4300 2400
-Text Label 4300 2400 0    50   ~ 0
-GND
+	8400 2850 8700 2850
 $EndSCHEMATC
