@@ -176,7 +176,6 @@ NoConn ~ 1050 2150
 NoConn ~ 1050 2250
 NoConn ~ 1050 2350
 NoConn ~ 1050 2450
-NoConn ~ 1050 2850
 NoConn ~ 1050 2950
 NoConn ~ 1050 3050
 NoConn ~ 1050 3150
@@ -296,4 +295,8 @@ Text Label 900  1450 2    50   ~ 0
 GND
 Wire Wire Line
 	1050 1450 900  1450
+Text Label 750  2850 0    50   ~ 0
+3.3V
+Wire Wire Line
+	1050 2850 750  2850
 $EndSCHEMATC
