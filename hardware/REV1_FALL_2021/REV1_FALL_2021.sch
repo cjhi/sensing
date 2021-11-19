@@ -25,7 +25,7 @@ F 3 "" H 2200 3650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L REV1_FALL_2021-rescue:BNO055_Breakout-Sensors_2021_2022 U4
+L Sensors_2021_2022:BNO055_Breakout U4
 U 1 1 61992B5E
 P 5950 2000
 F 0 "U4" H 5950 2800 50  0000 C CNN
@@ -46,30 +46,19 @@ F 3 "" H 5900 4400 50  0001 C CNN
 	1    5900 3950
 	1    0    0    -1  
 $EndComp
-$Comp
-L Sensors_2021_2022:PA16165_Breakout U2
-U 1 1 6199B8C8
-P 5850 6000
-F 0 "U2" H 5800 6950 50  0000 L CNN
-F 1 "PA16165_Breakout" H 5500 7050 50  0000 L CNN
-F 2 "sensors_2021_2022:PA16165_Breakout" H 5800 6650 50  0001 C CNN
-F 3 "" H 5800 6650 50  0001 C CNN
-	1    5850 6000
-	1    0    0    -1  
-$EndComp
-Text Label 3650 2550 0    50   ~ 0
+Text Label 3600 5150 0    50   ~ 0
 3.3V
 Text Label 5300 1650 0    50   ~ 0
 3.3V
 Text Label 5350 3500 0    50   ~ 0
 3.3V
-Text Label 5300 5400 0    50   ~ 0
+Text Label 5300 6450 0    50   ~ 0
 3.3V
 Text Label 8400 1650 0    50   ~ 0
 3.3V
-Text Label 3650 2650 0    50   ~ 0
+Text Label 900  5250 2    50   ~ 0
 GND
-Text Label 5300 1800 0    50   ~ 0
+Text Label 5300 1950 0    50   ~ 0
 GND
 Text Label 5350 3650 0    50   ~ 0
 GND
@@ -83,9 +72,9 @@ Text Label 3550 5650 0    50   ~ 0
 SCL0
 Text Label 5350 4400 0    50   ~ 0
 SDA0
-Text Label 5300 2250 0    50   ~ 0
-SDA0
 Text Label 5300 2100 0    50   ~ 0
+SDA0
+Text Label 5300 2250 0    50   ~ 0
 SCL0
 Text Label 5350 4250 0    50   ~ 0
 SCL0
@@ -148,8 +137,6 @@ Wire Wire Line
 Wire Wire Line
 	5600 1650 5300 1650
 Wire Wire Line
-	5300 1800 5600 1800
-Wire Wire Line
 	5600 2100 5300 2100
 Wire Wire Line
 	5300 2250 5600 2250
@@ -161,8 +148,6 @@ Wire Wire Line
 	5350 4250 5650 4250
 Wire Wire Line
 	5650 4400 5350 4400
-Wire Wire Line
-	5300 5400 5600 5400
 Wire Wire Line
 	5600 6000 5300 6000
 Wire Wire Line
@@ -185,14 +170,12 @@ Wire Wire Line
 	8700 2700 8400 2700
 Wire Wire Line
 	8400 2850 8700 2850
-NoConn ~ 1050 1450
 NoConn ~ 1050 1950
 NoConn ~ 1050 2050
 NoConn ~ 1050 2150
 NoConn ~ 1050 2250
 NoConn ~ 1050 2350
 NoConn ~ 1050 2450
-NoConn ~ 1050 2850
 NoConn ~ 1050 2950
 NoConn ~ 1050 3050
 NoConn ~ 1050 3150
@@ -216,7 +199,6 @@ NoConn ~ 1050 4850
 NoConn ~ 1050 4950
 NoConn ~ 1050 5050
 NoConn ~ 1050 5150
-NoConn ~ 1050 5250
 NoConn ~ 1050 5450
 NoConn ~ 1050 5550
 NoConn ~ 1050 5650
@@ -225,7 +207,6 @@ NoConn ~ 3350 5550
 NoConn ~ 3350 5450
 NoConn ~ 3350 5350
 NoConn ~ 3350 5250
-NoConn ~ 3350 5150
 NoConn ~ 3350 5050
 NoConn ~ 3350 4950
 NoConn ~ 3350 4850
@@ -265,7 +246,6 @@ NoConn ~ 6300 1800
 NoConn ~ 6300 1950
 NoConn ~ 6300 2100
 NoConn ~ 6300 2250
-NoConn ~ 5600 1950
 NoConn ~ 5600 2400
 NoConn ~ 5650 3800
 NoConn ~ 5650 3950
@@ -273,7 +253,6 @@ NoConn ~ 5650 4100
 NoConn ~ 5600 5550
 NoConn ~ 5600 5700
 NoConn ~ 5600 5850
-NoConn ~ 5600 6450
 NoConn ~ 5600 6600
 NoConn ~ 8700 1950
 NoConn ~ 9400 2250
@@ -292,4 +271,32 @@ F 3 "" H 8900 3050 50  0001 C CNN
 	1    9050 2250
 	1    0    0    -1  
 $EndComp
+$Comp
+L Sensors_2021_2022:PA16165_Breakout U2
+U 1 1 6199B8C8
+P 5850 6000
+F 0 "U2" H 5800 6950 50  0000 L CNN
+F 1 "PA16165_Breakout" H 5500 7050 50  0000 L CNN
+F 2 "sensors_2021_2022:PA16165_Breakout" H 5800 6650 50  0001 C CNN
+F 3 "" H 5800 6650 50  0001 C CNN
+	1    5850 6000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 6450 5300 6450
+NoConn ~ 5600 5400
+Wire Wire Line
+	5600 1950 5300 1950
+Wire Wire Line
+	3350 5150 3600 5150
+Wire Wire Line
+	1050 5250 900  5250
+Text Label 900  1450 2    50   ~ 0
+GND
+Wire Wire Line
+	1050 1450 900  1450
+Text Label 750  2850 0    50   ~ 0
+3.3V
+Wire Wire Line
+	1050 2850 750  2850
 $EndSCHEMATC
