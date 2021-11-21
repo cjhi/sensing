@@ -120,20 +120,6 @@ F 3 "" H 5150 1950 50  0001 C CNN
 $EndComp
 $Comp
 L power:GND #PWR?
-U 1 1 61AB466F
-P 3250 4200
-AR Path="/61AB466F" Ref="#PWR?"  Part="1" 
-AR Path="/619AC3BC/61AB466F" Ref="#PWR0114"  Part="1" 
-AR Path="/61A02CEE/61AB466F" Ref="#PWR0122"  Part="1" 
-F 0 "#PWR0122" H 3250 3950 50  0001 C CNN
-F 1 "GND" H 3255 4027 50  0000 C CNN
-F 2 "" H 3250 4200 50  0001 C CNN
-F 3 "" H 3250 4200 50  0001 C CNN
-	1    3250 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
 U 1 1 61AB4675
 P 4000 4200
 AR Path="/61AB4675" Ref="#PWR?"  Part="1" 
@@ -144,20 +130,6 @@ F 1 "GND" H 4005 4027 50  0000 C CNN
 F 2 "" H 4000 4200 50  0001 C CNN
 F 3 "" H 4000 4200 50  0001 C CNN
 	1    4000 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AB467B
-P 4750 4200
-AR Path="/61AB467B" Ref="#PWR?"  Part="1" 
-AR Path="/619AC3BC/61AB467B" Ref="#PWR0116"  Part="1" 
-AR Path="/61A02CEE/61AB467B" Ref="#PWR0124"  Part="1" 
-F 0 "#PWR0124" H 4750 3950 50  0001 C CNN
-F 1 "GND" H 4755 4027 50  0000 C CNN
-F 2 "" H 4750 4200 50  0001 C CNN
-F 3 "" H 4750 4200 50  0001 C CNN
-	1    4750 4200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -272,15 +244,9 @@ Wire Wire Line
 Wire Wire Line
 	3250 2850 3250 3700
 Wire Wire Line
-	3250 3700 3250 4200
-Connection ~ 3250 3700
-Wire Wire Line
 	4750 2950 4750 3700
 Wire Wire Line
 	4550 3700 4750 3700
-Connection ~ 4750 3700
-Wire Wire Line
-	4750 3700 4750 4200
 Text HLabel 8100 3250 2    50   Output ~ 0
 STAT
 Text HLabel 8100 2650 2    50   Output ~ 0
