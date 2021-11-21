@@ -472,21 +472,6 @@ F 3 "" H 17050 6500 50  0001 C CNN
 	1    17050 6500
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 619B0F8C
-P 12950 4400
-F 0 "#PWR?" H 12950 4150 50  0001 C CNN
-F 1 "GND" H 12955 4227 50  0000 C CNN
-F 2 "" H 12950 4400 50  0001 C CNN
-F 3 "" H 12950 4400 50  0001 C CNN
-	1    12950 4400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	12950 4400 12950 4150
-Text Label 12950 4150 0    50   ~ 0
-GND
 Wire Wire Line
 	15650 5350 15600 5350
 Wire Wire Line
@@ -827,7 +812,7 @@ U 1 1 61A64E05
 P 16950 9300
 F 0 "J?" H 17030 9292 50  0000 L CNN
 F 1 "Screw_Terminal_01x02" H 17030 9201 50  0000 L CNN
-F 2 "" H 16950 9300 50  0001 C CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 16950 9300 50  0001 C CNN
 F 3 "~" H 16950 9300 50  0001 C CNN
 	1    16950 9300
 	1    0    0    -1  
