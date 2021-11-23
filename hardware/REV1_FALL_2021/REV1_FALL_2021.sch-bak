@@ -168,10 +168,6 @@ Wire Wire Line
 	8400 2850 8700 2850
 NoConn ~ 1450 1950
 NoConn ~ 1450 2050
-NoConn ~ 1450 2150
-NoConn ~ 1450 2250
-NoConn ~ 1450 2350
-NoConn ~ 1450 2450
 NoConn ~ 1450 2950
 NoConn ~ 1450 3050
 NoConn ~ 1450 3150
@@ -574,4 +570,225 @@ Wire Wire Line
 Wire Wire Line
 	2500 6900 2050 6900
 Connection ~ 2050 6900
+$Comp
+L Device:LED D?
+U 1 1 619C7C94
+P 1200 8950
+F 0 "D?" V 1239 8832 50  0000 R CNN
+F 1 "LED" V 1148 8832 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1200 8950 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1806130620_Hubei-KENTO-Elec-C2293_C2293.pdf" H 1200 8950 50  0001 C CNN
+	1    1200 8950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 619CBBB6
+P 1200 9500
+F 0 "R?" H 1270 9546 50  0000 L CNN
+F 1 "R_750" H 1270 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1130 9500 50  0001 C CNN
+F 3 "~" H 1200 9500 50  0001 C CNN
+	1    1200 9500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1200 9100 1200 9350
+Text Label 1200 8400 1    50   ~ 0
+LED_1
+Wire Wire Line
+	1200 8400 1200 8800
+Wire Wire Line
+	1200 9650 1200 10050
+$Comp
+L power:GND #PWR?
+U 1 1 619E5D47
+P 1200 10050
+F 0 "#PWR?" H 1200 9800 50  0001 C CNN
+F 1 "GND" H 1205 9877 50  0000 C CNN
+F 2 "" H 1200 10050 50  0001 C CNN
+F 3 "" H 1200 10050 50  0001 C CNN
+	1    1200 10050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 619E9614
+P 1700 8950
+F 0 "D?" V 1739 8832 50  0000 R CNN
+F 1 "LED" V 1648 8832 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1700 8950 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1806130620_Hubei-KENTO-Elec-C2293_C2293.pdf" H 1700 8950 50  0001 C CNN
+	1    1700 8950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 619E961A
+P 1700 9500
+F 0 "R?" H 1770 9546 50  0000 L CNN
+F 1 "R_750" H 1770 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1630 9500 50  0001 C CNN
+F 3 "~" H 1700 9500 50  0001 C CNN
+	1    1700 9500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 9100 1700 9350
+Text Label 1700 8400 1    50   ~ 0
+LED_2
+Wire Wire Line
+	1700 8400 1700 8800
+Wire Wire Line
+	1700 9650 1700 10050
+$Comp
+L power:GND #PWR?
+U 1 1 619E9624
+P 1700 10050
+F 0 "#PWR?" H 1700 9800 50  0001 C CNN
+F 1 "GND" H 1705 9877 50  0000 C CNN
+F 2 "" H 1700 10050 50  0001 C CNN
+F 3 "" H 1700 10050 50  0001 C CNN
+	1    1700 10050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 619EBAF0
+P 2200 8950
+F 0 "D?" V 2239 8832 50  0000 R CNN
+F 1 "LED" V 2148 8832 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2200 8950 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1806130620_Hubei-KENTO-Elec-C2293_C2293.pdf" H 2200 8950 50  0001 C CNN
+	1    2200 8950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 619EBAF6
+P 2200 9500
+F 0 "R?" H 2270 9546 50  0000 L CNN
+F 1 "R_750" H 2270 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2130 9500 50  0001 C CNN
+F 3 "~" H 2200 9500 50  0001 C CNN
+	1    2200 9500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 9100 2200 9350
+Text Label 2200 8400 1    50   ~ 0
+LED_3
+Wire Wire Line
+	2200 8400 2200 8800
+Wire Wire Line
+	2200 9650 2200 10050
+$Comp
+L power:GND #PWR?
+U 1 1 619EBB00
+P 2200 10050
+F 0 "#PWR?" H 2200 9800 50  0001 C CNN
+F 1 "GND" H 2205 9877 50  0000 C CNN
+F 2 "" H 2200 10050 50  0001 C CNN
+F 3 "" H 2200 10050 50  0001 C CNN
+	1    2200 10050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 619EE1C7
+P 2700 8950
+F 0 "D?" V 2739 8832 50  0000 R CNN
+F 1 "LED" V 2648 8832 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2700 8950 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1806130620_Hubei-KENTO-Elec-C2293_C2293.pdf" H 2700 8950 50  0001 C CNN
+	1    2700 8950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 619EE1CD
+P 2700 9500
+F 0 "R?" H 2770 9546 50  0000 L CNN
+F 1 "R_750" H 2770 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2630 9500 50  0001 C CNN
+F 3 "~" H 2700 9500 50  0001 C CNN
+	1    2700 9500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 9100 2700 9350
+Text Label 2700 8400 1    50   ~ 0
+LED_4
+Wire Wire Line
+	2700 8400 2700 8800
+Wire Wire Line
+	2700 9650 2700 10050
+$Comp
+L power:GND #PWR?
+U 1 1 619EE1D7
+P 2700 10050
+F 0 "#PWR?" H 2700 9800 50  0001 C CNN
+F 1 "GND" H 2705 9877 50  0000 C CNN
+F 2 "" H 2700 10050 50  0001 C CNN
+F 3 "" H 2700 10050 50  0001 C CNN
+	1    2700 10050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 619F098B
+P 3200 8950
+F 0 "D?" V 3239 8832 50  0000 R CNN
+F 1 "LED" V 3148 8832 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3200 8950 50  0001 C CNN
+F 3 "https://datasheet.lcsc.com/lcsc/1806130620_Hubei-KENTO-Elec-C2293_C2293.pdf" H 3200 8950 50  0001 C CNN
+	1    3200 8950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 619F0991
+P 3200 9500
+F 0 "R?" H 3270 9546 50  0000 L CNN
+F 1 "R_750" H 3270 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3130 9500 50  0001 C CNN
+F 3 "~" H 3200 9500 50  0001 C CNN
+	1    3200 9500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 9100 3200 9350
+Text Label 3200 8400 1    50   ~ 0
+LED_5
+Wire Wire Line
+	3200 8400 3200 8800
+Wire Wire Line
+	3200 9650 3200 10050
+$Comp
+L power:GND #PWR?
+U 1 1 619F099B
+P 3200 10050
+F 0 "#PWR?" H 3200 9800 50  0001 C CNN
+F 1 "GND" H 3205 9877 50  0000 C CNN
+F 2 "" H 3200 10050 50  0001 C CNN
+F 3 "" H 3200 10050 50  0001 C CNN
+	1    3200 10050
+	1    0    0    -1  
+$EndComp
+Text Label 1150 2150 0    50   ~ 0
+LED_1
+Wire Wire Line
+	1450 2150 1150 2150
+Text Label 1150 2250 0    50   ~ 0
+LED_2
+Text Label 1150 2350 0    50   ~ 0
+LED_3
+Text Label 1150 2450 0    50   ~ 0
+LED_4
+Wire Wire Line
+	1450 2250 1150 2250
+Wire Wire Line
+	1450 2350 1150 2350
+Wire Wire Line
+	1450 2450 1150 2450
 $EndSCHEMATC

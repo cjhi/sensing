@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\dev\git\Olin_Rocketry\sensing\hardware\REV1_FALL_2021\REV1_FALL_2021.sch)
-    (date "11/21/21 17:36:01")
+    (date "11/22/21 02:14:16")
     (tool "Eeschema (5.1.7)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
