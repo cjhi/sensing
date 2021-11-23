@@ -758,8 +758,6 @@ F 3 "~" H 3200 9500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3200 9100 3200 9350
-Text Label 3200 8400 1    50   ~ 0
-LED_5
 Wire Wire Line
 	3200 8400 3200 8800
 Wire Wire Line
@@ -791,4 +789,6 @@ Wire Wire Line
 	1450 2350 1150 2350
 Wire Wire Line
 	1450 2450 1150 2450
+Text Label 3200 8400 1    50   ~ 0
+3.3V
 $EndSCHEMATC
