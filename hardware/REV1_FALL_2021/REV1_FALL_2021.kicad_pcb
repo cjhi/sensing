@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 6)
+    (drawings 8)
     (tracks 685)
     (zones 0)
     (modules 40)
@@ -2538,6 +2538,12 @@
       (xy -13.7383 11.823811) (xy -13.641607 11.834288) (xy -13.637075 11.82514)) (layer B.SilkS) (width 0.01))
   )
 
+  (gr_text - (at 134.62 45.72) (layer F.SilkS) (tstamp 61A03E7A)
+    (effects (font (size 3.81 3.81) (thickness 0.3)))
+  )
+  (gr_text + (at 71.12 45.72) (layer F.SilkS)
+    (effects (font (size 3.81 3.81) (thickness 0.3)))
+  )
   (gr_text "Ian Eykamp\nMarc Eftimie\nCharlie Babe\n\nNov. 24, 2021\nPheonix IV\nRev. 1" (at 129.286 145.923) (layer B.SilkS) (tstamp 61A038C0)
     (effects (font (size 2.54 2.54) (thickness 0.3)) (justify mirror))
   )
