@@ -888,4 +888,26 @@ F 3 "~" H 20400 7900 50  0001 C CNN
 	1    20400 7900
 	1    0    0    -1  
 $EndComp
+$Comp
+L Graphic:Logo_Open_Hardware_Large #LOGO101
+U 1 1 61A018C9
+P 1750 11700
+F 0 "#LOGO101" H 1750 12200 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Large" H 1750 11300 50  0001 C CNN
+F 2 "Olin_Rocketry:Olin_O" H 1750 11700 50  0001 C CNN
+F 3 "~" H 1750 11700 50  0001 C CNN
+	1    1750 11700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Graphic:Logo_Open_Hardware_Large #LOGO102
+U 1 1 61A0241D
+P 2900 11700
+F 0 "#LOGO102" H 2900 12200 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Large" H 2900 11300 50  0001 C CNN
+F 2 "Olin_Rocketry:Olin_Rocketry_Logo1" H 2900 11700 50  0001 C CNN
+F 3 "~" H 2900 11700 50  0001 C CNN
+	1    2900 11700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
