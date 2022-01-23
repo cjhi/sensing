@@ -321,8 +321,6 @@ Wire Wire Line
 	1450 4650 900  4650
 Text Label 900  4650 0    50   ~ 0
 TPS_2_STAT
-Text Label 1350 4750 2    50   ~ 0
-BALANCE_CONTROL
 Wire Wire Line
 	1450 4750 1350 4750
 Text Label 4250 4950 0    50   ~ 0
@@ -394,8 +392,6 @@ Text Label 16900 5400 0    50   ~ 0
 TPS_1_STAT
 Wire Wire Line
 	16150 5400 16900 5400
-Text Label 15100 3700 0    50   ~ 0
-BALANCE_CONTROL
 $Comp
 L power:GND #PWR0111
 U 1 1 61A35EB3
@@ -882,12 +878,6 @@ F 3 "https://www.onsemi.com/pdf/datasheet/tip120-d.pdf" H 20950 6550 50  0001 C 
 	1    20950 6550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	14700 3050 14450 3050
-Wire Wire Line
-	14450 3050 14450 3700
-Wire Wire Line
-	14450 3700 15100 3700
 $Comp
 L Connector:Screw_Terminal_01x02 J?
 U 1 1 61BAEBD9
@@ -930,4 +920,14 @@ Text Notes 12700 3350 0    75   ~ 0
 Battery 2
 Text Notes 12700 4200 0    75   ~ 0
 Battery 1
+Text Notes 20500 2950 0    50   ~ 0
+Pull-up to VDD
+Text Notes 20550 5950 0    50   ~ 0
+Pull-up to VDD
+Wire Wire Line
+	14350 5400 14350 3050
+Connection ~ 14350 5400
+Wire Wire Line
+	14350 3050 14700 3050
+NoConn ~ 1350 4750
 $EndSCHEMATC
