@@ -331,14 +331,6 @@ Wire Wire Line
 	1450 4950 1350 4950
 Text Notes 21250 2950 0    75   ~ 0
 E-Match in series here
-Text Label 21050 2250 0    50   ~ 0
-V_EMATCH
-Wire Wire Line
-	21050 2600 21050 2250
-Wire Wire Line
-	21550 2600 21050 2600
-Wire Wire Line
-	21050 2700 21550 2700
 $Comp
 L power:GND #PWR0112
 U 1 1 61A7D7C2
@@ -351,20 +343,9 @@ F 3 "" H 21050 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	21050 3350 21050 2700
+	21050 3350 21050 3050
 Wire Wire Line
 	21050 4400 21050 3750
-$Comp
-L Connector:Screw_Terminal_01x02 J101
-U 1 1 61A64E05
-P 21750 2600
-F 0 "J101" H 21830 2592 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 21830 2501 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 21750 2600 50  0001 C CNN
-F 3 "~" H 21750 2600 50  0001 C CNN
-	1    21750 2600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	20550 3550 20750 3550
 Wire Wire Line
@@ -823,9 +804,9 @@ V_EMATCH
 Wire Wire Line
 	21050 5600 21050 5250
 Wire Wire Line
-	21550 5600 21050 5600
+	21550 5600 21300 5600
 Wire Wire Line
-	21050 5700 21550 5700
+	21050 5700 21450 5700
 $Comp
 L power:GND #PWR0108
 U 1 1 619F16BC
@@ -837,8 +818,6 @@ F 3 "" H 21050 7400 50  0001 C CNN
 	1    21050 7400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	21050 6350 21050 5700
 Wire Wire Line
 	21050 7400 21050 6750
 $Comp
@@ -879,37 +858,37 @@ F 3 "https://www.onsemi.com/pdf/datasheet/tip120-d.pdf" H 20950 6550 50  0001 C 
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x02 J?
+L Connector:Screw_Terminal_01x02 J107
 U 1 1 61BAEBD9
 P 17900 2600
-F 0 "J?" H 17980 2592 50  0000 L CNN
+F 0 "J107" H 17980 2592 50  0000 L CNN
 F 1 "Screw_Terminal_01x02" H 17980 2501 50  0000 L CNN
-F 2 "" H 17900 2600 50  0001 C CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 17900 2600 50  0001 C CNN
 F 3 "~" H 17900 2600 50  0001 C CNN
 	1    17900 2600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	16100 2700 17700 2700
+	16100 2700 17400 2700
 Wire Wire Line
-	17700 2600 17700 2050
+	17700 2600 17700 2350
 Text Notes 17750 3050 0    75   ~ 0
 Terminals to Electromechanical \nArming Switch
 $Comp
-L Connector:Screw_Terminal_01x02 J?
+L Connector:Screw_Terminal_01x02 J108
 U 1 1 61BB7A24
 P 17900 4950
-F 0 "J?" H 17980 4942 50  0000 L CNN
+F 0 "J108" H 17980 4942 50  0000 L CNN
 F 1 "Screw_Terminal_01x02" H 17980 4851 50  0000 L CNN
-F 2 "" H 17900 4950 50  0001 C CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 17900 4950 50  0001 C CNN
 F 3 "~" H 17900 4950 50  0001 C CNN
 	1    17900 4950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	16150 5050 17700 5050
+	16150 5050 17400 5050
 Wire Wire Line
-	17700 4950 17700 4200
+	17700 4950 17700 4700
 Text Notes 17750 5450 0    75   ~ 0
 Terminals to Electrical \nArming Switch
 Text Notes 14700 2250 0    100  ~ 0
@@ -929,5 +908,240 @@ Wire Wire Line
 Connection ~ 14350 5400
 Wire Wire Line
 	14350 3050 14700 3050
-NoConn ~ 1350 4750
+$Comp
+L Connector:Conn_01x02_Female J105
+U 1 1 61EE6B30
+P 17400 2150
+F 0 "J105" V 17250 2400 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 17350 3050 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 17400 2150 50  0001 C CNN
+F 3 "~" H 17400 2150 50  0001 C CNN
+	1    17400 2150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	17500 2350 17700 2350
+Connection ~ 17700 2350
+Wire Wire Line
+	17700 2350 17700 2050
+Wire Wire Line
+	17400 2350 17400 2700
+Connection ~ 17400 2700
+Wire Wire Line
+	17400 2700 17700 2700
+$Comp
+L Connector:Conn_01x02_Female J106
+U 1 1 61EF490E
+P 17400 4500
+F 0 "J106" V 17250 4750 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 17350 5400 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 17400 4500 50  0001 C CNN
+F 3 "~" H 17400 4500 50  0001 C CNN
+	1    17400 4500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	17500 4700 17700 4700
+Connection ~ 17700 4700
+Wire Wire Line
+	17700 4700 17700 4200
+Wire Wire Line
+	17400 4700 17400 5050
+Connection ~ 17400 5050
+Wire Wire Line
+	17400 5050 17700 5050
+$Comp
+L Device:R R111
+U 1 1 61EFFA45
+P 20250 2600
+F 0 "R111" V 20043 2600 50  0000 C CNN
+F 1 "R_10k" V 20134 2600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 20180 2600 50  0001 C CNN
+F 3 "~" H 20250 2600 50  0001 C CNN
+	1    20250 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	20250 2750 20250 3050
+Wire Wire Line
+	20250 3050 21050 3050
+Text Label 20250 2250 2    50   ~ 0
+V_EMATCH
+Wire Wire Line
+	20250 2450 20250 2250
+$Comp
+L Device:R R112
+U 1 1 61F0973E
+P 20250 5600
+F 0 "R112" V 20043 5600 50  0000 C CNN
+F 1 "R_10k" V 20134 5600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 20180 5600 50  0001 C CNN
+F 3 "~" H 20250 5600 50  0001 C CNN
+	1    20250 5600
+	1    0    0    -1  
+$EndComp
+Text Label 20250 5250 2    50   ~ 0
+V_EMATCH
+Wire Wire Line
+	20250 5250 20250 5450
+Wire Wire Line
+	21050 5700 21050 6050
+Wire Wire Line
+	21050 6050 20250 6050
+Wire Wire Line
+	20250 6050 20250 5750
+Connection ~ 21050 6050
+Wire Wire Line
+	21050 6050 21050 6350
+$Comp
+L Connector:Conn_01x02_Female J110
+U 1 1 61F21E7F
+P 21600 5150
+F 0 "J110" V 21450 4850 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 21600 4850 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 21600 5150 50  0001 C CNN
+F 3 "~" H 21600 5150 50  0001 C CNN
+	1    21600 5150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	21300 5600 21300 5350
+Wire Wire Line
+	21300 5350 21600 5350
+Connection ~ 21300 5600
+Wire Wire Line
+	21300 5600 21050 5600
+Wire Wire Line
+	21700 5350 21700 5450
+Wire Wire Line
+	21700 5450 21450 5450
+Wire Wire Line
+	21450 5450 21450 5700
+Connection ~ 21450 5700
+Wire Wire Line
+	21450 5700 21550 5700
+Wire Wire Line
+	21450 2700 21550 2700
+Wire Wire Line
+	21450 2450 21450 2700
+Wire Wire Line
+	21700 2450 21450 2450
+Wire Wire Line
+	21700 2350 21700 2450
+Wire Wire Line
+	21300 2600 21050 2600
+Wire Wire Line
+	21300 2350 21300 2600
+Wire Wire Line
+	21600 2350 21300 2350
+$Comp
+L Connector:Conn_01x02_Female J109
+U 1 1 61F16DD4
+P 21600 2150
+F 0 "J109" V 21450 1850 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 21600 1850 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 21600 2150 50  0001 C CNN
+F 3 "~" H 21600 2150 50  0001 C CNN
+	1    21600 2150
+	0    -1   -1   0   
+$EndComp
+Connection ~ 21050 3050
+Wire Wire Line
+	21050 3050 21050 2700
+$Comp
+L Connector:Screw_Terminal_01x02 J101
+U 1 1 61A64E05
+P 21750 2600
+F 0 "J101" H 21830 2592 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 21830 2501 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 21750 2600 50  0001 C CNN
+F 3 "~" H 21750 2600 50  0001 C CNN
+	1    21750 2600
+	1    0    0    -1  
+$EndComp
+Connection ~ 21450 2700
+Wire Wire Line
+	21050 2700 21450 2700
+Connection ~ 21300 2600
+Wire Wire Line
+	21550 2600 21300 2600
+Wire Wire Line
+	21050 2600 21050 2250
+Text Label 21050 2250 0    50   ~ 0
+V_EMATCH
+$Comp
+L Connector:Screw_Terminal_01x02 J104
+U 1 1 61F48A1B
+P 6600 9300
+F 0 "J104" H 6680 9292 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 6680 9201 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 6600 9300 50  0001 C CNN
+F 3 "~" H 6600 9300 50  0001 C CNN
+	1    6600 9300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R110
+U 1 1 61F4F9C8
+P 5700 9700
+F 0 "R110" V 5493 9700 50  0000 C CNN
+F 1 "R_10k" V 5584 9700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5630 9700 50  0001 C CNN
+F 3 "~" H 5700 9700 50  0001 C CNN
+	1    5700 9700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0114
+U 1 1 61F569C1
+P 5700 10050
+F 0 "#PWR0114" H 5700 9800 50  0001 C CNN
+F 1 "GND" H 5705 9877 50  0000 C CNN
+F 2 "" H 5700 10050 50  0001 C CNN
+F 3 "" H 5700 10050 50  0001 C CNN
+	1    5700 10050
+	1    0    0    -1  
+$EndComp
+Text Label 5450 9400 2    50   ~ 0
+KEY_SWITCH_DIGITAL
+Wire Wire Line
+	5450 9400 5700 9400
+Wire Wire Line
+	5700 9400 5700 9550
+Connection ~ 5700 9400
+Wire Wire Line
+	5700 9850 5700 10050
+Wire Wire Line
+	5700 9400 6100 9400
+$Comp
+L Connector:Conn_01x02_Female J103
+U 1 1 61F48A22
+P 6000 8400
+F 0 "J103" V 5850 8100 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 6000 8100 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 6000 8400 50  0001 C CNN
+F 3 "~" H 6000 8400 50  0001 C CNN
+	1    6000 8400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6400 9300 6250 9300
+Wire Wire Line
+	6250 9300 6250 8850
+Wire Wire Line
+	6250 8850 6000 8850
+Wire Wire Line
+	6000 8600 6000 8850
+Connection ~ 6000 8850
+Wire Wire Line
+	6000 8850 5450 8850
+Wire Wire Line
+	6100 8600 6100 9400
+Connection ~ 6100 9400
+Wire Wire Line
+	6100 9400 6400 9400
+Text Label 5450 8850 2    50   ~ 0
+3.3V
+Text Label 1350 4750 2    50   ~ 0
+KEY_SWITCH_DIGITAL
 $EndSCHEMATC
