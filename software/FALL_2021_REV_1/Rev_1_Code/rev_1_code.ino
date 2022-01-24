@@ -10,7 +10,7 @@ Adafruit_MPL3115A2 mpl;
 
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
-int phase = 2;
+int phase = 1;
 
 // Configure timers for aquiring sensor data
 unsigned long currentTime = millis();
