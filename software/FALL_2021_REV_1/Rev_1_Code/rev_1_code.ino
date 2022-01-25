@@ -13,9 +13,10 @@ Adafruit_MPL3115A2 mpl;
 int phase = 1;
 
 // Configure timers for aquiring sensor data
-unsigned long currentTime = millis();
-int calibrateTime = 500; // milliseconds
-int fetchDataTime = 500; // milliseconds
+unsigned long calibrateTimeCurrent = millis();
+unsigned long fetchDataTimeCurrent = millis();
+int calibrateTime = 100; // milliseconds
+int fetchDataTime = 30; // milliseconds
 
 void setup(void)
 {  
@@ -51,8 +52,10 @@ void loop() {
     // Calibration phase
     case 1:
       while (phase == 1) {
-        if (currentTime - calibrateTime > calibrateTime) {
+        
+        if (millis() - calibrateTimeCurrent > calibrateTime) {
           displayCalStatus();
+          calibrateTimeCurrent = millis();
         }
       break;
       }
@@ -60,9 +63,10 @@ void loop() {
     // Pre-Launch phase
     case 2:
       while (phase == 2) {
-        if (currentTime - fetchDataTime > fetchDataTime) {
+        if (millis() - fetchDataTime > fetchDataTime) {
           fetchAccelerometerData();
           fetchBarometerData();
+          fetchDataTimeCurrent = millis();
         }
       break;
       }
