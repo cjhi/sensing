@@ -1223,4 +1223,18 @@ Text Label 1150 2050 0    50   ~ 0
 LED_0
 Wire Wire Line
 	1450 1950 1150 1950
+Text Label 21050 3200 0    50   ~ 0
+EMATCH_1+
+Text Label 21050 6200 0    50   ~ 0
+EMATCH_2+
+Text Label 6250 8950 0    50   ~ 0
+KEY_SWITCH_DIGITAL_3V3
+Text Label 16250 2700 0    50   ~ 0
+V_EMATCH_TO_KEY_SWITCH
+Text Label 16200 5050 0    50   ~ 0
+VIN_TO_TEENSY_TO_KEY_SWITCH
+Text Label 13400 4350 0    50   ~ 0
+BAT1
+Text Label 13400 3500 0    50   ~ 0
+BAT2
 $EndSCHEMATC
