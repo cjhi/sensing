@@ -821,13 +821,13 @@ Wire Wire Line
 $Comp
 L Connector:Screw_Terminal_01x02 J102
 U 1 1 619F16C4
-P 21750 5600
-F 0 "J102" H 21830 5592 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 21830 5501 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 21750 5600 50  0001 C CNN
-F 3 "~" H 21750 5600 50  0001 C CNN
-	1    21750 5600
-	1    0    0    -1  
+P 21750 5700
+F 0 "J102" H 21830 5692 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 21830 5601 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 21750 5700 50  0001 C CNN
+F 3 "~" H 21750 5700 50  0001 C CNN
+	1    21750 5700
+	1    0    0    1   
 $EndComp
 Wire Wire Line
 	20250 6550 20750 6550
@@ -858,13 +858,13 @@ $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J107
 U 1 1 61BAEBD9
-P 17900 2600
-F 0 "J107" H 17980 2592 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 17980 2501 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 17900 2600 50  0001 C CNN
-F 3 "~" H 17900 2600 50  0001 C CNN
-	1    17900 2600
-	1    0    0    -1  
+P 17900 2700
+F 0 "J107" H 17980 2692 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 17980 2601 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 17900 2700 50  0001 C CNN
+F 3 "~" H 17900 2700 50  0001 C CNN
+	1    17900 2700
+	1    0    0    1   
 $EndComp
 Wire Wire Line
 	16100 2700 17400 2700
@@ -889,17 +889,6 @@ Wire Wire Line
 Connection ~ 14350 5400
 Wire Wire Line
 	14350 3050 14700 3050
-$Comp
-L Connector:Conn_01x02_Female J105
-U 1 1 61EE6B30
-P 17400 2150
-F 0 "J105" V 17250 2400 50  0000 R CNN
-F 1 "Conn_01x02_Female" V 17350 3050 50  0000 R CNN
-F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 17400 2150 50  0001 C CNN
-F 3 "~" H 17400 2150 50  0001 C CNN
-	1    17400 2150
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	17500 2350 17700 2350
 Connection ~ 17700 2350
@@ -956,13 +945,13 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Female J110
 U 1 1 61F21E7F
-P 21600 5150
-F 0 "J110" V 21450 4850 50  0000 R CNN
-F 1 "Conn_01x02_Female" V 21600 4850 50  0000 R CNN
-F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 21600 5150 50  0001 C CNN
-F 3 "~" H 21600 5150 50  0001 C CNN
-	1    21600 5150
-	0    -1   -1   0   
+P 21700 5150
+F 0 "J110" V 21600 5400 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 21700 6000 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 21700 5150 50  0001 C CNN
+F 3 "~" H 21700 5150 50  0001 C CNN
+	1    21700 5150
+	0    1    -1   0   
 $EndComp
 Wire Wire Line
 	21300 5600 21300 5350
@@ -997,13 +986,13 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Female J109
 U 1 1 61F16DD4
-P 21600 2150
-F 0 "J109" V 21450 1850 50  0000 R CNN
-F 1 "Conn_01x02_Female" V 21600 1850 50  0000 R CNN
-F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 21600 2150 50  0001 C CNN
-F 3 "~" H 21600 2150 50  0001 C CNN
-	1    21600 2150
-	0    -1   -1   0   
+P 21700 2150
+F 0 "J109" V 21550 2400 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 21700 3000 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 21700 2150 50  0001 C CNN
+F 3 "~" H 21700 2150 50  0001 C CNN
+	1    21700 2150
+	0    1    -1   0   
 $EndComp
 Connection ~ 21050 3050
 Wire Wire Line
@@ -1011,13 +1000,13 @@ Wire Wire Line
 $Comp
 L Connector:Screw_Terminal_01x02 J101
 U 1 1 61A64E05
-P 21750 2600
-F 0 "J101" H 21830 2592 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 21830 2501 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 21750 2600 50  0001 C CNN
-F 3 "~" H 21750 2600 50  0001 C CNN
-	1    21750 2600
-	1    0    0    -1  
+P 21750 2700
+F 0 "J101" H 21830 2692 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 21830 2601 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 21750 2700 50  0001 C CNN
+F 3 "~" H 21750 2700 50  0001 C CNN
+	1    21750 2700
+	1    0    0    1   
 $EndComp
 Connection ~ 21450 2700
 Wire Wire Line
@@ -1199,4 +1188,15 @@ Text Label 13400 3500 0    50   ~ 0
 BAT2
 Wire Wire Line
 	16150 5050 17700 5050
+$Comp
+L Connector:Conn_01x02_Female J105
+U 1 1 61EE6B30
+P 17400 2150
+F 0 "J105" V 17250 2400 50  0000 R CNN
+F 1 "Conn_01x02_Female" V 17350 3050 50  0000 R CNN
+F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 17400 2150 50  0001 C CNN
+F 3 "~" H 17400 2150 50  0001 C CNN
+	1    17400 2150
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
