@@ -359,7 +359,7 @@ F 3 "~" H 20400 3550 50  0001 C CNN
 	1    20400 3550
 	0    1    1    0   
 $EndComp
-Text Label 17700 4200 0    50   ~ 0
+Text Label 17700 5050 0    50   ~ 0
 V_TEENSY
 Text Label 17700 2050 0    50   ~ 0
 V_EMATCH
@@ -872,23 +872,6 @@ Wire Wire Line
 	17700 2600 17700 2350
 Text Notes 17750 3050 0    75   ~ 0
 Terminals to Electromechanical \nArming Switch
-$Comp
-L Connector:Screw_Terminal_01x02 J108
-U 1 1 61BB7A24
-P 17900 4950
-F 0 "J108" H 17980 4942 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 17980 4851 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 17900 4950 50  0001 C CNN
-F 3 "~" H 17900 4950 50  0001 C CNN
-	1    17900 4950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	16150 5050 17400 5050
-Wire Wire Line
-	17700 4950 17700 4700
-Text Notes 17750 5450 0    75   ~ 0
-Terminals to Electrical \nArming Switch
 Text Notes 14700 2250 0    100  ~ 0
 Power Multiplexer
 Text Notes 14750 4600 0    100  ~ 0
@@ -927,27 +910,6 @@ Wire Wire Line
 Connection ~ 17400 2700
 Wire Wire Line
 	17400 2700 17700 2700
-$Comp
-L Connector:Conn_01x02_Female J106
-U 1 1 61EF490E
-P 17400 4500
-F 0 "J106" V 17250 4750 50  0000 R CNN
-F 1 "Conn_01x02_Female" V 17350 5400 50  0000 R CNN
-F 2 "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x" H 17400 4500 50  0001 C CNN
-F 3 "~" H 17400 4500 50  0001 C CNN
-	1    17400 4500
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	17500 4700 17700 4700
-Connection ~ 17700 4700
-Wire Wire Line
-	17700 4700 17700 4200
-Wire Wire Line
-	17400 4700 17400 5050
-Connection ~ 17400 5050
-Wire Wire Line
-	17400 5050 17700 5050
 $Comp
 L Device:R R111
 U 1 1 61EFFA45
@@ -1231,10 +1193,10 @@ Text Label 6250 8950 0    50   ~ 0
 KEY_SWITCH_DIGITAL_3V3
 Text Label 16250 2700 0    50   ~ 0
 V_EMATCH_TO_KEY_SWITCH
-Text Label 16200 5050 0    50   ~ 0
-VIN_TO_TEENSY_TO_KEY_SWITCH
 Text Label 13400 4350 0    50   ~ 0
 BAT1
 Text Label 13400 3500 0    50   ~ 0
 BAT2
+Wire Wire Line
+	16150 5050 17700 5050
 $EndSCHEMATC
