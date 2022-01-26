@@ -13,10 +13,17 @@ Adafruit_MPL3115A2 mpl;
 int phase = 1;
 
 // Configure timers for aquiring sensor data
-unsigned long calibrateTimeCurrent = millis();
-unsigned long fetchDataTimeCurrent = millis();
-int calibrateTime = 100; // milliseconds
-int fetchDataTime = 30; // milliseconds
+unsigned long lastCallTime = millis();
+
+// Phase 1 Constants
+int calibrationPhaseInterval = 100; // milliseconds
+
+// Phase 2 Constants
+int preLaunchPhaseInterval = 30; // milliseconds
+
+  // Minimum acceleration and altitude required to start launch phase
+  int minimumAcceleration = 10; // m/s/s
+  int minimumAltitude = 100; // m
 
 void setup(void)
 {  
@@ -51,24 +58,31 @@ void loop() {
 
     // Calibration phase
     case 1:
+      Serial.println("Phase 1:");
       while (phase == 1) {
         
-        if (millis() - calibrateTimeCurrent > calibrateTime) {
-          displayCalStatus();
-          calibrateTimeCurrent = millis();
+        if (millis() - lastCallTime > calibrationPhaseInterval) {
+          calibrationPhase();
+          lastCallTime = millis();
         }
-      break;
+        
       }
 
     // Pre-Launch phase
     case 2:
+      Serial.println("Phase 2:");
       while (phase == 2) {
-        if (millis() - fetchDataTime > fetchDataTime) {
-          fetchAccelerometerData();
-          fetchBarometerData();
-          fetchDataTimeCurrent = millis();
+        if (millis() - lastCallTime > preLaunchPhaseInterval) {
+          preLaunchPhase();
+          lastCallTime = millis();
         }
-      break;
+      }
+
+    // Launch phase
+    case 3:
+      Serial.println("Phase 3:");
+      while (phase == 3) {
+        
       }
       
   }
@@ -76,7 +90,7 @@ void loop() {
 }
 
 // First Phase
-void displayCalStatus(void)
+void calibrationPhase(void)
 {
 
   // Get Calibration values for system, gyroscope, accelerometer, and magnetometer
@@ -115,31 +129,51 @@ void displayCalStatus(void)
   }
   
 }
-int fetchAccelerometerData() {
+
+float fetchAccelerometerData() {
 
   // Fetches linear acceleration data (ignores gravity)
-  imu::Vector<3> accelerometer_data = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
+  imu::Vector<3> gyroscopeData = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
+  imu::Vector<3> accelerometerData = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
 
-  // Display Accelerometer Data
-  Serial.print("X: ");
-  Serial.print(accelerometer_data.x());
-  Serial.print(" Y: ");
-  Serial.print(accelerometer_data.y());
-  Serial.print(" Z: ");
-  Serial.print(accelerometer_data.z());
-  Serial.println();
+  // Calculates the true acceleration in the upward direction
+  float xAccel = accelerometerData.x()*cos((90 + gyroscopeData.x())*(M_PI/180));
+  float trueZAccelerationRelX = -xAccel*cos((90 + gyroscopeData.y())*(M_PI/180));
+  float yAccel = accelerometerData.y()*sin((90 - gyroscopeData.x())*(M_PI/180));
+  float trueZAccelerationRelY = yAccel*cos((90 - gyroscopeData.z())*(M_PI/180));
+  float zAccel = accelerometerData.z()*sin((90 - gyroscopeData.y())*(M_PI/180));
+  float trueZAccelerationRelZ = -zAccel*sin((90 - gyroscopeData.z())*(M_PI/180));
 
-  float accel_data[3] = {accelerometer_data.x(), accelerometer_data.y(), accelerometer_data.z()};
-  return(accel_data);
+  float totalZAcceleration = trueZAccelerationRelX + trueZAccelerationRelY + trueZAccelerationRelZ;
+  Serial.print("True Z Acceleration: ");
+  Serial.print(totalZAcceleration);
+  Serial.println(" m/s/s");
+
+  return(totalZAcceleration);
+  
 }
 
-float fetchBarometerData() {
+float fetchAltimeterData() {
 
   // Fetches altitude data
   float altitude = mpl.getAltitude(); // m
+  Serial.print("Altitude: ");
   Serial.print(altitude);
-  Serial.println();
+  Serial.println(" m");
+
   return(altitude);
+  
+}
+
+// Second Phase
+void preLaunchPhase() {
+  
+  float acceleration = fetchAccelerometerData();
+  float altitude = fetchAltimeterData();
+
+  if (acceleration > minimumAcceleration && altitude > minimumAltitude) {
+    phase = 3;
+  }
   
 }
 
