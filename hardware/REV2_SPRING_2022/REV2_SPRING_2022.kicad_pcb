@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 21)
+    (drawings 24)
     (tracks 339)
     (zones 0)
     (modules 54)
@@ -1110,7 +1110,7 @@
   )
 
   (module footprints:TO-220-3 (layer F.Cu) (tedit 5AFA02CB) (tstamp 61F1E1C1)
-    (at -54.058 -40.582 90)
+    (at -46.558 5.668 90)
     (descr http://www.st.com/content/ccc/resource/technical/document/datasheet/f9/ed/f5/44/26/b9/43/a4/CD00000911.pdf/files/CD00000911.pdf/jcr:content/translations/en.CD00000911.pdf)
     (path /619E7B0C)
     (fp_text reference Q101 (at 2.62 -3.22 270) (layer F.SilkS)
@@ -1221,7 +1221,7 @@
   )
 
   (module Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder (layer F.Cu) (tedit 5F68FEEE) (tstamp 61F1E203)
-    (at -54 -34.25 270)
+    (at -46.5 12 270)
     (descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor handsolder")
     (path /61A5D0C7)
@@ -1846,7 +1846,7 @@
   )
 
   (module footprints:TO-220-3 (layer F.Cu) (tedit 5AFA02CB) (tstamp 61F1C801)
-    (at -102.706 -38.89 90)
+    (at -110.956 10.61 90)
     (descr http://www.st.com/content/ccc/resource/technical/document/datasheet/f9/ed/f5/44/26/b9/43/a4/CD00000911.pdf/files/CD00000911.pdf/jcr:content/translations/en.CD00000911.pdf)
     (path /619F16D2)
     (fp_text reference Q102 (at 2.62 -3.22 270) (layer F.SilkS)
@@ -1885,7 +1885,7 @@
   )
 
   (module Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder (layer F.Cu) (tedit 5F68FEEE) (tstamp 61F1C87F)
-    (at -102.75 -32.5 270)
+    (at -111 17 270)
     (descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor handsolder")
     (path /619F16CC)
@@ -2213,8 +2213,8 @@
     )
   )
 
-  (module Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x (layer F.Cu) (tedit 5EB70B43) (tstamp 61EE2610)
-    (at -82.5 -10.5 180)
+  (module Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm_Relief2x (layer F.Cu) (tedit 5EB70B43) (tstamp 61F1F310)
+    (at -93 -12.25 180)
     (descr "Soldered wire connection with double feed through strain relief, for 2 times 1 mm² wires, basic insulation, conductor diameter 1.4mm, outer diameter 2.7mm, size source Multi-Contact FLEXI-E 1.0 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
     (tags "connector wire 1sqmm double-strain-relief")
     (path /61EE6B30)
@@ -2373,8 +2373,8 @@
     )
   )
 
-  (module TerminalBlock:TerminalBlock_bornier-2_P5.08mm (layer F.Cu) (tedit 59FF03AB) (tstamp 61F1D955)
-    (at -82.75 -51.25 180)
+  (module TerminalBlock:TerminalBlock_bornier-2_P5.08mm (layer F.Cu) (tedit 59FF03AB) (tstamp 61F1F39C)
+    (at -93.25 -53 180)
     (descr "simple 2-pin terminal block, pitch 5.08mm, revamped version of bornier2")
     (tags "terminal block bornier2")
     (path /61BAEBD9)
@@ -2648,7 +2648,7 @@
   )
 
   (module Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder (layer F.Cu) (tedit 5F68FEEE) (tstamp 61F1E233)
-    (at -46.75 -43.25 180)
+    (at -39.25 3 180)
     (descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor handsolder")
     (path /61EFFA45)
@@ -2684,7 +2684,7 @@
   )
 
   (module Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder (layer F.Cu) (tedit 5F68FEEE) (tstamp 61EE2724)
-    (at -97.5 -41.5 180)
+    (at -105.75 8 180)
     (descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor handsolder")
     (path /61F0973E)
@@ -2813,6 +2813,15 @@
     )
   )
 
+  (gr_text "MAIN\nEMATCH" (at -37 -60.75) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text "DROGUE\nEMATCH" (at -71 -60.25) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text "KEY SWITCH\nWIRES 1 & 2" (at -97.25 -60.5) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (gr_line (start -13.5 -68) (end -13.500001 236.8) (layer Edge.Cuts) (width 0.2))
   (gr_circle (center -111.449999 -58) (end -108.949999 -58) (layer Edge.Cuts) (width 0.2))
   (gr_circle (center -111.449999 84.4) (end -108.949999 84.4) (layer Edge.Cuts) (width 0.2))
