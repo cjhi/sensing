@@ -1,64 +1,57 @@
-14410124191319
-TerminalBlock
-TerminalBlock_Altech_AK300-2_P5.00mm
-Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
-Altech AK300 terminal block pitch 5.0mm
+13105371172213
+Olin_Rocketry
+BNO055_Breakout
+
+
+0
+10
+10
+Olin_Rocketry
+Large_Buzzer_24mmOD_14.8mmPinDistance_1.0mmPinDiameter
+
+
 0
 2
 2
-TerminalBlock
-TerminalBlock_Altech_AK300-3_P5.00mm
-Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
-Altech AK300 terminal block pitch 5.0mm
+Olin_Rocketry
+MPL3115A2_Breakout
+
+
 0
-3
-3
-TerminalBlock
-TerminalBlock_Altech_AK300-4_P5.00mm
-Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
-Altech AK300 terminal block pitch 5.0mm
-0
-4
-4
-TerminalBlock
-TerminalBlock_Wuerth_691311400102_P7.62mm
-https://katalog.we-online.de/em/datasheet/6913114001xx.pdf
-Wuerth WR-TBL Series 3114 terminal block pitch 7.62mm
+7
+7
+Olin_Rocketry
+MyBatteryHolder_MPD_BH-18650-PC2
+18650 Battery Holder (http://www.memoryprotectiondevices.com/datasheets/BK-18650-PC2-datasheet.pdf)
+18650 Battery Holder
 0
 2
 2
-TerminalBlock
-TerminalBlock_bornier-2_P5.08mm
-simple 2-pin terminal block, pitch 5.08mm, revamped version of bornier2
-terminal block bornier2
+Olin_Rocketry
+Olin_O
+
+
 0
-2
-2
-TerminalBlock
-TerminalBlock_bornier-3_P5.08mm
-simple 3-pin terminal block, pitch 5.08mm, revamped version of bornier3
-terminal block bornier3
 0
-3
-3
-TerminalBlock
-TerminalBlock_bornier-4_P5.08mm
-simple 4-pin terminal block, pitch 5.08mm, revamped version of bornier4
-terminal block bornier4
 0
-4
-4
-TerminalBlock
-TerminalBlock_bornier-5_P5.08mm
-simple 5-pin terminal block, pitch 5.08mm, revamped version of bornier5
-terminal block bornier5
+Olin_Rocketry
+Olin_Rocketry_Logo1
+
+
 0
-5
-5
-TerminalBlock
-TerminalBlock_bornier-6_P5.08mm
-simple 6pin terminal block, pitch 5.08mm, revamped version of bornier6
-terminal block bornier6
 0
-6
-6
+0
+Olin_Rocketry
+PA16165_Breakout
+
+
+0
+9
+9
+Olin_Rocketry
+RFM69HCW_Breakout
+
+
+0
+14
+14
