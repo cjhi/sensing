@@ -1,12 +1,19 @@
 #include <Wire.h>
+#include <SD.h>
+#include <SPI.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <Adafruit_MPL3115A2.h>
 #include <utility/imumaths.h>
 #include "dataPoint.h"
+
+
 // Define sensors
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
 Adafruit_MPL3115A2 mpl;
+File myFile;
+unsigned long launchTime, startTime, openTime, closeTime;
+int led = 13;
 const float Pi = 3.14159;
 const int chipSelect = BUILTIN_SDCARD;
 const int batchSize = 3000;//2200;
@@ -191,8 +198,6 @@ void preLaunchPhase() {
 void kalmanFilter() {
   
 }
-
-
 
 void writeSensorData(void)
 {
