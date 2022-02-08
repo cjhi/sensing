@@ -3,11 +3,18 @@
 #include <Adafruit_BNO055.h>
 #include <Adafruit_MPL3115A2.h>
 #include <utility/imumaths.h>
-
+#include "dataPoint.h"
 // Define sensors
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
 Adafruit_MPL3115A2 mpl;
+const float Pi = 3.14159;
 
+//typedef struct dataPoint {
+//  unsigned long timeSinceLaunch;
+//  float acceleration[3];
+//  float altitude, pressure, temp, filteredAltitude;
+// dataPoint;
+dataPoint dataPoints[batchSize];
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
 int phase = 1;
@@ -48,7 +55,7 @@ void setup(void)
 
   // Configure Sensors
   mpl.setSeaPressure(1013.26);
-  
+    bno.setExtCrystalUse(true);
 }
 
 void loop() {
@@ -137,19 +144,21 @@ float fetchAccelerometerData() {
   imu::Vector<3> accelerometerData = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
 
   // Calculates the true acceleration in the upward direction
-  float xAccel = accelerometerData.x()*cos((90 + gyroscopeData.x())*(M_PI/180));
-  float trueZAccelerationRelX = -xAccel*cos((90 + gyroscopeData.y())*(M_PI/180));
-  float yAccel = accelerometerData.y()*sin((90 - gyroscopeData.x())*(M_PI/180));
-  float trueZAccelerationRelY = yAccel*cos((90 - gyroscopeData.z())*(M_PI/180));
-  float zAccel = accelerometerData.z()*sin((90 - gyroscopeData.y())*(M_PI/180));
-  float trueZAccelerationRelZ = -zAccel*sin((90 - gyroscopeData.z())*(M_PI/180));
-
-  float totalZAcceleration = trueZAccelerationRelX + trueZAccelerationRelY + trueZAccelerationRelZ;
+  float x_acc=accelerometerData.x();
+  float y_acc=accelerometerData.y();
+  float z_acc=accelerometerData.z();
+  float x=gyroscopeData.x(); //roll
+  float y=gyroscopeData.y(); //pitch
+  float z=gyroscopeData.z(); //yaw
+  float alpha_angle=x*2*Pi/360;
+  float beta_angle=y*2*Pi/360;
+  // Below equation comes from https://en.wikipedia.org/wiki/Rotation_matrix
+  float z_global=-sin(beta_angle)*x_acc+sin(alpha_angle)*cos(beta_angle)*y_acc+cos(alpha_angle)*cos(beta_angle)*z_acc;
   Serial.print("True Z Acceleration: ");
-  Serial.print(totalZAcceleration);
+  Serial.print(z_global);
   Serial.println(" m/s/s");
 
-  return(totalZAcceleration);
+  return(z_global);
   
 }
 
