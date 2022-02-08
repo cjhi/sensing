@@ -8,7 +8,8 @@
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
 Adafruit_MPL3115A2 mpl;
 const float Pi = 3.14159;
-
+const int chipSelect = BUILTIN_SDCARD;
+const int batchSize = 3000;//2200;
 //typedef struct dataPoint {
 //  unsigned long timeSinceLaunch;
 //  float acceleration[3];
@@ -189,4 +190,42 @@ void preLaunchPhase() {
 // TODO: Implement Kalman Filter with fetched values
 void kalmanFilter() {
   
+}
+
+
+
+void writeSensorData(void)
+{
+  Serial.println("Writing to SD card");
+  startTime = millis();
+  // open the file.
+  digitalWrite(led, HIGH);
+  if (!SD.begin(chipSelect)) {
+    //Serial.println("initialization failed!");
+    return;
+  }
+
+  myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
+  openTime = millis();
+  Serial.print("time to open SD card: ");
+  Serial.println(openTime - startTime);
+
+
+  for (int h = 0; h < batchSize; h++)
+  {
+    myFile.write((const uint8_t *)&dataPoints[h], sizeof(dataPoint));
+  }
+
+  closeTime = millis();
+  Serial.print("time to write to SD card: ");
+  Serial.println(closeTime - openTime);
+
+  myFile.close();
+  digitalWrite(led, LOW);
+
+  Serial.print("time to close SD card: ");
+  Serial.println(millis() - closeTime);
+
+  Serial.print("total time: ");
+  Serial.println(millis() - startTime);
 }
