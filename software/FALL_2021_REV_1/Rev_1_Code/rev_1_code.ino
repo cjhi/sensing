@@ -7,21 +7,42 @@
 #include <utility/imumaths.h>
 #include "dataPoint.h"
 
+//Radio
+#include <RH_RF95.h>
+//#define RFM69_RST     3   // "A"
+//#define RFM69_CS      10   // "B"
+//#define RFM69_IRQ     4    // "C"
+//#define RFM69_IRQN    digitalPinToInterrupt(RFM69_IRQ )
+#define RFM95_CS 10
+#define RFM95_RST 3
+#define RFM95_INT 4
+// Change to 434.0 or other frequency, must match RX's freq!
+#define RF95_FREQ 915.0
+// Singleton instance of the radio driver
+RH_RF95 rf95(RFM95_CS, RFM95_INT);
 
-// Define sensors
+//GPS
+#include <Adafruit_GPS.h>
+#define GPSSerial Serial1
+
+// Connect to the GPS on the hardware port
+Adafruit_GPS GPS(&GPSSerial);
+
+// Set GPSECHO to 'false' to turn off echoing the GPS data to the Serial console
+// Set to 'true' if you want to debug and listen to the raw GPS sentences
+#define GPSECHO false
+// 9-axis gyro and accel
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
+//Altimeter
 Adafruit_MPL3115A2 mpl;
-File myFile;
-unsigned long launchTime, startTime, openTime, closeTime;
+
+int16_t packetnum = 0;  // packet counter, we increment per xmission
+unsigned long startTime, closeTime, openTime,launchTime;
 int led = 13;
-const float Pi = 3.14159;
 const int chipSelect = BUILTIN_SDCARD;
 const int batchSize = 3000;//2200;
-//typedef struct dataPoint {
-//  unsigned long timeSinceLaunch;
-//  float acceleration[3];
-//  float altitude, pressure, temp, filteredAltitude;
-// dataPoint;
+File myFile;
+const float Pi = 3.14159;
 dataPoint dataPoints[batchSize];
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
@@ -42,28 +63,7 @@ int preLaunchPhaseInterval = 30; // milliseconds
 
 void setup(void)
 {  
-
-  Serial.begin(115200);
-  
-  // Check if sensors are detected
-  if (!bno.begin())
-  {
-    Serial.print("No BNO055 detected");
-    while (1);
-  }
-  if (!mpl.begin()) {
-    Serial.println("NO MPL3115A2 detected");
-    while(1);
-  }
-  
-  // Configure LED pins
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
-
-  // Configure Sensors
-  mpl.setSeaPressure(1013.26);
-    bno.setExtCrystalUse(true);
+setupSensors();
 }
 
 void loop() {
@@ -97,140 +97,32 @@ void loop() {
     case 3:
       Serial.println("Phase 3:");
       while (phase == 3) {
+        //Detect Apogee
+      }
+      
+    // After apogee before main deploy
+    case 4:
+      Serial.println("Phase 4:");
+      while (phase == 4) {
         
       }
       
+  //After main deploy before ground
+   case 5:
+      Serial.println("Phase 5:");
+      while (phase == 5) {
+        
+      }
+   // At ground
+   case 6:
+      Serial.println("Phase 6:");
+      while (phase == 6) {
+        
+      }
   }
-
-}
-
-// First Phase
-void calibrationPhase(void)
-{
-
-  // Get Calibration values for system, gyroscope, accelerometer, and magnetometer
-  // Calibration values go from 0 to 3, 3 meaning fully calibrated
-  // LED lights will activate when gyroscope, accelerometer, and magnetometer are fully calibrated (3 lights)
-  uint8_t system, gyro, accel, mag;
-  system = gyro = accel = mag = 0;
-  bno.getCalibration(&system, &gyro, &accel, &mag);
-
-  // Displays calibration values
-  Serial.print("Sys:");
-  Serial.print(system, DEC);
-  Serial.print(" G:");
-  Serial.print(gyro, DEC);
-  Serial.print(" A:");
-  Serial.print(accel, DEC);
-  Serial.print(" M:");
-  Serial.println(mag, DEC);
-
-  // LEDs will activate when sensors are calibrated
-  if (gyro == 3) {
-    digitalWrite(6, HIGH);
-  }
-
-  if (accel == 3) {
-    digitalWrite(7, HIGH);
-  }
-
-  if (mag == 3) {
-    digitalWrite(8, HIGH);
-  }
-
-  // Switches to pre-launch phase when all sensors are calibrated
-  if (system == 3 && gyro == 3 && accel == 3 && mag ==3) {
-    phase = 2;
-  }
-  
-}
-
-float fetchAccelerometerData() {
-
-  // Fetches linear acceleration data (ignores gravity)
-  imu::Vector<3> gyroscopeData = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-  imu::Vector<3> accelerometerData = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
-
-  // Calculates the true acceleration in the upward direction
-  float x_acc=accelerometerData.x();
-  float y_acc=accelerometerData.y();
-  float z_acc=accelerometerData.z();
-  float x=gyroscopeData.x(); //roll
-  float y=gyroscopeData.y(); //pitch
-  float z=gyroscopeData.z(); //yaw
-  float alpha_angle=x*2*Pi/360;
-  float beta_angle=y*2*Pi/360;
-  // Below equation comes from https://en.wikipedia.org/wiki/Rotation_matrix
-  float z_global=-sin(beta_angle)*x_acc+sin(alpha_angle)*cos(beta_angle)*y_acc+cos(alpha_angle)*cos(beta_angle)*z_acc;
-  Serial.print("True Z Acceleration: ");
-  Serial.print(z_global);
-  Serial.println(" m/s/s");
-
-  return(z_global);
-  
-}
-
-float fetchAltimeterData() {
-
-  // Fetches altitude data
-  float altitude = mpl.getAltitude(); // m
-  Serial.print("Altitude: ");
-  Serial.print(altitude);
-  Serial.println(" m");
-
-  return(altitude);
-  
-}
-
-// Second Phase
-void preLaunchPhase() {
-  
-  float acceleration = fetchAccelerometerData();
-  float altitude = fetchAltimeterData();
-
-  if (acceleration > minimumAcceleration && altitude > minimumAltitude) {
-    phase = 3;
-  }
-  
 }
 
 // TODO: Implement Kalman Filter with fetched values
 void kalmanFilter() {
   
-}
-
-void writeSensorData(void)
-{
-  Serial.println("Writing to SD card");
-  startTime = millis();
-  // open the file.
-  digitalWrite(led, HIGH);
-  if (!SD.begin(chipSelect)) {
-    //Serial.println("initialization failed!");
-    return;
-  }
-
-  myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
-  openTime = millis();
-  Serial.print("time to open SD card: ");
-  Serial.println(openTime - startTime);
-
-
-  for (int h = 0; h < batchSize; h++)
-  {
-    myFile.write((const uint8_t *)&dataPoints[h], sizeof(dataPoint));
-  }
-
-  closeTime = millis();
-  Serial.print("time to write to SD card: ");
-  Serial.println(closeTime - openTime);
-
-  myFile.close();
-  digitalWrite(led, LOW);
-
-  Serial.print("time to close SD card: ");
-  Serial.println(millis() - closeTime);
-
-  Serial.print("total time: ");
-  Serial.println(millis() - startTime);
 }
