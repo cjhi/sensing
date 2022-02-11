@@ -1,0 +1,17 @@
+///////////////////////////////////////////////////////////////////////////
+//
+//  Description:  
+//      Flight computer interface
+//
+//  Comments:
+//
+//  Abitamim bharmal
+//  Olin College of Engineering
+//  2/11/2022
+///////////////////////////////////////////////////////////////////////////   
+
+double[] gps();
+int radio(telemetry_point tp);
+double altimeter();
+double global_z(double[] axis);
+double[] imu();
