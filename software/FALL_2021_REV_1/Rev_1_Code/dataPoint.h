@@ -5,14 +5,16 @@ typedef struct dataPoint {
   unsigned long timeSinceLaunch;
   // bool drogueDeployed, mainDeployed;
   float acceleration[3];
+  float gyro[3];
   float altitude, pressure, temp, filteredAltitude;
-  // float gps[2]; // latitude, longitude
+  phase:
+  float gps_latitude, gps_longitude; // 8 bytes
 } dataPoint;
 
 typedef struct telemetry {
   // timeSinceLaunch is the same; drogueDeployed and mainDeployed hold the timestamp when the event occurred, otherwise 0.
   unsigned long timeSinceLaunch; // 4 bytes
-  char drogueDeployed, mainDeployed; // 2 bytes
+  phase;
   float gps_latitude, gps_longitude; // 8 bytes
 } telemetry;
 

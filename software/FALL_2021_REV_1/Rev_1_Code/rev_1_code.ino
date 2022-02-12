@@ -9,10 +9,6 @@
 
 //Radio
 #include <RH_RF95.h>
-//#define RFM69_RST     3   // "A"
-//#define RFM69_CS      10   // "B"
-//#define RFM69_IRQ     4    // "C"
-//#define RFM69_IRQN    digitalPinToInterrupt(RFM69_IRQ )
 #define RFM95_CS 10
 #define RFM95_RST 3
 #define RFM95_INT 4
@@ -20,27 +16,29 @@
 #define RF95_FREQ 915.0
 // Singleton instance of the radio driver
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
+int16_t packetnum = 0;  // packet counter, we increment per xmission probably delete
 
 //GPS
 #include <Adafruit_GPS.h>
 #define GPSSerial Serial1
-
 // Connect to the GPS on the hardware port
 Adafruit_GPS GPS(&GPSSerial);
-
 // Set GPSECHO to 'false' to turn off echoing the GPS data to the Serial console
 // Set to 'true' if you want to debug and listen to the raw GPS sentences
 #define GPSECHO false
+
 // 9-axis gyro and accel
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
+
 //Altimeter
 Adafruit_MPL3115A2 mpl;
 
-int16_t packetnum = 0;  // packet counter, we increment per xmission
-unsigned long startTime, closeTime, openTime,launchTime;
+
+unsigned long startTime, closeTime, openTime, launchTime;
 int led = 13;
 const int chipSelect = BUILTIN_SDCARD;
 const int batchSize = 3000;//2200;
+float GPSArray[2]
 File myFile;
 const float Pi = 3.14159;
 dataPoint dataPoints[batchSize];
@@ -93,18 +91,18 @@ void loop() {
         }
       }
 
-    // Launch phase
+    // Lauched but before apogee
     case 3:
       Serial.println("Phase 3:");
       while (phase == 3) {
-        //Detect Apogee
+        //Send out drogue
       }
       
     // After apogee before main deploy
     case 4:
       Serial.println("Phase 4:");
       while (phase == 4) {
-        
+        //send out main
       }
       
   //After main deploy before ground
@@ -113,13 +111,6 @@ void loop() {
       while (phase == 5) {
         
       }
-   // At ground
-   case 6:
-      Serial.println("Phase 6:");
-      while (phase == 6) {
-        
-      }
-  }
 }
 
 // TODO: Implement Kalman Filter with fetched values
