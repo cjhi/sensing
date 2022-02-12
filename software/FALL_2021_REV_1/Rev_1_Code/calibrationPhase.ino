@@ -1,5 +1,4 @@
-void calibrationPhase(void)
-{
+void calibrationPhase(){
 
   // Get Calibration values for system, gyroscope, accelerometer, and magnetometer
   // Calibration values go from 0 to 3, 3 meaning fully calibrated

@@ -1,5 +1,6 @@
-void SD_write()
-{
+void SD_write(){
+  unsigned long startTime, closeTime, openTime;
+  int led = 13;
   Serial.println("Writing to SD card");
   startTime = millis();
   // open the file.

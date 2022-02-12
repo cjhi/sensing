@@ -1,63 +1,54 @@
+//General
 #include <Wire.h>
 #include <SD.h>
 #include <SPI.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
-#include <Adafruit_MPL3115A2.h>
-#include <utility/imumaths.h>
-#include "dataPoint.h"
+#include <Adafruit_Sensor.h>//General sensor library
+#include <Adafruit_BNO055.h>//IMU
+#include <Adafruit_MPL3115A2.h>//Altitude
+#include <utility/imumaths.h>//Math
+#include "dataPoint.h"//Datapoint
+#include <Adafruit_GPS.h> //GPS
+#include <RH_RF95.h>//Radio
+#define RFM95_CS 10//Radio
+#define RFM95_RST 3//Radio
+#define RFM95_INT 4//Radio
+#define RF95_FREQ 915.0//Radio Change to 434.0 or other frequency, must match RX's freq!
+#define GPSSerial Serial1//GPS
+#define GPSECHO false//GPS
 
-//Radio
-#include <RH_RF95.h>
-#define RFM95_CS 10
-#define RFM95_RST 3
-#define RFM95_INT 4
-// Change to 434.0 or other frequency, must match RX's freq!
-#define RF95_FREQ 915.0
-// Singleton instance of the radio driver
-RH_RF95 rf95(RFM95_CS, RFM95_INT);
-int16_t packetnum = 0;  // packet counter, we increment per xmission probably delete
+//Create Instances of sensors
+RH_RF95 rf95(RFM95_CS, RFM95_INT);//Radio Singleton instance of the radio driver
+Adafruit_GPS GPS(&GPSSerial);//GPS Connect to the GPS on the hardware port
+Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
+Adafruit_MPL3115A2 mpl;//Altimeter
 
-//GPS
-#include <Adafruit_GPS.h>
-#define GPSSerial Serial1
-// Connect to the GPS on the hardware port
-Adafruit_GPS GPS(&GPSSerial);
-// Set GPSECHO to 'false' to turn off echoing the GPS data to the Serial console
-// Set to 'true' if you want to debug and listen to the raw GPS sentences
-#define GPSECHO false
-
-// 9-axis gyro and accel
-Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
-
-//Altimeter
-Adafruit_MPL3115A2 mpl;
-
-
-unsigned long startTime, closeTime, openTime, launchTime;
-int led = 13;
-const int chipSelect = BUILTIN_SDCARD;
+//Creates datapoint object
 const int batchSize = 3000;//2200;
-float GPSArray[2]
-File myFile;
-const float Pi = 3.14159;
 dataPoint dataPoints[batchSize];
+telemetry;
+
+//Global Variables
+File myFile; //SD
+float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0};
+float z_global=0.0;
+float altitude;
+float GPSArray[2];
+const int chipSelect = BUILTIN_SDCARD;
+
+const float Pi = 3.14159;
+int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
 int phase = 1;
-
 // Configure timers for aquiring sensor data
-unsigned long lastCallTime = millis();
-
+unsigned int long lastCallTime = millis();
 // Phase 1 Constants
-int calibrationPhaseInterval = 100; // milliseconds
-
+unsigned int calibrationPhaseInterval = 100; // milliseconds
 // Phase 2 Constants
-int preLaunchPhaseInterval = 30; // milliseconds
-
+unsigned int preLaunchPhaseInterval = 30; // milliseconds
   // Minimum acceleration and altitude required to start launch phase
-  int minimumAcceleration = 10; // m/s/s
-  int minimumAltitude = 100; // m
+int minimumAcceleration = 10; // m/s/s
+int minimumAltitude = 100; // m
 
 void setup(void)
 {  
@@ -96,6 +87,8 @@ void loop() {
       Serial.println("Phase 3:");
       while (phase == 3) {
         //Send out drogue
+        lastCallTime = millis();
+
       }
       
     // After apogee before main deploy
@@ -103,17 +96,16 @@ void loop() {
       Serial.println("Phase 4:");
       while (phase == 4) {
         //send out main
+        lastCallTime = millis();
+
       }
       
-  //After main deploy before ground
+  //After main deploy
    case 5:
       Serial.println("Phase 5:");
       while (phase == 5) {
-        
+        lastCallTime = millis();
+
       }
 }
-
-// TODO: Implement Kalman Filter with fetched values
-void kalmanFilter() {
-  
 }

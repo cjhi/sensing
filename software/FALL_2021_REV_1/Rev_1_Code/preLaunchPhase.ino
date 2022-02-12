@@ -1,9 +1,8 @@
 void preLaunchPhase() {
-  
-  float acceleration = fetchAccelerometerData();
-  float altitude = fetchAltimeterData();
+   fetchAccelerometerData();
+   fetchAltimeterData();
 
-  if (acceleration > minimumAcceleration && altitude > minimumAltitude) {
+  if (z_global > minimumAcceleration && altitude > minimumAltitude) {
     phase = 3;
   }
   
