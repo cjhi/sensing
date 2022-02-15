@@ -63,7 +63,7 @@ void setup()
   Serial.println("card initialized.");
   
   // open the file.
-  File dataFile = SD.open("datalog.txt");
+  File dataFile = SD.open("test.txt");
 
   // if the file is available, write to it:
   if (dataFile) {
