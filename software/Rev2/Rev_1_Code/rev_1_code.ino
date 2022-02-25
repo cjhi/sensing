@@ -22,10 +22,15 @@ Adafruit_GPS GPS(&GPSSerial);//GPS Connect to the GPS on the hardware port
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
 Adafruit_MPL3115A2 mpl;//Altimeter
 
-//Creates datapoint object
-const int batchSize = 3000;//2200;
-dataPoint dataPoints[batchSize];
-telemetry;
+//Creates list datapoint objects for flight during phase 3
+const int launchBeforeApogeeDataPointBatchSize = 3000;
+launchBeforeApogeeDataPoint launchBeforeApogeeDataPoints[batchSize];
+
+//Creates list for datapoint objects for flight during phase 4
+const int launchAfterApogeeDataPointBatchSize = 3000;
+launchAfterApogeeDataPoint launchAfterApogeeDataPoints[batchSize];
+
+int currentDataPoint = 0;
 
 //Global Variables
 File myFile; //SD
@@ -39,7 +44,7 @@ const float Pi = 3.14159;
 int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
-int phase = 1;
+int phase = 2;
 // Configure timers for aquiring sensor data
 unsigned int long lastCallTime = millis();
 // Phase 1 Constants
@@ -52,7 +57,7 @@ int minimumAltitude = 100; // m
 
 void setup(void)
 {  
-setupSensors();
+  setupSensors();
 }
 
 void loop() {
@@ -86,18 +91,34 @@ void loop() {
     case 3:
       Serial.println("Phase 3:");
       while (phase == 3) {
-        //Send out drogue
-        lastCallTime = millis();
+        if (millis() - lastCallTime > beforeApogeePhaseInterval) {
+          // Collect data from IMU, altimeter, Kalman Filter, and Time
+          addDataPoint();
+          lastCallTime = millis();
+        }
 
+        // If apogee detected
+        // Release Drogue
+        // SD_write()
       }
       
     // After apogee before main deploy
     case 4:
       Serial.println("Phase 4:");
+      currentDataPoint = 0;
       while (phase == 4) {
-        //send out main
-        lastCallTime = millis();
+        
 
+        if (millis() - lastCallTime > afterApogeePhaseInterval) {
+          //Collect data from IMU, altimeter, Kalman Filter, GPS, and Time
+          addDataPoint();
+          lastCallTime = millis();
+        }
+        
+        if (currentDatapoint == launchAfterApogeeDataPointBatchSize) {
+          SD_write();
+          currentDataPoint = 0;
+        }
       }
       
   //After main deploy

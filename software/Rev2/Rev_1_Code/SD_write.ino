@@ -1,36 +1,35 @@
 void SD_write(){
-  unsigned long startTime, closeTime, openTime;
-  int led = 13;
-  Serial.println("Writing to SD card");
-  startTime = millis();
-  // open the file.
-  digitalWrite(led, HIGH);
-  if (!SD.begin(chipSelect)) {
-    //Serial.println("initialization failed!");
-    return;
+  switch (phase) {
+    case 3:
+      dataFile = SD.open("phase3Data.txt", FILE_WRITE);
+      if (myFile) {
+        for (int dataPointCount = 0; dataPointCount < launchBeforeApogeeDataPointBatchSize; dataPointCount++) {
+            myFile.write((const uint8_t *)&launchBeforeApogeeDataPoints[dataPointCount], sizeof(launchBeforeApogeeDataPoint));
+          }
+      } else {
+        Serial.println("error opening phase3Data.txt");
+      }
+      myFile.close();
+      
+    default:
+      dataFile = SD.open("phase4Data.txt", FILE_WRITE);
+      if (myFile) {
+        for (int dataPointCount = 0; dataPointCount < launchAfterApogeeDataPointBatchSize; dataPointCount++) {
+            myFile.write((const uint8_t *)&launchAfterApogeeDataPoints[dataPointCount], sizeof(launchAfterApogeeDataPoint));
+          }
+      } else {
+        Serial.println("error opening phase4Data.txt");
+      }
+      myFile.close();
+    
   }
-
-  myFile = SD.open("flight1.txt", FILE_WRITE);//"Nov21ArcasH130WFlight1.txt", FILE_WRITE);
-  openTime = millis();
-  Serial.print("time to open SD card: ");
-  Serial.println(openTime - startTime);
-
-
-  for (int h = 0; h < batchSize; h++)
-  {
-    myFile.write((const uint8_t *)&dataPoints[h], sizeof(dataPoint));
+  
+  
+  
+//  Serial.print("Writing Altitude: ");
+//  Serial.println(altitude);
+  
   }
-
-  closeTime = millis();
-  Serial.print("time to write to SD card: ");
-  Serial.println(closeTime - openTime);
-
-  myFile.close();
-  digitalWrite(led, LOW);
-
-  Serial.print("time to close SD card: ");
-  Serial.println(millis() - closeTime);
-
-  Serial.print("total time: ");
-  Serial.println(millis() - startTime);
+  
+  delay(100); // run at a reasonable not-too-fast speed
 }
