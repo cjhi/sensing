@@ -1,5 +1,8 @@
  void setupSensors(){
   Serial.begin(115200);
+  while(!Serial){
+    Serial.println("Serial not working");
+  }
   
   // Configure Sensors
   

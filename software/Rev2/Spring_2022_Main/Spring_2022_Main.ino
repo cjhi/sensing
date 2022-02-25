@@ -23,21 +23,16 @@ Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
 Adafruit_MPL3115A2 mpl;//Altimeter
 
 //Creates list datapoint objects for flight during phase 3
-const int launchBeforeApogeeDataPointBatchSize = 3000;
-launchBeforeApogeeDataPoint launchBeforeApogeeDataPoints[batchSize];
-
-//Creates list for datapoint objects for flight during phase 4
-const int launchAfterApogeeDataPointBatchSize = 3000;
-launchAfterApogeeDataPoint launchAfterApogeeDataPoints[batchSize];
-
+const int batchSize = 3000;
+dataPoint dataPoints[batchSize];
 int currentDataPoint = 0;
 
 //Global Variables
 File myFile; //SD
 float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0};
-float z_global=0.0;
-float altitude;
-float GPSArray[2];
+float z_global= 0.0;
+float altitude = 0.0;
+float GPSArray[2] = {0.0, 0.0};
 const int chipSelect = BUILTIN_SDCARD;
 
 const float Pi = 3.14159;
@@ -51,6 +46,10 @@ unsigned int long lastCallTime = millis();
 unsigned int calibrationPhaseInterval = 100; // milliseconds
 // Phase 2 Constants
 unsigned int preLaunchPhaseInterval = 30; // milliseconds
+// Phase 3 Constants
+unsigned int beforeApogeePhaseInterval = 30; // milliseconds
+// Phase 4 Constants
+unsigned int afterApogeePhaseInterval = 30; // milliseconds
   // Minimum acceleration and altitude required to start launch phase
 int minimumAcceleration = 10; // m/s/s
 int minimumAltitude = 100; // m
@@ -114,7 +113,7 @@ void loop() {
           lastCallTime = millis();
         }
         
-        if (currentDatapoint == launchAfterApogeeDataPointBatchSize) {
+        if (currentDataPoint == batchSize) {
           SD_write();
           currentDataPoint = 0;
         }

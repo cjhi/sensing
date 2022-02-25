@@ -1,35 +1,11 @@
 void SD_write(){
-  switch (phase) {
-    case 3:
-      dataFile = SD.open("phase3Data.txt", FILE_WRITE);
-      if (myFile) {
-        for (int dataPointCount = 0; dataPointCount < launchBeforeApogeeDataPointBatchSize; dataPointCount++) {
-            myFile.write((const uint8_t *)&launchBeforeApogeeDataPoints[dataPointCount], sizeof(launchBeforeApogeeDataPoint));
-          }
-      } else {
-        Serial.println("error opening phase3Data.txt");
+File  dataFile = SD.open("flightData.txt", FILE_WRITE); // Not sure about this data type
+  if (myFile) {
+    for (int dataPointCount = 0; dataPointCount < batchSize; dataPointCount++) {
+        myFile.write((const uint8_t *)&dataPoints[dataPointCount], sizeof(dataPoint));
       }
-      myFile.close();
-      
-    default:
-      dataFile = SD.open("phase4Data.txt", FILE_WRITE);
-      if (myFile) {
-        for (int dataPointCount = 0; dataPointCount < launchAfterApogeeDataPointBatchSize; dataPointCount++) {
-            myFile.write((const uint8_t *)&launchAfterApogeeDataPoints[dataPointCount], sizeof(launchAfterApogeeDataPoint));
-          }
-      } else {
-        Serial.println("error opening phase4Data.txt");
-      }
-      myFile.close();
-    
+  } else {
+    Serial.println("error opening flightData.txt");
   }
-  
-  
-  
-//  Serial.print("Writing Altitude: ");
-//  Serial.println(altitude);
-  
-  }
-  
-  delay(100); // run at a reasonable not-too-fast speed
+  myFile.close();
 }
