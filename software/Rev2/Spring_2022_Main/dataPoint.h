@@ -5,14 +5,14 @@ typedef struct dataPoint {
   int long timeElapsed;
   float IMU[7];
   float altitude;
-  float gps_latitude, gps_longitude;
+  float GPSArray[2];//{Lat,Long}
   // Kalman filter data
 } dataPoint;
 
 typedef struct telemetry {
   int long lastCallTime; // 4 bytes
   int phase;
-  float gps_latitude, gps_longitude; // 8 bytes
+  float GPSArray[2];//{Lat,Long}
 } telemetry;
 
 #endif

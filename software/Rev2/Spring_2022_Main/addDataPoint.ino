@@ -7,8 +7,8 @@ void addDataPoint() {
       dataPoints[dataPoint].IMU[5] = IMU[5];
       dataPoints[dataPoint].IMU[6] = IMU[6];
 
-      dataPoints[dataPoint].GPS[0] = GPS[0];
-      dataPoints[dataPoint].GPS[1] = GPS[1];
+      dataPoints[dataPoint].GPSArray[0] = GPSArray[0];
+      dataPoints[dataPoint].GPSArray[1] = GPSArray[1];
     
       dataPoints[dataPoint].altitude = altitude;
     

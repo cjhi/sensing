@@ -25,6 +25,7 @@ Adafruit_MPL3115A2 mpl;//Altimeter
 //Creates list datapoint objects for flight during phase 3
 const int batchSize = 3000;
 dataPoint dataPoints[batchSize];
+telemetry telemetry_instance;
 int currentDataPoint = 0;
 
 //Global Variables
@@ -124,6 +125,8 @@ void loop() {
       Serial.println("Phase 5:");
       while (phase == 5) {
         lastCallTime = millis();
+        addTelemetry();
+        
 
       }
 }
