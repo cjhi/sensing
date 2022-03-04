@@ -29,12 +29,14 @@ void setup()
   pinMode(RFM95_RST, OUTPUT);
   pinMode(A19, OUTPUT);
   pinMode(A20, OUTPUT);
-         digitalWrite(A19, LOW);
-        digitalWrite(A20, LOW);
+   pinMode(A7, OUTPUT);
+   pinMode(7,OUTPUT);
+   digitalWrite(7, HIGH);
+         analogWrite(A19, LOW);
+        analogWrite(A20, LOW);
   //pinMode(13, OUTPUT);
   digitalWrite(RFM95_RST, HIGH);
 
-  while (!Serial);
   Serial.begin(9600);
   delay(100);
 
