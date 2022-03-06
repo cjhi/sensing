@@ -55,10 +55,19 @@ unsigned int afterApogeePhaseInterval = 30; // milliseconds
 int minimumAcceleration = 10; // m/s/s
 int minimumAltitude = 100; // m
 
+double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0, initial global z accel on first run 
+
+//TODO: if change this value, also change Q in kalman_update
+double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
+
+bool firstKalman = true;
+
 void setup(void)
 {  
   setupSensors();
 }
+
+bool gatherData = false;
 
 void loop() {
 
@@ -92,7 +101,7 @@ void loop() {
       Serial.println("Phase 3:");
       while (phase == 3) {
         if (millis() - lastCallTime > beforeApogeePhaseInterval) {
-          // Collect data from IMU, altimeter, Kalman Filter, and Time
+          fetchSensorData();
           addDataPoint();
           lastCallTime = millis();
         }
@@ -109,6 +118,7 @@ void loop() {
       while (phase == 4) {
         
         if (millis() - lastCallTime > afterApogeePhaseInterval) {
+          fetchSensorData();
           //Collect data from IMU, altimeter, Kalman Filter, GPS, and Time
           addDataPoint();
           lastCallTime = millis();
