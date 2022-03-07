@@ -1,10 +1,5 @@
-// LoRa 9x_TX
-// -*- mode: C++ -*-
-// Example sketch showing how to create a simple messaging client (transmitter)
-// with the RH_RF95 class. RH_RF95 class does not provide for addressing or
-// reliability, so you should only use RH_RF95 if you do not need the higher
-// level messaging abilities.
-// It is designed to work with the other example LoRa9x_RX
+//To Fire Main type "Main!"
+//To fire Drog type "Drog!"
 
 #include <SPI.h>
 #include <RH_RF95.h>
@@ -23,7 +18,10 @@
 
 // Singleton instance of the radio driver
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
-String  firestring="FIRE!";
+String  firestring_main="Main!";
+String  firestring_drogue="Drog!";
+int fire_main=0;
+int fire_drog=0;
 void setup() 
 {
   pinMode(RFM95_RST, OUTPUT);
@@ -100,13 +98,42 @@ void loop()
       Serial.print("RSSI: ");
       Serial.println(rf95.lastRssi(), DEC);
       
-      if  (firestring.equals(String((char *)buf))){
+      if  (firestring_drogue.equals(String((char *)buf))&& fire_main==0){
+        
         digitalWrite(A19, HIGH);
+        delay(500);
         digitalWrite(A20, HIGH);
-         delay(1000);
+         delay(500);
+         digitalWrite(A19, LOW);
+         delay(500);
+         digitalWrite(A20, LOW);
         //digitalWrite(13, HIGH);
-         Serial.println("Boom");
-         char radiopacket[20] = "BOOM #      ";
+         Serial.println("Boom Drogue");
+         char radiopacket[20] = "BOOM Drogue # ";
+          itoa(packetnum++, radiopacket+13, 10);
+          Serial.print("Sending "); Serial.println(radiopacket);
+          radiopacket[19] = 0;
+          
+          Serial.println("Sending..."); delay(10);
+          rf95.send((uint8_t *)radiopacket, 20);
+        
+          Serial.println("Waiting for packet to complete..."); delay(10);
+          rf95.waitPacketSent();
+          fire_main=1;
+          // Now wait for a reply
+      }
+      else if  (firestring_main.equals(String((char *)buf))&& fire_drog==0){
+        
+        digitalWrite(A19, HIGH);
+        delay(500);
+        digitalWrite(A20, HIGH);
+         delay(500);
+         digitalWrite(A19, LOW);
+         delay(500);
+         digitalWrite(A20, LOW);
+        //digitalWrite(13, HIGH);
+         Serial.println("Boom Main");
+         char radiopacket[20] = "BOOM main # ";
           itoa(packetnum++, radiopacket+13, 10);
           Serial.print("Sending "); Serial.println(radiopacket);
           radiopacket[19] = 0;
@@ -117,6 +144,7 @@ void loop()
           Serial.println("Waiting for packet to complete..."); delay(10);
           rf95.waitPacketSent();
           // Now wait for a reply
+          fire_drog=1;
       }
       else{
          digitalWrite(A19, LOW);

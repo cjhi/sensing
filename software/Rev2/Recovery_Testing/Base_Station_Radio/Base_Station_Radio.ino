@@ -1,4 +1,3 @@
-
 // Arduino9x_RX
 // -*- mode: C++ -*-
 // Example sketch showing how to create a simple messaging client (receiver)
@@ -79,10 +78,12 @@ void loop()
        Serial.print("RSSI: ");
       Serial.println(rf95.lastRssi(), DEC);
       // Send a reply
-      if (Serial.available()>=5){
+      if (Serial.available()>0){
           for (byte i=0; i<5; i++){
             str[i] = Serial.read();
           }
+          Serial.flush();
+          delay(100);
         }
         Serial.println(str);
       rf95.send((uint8_t*)str,6);
