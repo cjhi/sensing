@@ -1,6 +1,10 @@
-//Fire Drogue type "Drog!"
-//Fire main type "Main!"
-
+// Arduino9x_RX
+// -*- mode: C++ -*-
+// Example sketch showing how to create a simple messaging client (receiver)
+// with the RH_RF95 class. RH_RF95 class does not provide for addressing or
+// reliability, so you should only use RH_RF95 if you do not need the higher
+// level messaging abilities.
+// It is designed to work with the other example Arduino9x_TX
 
 #include <SPI.h>
 #include <RH_RF95.h>
@@ -17,7 +21,6 @@ RH_RF95 rf95(RFM95_CS, RFM95_INT);
 
 // Blinky on receipt
 #define LED 13
-char str[6] = {'\0'};
 void setup() 
 {
   pinMode(LED, OUTPUT);     
@@ -73,18 +76,6 @@ void loop()
       Serial.println((char*)buf);
        Serial.print("RSSI: ");
       Serial.println(rf95.lastRssi(), DEC);
-      // Send a reply
-      if (Serial.available()>0){
-          for (byte i=0; i<5; i++){
-            str[i] = Serial.read();
-          }
-          Serial.flush();
-          delay(100);
-        }
-        Serial.println(str);
-      rf95.send((uint8_t*)str,6);
-      rf95.waitPacketSent();
-      Serial.println("Sent a reply");
       digitalWrite(LED, LOW);
     }
     else

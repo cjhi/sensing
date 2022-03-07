@@ -13,7 +13,7 @@
 #define RFM95_RST 3//Radio
 #define RFM95_INT 4//Radio
 #define RF95_FREQ 915.0//Radio Change to 434.0 or other frequency, must match RX's freq!
-#define GPSSerial Serial1//GPS
+#define GPSSerial Serial//GPS
 #define GPSECHO false//GPS
 
 //Create Instances of sensors
@@ -23,7 +23,7 @@ Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
 Adafruit_MPL3115A2 mpl;//Altimeter
 
 //Creates list datapoint objects for flight during phase 3
-const int batchSize = 3000;
+const int batchSize = 500; //
 dataPoint dataPoints[batchSize];
 telemetry telemetry_instance;
 int currentDataPoint = 0;
@@ -34,7 +34,7 @@ float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0};
 float z_global= 0.0;
 float altitude = 0.0;
 float GPSArray[2] = {0.0, 0.0};
-const int chipSelect = BUILTIN_SDCARD;
+const int chipSelect = 4;
 
 const float Pi = 3.14159;
 int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete
