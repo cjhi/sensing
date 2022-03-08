@@ -30,8 +30,7 @@ int currentDataPoint = 0;
 
 //Global Variables
 File myFile; //SD
-float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0};
-float z_global= 0.0;
+float IMU[6]={0.0,0.0,0.0,0.0,0.0,0.0};
 float altitude = 0.0;
 float GPSArray[2] = {0.0, 0.0};
 const int chipSelect = 4;
