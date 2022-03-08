@@ -6,23 +6,24 @@
 #include <Adafruit_BNO055.h>//IMU
 #include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
-#include "dataPoint.h"//Datapoint
 
 
+float z_global = 0;
 
+//Create Instances of sensors
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
-Adafruit_MPL3115A2 mpl;//Altimeter
 
-//Creates datapoint object
-const int batchSize = 3000;//2200;
-dataPoint dataPoints[batchSize];
-telemetry;
+
+//Creates list datapoint objects for flight during phase 3
+const int batchSize = 3000;
+
+int currentDataPoint = 0;
 
 //Global Variables
 File myFile; //SD
 float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0};
-float z_global=0.0;
-float altitude;
+
+
 const int chipSelect = BUILTIN_SDCARD;
 
 const float Pi = 3.14159;
@@ -32,26 +33,56 @@ int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probab
 int phase = 1;
 // Configure timers for aquiring sensor data
 unsigned int long lastCallTime = millis();
-// Phase 1 Constants
-unsigned int calibrationPhaseInterval = 100; // milliseconds
+
+
+  // Minimum acceleration and altitude required to start launch phase
+int minimumAcceleration = 10; // m/s/s
 
 
 void setup(void)
 {  
-Serial.begin(9600);
+  setupSensors();
 
-setupSensors();
-int phase = 1;
+}
 
-while(phase==1){
-    calibrationPhase();
-}
-}
+
+
 
 void loop() {
+  fetchAccelerometerData();
 
-    fetchAccelerometerData();
-    Serial.print(z_global);
-    delay(10);
+//  Serial.print(IMU[3]);
+//    Serial.print(" ");
+//  Serial.print(IMU[4]);
+//  Serial.print(" ");
+//  Serial.print(IMU[5]);
+//
+//  Serial.print("\n");
+//  Serial.print(IMU[0]);
+//  Serial.print(" ");
+//  Serial.print(IMU[1]);
+//  Serial.print(" ");
+//  Serial.print(IMU[2]);
+//  Serial.print("\n");
+//  Serial.print("\n");
+//  Serial.print("\n");
+//  Serial.print("\n");
+//  Serial.print("\n");
+
+
+  
+
+
+
+
+
+  
+Serial.println(IMU[6]);
+
+
+
+
+
+delay(25);
   
 }
