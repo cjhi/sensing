@@ -102,7 +102,17 @@ void loop() {
         if (millis() - lastCallTime > beforeApogeePhaseInterval) {
           fetchSensorData();
           addDataPoint();
-          lastCallTime = millis();
+          //if the Kalman esitmated velocity goes negative, trigger apogee procedures
+          if (state[1] < 0){
+            //trigger the droge e-match fet
+            digitalWrite(A19, HIGH);
+            delay(1000);
+            digitalWrite(A19, LOW);
+
+            lastCallTime = millis();
+            phase = 4;
+          }
+          
         }
 
         // If apogee detected
