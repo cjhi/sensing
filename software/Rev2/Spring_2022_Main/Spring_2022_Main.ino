@@ -13,7 +13,7 @@
 #define RFM95_RST 3//Radio
 #define RFM95_INT 4//Radio
 #define RF95_FREQ 915.0//Radio Change to 434.0 or other frequency, must match RX's freq!
-#define GPSSerial Serial1//GPS
+#define GPSSerial Serial//GPS
 #define GPSECHO false//GPS
 
 //Create Instances of sensors
@@ -23,18 +23,17 @@ Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
 Adafruit_MPL3115A2 mpl;//Altimeter
 
 //Creates list datapoint objects for flight during phase 3
-const int batchSize = 3000;
+const int batchSize = 500; //
 dataPoint dataPoints[batchSize];
 telemetry telemetry_instance;
 int currentDataPoint = 0;
 
 //Global Variables
 File myFile; //SD
-float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0};
-float z_global= 0.0;
+float IMU[6]={0.0,0.0,0.0,0.0,0.0,0.0};
 float altitude = 0.0;
 float GPSArray[2] = {0.0, 0.0};
-const int chipSelect = BUILTIN_SDCARD;
+const int chipSelect = 4;
 
 const float Pi = 3.14159;
 int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete
@@ -55,10 +54,19 @@ unsigned int afterApogeePhaseInterval = 30; // milliseconds
 int minimumAcceleration = 10; // m/s/s
 int minimumAltitude = 100; // m
 
+double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0, initial global z accel on first run 
+
+//TODO: if change this value, also change Q in kalman_update
+double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
+
+bool firstKalman = true;
+
 void setup(void)
 {  
   setupSensors();
 }
+
+bool gatherData = false;
 
 void loop() {
 
@@ -92,9 +100,19 @@ void loop() {
       Serial.println("Phase 3:");
       while (phase == 3) {
         if (millis() - lastCallTime > beforeApogeePhaseInterval) {
-          // Collect data from IMU, altimeter, Kalman Filter, and Time
+          fetchSensorData();
           addDataPoint();
-          lastCallTime = millis();
+          //if the Kalman esitmated velocity goes negative, trigger apogee procedures
+          if (state[1] < 0){
+            //trigger the droge e-match fet
+            digitalWrite(A19, HIGH);
+            delay(1000);
+            digitalWrite(A19, LOW);
+
+            lastCallTime = millis();
+            phase = 4;
+          }
+          
         }
 
         // If apogee detected
@@ -109,6 +127,7 @@ void loop() {
       while (phase == 4) {
         
         if (millis() - lastCallTime > afterApogeePhaseInterval) {
+          fetchSensorData();
           //Collect data from IMU, altimeter, Kalman Filter, GPS, and Time
           addDataPoint();
           lastCallTime = millis();

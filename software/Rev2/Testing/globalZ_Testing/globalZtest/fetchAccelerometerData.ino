@@ -15,7 +15,8 @@ void fetchAccelerometerData() {
   //remap sensor ouput to correct cooridinate frame
   //z alwasy alights with north pole (you have to move the board when power up)
   //y alighns with grav
-  //x based onright hand ruke
+  //x based onright hand rule
+
   float x=orientationData.y() * -1; //alpha
   float y=orientationData.z() - 90 + 360; //beta
   float z=orientationData.x() * -1 + 360; //gamma
