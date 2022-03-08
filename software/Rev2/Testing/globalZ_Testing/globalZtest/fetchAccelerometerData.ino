@@ -27,10 +27,6 @@ void fetchAccelerometerData() {
   float beta=y*Pi/180;  //convert angle from deg to rad
   float gamma=z*Pi/180;
 
-  //float x_comp = (sin(alpha)*sin(gamma) + cos(gamma)*sin(beta)*cos(alpha)) * x_acc;
-  //float y_comp = (-1 * cos(gamma)*sin(alpha) + sin(gamma)*sin(beta)*cos(alpha)) * y_acc;
-  //float z_comp = (cos(beta)*cos(alpha)) * z_acc;
-
 
 
   float x_comp = (-1*sin(beta)) * x_acc;
@@ -40,9 +36,9 @@ void fetchAccelerometerData() {
   // Below equation comes from https://en.wikipedia.org/wiki/Rotation_matrix
 
 
-  z_global= (x_comp + z_comp);
+  z_global= (x_comp + y_comp + z_comp);
   
-  //z_global = (-1*sin(beta)*x_acc) + (sin(alpha)*cos(beta)*y_acc) + (cos(alpha)*cos(beta)*z_acc);
+
 
   
 //  Serial.print("True Z Acceleration: ");
