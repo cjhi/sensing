@@ -1,4 +1,7 @@
 void addDataPoint() {
+
+      dataPoints[currentDataPoint].timeElapsed = millis();
+      
       dataPoints[currentDataPoint].IMU[0] = IMU[0];
       dataPoints[currentDataPoint].IMU[1] = IMU[1];
       dataPoints[currentDataPoint].IMU[2] = IMU[2];
@@ -11,8 +14,6 @@ void addDataPoint() {
       dataPoints[currentDataPoint].GPSArray[1] = GPSArray[1];
     
       dataPoints[currentDataPoint].altitude = altitude;
-    
-      dataPoints[currentDataPoint].timeElapsed = millis();
 
       if (firstKalman) {
             dataPoints[currentDataPoint].kalmanState[0] = altitude;  //alt
@@ -20,7 +21,7 @@ void addDataPoint() {
             dataPoints[currentDataPoint].kalmanState[2] = IMU[6];   //acc
       } else {
             double dt = dataPoints[currentDataPoint].timeElapsed - dataPoints[currentDataPoint-1].timeElapsed;
-            double measurement =  {altitude, IMU[6]};
+            double measurement = {altitude, IMU[6]};
             kalman_update(state, p_cov, measurement, dt, state, p_cov)
             dataPoints[currentDataPoint].kalmanState[0] = state[0];  
             dataPoints[currentDataPoint].kalmanState[0] = state[1];

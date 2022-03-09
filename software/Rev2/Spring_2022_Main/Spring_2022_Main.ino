@@ -6,6 +6,7 @@
 #include <Adafruit_BNO055.h>//IMU
 #include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
+#include <phoenix_IV_functions>
 #include "dataPoint.h"//Datapoint
 #include <Adafruit_GPS.h> //GPS
 #include <RH_RF95.h>//Radio
@@ -50,9 +51,11 @@ unsigned int preLaunchPhaseInterval = 30; // milliseconds
 unsigned int beforeApogeePhaseInterval = 30; // milliseconds
 // Phase 4 Constants
 unsigned int afterApogeePhaseInterval = 30; // milliseconds
-  // Minimum acceleration and altitude required to start launch phase
-int minimumAcceleration = 10; // m/s/s
+// Phase 5 Constants
+afterMainDeploymentPhaseInterval = 30; // milliseconds
+// Minimum acceleration and altitude required to start launch phase
 int minimumAltitude = 100; // m
+int minimumMainAltitude = 100; // m
 
 double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0, initial global z accel on first run 
 
@@ -111,13 +114,11 @@ void loop() {
 
             lastCallTime = millis();
             phase = 4;
+            SD_write()
           }
           
         }
-
-        // If apogee detected
-        // Release Drogue
-        // SD_write()
+        
       }
       
     // After apogee before main deploy
@@ -128,9 +129,11 @@ void loop() {
         
         if (millis() - lastCallTime > afterApogeePhaseInterval) {
           fetchSensorData();
-          //Collect data from IMU, altimeter, Kalman Filter, GPS, and Time
           addDataPoint();
           lastCallTime = millis();
+          if (altitude < minimumMainAltitude) {
+            phase = 5;
+          }
         }
         
         if (currentDataPoint == batchSize) {
@@ -142,11 +145,16 @@ void loop() {
   //After main deploy
    case 5:
       Serial.println("Phase 5:");
-      while (phase == 5) {
-        lastCallTime = millis();
-        addTelemetry();
-        
-
+      if (millis() - lastCallTime > afterMainDeploymentPhaseInterval)
+        while (phase == 5) {
+          lastCallTime = millis();
+          fetchGPSData();
+          addDataPoint();
+        }
+        if (currentDataPoint == batchSize) {
+            SD_write();
+            currentDataPoint = 0;
+          }
       }
 }
 }

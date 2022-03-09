@@ -20,14 +20,9 @@ void fetchAccelerometerData() {
   float y=orientationData.z() - 90 + 360; //beta
   float z=orientationData.x() * -1 + 360; //gamma
 
-  
-
-  
   float alpha=x*Pi/180 ;  //convert angle from deg to rad
   float beta=y*Pi/180;  //convert angle from deg to rad
   float gamma=z*Pi/180;
-
-
   
   // Below equation comes from https://en.wikipedia.org/wiki/Rotation_matrix
   //another usfull papaer https://arxiv.org/pdf/1704.06053.pdf
@@ -35,17 +30,11 @@ void fetchAccelerometerData() {
   float y_comp = (cos(beta)*sin(alpha)) * y_acc;
   float z_comp = (cos(beta)*cos(alpha)) * z_acc;
   
-  
-
-
-  z_global= (x_comp + y_comp + z_comp);
-  
-
   IMU[0]=x_acc;
   IMU[1]=y_acc;
   IMU[2]=z_acc;
   IMU[3]=x;
   IMU[4]=y;
   IMU[5]=z;
-  IMU[6]=z_global;
+  IMU[6]=(x_comp + y_comp + z_comp);
 }
