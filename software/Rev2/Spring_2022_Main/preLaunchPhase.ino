@@ -1,5 +1,4 @@
 void preLaunchPhase() {
-   fetchAccelerometerData();
    fetchAltimeterData();
 
   if (altitude > minimumAltitude) {

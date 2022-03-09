@@ -22,7 +22,7 @@ void fetchAccelerometerData() {
 
   float alpha=x*Pi/180 ;  //convert angle from deg to rad
   float beta=y*Pi/180;  //convert angle from deg to rad
-  float gamma=z*Pi/180;
+  //float gamma=z*Pi/180;
   
   // Below equation comes from https://en.wikipedia.org/wiki/Rotation_matrix
   //another usfull papaer https://arxiv.org/pdf/1704.06053.pdf

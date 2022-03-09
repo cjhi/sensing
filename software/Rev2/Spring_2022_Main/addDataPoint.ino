@@ -21,8 +21,8 @@ void addDataPoint() {
             dataPoints[currentDataPoint].kalmanState[2] = IMU[6];   //acc
       } else {
             double dt = dataPoints[currentDataPoint].timeElapsed - dataPoints[currentDataPoint-1].timeElapsed;
-            double measurement = {altitude, IMU[6]};
-            kalman_update(state, p_cov, measurement, dt, state, p_cov)
+            double measurement[2] = {altitude, IMU[6]};
+            kalman_update(state, p_cov, measurement, dt, state, p_cov);
             dataPoints[currentDataPoint].kalmanState[0] = state[0];  
             dataPoints[currentDataPoint].kalmanState[0] = state[1];
             dataPoints[currentDataPoint].kalmanState[0] = state[2];
