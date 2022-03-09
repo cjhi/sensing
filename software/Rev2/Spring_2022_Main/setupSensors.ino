@@ -1,5 +1,5 @@
  void setupSensors(){
-  Serial.begin(115200);
+  Serial.begin(9800);
   while(!Serial){
     Serial.println("Serial not working");
   }
