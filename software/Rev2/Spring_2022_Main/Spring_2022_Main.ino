@@ -6,7 +6,7 @@
 #include <Adafruit_BNO055.h>//IMU
 #include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
-#include <phoenix_IV_functions>
+#include "phoenix_IV_functions.h"
 #include "dataPoint.h"//Datapoint
 #include <Adafruit_GPS.h> //GPS
 #include <RH_RF95.h>//Radio
@@ -114,7 +114,7 @@ void loop() {
 
             lastCallTime = millis();
             phase = 4;
-            SD_write()
+            SD_write();
           }
           
         }
@@ -156,5 +156,4 @@ void loop() {
             currentDataPoint = 0;
           }
       }
-}
 }
