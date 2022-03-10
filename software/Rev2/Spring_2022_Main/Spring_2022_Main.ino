@@ -6,7 +6,7 @@
 #include <Adafruit_BNO055.h>//IMU
 #include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
-#include "phoenix_IV_functions.h"
+#include <phoenix_IV_functions.h>
 #include "dataPoint.h"//Datapoint
 #include <Adafruit_GPS.h> //GPS
 #include <RH_RF95.h>//Radio
@@ -34,7 +34,6 @@ File myFile; //SD
 float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 float altitude = 0.0;
 float GPSArray[2] = {0.0, 0.0};
-const int chipSelect = 4;
 
 const float Pi = 3.14159;
 int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete

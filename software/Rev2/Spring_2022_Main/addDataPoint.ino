@@ -19,6 +19,12 @@ void addDataPoint() {
             dataPoints[currentDataPoint].kalmanState[0] = altitude;  //alt
             dataPoints[currentDataPoint].kalmanState[1] = 0;   //vel
             dataPoints[currentDataPoint].kalmanState[2] = IMU[6];   //acc
+
+            //fill inital state vector
+            state[0] = altitude;
+            state[1] = 0; //assume intial velocity is zero
+            state[2] = IMU[6]; //global z
+            
       } else {
             double dt = dataPoints[currentDataPoint].timeElapsed - dataPoints[currentDataPoint-1].timeElapsed;
             double measurement[2] = {altitude, IMU[6]};
