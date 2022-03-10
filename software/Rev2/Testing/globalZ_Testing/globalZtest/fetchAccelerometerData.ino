@@ -37,7 +37,7 @@ void fetchAccelerometerData() {
   // Below equation comes from https://en.wikipedia.org/wiki/Rotation_matrix
 
 
-  z_global= (x_comp + y_comp + z_comp);
+  float z_global= (x_comp + y_comp + z_comp);
   
 
 
