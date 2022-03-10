@@ -9,7 +9,7 @@
 #include "dataPoint.h"
 #include <SD.h>
 
-float state[3];
+double state[3] = {0, 0, 0};
 bool firstKalman = true;
 double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
 
@@ -36,7 +36,7 @@ float GPSArray[2] = {0.0, 0.0};
 const int chipSelect = 4;
 
 
-const int chipSelect = BUILTIN_SDCARD;
+
 
 const float Pi = 3.14159;
 int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete
@@ -67,10 +67,10 @@ void loop() {
   Serial.println(state[0]);
 
 
-  if (currentDataPoint == batchSize) {
-          SD_write();
-          currentDataPoint = 0;
-  }
+  //if (currentDataPoint == batchSize) {
+          //SD_write();
+          //currentDataPoint = 0;
+  //}
   delay(100);
   
 }
