@@ -101,11 +101,11 @@ void loop()
       if  (firestring_drogue.equals(String((char *)buf))&& fire_main==0){
         
         digitalWrite(A19, HIGH);
-        delay(500);
+        delay(1000);
+        digitalWrite(A19, LOW);
+        delay(7000);
         digitalWrite(A20, HIGH);
-         delay(500);
-         digitalWrite(A19, LOW);
-         delay(500);
+        delay(1000);
          digitalWrite(A20, LOW);
         //digitalWrite(13, HIGH);
          Serial.println("Boom Drogue");
@@ -125,13 +125,12 @@ void loop()
       else if  (firestring_main.equals(String((char *)buf))&& fire_drog==0){
         
         digitalWrite(A19, HIGH);
-        delay(500);
+        delay(1000);
+        digitalWrite(A19, LOW);
+        delay(7000);
         digitalWrite(A20, HIGH);
-         delay(500);
-         digitalWrite(A19, LOW);
-         delay(500);
+        delay(1000);
          digitalWrite(A20, LOW);
-        //digitalWrite(13, HIGH);
          Serial.println("Boom Main");
          char radiopacket[20] = "BOOM main # ";
           itoa(packetnum++, radiopacket+13, 10);

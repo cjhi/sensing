@@ -1,6 +1,6 @@
 void preLaunchPhase() {
-   fetchAltimeterData();
-
+  fetchAltimeterData();
+  fetchRadio();
   if (altitude > minimumAltitude) {
     phase = 3;
   }

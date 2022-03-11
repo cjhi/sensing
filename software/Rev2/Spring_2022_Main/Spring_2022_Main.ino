@@ -6,13 +6,13 @@
 #include <Adafruit_BNO055.h>//IMU
 #include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
-#include <phoenix_IV_functions.h>
+#include "phoenix_IV_functions.h"
 #include "dataPoint.h"//Datapoint
 #include <Adafruit_GPS.h> //GPS
 #include <RH_RF95.h>//Radio
 #define RFM95_CS 10//Radio
-#define RFM95_RST 3//Radio
-#define RFM95_INT 4//Radio
+#define RFM95_RST 2//Radio
+#define RFM95_INT 3//Radio
 #define RF95_FREQ 915.0//Radio Change to 434.0 or other frequency, must match RX's freq!
 #define GPSSerial Serial1//GPS
 #define GPSECHO false//GPS
@@ -26,7 +26,6 @@ Adafruit_MPL3115A2 mpl;//Altimeter
 //Creates list datapoint objects for flight during phase 3
 const int batchSize = 500; 
 dataPoint dataPoints[batchSize];
-telemetry telemetry_instance;
 int currentDataPoint = 0;
 
 //Global Variables
@@ -36,7 +35,6 @@ float altitude = 0.0;
 float GPSArray[2] = {0.0, 0.0};
 
 const float Pi = 3.14159;
-int16_t packetnum = 0;  //Radio packet counter, we increment per xmission probably delete
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
 int phase = 1;
@@ -65,6 +63,12 @@ bool firstKalman = true;
 
 void setup(void)
 {  
+    Serial.begin(9800);
+   // ########################################################### MUST REMOVE FOLLOWING LINE Before Launch
+  while(!Serial){
+    Serial.println("Serial not working");
+  }
+  Serial.println("working");
   setupSensors();
 }
 
@@ -81,7 +85,8 @@ void loop() {
       while (phase == 1) {
         
         if (millis() - lastCallTime > calibrationPhaseInterval) {
-          calibrationPhase();
+          //calibrationPhase(); //Uncomment line
+          phase = 2;
           lastCallTime = millis();
         }
         

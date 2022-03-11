@@ -8,11 +8,4 @@ typedef struct dataPoint {
   float GPSArray[2];//{Lat,Long}
   float kalmanState[3];//{altitude, global_z_velocity, global_z_accel}
 } dataPoint;
-
-typedef struct telemetry {
-  int long lastCallTime; // 4 bytes
-  int phase;
-  float GPSArray[2];//{Lat,Long}
-} telemetry;
-
 #endif
