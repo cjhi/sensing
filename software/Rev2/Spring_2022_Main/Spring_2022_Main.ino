@@ -16,7 +16,7 @@
 #define RF95_FREQ 915.0//Radio Change to 434.0 or other frequency, must match RX's freq!
 #define GPSSerial Serial1//GPS
 #define GPSECHO false//GPS
-const int buzzer = 4; //buzzer to teensy pin 4
+#define buzzer 4//buzzer to teensy pin 4
 //Create Instances of sensors
 RH_RF95 rf95(RFM95_CS, RFM95_INT);//Radio Singleton instance of the radio driver
 Adafruit_GPS GPS(&GPSSerial);//GPS Connect to the GPS on the hardware port
@@ -52,6 +52,7 @@ unsigned int afterApogeePhaseInterval = 30; // milliseconds
 unsigned int afterMainDeploymentPhaseInterval = 30; // milliseconds
 // Minimum acceleration and altitude required to start launch phase
 int minimumAltitude = 100; // m
+int minimumDrogAltitude = 1000; // m
 int minimumMainAltitude = 100; // m
 
 double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0, initial global z accel on first run 
@@ -127,7 +128,8 @@ void loop() {
           addDataPoint();
           lastCallTime = millis();
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
-          if (state[1] < 0){
+         // if (state[1] < 0){
+         if (altitude >  minimumDrogAltitude) {
             //trigger the droge e-match fet
             digitalWrite(A19, HIGH);
             delay(1000);
