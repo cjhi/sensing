@@ -98,15 +98,10 @@ void loop()
       Serial.print("RSSI: ");
       Serial.println(rf95.lastRssi(), DEC);
       
-      if  (firestring_drogue.equals(String((char *)buf))&& fire_main==0){
-        
+      if  (firestring_drogue.equals(String((char *)buf))&& fire_drog==0){
         digitalWrite(A19, HIGH);
         delay(1000);
-        digitalWrite(A19, LOW);
-        delay(7000);
-        digitalWrite(A20, HIGH);
-        delay(1000);
-         digitalWrite(A20, LOW);
+         digitalWrite(A19, LOW);
         //digitalWrite(13, HIGH);
          Serial.println("Boom Drogue");
          char radiopacket[20] = "BOOM Drogue # ";
@@ -119,18 +114,14 @@ void loop()
         
           Serial.println("Waiting for packet to complete..."); delay(10);
           rf95.waitPacketSent();
-          fire_main=1;
+          fire_drog=1;
           // Now wait for a reply
       }
-      else if  (firestring_main.equals(String((char *)buf))&& fire_drog==0){
+      else if  (firestring_main.equals(String((char *)buf))&& fire_main==0){
         
-        digitalWrite(A19, HIGH);
-        delay(1000);
-        digitalWrite(A19, LOW);
-        delay(7000);
         digitalWrite(A20, HIGH);
         delay(1000);
-         digitalWrite(A20, LOW);
+        digitalWrite(A20, LOW);
          Serial.println("Boom Main");
          char radiopacket[20] = "BOOM main # ";
           itoa(packetnum++, radiopacket+13, 10);
@@ -143,7 +134,7 @@ void loop()
           Serial.println("Waiting for packet to complete..."); delay(10);
           rf95.waitPacketSent();
           // Now wait for a reply
-          fire_drog=1;
+          fire_main=1;
       }
       else{
          digitalWrite(A19, LOW);

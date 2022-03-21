@@ -65,4 +65,7 @@
   Serial.print("Set Freq to: "); Serial.println(RF95_FREQ);
   rf95.setTxPower(23, false);
 
+
+//Buzzer
+ pinMode(buzzer, OUTPUT); // Set buzzer - pin 9 as an output
  }
