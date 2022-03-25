@@ -3,9 +3,9 @@
   // Configure Sensors
   
   //Setup SD CARD
-  const int chipSelect = 4;
+ // const int chipSelect = 4;
   // see if the card is present and can be initialized:
-  if (!SD.begin(chipSelect)) {
+  if (!SD.begin(BUILTIN_SDCARD)) {
     Serial.println("Card failed, or not present");
   }
   else{

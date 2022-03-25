@@ -51,9 +51,9 @@ unsigned int afterApogeePhaseInterval = 30; // milliseconds
 // Phase 5 Constants
 unsigned int afterMainDeploymentPhaseInterval = 30; // milliseconds
 // Minimum acceleration and altitude required to start launch phase
-int minimumAltitude = 100; // m
-int minimumDrogAltitude = 1000; // m
-int minimumMainAltitude = 100; // m
+float minimumAltitude;
+float minimumDrogAltitude ;
+float minimumMainAltitude;
 
 double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0, initial global z accel on first run 
 
@@ -71,12 +71,22 @@ void setup(void)
   }
   Serial.println("working");
   setupSensors();
+  fetchAltimeterData();
+  minimumAltitude = altitude+5; // m
+  minimumDrogAltitude = altitude+10; // m
+  minimumMainAltitude =  altitude+5; // m
+  Serial.print("Min_alt");
+  Serial.println(minimumAltitude);
+  Serial.print("Min_drog_alt");
+  Serial.println( minimumDrogAltitude);
+   Serial.print("Min_main_alt");
+  Serial.println(minimumMainAltitude);
 }
 
 bool gatherData = false;
 
 void loop() {
-
+    
   // Chooses loop to run through depending on what the phase is set to
   switch (phase) {
 
@@ -87,8 +97,8 @@ void loop() {
         
         if (millis() - lastCallTime > calibrationPhaseInterval) {
           //calibrationPhase(); //Uncomment line
-          phase = 2;
           lastCallTime = millis();
+          phase=2;
         }
         
       }
@@ -98,24 +108,26 @@ void loop() {
       Serial.println("Phase 2:");
       while (phase == 2) {
         if (millis() - lastCallTime > preLaunchPhaseInterval) {
-            if (digitalRead(37)==HIGH){
+           // if (digitalRead(37)==HIGH){
               //Buzzer Pin 4
               tone(buzzer, 1000); // Send 1KHz sound signal...
             //  delay(1000);        // ...for 1 sec
             //  noTone(buzzer);     // Stop sound...
             //  delay(1000);        // ...for 1sec
               fetchAltimeterData();
+              Serial.println(altitude-minimumAltitude+5);
               GPSArray[0] = 1.0;
               fetchRadio();
               if (altitude > minimumAltitude) {
                 phase = 3;
+                noTone(buzzer); 
               }
-              }
-            else{
-              GPSArray[0] = 0.0;
-              fetchRadio();
-              lastCallTime = millis();
-            }
+              //}
+//            else{
+//              GPSArray[0] = 0.0;
+//              fetchRadio();
+//              lastCallTime = millis();
+//            }
         }
       }
 
@@ -127,6 +139,8 @@ void loop() {
           fetchSensorData();
           addDataPoint();
           lastCallTime = millis();
+          Serial.println(currentDataPoint);
+          fetchRadio();
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
          // if (state[1] < 0){
          if (altitude >  minimumDrogAltitude) {
