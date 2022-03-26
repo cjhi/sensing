@@ -68,7 +68,7 @@ void setup()
   // if the file is available, write to it:
   if (dataFile) {
     while (dataFile.available()) {
-      Serial.write(dataFile.read());
+      Serial.write("Hello it's me");
     }
     dataFile.close();
   }  
@@ -76,6 +76,7 @@ void setup()
   else {
     Serial.println("error opening datalog.txt");
   } 
+  Serial.println("Done");
 }
 
 void loop()

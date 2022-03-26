@@ -37,7 +37,7 @@ float GPSArray[2] = {0.0, 0.0};
 const float Pi = 3.14159;
 // Puts the rocket in the calibration phase (phase 1)
 // There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
-short int phase = 1;
+short int phase = 0;
 // Configure timers for aquiring sensor data
 unsigned int long lastCallTime = millis();
 // Phase 1 Constants
@@ -59,28 +59,13 @@ double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0
 
 //TODO: if change this value, also change Q in kalman_update
 double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
-
 bool firstKalman = true;
 
 void setup(void)
 {  
-    Serial.begin(9800);
-   // ########################################################### MUST REMOVE FOLLOWING LINE Before Launch
-  while(!Serial){
-    Serial.println("Serial not working");
-  }
+  Serial.begin(9800);
   Serial.println("working");
   setupSensors();
-  fetchAltimeterData();
-  minimumAltitude = altitude+5; // m
-  minimumDrogAltitude = altitude+10; // m
-  minimumMainAltitude =  altitude+5; // m
-  Serial.print("Min_alt");
-  Serial.println(minimumAltitude);
-  Serial.print("Min_drog_alt");
-  Serial.println( minimumDrogAltitude);
-   Serial.print("Min_main_alt");
-  Serial.println(minimumMainAltitude);
 }
 
 bool gatherData = false;
@@ -91,59 +76,63 @@ void loop() {
   switch (phase) {
 
     // Calibration phase
-    case 1:
-      Serial.println("Phase 1:");
-      while (phase == 1) {
-        
+    case 0:
+      Serial.println("Phase 0:");
+      while (phase == 0) {
         if (millis() - lastCallTime > calibrationPhaseInterval) {
           //calibrationPhase(); //Uncomment line
           lastCallTime = millis();
-          phase=2;
+          phase=1;
         }
         
       }
 
     // Pre-Launch phase
+    case 1:
+      Serial.println("Phase 1:");
+      while (phase == 1) {
+        if (millis() - lastCallTime > preLaunchPhaseInterval) {
+            if (analogRead(A18)>=1000){
+                fetchAltimeterData();
+                minimumAltitude = altitude+10; // m //CHANGE BEFORE LUANCH
+                minimumMainAltitude =  altitude+500; // m //CHANGE BEFORE LUANCH
+              //Buzzer Pin 4
+              tone(buzzer, 1000); // Send 1KHz sound signal...
+              GPSArray[0] = 1.0;
+              fetchRadio();
+              phase = 2;
+        }
+        else{
+         GPSArray[0] = 2.0;
+         fetchRadio();
+         lastCallTime = millis();
+      }
+     }
+    }
+    // After Keyswitch before luanch
     case 2:
       Serial.println("Phase 2:");
       while (phase == 2) {
         if (millis() - lastCallTime > preLaunchPhaseInterval) {
-           // if (digitalRead(37)==HIGH){
-              //Buzzer Pin 4
-              tone(buzzer, 1000); // Send 1KHz sound signal...
-            //  delay(1000);        // ...for 1 sec
-            //  noTone(buzzer);     // Stop sound...
-            //  delay(1000);        // ...for 1sec
-              fetchAltimeterData();
-              Serial.println(altitude-minimumAltitude+5);
-              GPSArray[0] = 1.0;
-              fetchRadio();
-              if (altitude > minimumAltitude) {
+          fetchAltimeterData();
+            if (altitude > minimumAltitude) {
                 phase = 3;
                 noTone(buzzer); 
               }
-              //}
-//            else{
-//              GPSArray[0] = 0.0;
-//              fetchRadio();
-//              lastCallTime = millis();
-//            }
         }
       }
-
     // Lauched but before apogee
     case 3:
       Serial.println("Phase 3:");
+     
       while (phase == 3) {
-        if (millis() - lastCallTime > beforeApogeePhaseInterval) {
-          fetchSensorData();
+        //if (millis() - lastCallTime > beforeApogeePhaseInterval) {
+        fetchSensorData();
           addDataPoint();
-          lastCallTime = millis();
-          Serial.println(currentDataPoint);
           fetchRadio();
+          lastCallTime = millis();
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
-         // if (state[1] < 0){
-         if (altitude >  minimumDrogAltitude) {
+          if (state[1] < 0){
             //trigger the droge e-match fet
             digitalWrite(A19, HIGH);
             delay(1000);
@@ -152,8 +141,6 @@ void loop() {
             phase = 4;
             SD_write();
           }
-          
-        }
         
       }
       
@@ -162,7 +149,6 @@ void loop() {
       Serial.println("Phase 4:");
       currentDataPoint = 0;
       while (phase == 4) {
-        
         if (millis() - lastCallTime > afterApogeePhaseInterval) {
           fetchSensorData();
           addDataPoint();
@@ -174,11 +160,6 @@ void loop() {
             phase = 5;
           }
         }
-        
-        if (currentDataPoint == batchSize) {
-          SD_write();
-          currentDataPoint = 0;
-        }
       }
       
   //After main deploy
@@ -186,14 +167,10 @@ void loop() {
       Serial.println("Phase 5:");
       if (millis() - lastCallTime > afterMainDeploymentPhaseInterval)
         while (phase == 5) {
-          lastCallTime = millis();
-          fetchGPSData();
+          fetchSensorData();
           fetchRadio();
           addDataPoint();
+          lastCallTime = millis();
         }
-        if (currentDataPoint == batchSize) {
-            SD_write();
-            currentDataPoint = 0;
-          }
       }
 }

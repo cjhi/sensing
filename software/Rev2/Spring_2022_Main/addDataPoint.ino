@@ -1,5 +1,8 @@
 void addDataPoint() {
-
+       if (currentDataPoint == batchSize) {
+          SD_write();
+          currentDataPoint = 0;
+       }
       dataPoints[currentDataPoint].timeElapsed = millis();
       
       dataPoints[currentDataPoint].IMU[0] = IMU[0];
