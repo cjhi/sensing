@@ -15,8 +15,10 @@ void addDataPoint() {
 
       dataPoints[currentDataPoint].GPSArray[0] = GPSArray[0];
       dataPoints[currentDataPoint].GPSArray[1] = GPSArray[1];
+      
     
       dataPoints[currentDataPoint].altitude = altitude;
+      dataPoints[currentDataPoint].phase = phase;
 
       if (firstKalman) {
             dataPoints[currentDataPoint].kalmanState[0] = altitude;  //alt
@@ -27,6 +29,7 @@ void addDataPoint() {
             state[0] = altitude;
             state[1] = 0; //assume intial velocity is zero
             state[2] = IMU[6]; //global z
+             firstKalman = false;
             
       } else {
             double dt = dataPoints[currentDataPoint].timeElapsed - dataPoints[currentDataPoint-1].timeElapsed;
@@ -35,7 +38,7 @@ void addDataPoint() {
             dataPoints[currentDataPoint].kalmanState[0] = state[0];  
             dataPoints[currentDataPoint].kalmanState[0] = state[1];
             dataPoints[currentDataPoint].kalmanState[0] = state[2];
-            firstKalman = false;
+           
       }
 
       currentDataPoint += 1;

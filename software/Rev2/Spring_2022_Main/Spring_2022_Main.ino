@@ -80,7 +80,7 @@ void loop() {
       Serial.println("Phase 0:");
       while (phase == 0) {
         if (millis() - lastCallTime > calibrationPhaseInterval) {
-          //calibrationPhase(); //Uncomment line
+          calibrationPhase();
           lastCallTime = millis();
           phase=1;
         }
