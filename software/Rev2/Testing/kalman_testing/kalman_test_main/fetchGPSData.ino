@@ -6,9 +6,9 @@ void fetchGPSData() {
       GPSArray[0]=GPS.latitude;
       GPSArray[1]=GPS.longitude;
     }
-    else{
-      GPSArray[0]=0.;
-      GPSArray[1]=0.;
+    else{ 
+      GPSArray[0]=3.;
+      GPSArray[1]=3.;
     }
 }
   
