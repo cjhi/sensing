@@ -52,7 +52,6 @@ unsigned int afterApogeePhaseInterval = 30; // milliseconds
 unsigned int afterMainDeploymentPhaseInterval = 30; // milliseconds
 // Minimum acceleration and altitude required to start launch phase
 float minimumAltitude;
-float minimumDrogAltitude ;
 float minimumMainAltitude;
 
 double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0, initial global z accel on first run 
@@ -64,7 +63,6 @@ bool firstKalman = true;
 void setup(void)
 {  
   Serial.begin(9800);
-  Serial.println("working");
   setupSensors();
 }
 
@@ -79,11 +77,8 @@ void loop() {
     case 0:
       Serial.println("Phase 0:");
       while (phase == 0) {
-        if (millis() - lastCallTime > calibrationPhaseInterval) {
           calibrationPhase();
           lastCallTime = millis();
-          phase=1;
-        }
         
       }
 
@@ -91,35 +86,27 @@ void loop() {
     case 1:
       Serial.println("Phase 1:");
       while (phase == 1) {
-        if (millis() - lastCallTime > preLaunchPhaseInterval) {
+        fetchRadio();
             if (analogRead(A18)>=1000){
                 fetchAltimeterData();
                 minimumAltitude = altitude+10; // m //CHANGE BEFORE LUANCH
-                minimumMainAltitude =  altitude+500; // m //CHANGE BEFORE LUANCH
-              //Buzzer Pin 4
-              tone(buzzer, 1000); // Send 1KHz sound signal...
-              GPSArray[0] = 1.0;
-              fetchRadio();
+                minimumMainAltitude =  altitude+1000; // m //CHANGE BEFORE LUANCH
+              
               phase = 2;
-        }
-        else{
-         GPSArray[0] = 2.0;
-         fetchRadio();
-         lastCallTime = millis();
+            }
       }
-     }
-    }
     // After Keyswitch before luanch
     case 2:
       Serial.println("Phase 2:");
       while (phase == 2) {
-        if (millis() - lastCallTime > preLaunchPhaseInterval) {
+          fetchRadio();
           fetchAltimeterData();
             if (altitude > minimumAltitude) {
                 phase = 3;
-                noTone(buzzer); 
               }
-        }
+           if (analogRead(A18)<=20){
+              phase = 1;
+            }
       }
     // Lauched but before apogee
     case 3:
@@ -133,6 +120,7 @@ void loop() {
           lastCallTime = millis();
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
           if (state[1] < 0){
+//          if (altitude > minimumDrogAltitude) {
             //trigger the droge e-match fet
             digitalWrite(A19, HIGH);
             delay(1000);
@@ -152,6 +140,7 @@ void loop() {
         if (millis() - lastCallTime > afterApogeePhaseInterval) {
           fetchSensorData();
           addDataPoint();
+          fetchRadio();
           lastCallTime = millis();
           if (altitude < minimumMainAltitude) {
             digitalWrite(A20, HIGH);
