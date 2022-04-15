@@ -17,6 +17,7 @@
 #define GPSSerial Serial1//GPS
 #define GPSECHO false//GPS
 #define buzzer 4//buzzer to teensy pin 4
+
 //Create Instances of sensors
 RH_RF95 rf95(RFM95_CS, RFM95_INT);//Radio Singleton instance of the radio driver
 Adafruit_GPS GPS(&GPSSerial);//GPS Connect to the GPS on the hardware port
@@ -36,20 +37,22 @@ float GPSArray[2] = {0.0, 0.0};
 
 const float Pi = 3.14159;
 // Puts the rocket in the calibration phase (phase 1)
-// There are 5 phases: Calibration, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
+// There are 6 phases: Calibration, pre keyswitch, Pre-Launch, Launch, Detection of Apogee, Detection of 1,000 feet on descent
 short int phase = 0;
 // Configure timers for aquiring sensor data
 unsigned int long lastCallTime = millis();
-// Phase 1 Constants
-unsigned int calibrationPhaseInterval = 100; // milliseconds
-// Phase 2 Constants
-unsigned int preLaunchPhaseInterval = 30; // milliseconds
-// Phase 3 Constants
-unsigned int beforeApogeePhaseInterval = 30; // milliseconds
-// Phase 4 Constants
-unsigned int afterApogeePhaseInterval = 30; // milliseconds
+//// Phase 1 Constants
+//unsigned int calibrationPhaseInterval = 100; // milliseconds
+//// Phase 2 Constants
+//unsigned int preLaunchPhaseInterval = 30; // milliseconds
+//// Phase 3 Constants
+//unsigned int beforeApogeePhaseInterval = 30; // milliseconds
+//// Phase 4 Constants
+//unsigned int afterApogeePhaseInterval = 30; // milliseconds
 // Phase 5 Constants
-unsigned int afterMainDeploymentPhaseInterval = 30; // milliseconds
+//unsigned int afterMainDeploymentPhaseInterval = 30; // milliseconds
+unsigned int newcalltime=0;
+unsigned int firsttime=0;
 // Minimum acceleration and altitude required to start launch phase
 float minimumAltitude;
 float minimumMainAltitude;
@@ -59,7 +62,7 @@ double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0
 //TODO: if change this value, also change Q in kalman_update
 double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
 bool firstKalman = true;
-
+char buffer[70];
 void setup(void)
 {  
   Serial.begin(9800);
@@ -78,46 +81,66 @@ void loop() {
       Serial.println("Phase 0:");
       while (phase == 0) {
           calibrationPhase();
-          lastCallTime = millis();
-        
       }
 
     // Pre-Launch phase
     case 1:
       Serial.println("Phase 1:");
       while (phase == 1) {
-        fetchRadio();
+             fetchGPSData();
+       lastCallTime = millis();
+       sprintf(buffer, "Phase 2: Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+       fetchRadio(buffer);
             if (analogRead(A18)>=1000){
+              int averageAltitude=0;
+              int number_readings=5;
+              for (int i=0; i<number_readings; i++){
                 fetchAltimeterData();
-                minimumAltitude = altitude+10; // m //CHANGE BEFORE LUANCH
-                minimumMainAltitude =  altitude+1000; // m //CHANGE BEFORE LUANCH
-              
+                averageAltitude=altitude+averageAltitude;
+              }
+              minimumAltitude=averageAltitude/number_readings+10;// m //CHANGE BEFORE LUANCH
+               minimumMainAltitude=averageAltitude/number_readings+1000;// m //CHANGE BEFORE LUANCH
               phase = 2;
             }
       }
     // After Keyswitch before luanch
     case 2:
       Serial.println("Phase 2:");
+     newcalltime=millis();
+     firsttime=millis();
       while (phase == 2) {
-          fetchRadio();
-          fetchAltimeterData();
+       fetchGPSData();
+       if (millis()-firsttime<100000){
+           if ((millis() - newcalltime)>500){
+            tone(buzzer,500);
+            newcalltime=millis();
+           }
+           else{
+            noTone(buzzer);
+           }
+       }
+       lastCallTime = millis();
+       sprintf(buffer, "Phase 2: Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+       fetchRadio(buffer);
+       fetchAltimeterData();
             if (altitude > minimumAltitude) {
                 phase = 3;
               }
            if (analogRead(A18)<=20){
               phase = 1;
             }
+      
       }
+      
     // Lauched but before apogee
     case 3:
       Serial.println("Phase 3:");
-     
       while (phase == 3) {
-        //if (millis() - lastCallTime > beforeApogeePhaseInterval) {
-        fetchSensorData();
-          addDataPoint();
-          fetchRadio();
+          fetchSensorData();
           lastCallTime = millis();
+          addDataPoint();
+           sprintf(buffer, "Phase 3: Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+           fetchRadio(buffer);
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
           if (state[1] < 0){
 //          if (altitude > minimumDrogAltitude) {
@@ -125,7 +148,6 @@ void loop() {
             digitalWrite(A19, HIGH);
             delay(1000);
             digitalWrite(A19, LOW);
-            lastCallTime = millis();
             phase = 4;
             SD_write();
           }
@@ -137,28 +159,30 @@ void loop() {
       Serial.println("Phase 4:");
       currentDataPoint = 0;
       while (phase == 4) {
-        if (millis() - lastCallTime > afterApogeePhaseInterval) {
+       // if (millis() - lastCallTime > afterApogeePhaseInterval) {
           fetchSensorData();
-          addDataPoint();
-          fetchRadio();
           lastCallTime = millis();
+          addDataPoint();
+          sprintf(buffer, "Phase 3: Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+          fetchRadio(buffer);
           if (altitude < minimumMainAltitude) {
             digitalWrite(A20, HIGH);
             delay(1000);
             digitalWrite(A20, LOW);
             phase = 5;
           }
-        }
+       // }
       }
       
   //After main deploy
    case 5:
       Serial.println("Phase 5:");
-      if (millis() - lastCallTime > afterMainDeploymentPhaseInterval)
+
         while (phase == 5) {
           fetchSensorData();
-          fetchRadio();
           addDataPoint();
+          sprintf(buffer, "Phase 3: Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+          fetchRadio(buffer);
           lastCallTime = millis();
         }
       }
