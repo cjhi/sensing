@@ -3,9 +3,9 @@
 void kalman_update(double *state, double p_cov[3][3], double *measurement, double dt, double *adjusted_state, double adjusted_p_cov[3][3]){
 
     double A[3][3] = {{1, dt, dt*dt / 2}, {0, 1, dt}, {0, 0, 1}};     //state transition matrix for position
-    double Q[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};    //model noise covariance
+    double Q[3][3] = {{8, 0, 0}, {0, 4, 0}, {0, 0, 2}};    //model noise covariance
     double H[2][3] = {{1, 0, 0}, {0, 0, 1}};     //measurement jacobian (to transforms the system state into the measurement)
-    double R[2][2] = {{100, 0}, {0, 10}};  //measurement noise covariance
+    double R[2][2] = {{10, 0}, {0, 2}};  //measurement noise covariance
     double kalman_gain[3][2];
 
 

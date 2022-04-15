@@ -7,22 +7,23 @@
   // see if the card is present and can be initialized:
   if (!SD.begin(BUILTIN_SDCARD)) {
     Serial.println("Card failed, or not present");
+    while (1);
   }
   else{
-  Serial.println("card initialized.");
+  Serial.println("Card initialized.");
   }
   
   // IMU
   if (!bno.begin())
   {
     Serial.print("No BNO055 detected");
-    //while (1);
+    while (1);
   }
    bno.setExtCrystalUse(true);
   //Altimeter
   if (!mpl.begin()) {
     Serial.println("NO MPL3115A2 detected");
-    //while(1);
+    while(1);
   }
   mpl.setSeaPressure(1013.26);
   
@@ -53,18 +54,17 @@
 
   while (!rf95.init()) {
     Serial.println("LoRa radio init failed");
-   // while (1);
+    while (1);
   }
   Serial.println("LoRa radio init OK!");
 
   // Defaults after init are 434.0MHz, modulation GFSK_Rb250Fd250, +13dbM
   if (!rf95.setFrequency(RF95_FREQ)) {
     Serial.println("setFrequency failed");
-    //while (1);
+    while (1);
   }
   Serial.print("Set Freq to: "); Serial.println(RF95_FREQ);
   rf95.setTxPower(23, false);
-
 
 //Buzzer
  pinMode(buzzer, OUTPUT); // Set buzzer - pin 9 as an output
