@@ -23,12 +23,12 @@ void addDataPoint() {
       if (firstKalman) {
         Serial.println("First Kalman");
             dataPoints[currentDataPoint].kalmanState[0] = altitude;  //alt
-            dataPoints[currentDataPoint].kalmanState[1] = 10;   //vel
+            dataPoints[currentDataPoint].kalmanState[1] = 1;   //vel
             dataPoints[currentDataPoint].kalmanState[2] = IMU[6];   //acc
 
             //fill inital state vector
             state[0] = altitude;
-            state[1] = 10; //assume intial velocity is zero
+            state[1] = 1; //assume intial velocity to be launch velocity
             state[2] = IMU[6]; //global z
              firstKalman = false;
             

@@ -17,7 +17,6 @@
 #define GPSSerial Serial1//GPS
 #define GPSECHO false//GPS
 #define buzzer 4//buzzer to teensy pin 4
-
 //Create Instances of sensors
 RH_RF95 rf95(RFM95_CS, RFM95_INT);//Radio Singleton instance of the radio driver
 Adafruit_GPS GPS(&GPSSerial);//GPS Connect to the GPS on the hardware port
