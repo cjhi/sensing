@@ -34,5 +34,8 @@ void calibrationPhase(){
   if (system == 3 && gyro == 3 && accel == 3 && mag ==3) {
     phase = 1;
   }
+  char buffer1[70];
+  sprintf(buffer1, "Phase 0: sys:%d G:%d A:%d M:%d\n",system,gyro,accel,mag);
+  fetchRadio(buffer1);
   
 }

@@ -12,6 +12,8 @@
   else{
   Serial.println("Card initialized.");
   }
+
+
   
   // IMU
   if (!bno.begin())
@@ -67,4 +69,5 @@
   rf95.setTxPower(23, false);
 
 //Buzzer
+pinMode(buzzer, OUTPUT);
  }
