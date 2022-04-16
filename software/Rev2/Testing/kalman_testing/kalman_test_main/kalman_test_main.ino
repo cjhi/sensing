@@ -61,7 +61,7 @@ double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0
 double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
 bool firstKalman = true;
 
-void setup(void)
+void setup()
 {  
   Serial.begin(9800);
   Serial.println("working");
@@ -78,11 +78,14 @@ void loop() {
     // Calibration phase
     case 0:
       Serial.println("Phase 0:");
+      
+      
       while (phase == 0) {
+        
         if (millis() - lastCallTime > calibrationPhaseInterval) {
+          
           calibrationPhase();
           lastCallTime = millis();
-          phase=1;
         }
         
       }
@@ -92,21 +95,17 @@ void loop() {
       Serial.println("Phase 1:");
       while (phase == 1) {
         if (millis() - lastCallTime > preLaunchPhaseInterval) {
-            if (analogRead(A18)>=1000){
+
                 fetchAltimeterData();
-                minimumAltitude = altitude+10; // m //CHANGE BEFORE LUANCH
-                minimumMainAltitude =  altitude+500; // m //CHANGE BEFORE LUANCH
+                
+                minimumAltitude = altitude +1; // m //CHANGE BEFORE LUANCH
+                minimumMainAltitude =  altitude+1; // m //CHANGE BEFORE LUANCH
               //Buzzer Pin 4
-              tone(buzzer, 1000); // Send 1KHz sound signal...
+              //tone(buzzer, 1000); // Send 1KHz sound signal...
               GPSArray[0] = 1.0;
               fetchRadio();
               phase = 2;
-        }
-        else{
-         GPSArray[0] = 2.0;
-         fetchRadio();
-         lastCallTime = millis();
-      }
+
      }
     }
     // After Keyswitch before luanch
@@ -115,9 +114,12 @@ void loop() {
       while (phase == 2) {
         if (millis() - lastCallTime > preLaunchPhaseInterval) {
           fetchAltimeterData();
+          Serial.print(altitude);
+          Serial.print("\t");
+          Serial.println(minimumAltitude);
             if (altitude > minimumAltitude) {
                 phase = 3;
-                noTone(buzzer); 
+                //noTone(buzzer); 
               }
         }
       }
@@ -137,10 +139,13 @@ void loop() {
             digitalWrite(A19, HIGH);
             delay(1000);
             digitalWrite(A19, LOW);
+            digitalWrite(6, HIGH);
+            digitalWrite(7, HIGH);
+            digitalWrite(8, HIGH);
             lastCallTime = millis();
             phase = 4;
             SD_write();
-            tone(buzzer, 1000);
+            //tone(buzzer, 1000);
           }
         
       }
@@ -150,6 +155,12 @@ void loop() {
       Serial.println("Phase 4:");
       currentDataPoint = 0;
       while (phase == 4) {
+        if(currentDataPoint > 50){
+          SD_write();
+          digitalWrite(7, LOW);
+
+       
+        }
         if (millis() - lastCallTime > afterApogeePhaseInterval) {
           fetchSensorData();
           addDataPoint();

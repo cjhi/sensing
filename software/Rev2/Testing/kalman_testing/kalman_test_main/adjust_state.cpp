@@ -1,4 +1,5 @@
 #include "phoenix_IV_functions.h"
+#include <Arduino.h>
 
 void adjust_state(double *predicted_state, double *measurement, double H[2][3], double kalman_gain[3][2], double *adjusted_state){
 
