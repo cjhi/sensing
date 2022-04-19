@@ -1,5 +1,5 @@
 clear; clf;
-data=  readtable("flightData.csv")
+data=  readtable("elevator_test_4_19.csv")
 
 
 
