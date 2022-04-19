@@ -1,5 +1,33 @@
  void setupSensors(){
 
+if(IIC_Read(0x0C) == 196); //checks whether sensor is readable (who_am_i bit)
+  else Serial.println("i2c bad");
+ 
+  IIC_Write(0x2D,0); //write altitude offset=0 (because calculation below is based on offset=0)
+  //calculate sea level pressure by averaging a few readings
+  Serial.println("Pressure calibration...");
+  float buff[4];
+  for (byte i=0;i<4;i++){
+    IIC_Write(0x26, 0b00111011); //bit 2 is one shot mode, bits 4-6 are 128x oversampling
+    IIC_Write(0x26, 0b00111001); //must clear oversampling (OST) bit, otherwise update will be once per second
+    delay(550); //wait for sensor to read pressure (512ms in datasheet)
+    IIC_ReadData(); //read sensor data
+    buff[i] = Baro_Read(); //read pressure
+    Serial.println(buff[i]);
+  }
+  float currpress=(buff[0]+buff[1]+buff[2]+buff[3])/4; //average over two seconds
+ 
+  Serial.print("Current pressure: "); Serial.print(currpress); Serial.println(" Pa");
+  //calculate pressure at mean sea level based on a given altitude
+  float seapress = currpress/pow(1-ALTBASIS*0.0000225577,5.255877);
+  Serial.print("Sea level pressure: "); Serial.print(seapress); Serial.println(" Pa");
+  Serial.print("Temperature: ");
+  Serial.print(IICdata[3]+(float)(IICdata[4]>>4)/16); Serial.println(" C");
+ 
+  // This configuration option calibrates the sensor according to
+  // the sea level pressure for the measurement location (2 Pa per LSB)
+  IIC_Write(0x14, (unsigned int)(seapress / 2)>>8);//IIC_Write(0x14, 0xC3); // BAR_IN_MSB (register 0x14):
+  IIC_Write(0x15, (unsigned int)(seapress / 2)&0xFF);//IIC_Write(0x15, 0xF3); // BAR_IN_LSB (register 0x15):
   // Configure Sensors
   
   //Setup SD CARD

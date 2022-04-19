@@ -17,6 +17,14 @@
 #define GPSSerial Serial1//GPS
 #define GPSECHO false//GPS
 #define buzzer 4//buzzer to teensy pin 4
+#define ALTMODE 1; //comment out for barometer mode; default is altitude mode
+#define ALTBASIS 18 //start altitude to calculate mean sea level pressure in meters
+//this altitude must be known (or provided by GPS etc.)
+ 
+const int SENSORADDRESS = 0x60; // address specific to the MPL3115A1, value found in datasheet
+ 
+float altsmooth = 0; //for exponential smoothing
+byte IICdata[5] = {0,0,0,0,0}; //buffer for sensor data
 
 //Create Instances of sensors
 RH_RF95 rf95(RFM95_CS, RFM95_INT);//Radio Singleton instance of the radio driver
