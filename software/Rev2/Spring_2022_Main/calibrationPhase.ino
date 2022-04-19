@@ -35,7 +35,7 @@ void calibrationPhase(){
     phase = 1;
   }
   char * buffer1;
-  buffer1= (char*) malloc(50*sizeof(char));
+  buffer1= (char*) malloc(70*sizeof(char));
   sprintf(buffer1, "Phase 0: sys:%u G:%u A:%u M:%u\n",system,gyro,accel,mag);
   fetchRadio(buffer1);
   free(buffer1);
