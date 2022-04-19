@@ -18,7 +18,7 @@ void calibrationPhase(){
   Serial.println(mag, DEC);
 
   // LEDs will activate when sensors are calibrated
-  if (gyro == 3) {
+  if (mag == 3) {
     digitalWrite(6, LOW);
   }
   else{digitalWrite(6, HIGH);}
@@ -30,14 +30,22 @@ void calibrationPhase(){
   }
   else{digitalWrite(7, HIGH);}
 
-  if (mag == 3) {
-    digitalWrite(8, LOW);
-  }
-  else{digitalWrite(8, HIGH);}
+
 
   // Switches to pre-launch phase when all sensors are calibrated
   if (system == 3 && gyro == 3 && accel == 3 && mag ==3) {
     phase = 1;
+    digitalWrite(8, LOW);
   }
+  else{digitalWrite(8, HIGH);}
+//  char buffer1 [60]; 
+//  char *buf;
+//  buf= (char *) malloc(50);
+  //sprintf(buffer1, "Phase 0: sys:%u G:%u A:%u M:%u\n",system,gyro,accel,mag);
+//  sprintf(buffer1, "Phase 0:");
+//  buf=buffer1;
+//  fetchRadio(buf);
+//  free(buf);
+  
   
 }

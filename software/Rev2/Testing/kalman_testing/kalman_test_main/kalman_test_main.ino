@@ -27,7 +27,7 @@ Adafruit_MPL3115A2 mpl;//Altimeter
 const int batchSize = 500; 
 dataPoint dataPoints[batchSize];
 int currentDataPoint = 0;
-
+//  char buffer1[70];
 //Global Variables
 File myFile; //SD
 float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0,0.0};
@@ -98,12 +98,12 @@ void loop() {
 
                 fetchAltimeterData();
                 
-                minimumAltitude = altitude +1; // m //CHANGE BEFORE LUANCH
+                minimumAltitude = altitude +0.1; // m //CHANGE BEFORE LUANCH
                 minimumMainAltitude =  altitude+1; // m //CHANGE BEFORE LUANCH
               //Buzzer Pin 4
               //tone(buzzer, 1000); // Send 1KHz sound signal...
               GPSArray[0] = 1.0;
-              fetchRadio();
+
               phase = 2;
 
      }
@@ -131,7 +131,8 @@ void loop() {
         //if (millis() - lastCallTime > beforeApogeePhaseInterval) {
         fetchSensorData();
           addDataPoint();
-          fetchRadio();
+          tone(buzzer,500);
+   
           lastCallTime = millis();
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
           if (state[1] < 0){
@@ -142,6 +143,7 @@ void loop() {
             digitalWrite(6, HIGH);
             digitalWrite(7, HIGH);
             digitalWrite(8, HIGH);
+            noTone(buzzer);
             lastCallTime = millis();
             phase = 4;
             SD_write();
