@@ -24,18 +24,18 @@ void addDataPoint()
       if (firstKalman)
       {
             dataPoints[currentDataPoint].kalmanState[0] = altitude; // alt
-            dataPoints[currentDataPoint].kalmanState[1] = 0;        // vel
+            dataPoints[currentDataPoint].kalmanState[1] = 3;        // vel
             dataPoints[currentDataPoint].kalmanState[2] = IMU[6];   // acc
 
             // fill inital state vector
             state[0] = altitude;
-            state[1] = 0;      // assume intial velocity is zero
+            state[1] = 3;      // assume intial velocity is zero
             state[2] = IMU[6]; // global z
             firstKalman = false;
       }
       else
       {
-            double dt = (dataPoints[currentDataPoint].timeElapsed - dataPoints[currentDataPoint - 1].timeElapsed) / 1000; // needs to be in seconds
+            double dt = ((double)dataPoints[currentDataPoint].timeElapsed - dataPoints[currentDataPoint - 1].timeElapsed) / 1000; // needs to be in seconds
             double measurement[2] = {altitude, IMU[6]};
             kalman_update(state, p_cov, measurement, dt, state, p_cov);
             dataPoints[currentDataPoint].kalmanState[0] = state[0];

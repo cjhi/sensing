@@ -63,13 +63,14 @@ double state[3];//{altitude, velocity, acceleration}, set to initial altitude, 0
 double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
 bool firstKalman = true;
 char buffer[70];
+bool gatherData = false;
 void setup(void)
 {  
   Serial.begin(9800);
   setupSensors();
 }
 
-bool gatherData = false;
+
 
 void loop() {
     
@@ -87,7 +88,7 @@ void loop() {
     case 1:
       Serial.println("Phase 1:");
       while (phase == 1) {
-             fetchGPSData();
+        fetchGPSData();
        lastCallTime = millis();
        sprintf(buffer, "Phase 2: Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
        fetchRadio(buffer);
