@@ -12,5 +12,6 @@
             delay(1000);
             digitalWrite(A20, LOW);
             phase = 5;
+            SD_write();
           }
           }

@@ -20,10 +20,11 @@
        sprintf(buffer1, "Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
        fetchRadio(buffer1);
        free(buffer1);
-       fetchAltimeterData();
+       //fetchAltimeterData();
+       fetchSensorData();//Remove
        Serial.println(altitude);
        Serial.println(minimumAltitude);
-       
+       Serial.println(IMU[6]);       
             if (altitude > minimumAltitude) {
                 phase = 3;
                 noTone(buzzer);

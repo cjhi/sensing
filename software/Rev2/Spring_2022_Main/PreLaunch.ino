@@ -12,10 +12,12 @@
               for (int i=0; i<number_readings; i++){
                 fetchAltimeterData();
                 averageAltitude=altitude+averageAltitude;
+                Serial.println(altitude);
               }
-              
+              Serial.println(altitude);
               minimumAltitude=averageAltitude/number_readings+5;// m //CHANGE BEFORE LUANCH
               minimumMainAltitude=averageAltitude/number_readings+5;// m //CHANGE BEFORE LUANCH
               phase = 2;
+              Serial.println(altitude);
             }
         }

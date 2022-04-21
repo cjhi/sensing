@@ -1,8 +1,7 @@
  void setupSensors(){
-
-if(IIC_Read(0x0C) == 196); //checks whether sensor is readable (who_am_i bit)
-  else Serial.println("i2c bad");
- 
+if(IIC_Read(0x0C) != 196){ //checks whether sensor is readable (who_am_i bit)
+  Serial.println("i2c bad");
+}
   IIC_Write(0x2D,0); //write altitude offset=0 (because calculation below is based on offset=0)
   //calculate sea level pressure by averaging a few readings
   Serial.println("Pressure calibration...");
@@ -28,6 +27,7 @@ if(IIC_Read(0x0C) == 196); //checks whether sensor is readable (who_am_i bit)
   // the sea level pressure for the measurement location (2 Pa per LSB)
   IIC_Write(0x14, (unsigned int)(seapress / 2)>>8);//IIC_Write(0x14, 0xC3); // BAR_IN_MSB (register 0x14):
   IIC_Write(0x15, (unsigned int)(seapress / 2)&0xFF);//IIC_Write(0x15, 0xF3); // BAR_IN_LSB (register 0x15):
+  delay(5000);
   // Configure Sensors
   
   //Setup SD CARD
@@ -51,11 +51,11 @@ if(IIC_Read(0x0C) == 196); //checks whether sensor is readable (who_am_i bit)
   }
    bno.setExtCrystalUse(true);
   //Altimeter
-  if (!mpl.begin()) {
-    Serial.println("NO MPL3115A2 detected");
-    while(1);
-  }
-  mpl.setSeaPressure(1013.26);
+//  if (!mpl.begin()) {
+//    Serial.println("NO MPL3115A2 detected");
+//    while(1);
+//  }
+//  mpl.setSeaPressure(1013.26);
   
   // Configure LED pins
   pinMode(6, OUTPUT);

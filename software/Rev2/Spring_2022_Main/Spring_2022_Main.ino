@@ -4,7 +4,7 @@
 #include <SPI.h>
 #include <Adafruit_Sensor.h>//General sensor library
 #include <Adafruit_BNO055.h>//IMU
-#include <Adafruit_MPL3115A2.h>//Altitude
+//#include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
 #include "phoenix_IV_functions.h"
 #include "dataPoint.h"//Datapoint
@@ -30,7 +30,7 @@ byte IICdata[5] = {0,0,0,0,0}; //buffer for sensor data
 RH_RF95 rf95(RFM95_CS, RFM95_INT);//Radio Singleton instance of the radio driver
 Adafruit_GPS GPS(&GPSSerial);//GPS Connect to the GPS on the hardware port
 Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);//IMU
-Adafruit_MPL3115A2 mpl;//Altimeter
+//Adafruit_MPL3115A2 mpl;//Altimeter
 
 //Creates list datapoint objects for flight during phase 3
 const int batchSize = 500; 
@@ -72,8 +72,10 @@ double p_cov[3][3] = {{3, 0, 0}, {0, 2, 0}, {0, 0, 1}};
 bool firstKalman = true;
 char buffer[50];
 bool gatherData = false;
+
 void setup(void)
 {  
+  Wire.begin();
   Serial.begin(9800);
   setupSensors();
 }
