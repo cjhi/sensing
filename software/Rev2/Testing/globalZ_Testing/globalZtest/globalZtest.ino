@@ -5,9 +5,7 @@
 #include <Adafruit_BNO055.h>//IMU
 #include <Adafruit_MPL3115A2.h>//Altitude
 #include <utility/imumaths.h>//Math
-#include <phoenix_IV_functions.h>
-#include "dataPoint.h"
-#include <SD.h>
+
 
 double state[3] = {0, 0, 0};
 bool firstKalman = true;
@@ -21,15 +19,15 @@ Adafruit_MPL3115A2 mpl;//Altimeter
 
 
 //Creates list datapoint objects for flight during phase 3
-
-const int batchSize = 500; //
-dataPoint dataPoints[batchSize];
-telemetry telemetry_instance;
-int currentDataPoint = 0;
+//
+//const int batchSize = 500; //
+//dataPoint dataPoints[batchSize];
+//telemetry telemetry_instance;
+//int currentDataPoint = 0;
 
 
 //Global Variables
-File myFile; //SD
+//File myFile; //SD
 float IMU[7]={0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 float altitude = 0.0;
 float GPSArray[2] = {0.0, 0.0};
@@ -62,15 +60,20 @@ void setup(void)
 
 void loop() {
   fetchAccelerometerData();
-  fetchAltimeterData();
-  addDataPoint();
-  Serial.println(state[0]);
+
+  
+  Serial.print(IMU[0]);
+  Serial.print(" ");
+  Serial.print(IMU[1]);
+  Serial.print(" ");
+  Serial.println(IMU[2]);
+  delay(100);
 
 
   //if (currentDataPoint == batchSize) {
           //SD_write();
           //currentDataPoint = 0;
   //}
-  delay(100);
+
   
 }

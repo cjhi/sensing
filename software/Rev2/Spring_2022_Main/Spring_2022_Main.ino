@@ -5,7 +5,7 @@
 #include <Adafruit_Sensor.h>//General sensor library
 #include <Adafruit_BNO055.h>//IMU
 //#include <Adafruit_MPL3115A2.h>//Altitude
-#include <utility/imumaths.h>//Math
+#include <utility/imumaths.h>//MathM
 #include "phoenix_IV_functions.h"
 #include "dataPoint.h"//Datapoint
 #include <RH_RF95.h>//Radio

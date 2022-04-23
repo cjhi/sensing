@@ -33,6 +33,7 @@ void calibrationPhase(){
   // Switches to pre-launch phase when all sensors are calibrated
   if (system == 3 && gyro == 3 && accel == 3 && mag ==3) {
     phase = 1;
+    digitalWrite(8, LOW);
   }
   char * buffer1;
   buffer1= (char*) malloc(70*sizeof(char));
