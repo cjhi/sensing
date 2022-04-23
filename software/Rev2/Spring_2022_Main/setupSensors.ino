@@ -27,22 +27,9 @@ if(IIC_Read(0x0C) != 196){ //checks whether sensor is readable (who_am_i bit)
   // the sea level pressure for the measurement location (2 Pa per LSB)
   IIC_Write(0x14, (unsigned int)(seapress / 2)>>8);//IIC_Write(0x14, 0xC3); // BAR_IN_MSB (register 0x14):
   IIC_Write(0x15, (unsigned int)(seapress / 2)&0xFF);//IIC_Write(0x15, 0xF3); // BAR_IN_LSB (register 0x15):
-  delay(5000);
   // Configure Sensors
   
-  //Setup SD CARD
- // const int chipSelect = 4;
-  // see if the card is present and can be initialized:
-  if (!SD.begin(BUILTIN_SDCARD)) {
-    Serial.println("Card failed, or not present");
-    while (1);
-  }
-  else{
-  Serial.println("Card initialized.");
-  }
-
-
-  
+ 
   // IMU
   if (!bno.begin())
   {
@@ -61,15 +48,9 @@ if(IIC_Read(0x0C) != 196){ //checks whether sensor is readable (who_am_i bit)
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
   pinMode(8, OUTPUT);
+  
 
-   
-
-  //GPS
-  GPS.begin(9600);  // 9600 baud is the default rate for the Ultimate GPS
-  GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
-  GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ); // 1 Hz update rate
-
-
+ 
 //Radio
     pinMode(RFM95_RST, OUTPUT);
   digitalWrite(RFM95_RST, HIGH);
@@ -98,4 +79,38 @@ if(IIC_Read(0x0C) != 196){ //checks whether sensor is readable (who_am_i bit)
 
 //Buzzer
 pinMode(buzzer, OUTPUT);
+
+
+ //Setup SD CARD
+ // const int chipSelect = 4;
+  // see if the card is present and can be initialized:
+  char ch[70];
+  if (!SD.begin(BUILTIN_SDCARD)) {
+    Serial.println("Card failed, or not present");
+    while (1);
+  }
+  else{
+    Serial.println("Card initialized.");
+    File dataFile = SD.open("flightData.txt", FILE_WRITE); // Not sure about this data type
+    if (dataFile) {
+           dataFile.println("Start");
+     }
+     dataFile.close(); // close the file
+     File data1 = SD.open("flightData.txt"); // Not sure about this data type
+     if (data1) {
+          
+          int count=0;
+          while (data1.available()) {
+               ch[count] = data1.read();
+               count++;
+   
+          }
+      }
+   data1.close(); // Close the file
+   char * buffer1;
+   buffer1= (char*) malloc(70*sizeof(char));
+   strcpy(buffer1, ch);
+   fetchRadio(buffer1);
+   free(buffer1);
+ }
  }

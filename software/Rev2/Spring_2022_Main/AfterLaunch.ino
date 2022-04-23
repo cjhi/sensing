@@ -1,15 +1,8 @@
      void AfterLaunch(){
       fetchGPSData();
-       if (millis()-firsttime<100000){
-
-        
-           if ((millis() - newcalltime)>1000){
-               noTone(buzzer);
-           }
-           else{
+       if (millis()-newcalltime<100000){
              tone(buzzer,500);
             newcalltime=millis();
-           }
        }
        else{
        noTone(buzzer);
@@ -17,7 +10,7 @@
        lastCallTime = millis();
        char * buffer1;
         buffer1= (char*) malloc(70*sizeof(char));
-       sprintf(buffer1, "Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+       sprintf(buffer1, "Time: %lu Phase: %d Arm: %f Main: %f alt: %f",lastCallTime, phase, minimumAltitude, minimumMainAltitude, altitude);
        fetchRadio(buffer1);
        free(buffer1);
        //fetchAltimeterData();

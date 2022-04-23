@@ -4,12 +4,11 @@ void BeforeApogee(){
           addDataPoint();
           char *buffer1;
           buffer1= (char*) malloc(70*sizeof(char));
-       sprintf(buffer1, "Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+       sprintf(buffer1, "Time: %lu Phase: %d alt: %f",lastCallTime, phase, altitude);
        fetchRadio(buffer1);
        free(buffer1);
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
-          if (state[1] < -0.3){
-//          if (altitude > minimumDrogAltitude) {
+          if (state[1] < -0.3){//CHANGE BEFORE LUANCH
             //trigger the droge e-match fet
             digitalWrite(A19, HIGH);
             delay(1000);

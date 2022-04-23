@@ -1,9 +1,8 @@
      void PreLaunch(){
         fetchGPSData();
-       lastCallTime = millis();
       char * buffer1;
       buffer1= (char*) malloc(70*sizeof(char));
-       sprintf(buffer1, "Time: %lu\nPhase: %d\nLat: %f\nLong: %f\n",lastCallTime, phase, GPSArray[0],GPSArray[1]);
+       sprintf(buffer1, "Time: %lu Phase: %d alt: %f",lastCallTime, phase, altitude);
        fetchRadio(buffer1);
        free(buffer1);
             if (analogRead(A18)>=1000){
@@ -14,10 +13,8 @@
                 averageAltitude=altitude+averageAltitude;
                 Serial.println(altitude);
               }
-              Serial.println(altitude);
               minimumAltitude=averageAltitude/number_readings+5;// m //CHANGE BEFORE LUANCH
               minimumMainAltitude=averageAltitude/number_readings+5;// m //CHANGE BEFORE LUANCH
               phase = 2;
-              Serial.println(altitude);
             }
         }
