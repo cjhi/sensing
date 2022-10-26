@@ -9,8 +9,11 @@ void BeforeApogee(){
        free(buffer1);
           //if the Kalman esitmated velocity goes negative, trigger apogee procedures
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           if (state[1] < -0.3){//CHANGE BEFORE LUANCH
 =======
+=======
+>>>>>>> Stashed changes
           if (state[1] < -2){
 //          if (altitude > minimumDrogAltitude) {
 >>>>>>> Stashed changes

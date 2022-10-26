@@ -14,7 +14,12 @@
                 Serial.println(altitude);
               }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
               minimumAltitude=averageAltitude/number_readings+5;// m //CHANGE BEFORE LUANCH
+=======
+              Serial.println(altitude);
+              minimumAltitude=averageAltitude/number_readings+2;// m //CHANGE BEFORE LUANCH
+>>>>>>> Stashed changes
 =======
               Serial.println(altitude);
               minimumAltitude=averageAltitude/number_readings+2;// m //CHANGE BEFORE LUANCH
